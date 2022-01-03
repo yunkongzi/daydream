@@ -13,5 +13,5 @@ public class AdminController {
 		public String memberRegistForm() {
 			return "admin/program_regist";
 		}
-
+ String a = "집.. 가면... 안될까?";
 }
