@@ -1,18 +1,18 @@
 package com.kh.daydream.vo;
 
-public class memberVo {
+public class MemberVo {
 	
 	String user_id;
 	String user_pw;
 	String user_name;
 	String user_phone;
 	
-	public memberVo() {
+	public MemberVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public memberVo(String user_id, String user_pw, String user_name, String user_phone) {
+	public MemberVo(String user_id, String user_pw, String user_name, String user_phone) {
 		super();
 		this.user_id = user_id;
 		this.user_pw = user_pw;
