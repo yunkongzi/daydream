@@ -15,7 +15,7 @@
 				<div class="form-group">
 					 
 					<label for="exampleInputEmail1">
-						Email address
+						잉잉
 					</label>
 					<input type="email" class="form-control" id="exampleInputEmail1" />
 				</div>
@@ -33,17 +33,17 @@
 					</label>
 					<input type="file" class="form-control-file" id="exampleInputFile" />
 					<p class="help-block">
-						Example block-level help text here.
+						우엥 ㅜ
 					</p>
 				</div>
 				<div class="checkbox">
 					 
 					<label>
-						<input type="checkbox" /> Check me out
+						<input type="checkbox" /> 집에가 
 					</label>
 				</div> 
 				<button type="submit" class="btn btn-primary">
-					Submit
+					제출
 				</button>
 			</form>
 		</div>

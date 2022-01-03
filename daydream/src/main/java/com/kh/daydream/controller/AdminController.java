@@ -10,7 +10,7 @@ public class AdminController {
 	
 	// 회원 가입 폼
 		@RequestMapping(value="/program_regist", method=RequestMethod.GET)
-		public String memberRegistForm() {
+		public String programregistform() {
 			return "admin/program_regist";
 		}
 
