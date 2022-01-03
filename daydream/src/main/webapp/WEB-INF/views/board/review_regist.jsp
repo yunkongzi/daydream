@@ -37,5 +37,9 @@
 					<textarea class="form-control" 
 						id="content" name="content"></textarea>
 				</div>
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
