@@ -5,7 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>후기게시판</title>
+<title>리뷰게시판</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
 <body>
 <div class="container-fluid">
@@ -36,6 +41,11 @@
 					<label for="content">글내용</label>
 					<textarea class="form-control" 
 						id="content" name="content"></textarea>
+				</div>
+				<div style="clear:both;">
+					<button type="submit" class="btn btn-primary" id="btnSubmit">
+					작성 완료
+					</button>
 				</div>
 			</form>
 		</div>
