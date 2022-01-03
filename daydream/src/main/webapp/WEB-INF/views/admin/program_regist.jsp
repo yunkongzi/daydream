@@ -61,6 +61,8 @@
 							</div>
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								등록</button>
+							<button type="submit" class="btn btn-success btnAdminMain">
+								관리자 메인 화면</button>
 						</form>
 					</div>
 					<div class="col-md-2"></div>
