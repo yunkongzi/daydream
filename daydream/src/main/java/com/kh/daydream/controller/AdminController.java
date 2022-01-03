@@ -13,5 +13,6 @@ public class AdminController {
 		public String programregistform() {
 			return "admin/program_regist";
 		}
- String a = "집.. 가면... 안될까?";
 }
+
+
