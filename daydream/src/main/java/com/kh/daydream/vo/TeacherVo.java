@@ -10,9 +10,25 @@ public class TeacherVo {
 	private String personnel;
 	private String target;
 	private String introduce;
+	
+	public TeacherVo() {
+		super();
+	}
+	
+	public TeacherVo(String tno, String class_name, String price, String personnel, String target, String introduce) {
+		super();
+		this.tno = tno;
+		this.class_name = class_name;
+		this.price = price;
+		this.personnel = personnel;
+		this.target = target;
+		this.introduce = introduce;
+	}
+	
 	public String getTno() {
 		return tno;
 	}
+	
 	public void setTno(String tno) {
 		this.tno = tno;
 	}
