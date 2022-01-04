@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kh.daydream.service.ProgramService;
+import com.kh.daydream.vo.ProgramVo;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
 	@Inject
-	private ProgramService adminService;
+	private ProgramService programService;
 
 	// 관리자 메인 들어가기
 	@RequestMapping(value = "/admin_main", method = RequestMethod.GET)
@@ -25,6 +26,13 @@ public class AdminController {
 	@RequestMapping(value = "/program_regist", method = RequestMethod.GET)
 	public String programRegist() {
 		return "admin/program_regist";
+	}
+	
+	// 프로그램 등록 처리
+	@RequestMapping(value="/regist_run", method=RequestMethod.POST)
+	public String programRegistRun(ProgramVo programVo) {
+		programService.insertProgram(programVo);
+		return "redirect:/admin/program_list";
 	}
 	
 	

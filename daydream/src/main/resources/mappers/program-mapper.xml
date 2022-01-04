@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.daydream.mappers.program">
+<insert id="insertProgram">
+	insert into tbl_program(class_name, price, target, personnel, class_intro)
+	vlaues(#{class_name}, #{price}, #{target}, #{personnel}, #{class_intro})
+</insert>   
+   
+</mapper>
