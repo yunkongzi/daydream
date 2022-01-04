@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kh.daydream.mappers.review">
-
-
-=======
-<!DOCTYPE mapper			
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"			
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.daydream.mappers.review">
 
 <!-- 현재 시간 구해오기 -->
@@ -22,5 +14,4 @@
 	insert into tbl_review(bno, title, content, user_id)
 	values (#{bno, #{title},#{content},#{user_id})
 </insert>
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 </mapper>
