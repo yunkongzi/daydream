@@ -11,7 +11,7 @@
 <!-- 리뷰글 추가 -->
 <insert id="insertReview">
 	insert into tbl_review(bno, title, content, user_id)
-	values (#{bno, #{title},#{content},#{user_id})
+	values (#{bno}, #{title},#{content},#{user_id})
 </insert>
 
 </mapper>
