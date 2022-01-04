@@ -4,7 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.daydream.mappers.member">
 
-	<insert id="insertmember">
+	<insert id="insertMember">
 		insert into tbl_member(user_id, user_pw, user_name, user_phone)
 		values (#{user_id}, #{user_pw}, #{user_name}, #{user_phone})
 	</insert>
