@@ -1,17 +1,32 @@
 package com.kh.daydream.controller;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.kh.daydream.service.ReviewService;
+import com.kh.daydream.vo.ReviewVo;
+
 @Controller
-@RequestMapping("/board")
+@RequestMapping("/review")
 public class ReviewController {
 	
-	// 글쓰기 폼 (/board/review_regist)
-		@RequestMapping(value="/review_regist", method=RequestMethod.GET)
-		public String boardRegistForm() {
-			return "board/review_regist";
+	@Inject
+	private ReviewService reviewService;
+	
+	// 리뷰쓰기 폼 (/review/review_regist)
+	@RequestMapping(value="/review_regist", method=RequestMethod.GET)
+		public String reviewRegistForm() {
+			return "review/review_regist";
 		}
-
+		
+	// 리뷰쓰기 처리(/review/review_regist_run)
+	@RequestMapping(value="/review_regist_run", method=RequestMethod.POST)
+		public String reviewRegistRun(ReviewVo reviewVo) {
+		System.out.println("ReviewController, reviewRegistRun, reviewVo:" + reviewVo);
+		reviewService.insertReview(reviewVo);
+		return "redirect:/review/list_all";
+	}
 }
