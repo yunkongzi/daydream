@@ -6,16 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>프로그램 리스트</title>
+<style>
+	p {
+		
+	}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">													
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>													
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>			
 </head>
 <body>
 	<div class="row">
 			<div class="col-md-12">
 				<div class="jumbotron">
-					<h2>학생 목록</h2>
-					<p>
-						<a class="btn btn-primary btn-large btnRegist" href="/admin/regist_form">학생
-							등록</a>
-					</p>
+					<h2 style=" text-align: center;">등록된 프로그램</h2>
+					<p></p>
+					
 				</div>
 			</div>
 		</div>
@@ -34,7 +42,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${list}" var="studentVo">
+						<c:forEach items="${list}" var="programVo">
 							<tr>
 								<td>${programVo.class_name}</td>
 								<td>${programVo.price}</td>
@@ -51,7 +59,10 @@
 
 							</tr>
 						</c:forEach>
+						<a class="btn btn-success btn-md btn-block active btn-outline-warning" href="/admin/program_regist">
+						새로운 프로그램 등록</a>
 					</tbody>
+					
 				</table>
 			</div>
 		</div>

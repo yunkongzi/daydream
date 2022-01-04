@@ -6,14 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>원데이 프로그램 등록</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
-<style>
-	* {
-	
-	}
-</style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">													
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
@@ -33,36 +25,43 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<form role="form">
+						<form role="form" action="/admin/regist_run" method="post">
 							<div class="form-group">
 
-								<label for="class_name"> 클래스명 </label><br> <input
-									type="text" class="form-control" id="class_name" />
+								<label for="class_name"> 클래스명 </label><br> 
+								<input
+									type="text" class="form-control" name="class_name" />
 							</div>
 							<div class="form-group">
 
-								<label for="price"> 가격 </label><br> <input type="number"
-									class="form-control" id="price" />
+								<label for="price"> 가격 </label><br> 
+								<input type="text"
+									class="form-control" name="price" />
 							</div>
 							<div class="form-group">
 
-								<label for="target"> 프로그램 대상 </label><br> <input
-									type="text" class="form-control" id="target" />
+								<label for="target"> 프로그램 대상 </label><br> 
+								<input
+									type="text" class="form-control" name="target" />
 							</div>
 							<div class="form-group">
 
-								<label for="personnel"> 가능 인원 </label><br> <input
-									type="number" class="form-control" id="personnel" />
+								<label for="personnel"> 가능 인원 </label><br> 
+								<input
+									type="text" class="form-control" name="personnel" />
 							</div>
 							<div class="form-group">
 
 								<label for="class_intro"> 프로그램 소개 </label><br>
-								<textarea rows="5" cols="50" id="class_intro"></textarea>
+								<textarea rows="5" cols="50" name="class_intro"></textarea>
 							</div>
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								등록</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">
 								관리자 메인 화면
+							</a>
+							<a class="btn btn-secondary btnProList" href="/admin/program_list">
+								프로그램 목록보기
 							</a>
 						</form>
 					</div>
