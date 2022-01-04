@@ -32,7 +32,9 @@ public class AdminController {
 	@RequestMapping(value="/regist_run", method=RequestMethod.POST)
 	public String programRegistRun(ProgramVo programVo) {
 		programService.insertProgram(programVo);
-		return "redirect:/admin/program_list";
+		System.out.println("program_regist:" + programVo);
+		return "success";
+//				"redirect:/admin/program_list";
 	}
 	
 	
