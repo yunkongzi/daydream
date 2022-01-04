@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper			
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"			
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.daydream.mappers.teacher">
+
+	<!--강사 추가  -->
+<insert id="insertTeacher">
+		insert into tbl_teacher(tno, class_name, price, personnel, target, introduce)
+		values (#{tno}, #{class_name}, #{price}, #{personnel}, #{target}, #{introduce})
+	</insert>
+	
+	<!--특정 강사 찾기  -->
+	<select id="selectByTno" resultType="TeacherVo">
+		select * from tbl_teacher
+		where tno = #{tno}
+	</select>
+	
+	<!-- 강사 전체 목록 -->
+	<select id="selectAll" resultType="TeacherVo">
+		select * from tbl_teacher
+		order by tno
+	</select>
+	<!-- 강사 정보 수정 -->
+	<update id="updateTeacher">
+		update tbl_teacher set
+			class_name = #{class_name},
+			price = #{price},
+			personnel = #{personnel},			
+			target = #{target}			
+		where userid = #{tno}
+	</update>
+	
+	<!-- 강사 정보 삭제 -->
+	<delete id="deleteTeacher">
+		delete from tbl_teacher
+		where tno = #{tno}
+	</delete>
+	
+</mapper>
