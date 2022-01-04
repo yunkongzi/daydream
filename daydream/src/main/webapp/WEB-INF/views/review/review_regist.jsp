@@ -17,7 +17,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2>글쓰기 양식</h2>
+				<h2>후기 양식</h2>
 				<p><a class="btn btn-primary btn-large" href="/board/list_all">글목록</a></p>
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 						id="title" name="title" required="required"/>
 				</div>
 				<div class="form-group">
-					<label for="content">글내용</label>
+					<label for="content">후기 내용</label>
 					<textarea class="form-control" 
 						id="content" name="content"></textarea>
 				</div>
