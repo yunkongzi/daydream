@@ -5,7 +5,14 @@
 <mapper namespace="com.kh.daydream.mappers.program">
 <insert id="insertProgram">
 	insert into tbl_program(class_name, price, target, personnel, class_intro)
-	vlaues(#{class_name}, #{price}, #{target}, #{personnel}, #{class_intro})
+	values(#{class_name}, #{price}, #{target}, #{personnel}, #{class_intro})
 </insert>   
    
+   
+   
+   <select id="selectAll" resultType="ProgramVo">
+   		select * from tbl_program
+   		order by class_name
+   </select>
 </mapper>
+

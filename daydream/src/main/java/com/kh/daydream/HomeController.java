@@ -1,41 +1,70 @@
 package com.kh.daydream;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Handles requests for the application home page.
- */
+import com.kh.daydream.service.TeacherService;
+
+import com.kh.daydream.vo.TeacherVo;
+
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Inject
+	private TeacherService teacherService;
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
+		//return "/teacher/teacher_regist";
+		return "redirect:/teacher/list_all";
 	}
 	
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String login_form() {
+//		return "teacher_regist";
+//	}
+//	
+//	@RequestMapping(value = "/checkDupId/{userid}", method = RequestMethod.GET)
+//	@ResponseBody
+//	public String checkDupId(@PathVariable("userid") String userid) {
+//		System.out.println("userid:" + userid);
+//		int count = memberService.checkDupId(userid);
+//		if (count == 0) {
+//			return "available";
+//		}
+//		return "used";
+//	}
 	
-	
+//	@RequestMapping(value = "/login_run", method = RequestMethod.POST)
+//	public String loginRun(LoginDto loginDto, RedirectAttributes rttr,
+//						   HttpSession session) {
+//		System.out.println("HomeController, loginRun, loginDto: " + loginDto);
+//		MemberVo memberVo = memberService.login(
+//				loginDto.getUserid(), loginDto.getUserpw());
+//		System.out.println("HomeController, loginRun, memberVo: " + memberVo);
+//		if (memberVo == null) {
+//			rttr.addFlashAttribute("msg", "fail");
+//			return "redirect:/login_form";
+//		} else {
+//			session.setAttribute("memberVo", memberVo);
+//			String targetLocation = (String)session.getAttribute("targetLocation");
+//			session.removeAttribute("targetLocation");
+//			if (targetLocation == null) {
+//				return "redirect:/board/list_all";
+//			} else {
+//				return "redirect:" + targetLocation;
+//			}
+//			
+//		}
+//		
+//	}
 }

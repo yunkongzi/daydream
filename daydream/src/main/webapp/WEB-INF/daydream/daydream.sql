@@ -22,3 +22,27 @@ select * from tbl_teacher;
 
 commit;
 
+-- 특정 강사 정보보기
+select * from tbl_teacher
+where tno = '1002';
+
+-- 강사 전체 목록
+select * from tbl_teacher
+order by tno;
+
+-- 강사 정보 수정
+update tbl_teacher set
+	class_name = '홈브로잉',
+	price = '50,000원',
+	personnel = '5명',
+	target = '성인'
+where tno = '1002';
+
+
+
+-- 회원 정보 삭제
+delete from tbl_teacher
+where tno = 'tno';
+
+
+
