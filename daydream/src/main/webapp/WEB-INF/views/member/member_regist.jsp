@@ -13,6 +13,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+<script>
+$(function() {
+	
+	//아이디 중복 체크
+	$("#btnCheckDupId").click(function() {
+		var url = "member/checkDupId/" + $("#user_id").val();
+		$.get(url, function(rData) {
+			console.log(rData);
+			if (rData == "used") {
+				$("#btnCheckDupId").next().html("사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
+				$("#btnCheckDupId").next().css("color", "red");
+			} else {
+				$("#btnCheckDupId").next().html("사용가능한 아이디입니다.");
+				$("#btnCheckDupId").next().css("color", "blue");
+			}
+		});
+	});
+
+
+});
+</script>
 </head>
 <body>
 
@@ -33,6 +54,11 @@
 					<label for="user_id">아이디</label>
 					<input type="text" class="form-control" 
 						id="user_id" name="user_id" />
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-warning"
+						id="btnCheckDupId">아이디 중복체크</button>
+					<span></span>
 				</div>
 				<div class="form-group">
 					<label for="user_pw">패스워드</label>

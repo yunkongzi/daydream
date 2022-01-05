@@ -28,6 +28,12 @@ public class HomeController {
 		return "redirect:/teacher/list_all";
 	}
 	
+	// 메인 페이지
+	@RequestMapping(value="/main", method=RequestMethod.GET)
+	public String mainHome() {
+		return "/main";
+	}
+	
 //	@RequestMapping(value = "/", method = RequestMethod.GET)
 //	public String login_form() {
 //		return "teacher_regist";
@@ -67,4 +73,6 @@ public class HomeController {
 //		}
 //		
 //	}
+	
+	
 }

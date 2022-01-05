@@ -8,5 +8,18 @@
 		insert into tbl_member(user_id, user_pw, user_name, user_phone)
 		values (#{user_id}, #{user_pw}, #{user_name}, #{user_phone})
 	</insert>
+	
+<!-- 	아이디 중복 체크 -->
+	<select id="checkDupId" resultType="int">
+		select count(*) from tbl_member
+		where user_id = #{user_id}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="login" resultType="MemberVo">
+		select * from tbl_member
+		where user_id = #{user_id}
+		and user_pw = #{user_pw}
+	</select>
 
 </mapper>
