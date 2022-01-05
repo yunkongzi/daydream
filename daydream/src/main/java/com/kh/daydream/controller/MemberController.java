@@ -34,7 +34,7 @@ public class MemberController {
 	public String memberRegistRun(MemberVo memberVo) {
 		
 		memberService.insertMember(memberVo);
-		return "redirect:member/login";
+		return "redirect:/member/login";
 	}
 	
 	//아이디 중복 확인
