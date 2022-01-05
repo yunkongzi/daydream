@@ -19,7 +19,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2>로그인 양식</h2>
+				<h2>DAYDREAM LOGIN PAGE</h2>
 				
 			</div>
 		</div>
@@ -32,6 +32,13 @@
 					<label for="user_id">아이디</label>
 					<input type="text" class="form-control" 
 						id="user_id" name="user_id" />
+						
+						<div class="checkbox">
+						<label>
+							<input type="checkbox" 
+								name="saveId"/> 아이디 기억하기
+						</label>
+						</div> 
 				</div>
 				<div class="form-group">
 					<label for="user_pw">패스워드</label>
@@ -39,9 +46,13 @@
 						id="user_pw" name="user_pw" />
 				</div>
 				
-				<button type="submit" class="btn btn-primary">
+				<button type="button" class="btn btn-outline-primary" 
+				onclick="location.href='/member/member_regist'">회원가입하기</button><br><br>
+
+				<button type="submit" class="btn btn-outline-success">
 					 로그인
 				</button>
+				
 			</form>
 		</div>
 	</div>

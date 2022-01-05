@@ -66,13 +66,15 @@ public class MemberController {
 		System.out.println("HomeController, loginRun, memberVo: " + memberVo);
 		if (memberVo == null) {
 			rttr.addFlashAttribute("msg", "fail");
+			//로그인 실패했을 때
 			return "redirect:/member/login";
 		} else {
 			session.setAttribute("memberVo", memberVo);
 			String targetLocation = (String)session.getAttribute("targetLocation");
 			session.removeAttribute("targetLocation");
 			if (targetLocation == null) {
-				return "redirect:/member/login";
+				//로그인 성공했을 때
+				return "redirect:/main";
 			} else {
 				return "redirect:" + targetLocation;
 			}

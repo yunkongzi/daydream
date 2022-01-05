@@ -19,10 +19,6 @@ import com.kh.daydream.vo.TeacherVo;
 @Controller
 public class HomeController {
 	
-	
-	
-	
-	
 	// 메인 페이지
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String mainHome() {

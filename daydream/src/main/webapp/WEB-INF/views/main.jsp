@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<a href="/member/login">로그인</a>
+<a href="member/member_regist">회원가입</a><br>
+<a href="member/login">로그인</a><br>
+
 
 </body>
 </html>
