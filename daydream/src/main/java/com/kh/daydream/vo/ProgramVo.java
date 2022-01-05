@@ -3,16 +3,16 @@ package com.kh.daydream.vo;
 public class ProgramVo {
 	
 	private String class_name;
-	private int price;
+	private String price;
 	private String target;
-	private int personnel;
+	private String personnel;
 	private String class_intro;
 	
 	public ProgramVo() {
 		super();
 	}
 
-	public ProgramVo(String class_name, int price, String target, int personnel, String class_intro) {
+	public ProgramVo(String class_name, String price, String target, String personnel, String class_intro) {
 		super();
 		this.class_name = class_name;
 		this.price = price;
@@ -29,11 +29,11 @@ public class ProgramVo {
 		this.class_name = class_name;
 	}
 
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
@@ -45,11 +45,11 @@ public class ProgramVo {
 		this.target = target;
 	}
 
-	public int getPersonnel() {
+	public String getPersonnel() {
 		return personnel;
 	}
 
-	public void setPersonnel(int personnel) {
+	public void setPersonnel(String personnel) {
 		this.personnel = personnel;
 	}
 
@@ -66,7 +66,5 @@ public class ProgramVo {
 		return "ProgramVo [class_name=" + class_name + ", price=" + price + ", target=" + target + ", personnel="
 				+ personnel + ", class_intro=" + class_intro + "]";
 	}
-	
-	
 
 }

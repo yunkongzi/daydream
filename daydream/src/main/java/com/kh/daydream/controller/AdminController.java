@@ -1,8 +1,11 @@
 package com.kh.daydream.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,7 +25,8 @@ public class AdminController {
 		return "admin/admin_main";
 	}
 
-	// 프로그램 등록 폼 들어가기 
+	
+	// 프로그램 등록 폼 
 	@RequestMapping(value = "/program_regist", method = RequestMethod.GET)
 	public String programRegist() {
 		return "admin/program_regist";
@@ -33,8 +37,15 @@ public class AdminController {
 	public String programRegistRun(ProgramVo programVo) {
 		programService.insertProgram(programVo);
 		System.out.println("program_regist:" + programVo);
-		return "success";
-//				"redirect:/admin/program_list";
+		return "redirect:/admin/program_list";
+	}
+	
+	// 프로그램 목록
+	@RequestMapping(value="/program_list", method=RequestMethod.GET)
+	public String programListAll(Model model) {
+		List<ProgramVo> list = programService.selectAll();
+		model.addAttribute("list", list);
+		return "/admin/program_list";
 	}
 	
 	
