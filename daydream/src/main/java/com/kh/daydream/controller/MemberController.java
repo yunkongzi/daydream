@@ -34,7 +34,7 @@ public class MemberController {
 	public String memberRegistRun(MemberVo memberVo) {
 		
 		memberService.insertMember(memberVo);
-		return "redirect:/member/member_regist";
+		return "redirect:member/login";
 	}
 	
 	//아이디 중복 확인
@@ -74,7 +74,12 @@ public class MemberController {
 			session.removeAttribute("targetLocation");
 			if (targetLocation == null) {
 				//로그인 성공했을 때
-				return "redirect:/main";
+				String user_id = loginDto.getUser_id();
+				
+				if(user_id.equals("kongzi")) {
+					return "redirect:/admin/admin_main";
+				} else {
+				return "redirect:/main";}
 			} else {
 				return "redirect:" + targetLocation;
 			}
