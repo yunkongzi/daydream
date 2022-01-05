@@ -25,11 +25,12 @@ public class MemberController {
 	//회원 가입 처리
 	@RequestMapping(value="/regist_run", method=RequestMethod.POST)
 	public String memberRegistRun(MemberVo memberVo) {
-		System.out.println(
-				"MemberController, memberRegistRun, memberVo:"	
-						+ memberVo);
+		
 		memberService.insertMember(memberVo);
 		return "redirect:/member/member_regist";
 	}
+	
+	//로그인
+	
 
 }
