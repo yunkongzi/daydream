@@ -36,7 +36,7 @@
 							<option selected="selected">쿠킹클래스</option>
 							<option>커플 반지 클래스</option>
 							<option>향초 만들기 클래스</option>
-							<option>타로 클래스</option>
+							<option>우드카빙 클래스</option>
 						
 						</select>
 				</div>
