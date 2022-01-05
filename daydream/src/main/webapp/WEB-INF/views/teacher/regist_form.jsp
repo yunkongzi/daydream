@@ -6,34 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>강사등록</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">	
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-<script>
-$(function() {
-	
-	//아이디 중복 체크
-	$("#btnCheckDupId").click(function() {
-		var url = "member/checkDupId/" + $("#user_id").val();
-		$.get(url, function(rData) {
-			console.log(rData);
-			if (rData == "used") {
-				$("#btnCheckDupId").next().html("사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
-				$("#btnCheckDupId").next().css("color", "red");
-			} else {
-				$("#btnCheckDupId").next().html("사용가능한 아이디입니다.");
-				$("#btnCheckDupId").next().css("color", "blue");
-			}
-		});
-	});
-
-
-});
-</script>
 </head>
 <body>
 
@@ -41,7 +20,7 @@ $(function() {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2>회원 가입 양식</h2>
+				<h2>강사 등록 양식</h2>
 				
 			</div>
 		</div>
@@ -51,38 +30,46 @@ $(function() {
 			<form role="form" action="/member/regist_run" 
 				method="post">
 				<div class="form-group">
-					<label for="user_id">아이디</label>
+					<label for="tno">강사번호</label>
 					<input type="text" class="form-control" 
-						id="user_id" name="user_id" />
+						id="tno" name="tno" />
 				</div>
 				<div class="form-group">
-					<button type="button" class="btn btn-warning"
-						id="btnCheckDupId">아이디 중복체크</button>
-					<span></span>
-				</div>
-				<div class="form-group">
-					<label for="user_pw">패스워드</label>
-					<input type="password" class="form-control" 
-						id="user_pw" name="user_pw" />
-				</div>
-				<div class="form-group">
-					<label for="user_name">이름</label>
+					<label for="class_name">강의명</label>
 					<input type="text" class="form-control" 
-						id="user_name" name="user_name" />
+						id="class_name" name="class_name" />
 				</div>
 				<div class="form-group">
-					<label for="user_phone">전화번호</label>
+					<label for="price">금액</label>
 					<input type="text" class="form-control" 
-						id="user_phone" name="user_phone" />
+						id="price" name="price" />
+				</div>
+				<div class="form-group">
+					<label for="personnel">참가인원</label>
+					<input type="text" class="form-control" 
+						id="personnel" name="personnel" />
 				</div>
 				
+				<div class="form-group">
+					<label for="target">참가대상</label>
+					<input type="text" class="form-control" 
+						id="target" name="target" />
+				</div>
+				
+				<div class="form-group">
+					<label for="introduce">자기소개</label>
+					<textarea class="form-control" placeholder="50자 내외로 글을 작성해주세요."
+						id="introduce" name="introduce"></textarea>
+				</div>
+			
 				<button type="submit" class="btn btn-primary">
-					가입 완료
+					등록 완료
 				</button>
+				<button type="button" class="btn btn-warning"
+						id="btnModify">수정</button>
 			</form>
 		</div>
 	</div>
 </div>
-
 </body>
 </html>

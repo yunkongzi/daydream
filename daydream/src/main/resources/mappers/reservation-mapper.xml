@@ -3,9 +3,10 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"			
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.daydream.mappers.reservation">
-	<!-- 예약회원 정보 입력 -->
+	<!-- 예약등록 -->
 	<insert id="resinsert">
-		
+		insert into tbl_reservation(user_id, user_name, user_phone, class_name, res_time, res_date)
+		values(#(user_id), #(user_name), #(user_phone), #(class_name), #(res_time), #(res_date))
 	</insert>
 
 </mapper>

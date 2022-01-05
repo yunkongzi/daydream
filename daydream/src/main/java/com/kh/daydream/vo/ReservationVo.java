@@ -1,22 +1,22 @@
 package com.kh.daydream.vo;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class ReservationVo {
 	private String user_id;
 	private String user_name;
 	private String user_phone;
 	private String class_name;
-	private Timestamp res_time;
-	private Timestamp res_date;
+	private String res_time;
+	private Date res_date;
 
 	public ReservationVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReservationVo(String user_id, String user_name, String user_phone, String class_name, Timestamp res_time,
-			Timestamp res_date) {
+	public ReservationVo(String user_id, String user_name, String user_phone, String class_name, String res_time,
+			Date res_date) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
@@ -58,19 +58,19 @@ public class ReservationVo {
 		this.class_name = class_name;
 	}
 
-	public Timestamp getRes_time() {
+	public String getRes_time() {
 		return res_time;
 	}
 
-	public void setRes_time(Timestamp res_time) {
+	public void setRes_time(String res_time) {
 		this.res_time = res_time;
 	}
 
-	public Timestamp getRes_date() {
+	public Date getRes_date() {
 		return res_date;
 	}
 
-	public void setRes_date(Timestamp res_date) {
+	public void setRes_date(Date res_date) {
 		this.res_date = res_date;
 	}
 

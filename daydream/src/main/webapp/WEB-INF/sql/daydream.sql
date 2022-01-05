@@ -12,3 +12,13 @@ create table tbl_teacher(
 );
 commit;
 
+--예약 테이블 생성
+create table tbl_reservation(
+    user_id varchar2(10) references tbl_member(user_id),
+    user_name varchar2(5) not null,
+    user_phone varchar2(15) not null,
+    class_name varchar2(30) not null,
+    res_time timestamp default null,
+    res_date timestamp default null
+);
+
