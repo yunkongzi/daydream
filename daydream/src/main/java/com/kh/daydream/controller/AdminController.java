@@ -29,7 +29,7 @@ public class AdminController {
 	// 프로그램 등록 폼 
 	@RequestMapping(value = "/program_regist", method = RequestMethod.GET)
 	public String programRegist() {
-		return "admin/program_regist";
+		return "/admin/program_regist";
 	}
 	
 	// 프로그램 등록 처리
@@ -48,5 +48,11 @@ public class AdminController {
 		return "/admin/program_list";
 	}
 	
+	
+	// 예약자 현황 보기
+	@RequestMapping(value="/rev_list", method=RequestMethod.GET)
+	public String revListAll() {
+		return "/admin/rev_list";
+	}
 	
 }

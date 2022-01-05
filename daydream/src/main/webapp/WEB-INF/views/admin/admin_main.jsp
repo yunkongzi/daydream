@@ -30,10 +30,10 @@
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
-					<button type="button" class="btn btn-outline-warning btn-lg btn-block
-							btnReserv">
+					<a class="btn btn-outline-warning btn-lg btn-block
+							btnReserv" href="/admin/rev_list">
 						예약자 현황
-					</button> 
+					</a> 
 					<p></p>
 					<a class="btn btn-outline-primary btn-lg btn-block
 							btnProReg" href="/admin/program_regist">

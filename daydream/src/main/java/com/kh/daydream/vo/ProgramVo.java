@@ -7,18 +7,23 @@ public class ProgramVo {
 	private String target;
 	private String personnel;
 	private String class_intro;
+	private int class_no;
+	private int status;
 	
 	public ProgramVo() {
 		super();
 	}
 
-	public ProgramVo(String class_name, String price, String target, String personnel, String class_intro) {
+	public ProgramVo(String class_name, String price, String target, String personnel, String class_intro, int class_no,
+			int status) {
 		super();
 		this.class_name = class_name;
 		this.price = price;
 		this.target = target;
 		this.personnel = personnel;
 		this.class_intro = class_intro;
+		this.class_no = class_no;
+		this.status = status;
 	}
 
 	public String getClass_name() {
@@ -61,10 +66,27 @@ public class ProgramVo {
 		this.class_intro = class_intro;
 	}
 
+	public int getClass_no() {
+		return class_no;
+	}
+
+	public void setClass_no(int class_no) {
+		this.class_no = class_no;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "ProgramVo [class_name=" + class_name + ", price=" + price + ", target=" + target + ", personnel="
-				+ personnel + ", class_intro=" + class_intro + "]";
+				+ personnel + ", class_intro=" + class_intro + ", class_no=" + class_no + ", status=" + status + "]";
 	}
+
 
 }
