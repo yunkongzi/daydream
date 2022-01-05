@@ -2,13 +2,12 @@ package com.kh.daydream.vo;
 
 import java.sql.Date;
 
-
 public class ReservationVo {
 	private String user_id;
 	private String user_name;
 	private String user_phone;
 	private String class_name;
-	private Date res_time;
+	private String res_time;
 	private Date res_date;
 
 	public ReservationVo() {
@@ -16,7 +15,7 @@ public class ReservationVo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReservationVo(String user_id, String user_name, String user_phone, String class_name, Date res_time,
+	public ReservationVo(String user_id, String user_name, String user_phone, String class_name, String res_time,
 			Date res_date) {
 		super();
 		this.user_id = user_id;
@@ -59,11 +58,11 @@ public class ReservationVo {
 		this.class_name = class_name;
 	}
 
-	public Date getRes_time() {
+	public String getRes_time() {
 		return res_time;
 	}
 
-	public void setRes_time(Date res_time) {
+	public void setRes_time(String res_time) {
 		this.res_time = res_time;
 	}
 
@@ -80,7 +79,5 @@ public class ReservationVo {
 		return "ReservationVo [user_id=" + user_id + ", user_name=" + user_name + ", user_phone=" + user_phone
 				+ ", class_name=" + class_name + ", res_time=" + res_time + ", res_date=" + res_date + "]";
 	}
-
-
 
 }

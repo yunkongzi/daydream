@@ -61,13 +61,16 @@
 			<div class="jumbotron">
 				<h2>예약 등록 양식</h2>
 				
+				<p>
+					<a class="btn btn-primary btn-large" href="/reservation/reservation_list">예약 목록</a>
+				</p>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<form role="form" action="reservation/regist_run" 
-				method="get">
+				method="post">
 				<div class="form-group">
 					<label for="class_name">클래스명</label>
 					
@@ -80,22 +83,24 @@
 						</select>
 				</div>
 				<div class="form-group">
-					<label for="user_name">회원이름</label>
-					<input type="text" class="form-control" 
-						id="user_name" name="user_name" />
-				</div>
-				<div class="form-group">
 					<label for="user_id">아이디</label>
 					<input type="text" class="form-control" 
 						id="user_id" name="user_id" />
 				</div>
+				
+				<div class="form-group">
+					<label for="user_name">회원이름</label>
+					<input type="text" class="form-control" 
+						id="user_name" name="user_name" />
+				</div>
+			
 				<div class="form-group">
 					<label for="user_phone">전화번호</label>
 					<input type="text" class="form-control" 
 						id="user_phone" name="user_phone" />
 				</div>
 				
-				<div class="schedule">예약 시간ㅣ
+				<div class="schedule">예약 시간 
 					<select name="res_time">
 							<option selected="selected">10-12</option>
 							<option>14-16</option>
@@ -105,7 +110,7 @@
 						</select>
 
 				</div><br>
-				<div class="schedule">예약 날짜ㅣ
+				<div class="schedule">예약 날짜 
 					<input type="date"/>
 
 				</div><br>
