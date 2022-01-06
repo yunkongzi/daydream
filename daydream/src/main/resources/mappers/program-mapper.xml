@@ -17,7 +17,7 @@
 	<insert id="insertProgramSub">
 		insert into tbl_program_sub(program_sub_no, class_no, program_time)
 		values(seq_program_sub_no.nextval, #{class_no}, #{program_time})
-	</insert>
+	</insert> 
    
    
    
