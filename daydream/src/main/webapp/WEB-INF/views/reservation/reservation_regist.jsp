@@ -47,19 +47,7 @@
 								<c:forEach var="reservationVo" items="${list}"> 
 									<option value="${reservationVo.class_no }"></option> 
 								</c:forEach> 
-=======
-						<select name="class_name">
-							<option selected="selected">쿠킹클래스</option>
-							<option>커플 반지 클래스</option>
-							<option>향초 만들기 클래스</option>
-							<option>우드카빙 클래스</option>
-						
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 						</select>
-
-
-						
-						
 				</div>
 				<div class="form-group">
 					<label for="user_id">아이디</label>
