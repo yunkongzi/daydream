@@ -5,11 +5,11 @@
 <mapper namespace="com.kh.daydream.mappers.reservation">
 
 	<!-- 클래스 목록 -->
-	<select id="classList">
+	<!-- <select id="classList">
 		select * from tbl_reservation
 		where class_no = #{class_no}
 		order by class_no desc
-	</select>
+	</select> -->
 	
 	<!-- 예약등록 -->
 	<insert id="insertReservation">

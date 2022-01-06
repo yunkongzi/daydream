@@ -18,10 +18,10 @@ public class ReservationService {
 	public void insertReservation(ReservationVo reservationVo) {
 		reservationDao.insertReservation(reservationVo);
 	}
-	//클래스 목록
+	/*//클래스 목록
 	public List<ReservationVo> classList(int class_no) {
 		List<ReservationVo> list = reservationDao.classList(class_no);
 		System.out.println("ReservationDao, classList, list" + list);
 		return null;
-	}
+	}*/
 }

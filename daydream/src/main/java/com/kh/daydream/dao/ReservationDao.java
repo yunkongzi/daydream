@@ -23,9 +23,9 @@ public class ReservationDao {
 		sqlSession.insert(NAMESPACE + "insertReservation", reservationVo);
 	}
 
-	public List<ReservationVo> classList(int class_no) {
+/*	public List<ReservationVo> classList(int class_no) {
 		List<ReservationVo> list = sqlSession.selectList(NAMESPACE+"classList",class_no);
 		System.out.println("ReservationDao, classList, list" + list);
 		return null;
-	}
+	}*/
 }

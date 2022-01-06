@@ -33,21 +33,19 @@
 			<form role="form" action="/reservation/regist_run" 
 				method="post">
 				<div class="form-group">
-					<label for="class_name">클래스명</label>
 					
-<<<<<<< HEAD
-					
+	
 					<!-- forEach -->
 					<!-- name: class_code -->
 					<!-- option,value:code 이름:이름 -->
 			
-					<label for="class_name">클래스</label> 
-						<select> 
-							<option value="">클래스를 선택해주세요.</option> 
+					<label for="class_name">클래스를 선택해주세요.</label> 
+						<%-- <select> 
+							<option value="${reservationVo.class_no }"></option> 
 								<c:forEach var="reservationVo" items="${list}"> 
 									<option value="${reservationVo.class_no }"></option> 
 								</c:forEach> 
-						</select>
+						</select> --%>
 				</div>
 				<div class="form-group">
 					<label for="user_id">아이디</label>
