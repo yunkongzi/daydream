@@ -3,16 +3,40 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.daydream.mappers.program">
-<insert id="insertProgram">
-	insert into tbl_program(class_name, price, target, personnel, class_intro)
-	values(#{class_name}, #{price}, #{target}, #{personnel}, #{class_intro})
-</insert>   
+	<select id="selectClassNo" resultType="int">
+		select seq_class_no.nextval from dual
+	</select>
+	
+	<insert id="insertProgram">
+		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no)
+		values(#{class_name}, #{price}, #{target}, #{personnel},
+				 #{class_intro}, #{class_no})
+	</insert>   
+	
+	<!-- 프로그램 서브 -->
+	<insert id="insertProgramSub">
+		insert into tbl_program_sub(program_sub_no, class_no, program_time)
+		values(seq_program_sub_no.nextval, #{class_no}, #{program_time})
+	</insert> 
    
    
    
-   <select id="selectAll" resultType="ProgramVo">
+  <!--  <select id="selectAll" resultType="ProgramVo">
    		select * from tbl_program
    		order by class_name
+   </select> -->
+   
+   <select id="selectAll" resultType="ProgramVo" >
+   		select  p.class_name, p.price, p.target, p.personnel, 
+   				p.class_intro, p.class_no, s.status_name
+		from tbl_program p, tbl_class_status s
+		where p.status = s.status_code
+		order by s.status_code
+   </select>
+   
+   <select id="selectTimeList" resultType="ClassTimeVo">
+   		select * from tbl_class_time
+		order by time_no
    </select>
 </mapper>
 

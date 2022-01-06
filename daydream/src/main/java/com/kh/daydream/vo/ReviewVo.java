@@ -10,9 +10,31 @@ public class ReviewVo {
 	private String content;
 	private Timestamp regdate;
 	private int viewcnt;
+	private int class_no;
 
 	public ReviewVo() {
 		super();
+	}
+
+	/**
+	 * @param bno
+	 * @param user_id
+	 * @param title
+	 * @param content
+	 * @param regdate
+	 * @param viewcnt
+	 * @param class_no
+	 */
+	public ReviewVo(int bno, String user_id, String title, String content, Timestamp regdate, int viewcnt,
+			int class_no) {
+		super();
+		this.bno = bno;
+		this.user_id = user_id;
+		this.title = title;
+		this.content = content;
+		this.regdate = regdate;
+		this.viewcnt = viewcnt;
+		this.class_no = class_no;
 	}
 
 	public int getBno() {
@@ -63,20 +85,18 @@ public class ReviewVo {
 		this.viewcnt = viewcnt;
 	}
 
-	public ReviewVo(int bno, String user_id, String title, String content, Timestamp regdate, int viewcnt) {
-		super();
-		this.bno = bno;
-		this.user_id = user_id;
-		this.title = title;
-		this.content = content;
-		this.regdate = regdate;
-		this.viewcnt = viewcnt;
+	public int getClass_no() {
+		return class_no;
+	}
+
+	public void setClass_no(int class_no) {
+		this.class_no = class_no;
 	}
 
 	@Override
 	public String toString() {
-		return "BoardVo [bno=" + bno + ", user_id=" + user_id + ", title=" + title + ", content=" + content
-				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + "]";
+		return "ReviewVo [bno=" + bno + ", user_id=" + user_id + ", title=" + title + ", content=" + content
+				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + "]";
 	}
 
 }
