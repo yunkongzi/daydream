@@ -22,7 +22,7 @@
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2>
-					 예약 목록 
+					 예약 조회
 				</h2>
 				
 		

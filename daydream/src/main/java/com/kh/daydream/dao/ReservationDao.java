@@ -1,5 +1,7 @@
 package com.kh.daydream.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,5 +21,11 @@ public class ReservationDao {
 	//예약등록
 	public void insertReservation(ReservationVo reservationVo) {
 		sqlSession.insert(NAMESPACE + "insertReservation", reservationVo);
+	}
+
+	public List<ReservationVo> classList(int class_no) {
+		List<ReservationVo> list = sqlSession.selectList(NAMESPACE+"classList",class_no);
+		System.out.println("ReservationDao, classList, list" + list);
+		return null;
 	}
 }
