@@ -31,6 +31,7 @@
 								<th>금액</th>
 								<th>인원</th>
 								<th>참가대상</th>
+								<th>자격증</th>								
 								<th>자기소개</th>					
 								<th>수정</th>					
 								<th>삭제</th>					
@@ -44,6 +45,7 @@
 								<td>${teacherVo.price}</td>
 								<td>${teacherVo.personnel}</td>
 								<td>${teacherVo.target}</td>
+								<td>${teacherVo.certificate}</td>
 								<td>${teacherVo.introduce}</td>
 								<div style="clear:both">
 								<td><button type="button" class="btn btn-warning" id="btnModify">
