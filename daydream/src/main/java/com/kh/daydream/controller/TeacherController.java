@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +22,9 @@ public class TeacherController {
 		private TeacherService teacherService;
 		
 		// 강사 가입 폼
-		@RequestMapping(value="/regist_form", method=RequestMethod.GET)
+		@RequestMapping(value="/teacher_regist", method=RequestMethod.GET)
 		public String teacherRegist() {
-			return "/teacher/regist_form";
+			return "/teacher/teacher_regist";
 		}
 		
 		// 강사등록 처리
@@ -33,15 +33,15 @@ public class TeacherController {
 			System.out.println(
 					"TeacherController, teacherVo:" + teacherVo);
 			teacherService.insertTeacher(teacherVo);
-			return "redirect:/teacher/regist_form";
+			return "redirect:/teacher/teacher_regist";
 		}
 		
 		// 강사리스트
-		@RequestMapping(value="/list_all", method=RequestMethod.GET)
+		@RequestMapping(value="/teacher_list", method=RequestMethod.GET)
 		public String teacherListAll(Model model) {
 			List<TeacherVo> list = teacherService.selectAll();
 			model.addAttribute("list", list);
-			return "/teacher/list_all";
+			return "/teacher/teacher_list";
 		}
 		
 		
