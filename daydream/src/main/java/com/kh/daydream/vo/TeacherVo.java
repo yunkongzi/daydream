@@ -9,6 +9,7 @@ public class TeacherVo {
 	private String price;
 	private String personnel;
 	private String target;
+	private String certificate;
 	private String introduce;
 	
 	public TeacherVo() {
@@ -22,6 +23,7 @@ public class TeacherVo {
 		this.price = price;
 		this.personnel = personnel;
 		this.target = target;
+		this.certificate = certificate;
 		this.introduce = introduce;
 	}
 	
@@ -62,9 +64,19 @@ public class TeacherVo {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
+
+	public String getCertificate() {
+		return certificate;
+	}
+
+	public void setCertificate(String certificate) {
+		this.certificate = certificate;
+	}
+
 	@Override
 	public String toString() {
-		return "Teacher [tno=" + tno + ", class_name=" + class_name + ", price=" + price + ", personnel=" + personnel
-				+ ", target=" + target + ", introduce=" + introduce + "]";
+		return "TeacherVo [tno=" + tno + ", class_name=" + class_name + ", price=" + price + ", personnel=" + personnel
+				+ ", target=" + target + ", certificate=" + certificate + ", introduce=" + introduce + "]";
 	}
+	
 }
