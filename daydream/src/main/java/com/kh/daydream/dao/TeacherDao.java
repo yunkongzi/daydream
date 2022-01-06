@@ -18,31 +18,31 @@ public class TeacherDao {
 	@Inject
 	private SqlSession sqlSession;
 	
-	// 회원 추가
+	// 강사 추가
 	public void insertTeacher(TeacherVo teacherVo) {
-		sqlSession.insert(NAMESPACE + "insertMember", teacherVo);
+		sqlSession.insert(NAMESPACE + "insertTeacher", teacherVo);
 	}
 	
-	// 회원 정보 보기
+	// 강사 정보 보기
 	public TeacherVo selectByTno(String tno) {
 		TeacherVo teacherVo = sqlSession.selectOne(
 				NAMESPACE + "selectByTno", tno);
 		return teacherVo;
 	}
 	
-	// 회원 전체 목록
+	// 강사 전체 목록
 	public List<TeacherVo> selectAll() {
 		// java.util.List
 		List<TeacherVo> list = sqlSession.selectList(NAMESPACE + "selectAll");
 		return list;
 	}
 	
-	// 회원 정보 수정
+	// 강사 정보 수정
 	public void updateTeacher(TeacherVo teacherVo) {
 		sqlSession.update(NAMESPACE + "updateTeacher", teacherVo);
 	}
 	
-	// 회원 정보 삭제
+	// 강사 정보 삭제
 	public void deleteTeacher(String tno) {
 		sqlSession.delete(NAMESPACE + "deleteTeacher", tno);
 	}

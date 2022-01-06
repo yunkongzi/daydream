@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kh.daydream.service.ProgramService;
+import com.kh.daydream.vo.ClassTimeVo;
 import com.kh.daydream.vo.ProgramVo;
 
 @Controller
@@ -28,8 +29,10 @@ public class AdminController {
 	
 	// 프로그램 등록 폼 
 	@RequestMapping(value = "/program_regist", method = RequestMethod.GET)
-	public String programRegist() {
-		return "admin/program_regist";
+	public String programRegist(Model model) {
+		List<ClassTimeVo> timeList =  programService.selectTimeList();
+		model.addAttribute("timeList", timeList);
+		return "/admin/program_regist";
 	}
 	
 	// 프로그램 등록 처리
@@ -41,12 +44,26 @@ public class AdminController {
 	}
 	
 	// 프로그램 목록
-	@RequestMapping(value="/program_list", method=RequestMethod.GET)
+	/*@RequestMapping(value="/program_list", method=RequestMethod.GET)
 	public String programListAll(Model model) {
 		List<ProgramVo> list = programService.selectAll();
 		model.addAttribute("list", list);
 		return "/admin/program_list";
-	}
+	}*/
 	
+	// 프로그램 목록
+		@RequestMapping(value="/program_list", method=RequestMethod.GET)
+		public String programListAll(Model model) {
+			List<ProgramVo> list = programService.selectAll();
+			model.addAttribute("list", list);
+			return "/admin/program_list";
+		}
+	
+	
+	// 예약자 현황 보기
+	@RequestMapping(value="/rev_list", method=RequestMethod.GET)
+	public String revListAll() {
+		return "/admin/rev_list";
+	}
 	
 }

@@ -7,8 +7,9 @@
 <meta charset="UTF-8">
 <title>프로그램 리스트</title>
 <style>
-	p {
-		
+	.btnNewPro {
+		margin : auto;
+		display : block;
 	}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">													
@@ -18,53 +19,60 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>			
 </head>
 <body>
+${list }
+			<div class="container-fluid">
 	<div class="row">
-			<div class="col-md-12">
-				<div class="jumbotron">
-					<h2 style=" text-align: center;">등록된 프로그램</h2>
-					<p></p>
-					
-				</div>
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<h2 style="text-align:center;">등록된 프로그램 목록</h2>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>클래스명</th>
-							<th>가격</th>
-							<th>프로그램 대상</th>
-							<th>가능 인원</th>
-							<th>프로그램 소개</th>
-							<th>수정</th>
-							<th>삭제</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${list}" var="programVo">
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>클래스명</th>
+								<th>가격</th>
+								<th>클래스 대상</th>
+								<th>가능 인원</th>
+								<th>클래스 소개</th>
+								<th>클래스 번호</th>
+								<th>클래스 상태</th>
+								<th>수정</th>
+								<th>삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+						<c:forEach items="${list}" var="programVo" >
 							<tr>
 								<td>${programVo.class_name}</td>
 								<td>${programVo.price}</td>
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
 								<td>${programVo.class_intro}</td>
-  								<td><button type="button"
-										class="btn btn-outline-info btnModify"
-										href="/admin/program_modify" data-class_name="${programVo.class_name}">수정</button></td>
+								<td>${programVo.class_no}</td>
+								
+								<td>${programVo.status_name}</td>
+								<td><a class="btn btn-outline-info btnModify"
+										href="/admin/program_modify" data-class_no="${programVo.class_no}">수정</a></td>
 								<td><button type="button"
 										class="btn btn-outline-danger btnDelete"
-										data-class_name="${programVo.class_name}">삭제</button></td>
-								<td>
-
+										data-class_no="${programVo.class_no}">삭제</button></td>
 							</tr>
 						</c:forEach>
-						<a class="btn btn-success btn-md btn-block active btn-outline-warning" href="/admin/program_regist">
-						새로운 프로그램 등록</a>
-					</tbody>
+						</tbody>
+					</table>
 					
-				</table>
+							<!-- <a class="btn btn-outline-warning btn-sm btnNewPro" href="/admin/program_regist">
+									새로운 프로그램 등록</a> -->
+									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist">
+										새로운 프로그램 등록</a>
+									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/admin_main">
+										관리자 메인</a>
+				</div>
 			</div>
 		</div>
+	</div>
+</div>
 </body>
 </html>
