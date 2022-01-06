@@ -13,6 +13,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+<script>
+
+$(function() {
+	
+	//로그인 실패 시
+	var msg = "${msg}"; // fail
+	if (msg == "fail") {
+		alert("아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요.");
+	}
+	
+});
+
+</script>
 </head>
 <body>
 <div class="container-fluid">

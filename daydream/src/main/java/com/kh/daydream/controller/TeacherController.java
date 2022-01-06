@@ -17,7 +17,7 @@ import com.kh.daydream.vo.TeacherVo;
 @Controller
 @RequestMapping("/teacher")
 public class TeacherController {
-		@Autowired
+		
 		@Inject
 		private TeacherService teacherService;
 		
