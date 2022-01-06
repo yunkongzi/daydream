@@ -18,10 +18,6 @@ public class ProgramVo {
 		super();
 	}
 
-	
-
-	
-
 
 
 	public String getClass_name() {
