@@ -68,6 +68,8 @@ $( ".star_rating a" ).click(function() {
 					<label>첨부할 파일을 드래그 &amp; 드롭하세요</label>
 					<div id="fileDrop"></div>
 				</div>
+				
+				<!-- 별점 첨부 -->
 				<div class="from-group">
 				<label for="star_rating">평점</label>
 				<p class="star_rating">
