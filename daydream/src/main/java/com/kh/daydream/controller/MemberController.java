@@ -78,9 +78,9 @@ public class MemberController {
 				String user_id = loginDto.getUser_id();
 				
 				if(user_id.equals("kongzi")) {
-					return "redirect:/admin/admin_main";
+					return "admin/admin_main";
 				} else {
-				return "redirect:/main";}
+				return "/main";}
 			} else {
 				return "redirect:" + targetLocation;
 			}
