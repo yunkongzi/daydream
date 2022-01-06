@@ -62,6 +62,11 @@ $( ".star_rating a" ).click(function() {
 					<textarea class="form-control" 
 						id="content" name="content"></textarea>
 				</div>
+				<div class="form-group">
+					<label for="content">후기 내용</label>
+					<textarea class="form-control" 
+						id="content" name="content"></textarea>
+				</div>
 			
 				<!-- 이미지파일 업로드 -->
 				<div>
