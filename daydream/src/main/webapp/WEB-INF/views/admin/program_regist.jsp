@@ -55,6 +55,15 @@
 								<label for="class_intro"> 프로그램 소개 </label><br>
 								<textarea rows="5" cols="50" name="class_intro"></textarea>
 							</div>
+							
+							<div class="form-group">
+
+								<label for="class_intro"> 개설 시간 </label><br>
+								<c:forEach items="${timeList}" var="classTimeVo">
+									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}">
+									${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
+								</c:forEach>
+							</div>
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								등록</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">

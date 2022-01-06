@@ -19,7 +19,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>			
 </head>
 <body>
-
+${list }
 			<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -33,26 +33,31 @@
 							<tr>
 								<th>클래스명</th>
 								<th>가격</th>
-								<th>프로그램 대상</th>
+								<th>클래스 대상</th>
 								<th>가능 인원</th>
-								<th>프로그램 소개</th>
+								<th>클래스 소개</th>
+								<th>클래스 번호</th>
+								<th>클래스 상태</th>
 								<th>수정</th>
 								<th>삭제</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${list}" var="programVo">
+						<c:forEach items="${list}" var="programVo" >
 							<tr>
 								<td>${programVo.class_name}</td>
 								<td>${programVo.price}</td>
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
 								<td>${programVo.class_intro}</td>
+								<td>${programVo.class_no}</td>
+								
+								<td>${programVo.status_name}</td>
 								<td><a class="btn btn-outline-info btnModify"
-										href="/admin/program_modify" data-class_name="${programVo.class_name}">수정</a></td>
+										href="/admin/program_modify" data-class_no="${programVo.class_no}">수정</a></td>
 								<td><button type="button"
 										class="btn btn-outline-danger btnDelete"
-										data-class_name="${programVo.class_name}">삭제</button></td>
+										data-class_no="${programVo.class_no}">삭제</button></td>
 							</tr>
 						</c:forEach>
 						</tbody>
