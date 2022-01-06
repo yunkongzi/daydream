@@ -57,6 +57,13 @@
 				</div>
 				
 				<div class="form-group">
+					<label for="certificate">자격증</label>
+					<input type="text" class="form-control" 
+						id="certificate" name="certificate" />
+				</div>
+				
+				
+				<div class="form-group">
 					<label for="introduce">자기소개</label>
 					<textarea class="form-control" placeholder="50자 내외로 글을 작성해주세요."
 						id="introduce" name="introduce"></textarea>
