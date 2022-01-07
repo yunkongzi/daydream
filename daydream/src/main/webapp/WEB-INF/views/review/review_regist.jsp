@@ -13,24 +13,48 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
 <script>
-$( ".star_rating a" ).click(function() {
-    $(this).parent().children("a").removeClass("on");
-    $(this).addClass("on").prevAll("a").addClass("on");
-    return false;
-});
+$(function () {
+    var starEls = document.querySelectorAll('#star span.star');
+    var rate = 0;
+
+    loop(starEls, function (el, index) {
+        el.addEventListener('click', function () {
+            rating(index + 1);
+        });
+    });
+
+    function loop(list, func) {
+        Array.prototype.forEach.call(list, func);
+    }
+
+    function rating(score) {
+        loop(starEls, function (el, index) {
+            if (index < score) {
+                el.classList.add('on');
+            } else {
+                el.classList.remove('on');
+            }
+        });
+
+        rate = score;
+    }
+})();
 </script>
 <style>
-.star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:22px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
+#star {
+  display: flex;
 }
-.star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#777;}
+.star {
+  font-size: 2rem;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.star:not(.on) {
+  color: #ccc;
+}
+.star.on {
+  color: orange;
+}
 </style>
 
 <body>
@@ -76,14 +100,15 @@ $( ".star_rating a" ).click(function() {
 				
 				<!-- 별점 첨부 -->
 				<div class="from-group">
-				<label for="star_rating">평점</label>
-				<p class="star_rating">
-					<a href="#" class="on">★</a>
-					<a href="#" class="on">★</a>
-					<a href="#" class="on">★</a>
-					<a href="#">★</a>
-					<a href="#">★</a></p>
-				</div>		
+				<label for="star_rating">별점</label>
+					<div class="star-container" id="star">
+ 						<span class="star">★</span>
+  						<span class="star">★</span>
+  						<span class="star">★</span>
+  						<span class="star">★</span>
+  						<span class="star">★</span>
+					</div>
+				</div>	
 				<div>
 					<button type="submit" class="btn btn-primary" id="btnSubmit">
 					작성 완료

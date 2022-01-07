@@ -29,12 +29,19 @@ public class ProgramDao {
 	public void insertProgram(ProgramVo programVo) {
 		sqlSession.insert(NAMESPACE + "insertProgram", programVo);
 	}
-	
+	// 서브 프로그램
 	public void insertProgramSub(int class_no, int program_time) {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("class_no", class_no);
 		map.put("program_time", program_time);
 		sqlSession.insert(NAMESPACE + "insertProgramSub", map);
+	}
+	
+	// 클래스 번호로 조회
+	public ProgramVo selectByClassNo(int class_no) {
+		ProgramVo programVo = sqlSession.selectOne(NAMESPACE + "selectByClassNo", class_no);
+		System.out.println("ProgramDao, selectByClassNo, programVo:" + programVo);
+		return programVo;
 	}
 	
 	// 프로그램 전체 목록
