@@ -9,7 +9,7 @@
 -->
 <html>
    <head>
-      <title>Strongly Typed by HTML5 UP</title>
+      <title>DAYDREAM</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="/assets/css/main.css" />
@@ -22,7 +22,7 @@
                <div class="container">
 
                   <!-- Logo -->
-                     <h1 id="logo"><a href="index.html">DAYDREAM</a></h1>
+                     <h1 id="logo"><a href="/main">DAYDREAM</a></h1>
                      <p>One Day, One Dream</p>
 
                   <!-- Nav -->
@@ -35,22 +35,24 @@
                            <li><a href="no-sidebar.html"><span>공지사항</span></a></li>
                         </ul>
                      </nav>
-<li class="nav-item" style="padding-top:18px;">
+							<div class="nav-item" style="padding-top:100px;">
                         	<c:choose>
                                	<c:when test="${empty sessionScope.memberVo }">
-                               		<a href="/login_form" class="btn btn-sm btn-success">로그인</a>
-                               		<a href="/member/regist_form" class="btn btn-sm btn-success">회원가입</a>
+                               		<button type="button"
+										onclick="location.href='/member/login'">로그인</button>
+                               		<button type="button"
+										onclick="location.href='/member/member_regist'">회원가입</button>
                                	</c:when>
                                	<c:otherwise>
                                		꿈을 펼칠 ${sessionScope.memberVo.user_name} 님!<br>
                                		
-                               		<button type="button" class="btn btn-sm btn-outline-primary" 
-				onclick="location.href='/member/member_regist'">회원가입하기</button>
+                               		<button type="button"
+										onclick="location.href='/member/mypage'">마이페이지</button>
                                		
                                		
                                	</c:otherwise>
                              </c:choose>
-                        </li>
+                        </div>
                </div>
                
             </section>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Footer -->
+            
             <section id="footer" style="padding-top:0px; padding-bottom:0px;">
               
                <div id="copyright" class="container" style="margin-top:0px;">
