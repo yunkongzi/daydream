@@ -32,11 +32,7 @@
 						<thead>
 							<tr>
 								<th>클래스명</th>
-								<th>아이디</th>
-								<th>회원이름</th>
-								<th>전화번호</th>
 								<th>예약시간</th>
-							
 								<th>예약날짜</th>
 							</tr>
 						</thead>
@@ -44,10 +40,6 @@
 						<c:forEach items="${list}" var="reservationVo">
 							<tr>
 								<td>${reservationVo.class_name}</td>
-								<td>${reservationVo.user_id}</td>
-								<td>${reservationVo.user_name}</td>
-								<td>${reservationVo.user_phone}</td>
-								
 								<td>${reservationVo.res_time}</td>
 								<td>${reservationVo.res_date}</td>
 							</tr>

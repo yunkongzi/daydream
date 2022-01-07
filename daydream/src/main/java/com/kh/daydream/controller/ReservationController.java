@@ -1,11 +1,12 @@
 package com.kh.daydream.controller;
 
-import java.util.List;
+
+
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,11 +21,9 @@ public class ReservationController {
 	
 		// 예약 등록 폼
 		@RequestMapping(value="/reservation_regist", method=RequestMethod.GET)
-		public String reservationRegistForm(int class_no, Model model ) {
+		public String reservationRegistForm() {
 		// tbl_program 의 목록 얻어오기
 		// 모델에 담고
-			List<ReservationVo> list = reservationService.classList(class_no);
-			model.addAttribute("list",list);
 			return "reservation/reservation_regist";
 	}
 		// 예약 등록 처리

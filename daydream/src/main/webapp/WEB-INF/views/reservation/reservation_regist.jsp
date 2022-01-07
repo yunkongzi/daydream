@@ -19,6 +19,7 @@
 </head>
 <body>
 
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -37,37 +38,19 @@
 				method="post">
 				<div class="form-group">
 					
+					<div class="schedule">예약 날짜 선택
+						<input type="date"/>
+
+					</div><br>
+				
+				
 	
 					<!-- forEach -->
 					<!-- name: class_code -->
 					<!-- option,value:code 이름:이름 -->
 			
-					<label for="class_name">클래스를 선택해주세요.</label>
-					<select>
-						
-						<c:forEach items="${list}" var="reservationVo">
-							<option value="${list.class_no }">${list.class_name}</option> 
-						</c:forEach>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="user_id">아이디</label>
-					<input type="text" class="form-control" 
-						id="user_id" name="user_id" />
-				</div>
-				
-				<div class="form-group">
-					<label for="user_name">회원이름</label>
-					<input type="text" class="form-control" 
-						id="user_name" name="user_name" />
 				</div>
 			
-				<div class="form-group">
-					<label for="user_phone">전화번호</label>
-					<input type="text" class="form-control" 
-						id="user_phone" name="user_phone" />
-				</div>
-				
 				<div class="count">예약 인원 수  
 					<select name="count">
 							<option selected="selected">1</option>
@@ -87,11 +70,6 @@
 					</select>
 
 				</div><br>
-				<div class="schedule">예약 날짜 선택
-					<input type="date"/>
-
-				</div><br>
-				
 				
 				<button type="submit" class="btn btn-primary">
 					예약 등록 완료

@@ -14,7 +14,7 @@
 	<!-- 예약등록 -->
 	<insert id="insertReservation">
 		insert into tbl_reservation(user_id, res_date, rno, class_no, count)
-		values(#{user_id}, #{res_date}, seq_rno.nextval, #{class_no}, #{count})
+		values(#{user_id}, #{res_date}, seq_rno.nextval, #{class_sub_no}, #{count})
 	</insert>
 
 </mapper>
