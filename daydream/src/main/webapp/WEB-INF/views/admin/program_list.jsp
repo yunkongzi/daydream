@@ -36,7 +36,7 @@
 								<th>가능 인원</th>
 								<th>클래스 소개</th>
 								<th>클래스 번호</th>
-								<th>클래스 상태</th>
+								<th>클래스 시간</th>
 								<th>수정</th>
 								<th>삭제</th>
 							</tr>
@@ -51,7 +51,7 @@
 								<td>${programVo.class_intro}</td>
 								<td>${programVo.class_no}</td>
 								
-								<td>${programVo.status_name}</td>
+								<td>${programVo.time_no}</td>
 								<td><a class="btn btn-outline-info btnModify"
 										href="/admin/program_modify" data-class_no="${programVo.class_no}">수정</a></td>
 								<td><button type="button"
