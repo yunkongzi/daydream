@@ -95,3 +95,6 @@ public class MemberController {
 		}
 
 }
+
+
+//관리자 로그인 시 버튼 생성
