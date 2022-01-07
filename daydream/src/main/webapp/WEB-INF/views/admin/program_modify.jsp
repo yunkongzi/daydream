@@ -13,6 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
 <body>
+${programVo}
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -24,45 +25,46 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						<form role="form" action="/admin/modify_run" method="post">
+						<input type="hidden" name="class_no" value="${programVo.class_no}">
 							<div class="form-group">
 								<label for="class_no"> 클래스 번호 </label><br> 
 								<input
-									type="text" class="form-control" name="class_no"
+									type="text" class="form-control"  id="class_no" name="class_no"
 										value="${programVo.class_no}" readonly />
 							</div>
 							
 							<div class="form-group">
 								<label for="class_name"> 클래스명 </label><br> 
 								<input
-									type="text" class="form-control" name="class_name"
+									type="text" class="form-control" id="class_name" name="class_name"
 										value="${programVo.class_name}" />
 							</div>
 							<div class="form-group">
 
 								<label for="price"> 가격 </label><br> 
 								<input type="text"
-									class="form-control" name="price" 
+									class="form-control" id="price" name="price" 
 										value="${programVo.price}"/>
 							</div>
 							<div class="form-group">
 
 								<label for="target"> 프로그램 대상 </label><br> 
 								<input
-									type="text" class="form-control" name="target" 
+									type="text" class="form-control" id="target" name="target" 
 										value="${programVo.target}"/>
 							</div>
 							<div class="form-group">
 
 								<label for="personnel"> 가능 인원 </label><br> 
 								<input
-									type="text" class="form-control" name="personnel" 
+									type="text" class="form-control" id="personnel" name="personnel" 
 									value="${programVo.personnel}"/>
 							</div>
 							<div class="form-group">
 
 								<label for="class_intro"> 프로그램 소개 </label><br>
-								<textarea rows="5" cols="50" name="class_intro"
-									value=""></textarea>
+								<textarea rows="5" cols="50" id="class_intro" name="class_intro"
+									><c:out value="${programVo.class_intro}" /></textarea>
 								
 							</div>
 							

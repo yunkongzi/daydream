@@ -46,7 +46,11 @@ public class ProgramService {
 		return list;
 	}
 	
-	// 프로그램 수정
+	// 클래스 번호로 조회
+	public ProgramVo selectByClassNo(int class_no) {
+		ProgramVo programVo = programDao.selectByClassNo(class_no);
+		return programVo;
+	}
 	
 	
 	

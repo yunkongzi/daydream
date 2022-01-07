@@ -75,11 +75,11 @@ public class MemberController {
 			if (targetLocation == null) {
 				//로그인 성공했을 때
 				String user_id = loginDto.getUser_id();
-				
 				if(user_id.equals("kongzi")) {
-					return "admin/admin_main";
+					return "admin/admin_main"; //관리자페이지로
 				} else {
-				return "/main";}
+					return "redirect:/main";
+				}
 			} else {
 				return "redirect:" + targetLocation;
 			}
