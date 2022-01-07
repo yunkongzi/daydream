@@ -9,9 +9,21 @@
 </head>
 <body>
 
+<<<<<<< HEAD
+
+<a href="member/member_regist">회원가입</a><br>
+<a href="member/login">로그인</a><br>
+
+
+<a href="member/member_regist">회원가입</a><br><br>
+<a href="member/login">로그인</a><br><br>
+<a href="member/mypage">마이페이지</a><br><br>
+
+=======
 <a href="/member/member_regist">회원가입</a><br><br>
 <a href="/member/login">로그인</a><br><br>
 <a href="/member/mypage">마이페이지</a><br><br>
+>>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 
 
 </body>
