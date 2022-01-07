@@ -65,14 +65,6 @@
 								</c:forEach>
 							</div>
 							
-							<div class="form-group">
-
-								<label for="class_name"> 클래스 상태 </label><br>
-								<c:forEach items="${timeList}" var="classTimeVo">
-									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}">
-									${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
-								</c:forEach>
-							</div>
 							
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								등록</button>

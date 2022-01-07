@@ -58,6 +58,15 @@ public class AdminController {
 			model.addAttribute("list", list);
 			return "/admin/program_list";
 		}
+		
+		// 프로그램 수정 폼 
+		@RequestMapping(value = "/program_modify", method = RequestMethod.GET)
+		public String programModify(int class_no, Model model) {
+			System.out.println("class_no" + class_no);
+			ProgramVo programVo = programService.selectByClassNo(class_no);
+			model.addAttribute("programVo", programVo);
+			return "/admin/program_modify";
+		}
 	
 	
 	// 예약자 현황 보기

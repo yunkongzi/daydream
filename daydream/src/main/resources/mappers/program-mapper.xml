@@ -7,6 +7,7 @@
 		select seq_class_no.nextval from dual
 	</select>
 	
+	<!-- 프로그램 등록 -->
 	<insert id="insertProgram">
 		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no)
 		values(#{class_name}, #{price}, #{target}, #{personnel},
@@ -26,13 +27,28 @@
    		order by class_name
    </select> -->
    
-   <select id="selectAll" resultType="ProgramVo" >
-   		select  p.class_name, p.price, p.target, p.personnel, 
-   				p.class_intro, p.class_no, s.status_name
-		from tbl_program p, tbl_class_status s
-		where p.status = s.status_code
-		order by s.status_code
+   <!-- 클래스 번호로 조회 -->
+   <select id="selectByClassNo" resultType="ProgramVo">
+   		select * from tbl_program
+   		where class_no = #{class_no}
    </select>
+   
+   
+   <!--  프로그램 전체 조회 -->
+<!--    <select id="selectAll" resultType="ProgramVo" > -->
+<!--    		select  p.class_name, p.price, p.target, p.personnel,  -->
+<!--    				p.class_intro, p.class_no, s.status_name -->
+<!-- 		from tbl_program p, tbl_class_status s -->
+<!-- 		where p.status = s.status_code -->
+<!-- 		order by s.status_code -->
+<!--    </select> -->
+
+	<select id="selectAll" resultType="ProgramVo">
+		select p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, s.program_time
+		from tbl_program p, tbl_program_sub s, tbl_class_time c
+		where p.class_no = s.class_no 
+		and s.program_time = c.time_no
+	</select>
    
    <select id="selectTimeList" resultType="ClassTimeVo">
    		select * from tbl_class_time

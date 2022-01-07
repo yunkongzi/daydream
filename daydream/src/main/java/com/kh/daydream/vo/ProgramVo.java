@@ -10,8 +10,6 @@ public class ProgramVo {
 	private String personnel;
 	private String class_intro;
 	private int class_no;
-	private int status;
-	private String status_name;
 	private int[] time_no;
 	
 	public ProgramVo() {
@@ -68,41 +66,9 @@ public class ProgramVo {
 		this.class_no = class_no;
 	}
 
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
-
-
-	public String getStatus_name() {
-		return status_name;
-	}
-
-
-
-	public void setStatus_name(String status_name) {
-		this.status_name = status_name;
-	}
-
-
-
-
-
-
-
 	public int[] getTime_no() {
 		return time_no;
 	}
-
-
-
-
-
-
 
 	public void setTime_no(int[] time_no) {
 		this.time_no = time_no;
@@ -110,16 +76,13 @@ public class ProgramVo {
 
 
 
-
-
-
-
 	@Override
 	public String toString() {
 		return "ProgramVo [class_name=" + class_name + ", price=" + price + ", target=" + target + ", personnel="
-				+ personnel + ", class_intro=" + class_intro + ", class_no=" + class_no + ", status=" + status
-				+ ", status_name=" + status_name + ", time_no=" + Arrays.toString(time_no) + "]";
+				+ personnel + ", class_intro=" + class_intro + ", class_no=" + class_no + ", time_no="
+				+ Arrays.toString(time_no) + "]";
 	}
+
 
 
 
