@@ -25,7 +25,10 @@
 			<div class="jumbotron">
 				<h2>예약 등록 양식</h2>
 				
+				<a href="/main">메인화면</a>		
+				
 			</div>
+			
 		</div>
 	</div>
 	<div class="row">
@@ -65,6 +68,15 @@
 						id="user_phone" name="user_phone" />
 				</div>
 				
+				<div class="count">예약 인원 수  
+					<select name="count">
+							<option selected="selected">1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						
+					</select>
+				</div><br>
 				<div class="schedule">예약 시간 
 					<select name="res_time">
 							<option selected="selected">10-12</option>
@@ -72,10 +84,10 @@
 							<option>17-19</option>
 							<option>19-21</option>
 						
-						</select>
+					</select>
 
 				</div><br>
-				<div class="schedule">예약 날짜 
+				<div class="schedule">예약 날짜 선택
 					<input type="date"/>
 
 				</div><br>
