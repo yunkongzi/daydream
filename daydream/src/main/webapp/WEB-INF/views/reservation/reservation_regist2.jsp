@@ -13,46 +13,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-<script>
-$(function() {
-	
-	
-	var d = new Date("2022-01-07");
-	var w = d.getDay(d);
-	console.log(w);
-	var day = 0;
-	while (day <= 31) {
-		var tr = "<tr>";
-		var weekNum = 0; // 0 ~ 6(일~토)
-		var weekV = 0;
-		if (day == 0) {
-			while (weekNum < w) {
-				console.log("없음");
-				tr += "<td class='none'></td>";
-				weekNum++;
-			}
-		}
-		
-		while (weekNum < 7 ) {
-			
-			day++;
-			if (day <= 31) {
-				tr += "<td>" + day + "<br>캔들 5명</td>";
-			} else {
-				tr += "<td class='none'></td>";
-			}
-			
-			weekNum++;
-			
-		}
-		tr += "</tr>";
-		$("#calTable").append(tr);
-		
-	}
-});
-	
-	
-</script>
 
 <style type="text/css">
 
@@ -76,11 +36,7 @@ font {  font-family: ""; font-size:14pt; text-decoration: none}
 .lt { font-size:12pt; text-decoration: line-through }
 
 input.locked {  background-color:#DDDDDD;  }
-#calTable td { width: 30px;}
-#calTable td.none {
-	background-color: gray;
-	
-}
+
 </style>
 
 <%  
@@ -124,11 +80,8 @@ if (month<=0){
 				method="post">
 				<div class="form-group">
 		<label for="res_date">예약날짜</label>
-<hr>		
-<table id="calTable" border="1">
-	<tr><td>&lt;</td><td colspan="5">1월</td><td>&gt;</td>
-</table>
-<hr>
+					
+				
 <table style="text-align:center;">
 
 
@@ -162,7 +115,6 @@ for(int i=1;
   }%>
  
  </tr>
- 
 </table><br>
 		</div>	
 				<div class="form-group">
