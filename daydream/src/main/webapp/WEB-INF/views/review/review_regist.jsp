@@ -62,16 +62,16 @@ $( ".star_rating a" ).click(function() {
 					<textarea class="form-control" 
 						id="content" name="content"></textarea>
 				</div>
-				<div class="form-group">
-					<label for="content">후기 내용</label>
-					<textarea class="form-control" 
-						id="content" name="content"></textarea>
-				</div>
 			
-				<!-- 이미지파일 업로드 -->
+				<!-- 파일 업로드  영역-->
 				<div>
 					<label>첨부할 파일을 드래그 &amp; 드롭하세요</label>
 					<div id="fileDrop"></div>
+				</div>
+				
+				<!-- 업로드할 항목의 템플릿 -->
+				<div>
+				
 				</div>
 				
 				<!-- 별점 첨부 -->
