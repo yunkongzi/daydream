@@ -34,7 +34,7 @@ public class ProgramService {
 		
 	}
 	
-	// 모든 회원 조회
+	// 모든 프로그램 조회
 	public List<ProgramVo> selectAll() {
 		List<ProgramVo> list = programDao.selectAll();
 		return list;
@@ -45,6 +45,9 @@ public class ProgramService {
 		
 		return list;
 	}
+	
+	// 프로그램 수정
+	
 	
 	
 }

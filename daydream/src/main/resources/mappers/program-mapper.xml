@@ -38,5 +38,18 @@
    		select * from tbl_class_time
 		order by time_no
    </select>
+   
+   <!-- 프로그램 수정 -->
+   <update id="updateProgram">
+   		update tbl_program set
+   		class_name = #{class_name},
+   		price = #{price},
+   		target = #{target},
+   		personnel = #{personnel},
+   		class_intro = #{class_intro},
+   		time_no = #{time_no}
+   		where class_no = #{class_no}
+   		
+   </update>
 </mapper>
 

@@ -1,6 +1,7 @@
 package com.kh.daydream.vo;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class ReviewVo {
 
@@ -11,6 +12,7 @@ public class ReviewVo {
 	private Timestamp regdate;
 	private int viewcnt;
 	private int class_no;
+	private String[] files;
 
 	public ReviewVo() {
 		super();
@@ -93,10 +95,19 @@ public class ReviewVo {
 		this.class_no = class_no;
 	}
 
+	public String[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+
 	@Override
 	public String toString() {
 		return "ReviewVo [bno=" + bno + ", user_id=" + user_id + ", title=" + title + ", content=" + content
-				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + "]";
+				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + ", files="
+				+ Arrays.toString(files) + "]";
 	}
 
 }
