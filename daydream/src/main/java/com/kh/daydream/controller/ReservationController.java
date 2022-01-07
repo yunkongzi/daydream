@@ -20,11 +20,11 @@ public class ReservationController {
 	
 		// 예약 등록 폼
 		@RequestMapping(value="/reservation_regist", method=RequestMethod.GET)
-		public String reservationRegistForm() {
-			// tbl_program 의 목록 얻어오기
-			// 모델에 담고
-		//	List<ReservationVo> list = reservationService.classList(class_no);
-		//	model.addAttribute("list",list);
+		public String reservationRegistForm(int class_no, Model model ) {
+		// tbl_program 의 목록 얻어오기
+		// 모델에 담고
+			List<ReservationVo> list = reservationService.classList(class_no);
+			model.addAttribute("list",list);
 			return "reservation/reservation_regist";
 	}
 		// 예약 등록 처리
