@@ -39,8 +39,89 @@ $(function () {
         rate = score;
     }
 })();
+
+// 파일 업로드 요청 처리
+$(document).ready(function(){
+	$(".fileDrop").on("dragenter dragover", function(e){
+		e.preventDefault();
+	});
+	$(".fileDrop").on("drop", function(e){
+		e.preventDefault();
+		var files = e.originalEvent.dataTransfer.files[0];
+// 		var file = files[0];
+		console.log(file);
+		
+		var formData = new FormData();
+		formData.append("file", file);
+		var url = "/upload/uploadAjax"
+		
+		$.ajax({
+			"method": "post",
+			"url": url,
+			"data": formData,
+			"processData" : false,
+			"contentType" : false,
+			"success" : function(rData) {
+				console.log(rData)
+				if(rData == "fail") {
+					alert("잘못된 형식의 파일입니다.");
+					return;
+				}
+			var div = $("#uploadedList").prev().clone();
+			div.attr("data-filename", rData);
+			
+			console.log(div);
+			var underIndex = rData.indexof("_");
+			var fileName = rData.substring(underIndex + 1);
+			div.find("span").text(fileName);
+			var result = isImage(fileName);
+			if(reuslt == true) {
+				var img = div.find("img");
+				img.attr("src", "/upload/displayImage?fileName" + rData);
+			}
+			
+			var a = div.find("a");
+			a.attr("data-filename", rData);
+			
+			$("#uploadedList").append(div);
+			div.show(1000);
+			}
+		});
+	}); // $("fileDrop").on("drop"
+	
+			
+	$("#frmRegist").submit(function(){
+		var divs = $("#uploadedList > .divUploaded");
+		console.log("divs:", divs);
+		divs.each(function(index){
+			var filename = $(this).attr("data-filename");
+			var inputHtml = "<input type='hidden' name='files["+ index +"]' value='" + filename + "'>";
+			$("#rfmRegist").prepend(inputHtml);
+		});
+		// return false;
+	});
+	
+	$("#uploadedList").on("click", ".a_times", function(e){
+		e.preventDefault();
+		var that = $(this);
+		var filename = that.attr("data-filename");
+		console.log(filename);
+		var url = "/upload/deleteFile?fileName=" + filename;
+		$.get(url, function(rData){
+			console.log(rData);
+			if(rData == "success") {
+				that.parent().hide(1000, function(){
+					that.parent().remove();
+				});
+			} else {
+				alert("파일 삭제에 실패했습니다.");
+			}
+		});
+	});
+});
 </script>
 <style>
+// 별점 스타일
 #star {
   display: flex;
 }
@@ -54,6 +135,18 @@ $(function () {
 }
 .star.on {
   color: orange;
+}
+
+.fileDrop{
+	width:600px;
+	height:200px;
+	border:1px dotted blue;
+}
+small {
+	margin-left:3px;
+	font-weigth: bold;
+	color:gray;
+}
 }
 </style>
 
@@ -87,14 +180,22 @@ $(function () {
 						id="content" name="content"></textarea>
 				</div>
 			
-				<!-- 파일 업로드  영역-->
+				<!-- 첨부파일 업로드  영역-->
 				<div>
 					<label>첨부할 파일을 드래그 &amp; 드롭하세요</label>
-					<div id="fileDrop"></div>
+					<div class="fileDrop"></div>
+					<div class="uploadedList"></div>
 				</div>
 				
 				<!-- 업로드할 항목의 템플릿 -->
-				<div>
+				<div style="display:none"
+					class="divUploaded">
+					<img src="/img/default.png" height="100"><br>
+					<span>default.png</span>
+					<a href="#" class="a_times">&times;</a>
+				</div>
+				<!-- 업로드한 파일들 -->
+				<div id="uploadedList">
 				
 				</div>
 				

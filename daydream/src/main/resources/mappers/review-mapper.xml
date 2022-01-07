@@ -6,8 +6,10 @@
 	
 	<!-- 리뷰글 추가 -->
 	<insert id="insertReview">
-		insert into tbl_review(bno, user_id, title, content, class_no)
-		values(#{bno}, #{user_id}, #{title}, #{content}, #{class_no})
+		insert into tbl_review(
+		bno, user_id, title, content, class_no)
+		values
+		(seq_review.nextval, #{user_id}, #{title}, #{content}, #{class_no}, 'y')
 	</insert>
 	<!-- 리뷰  정보 보기 -->
 	<select id="selectById" resultType="ReviewVo">
@@ -23,5 +25,5 @@
 				content = #{content}
 			where 
 		</update>
-
+	
 </mapper>

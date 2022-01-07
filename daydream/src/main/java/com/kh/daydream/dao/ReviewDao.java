@@ -34,6 +34,9 @@ public class ReviewDao {
 		sqlsession.update(NAMESPACE + "updateReview", reviewVo);
 	}
 	
-	
+	// 파일 업로드 
+	public void addAttach(String fullName) {
+		sqlsession.insert("addAttach", fullName);
+	}
 	
 }
