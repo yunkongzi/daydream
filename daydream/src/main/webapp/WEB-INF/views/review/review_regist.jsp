@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,16 +139,17 @@ $(document).ready(function(){
 }
 
 .fileDrop{
-	width:600px;
-	height:200px;
+	width:80%;
+	height:100px;
+	background-color: gray;
+	margin: 20px auto;
 	border:1px dotted blue;
 }
-small {
-	margin-left:3px;
-	font-weigth: bold;
-	color:gray;
+.divUploaded {
+	width: 150px;
+	float: left;
 }
-}
+
 </style>
 
 <body>

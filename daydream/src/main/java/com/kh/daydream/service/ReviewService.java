@@ -15,8 +15,37 @@ public class ReviewService {
 	private ReviewDao reviewDao;
 	
 	// 리뷰 추가
-	public void insertReview (ReviewVo reviewVo) {
+	@Transactional
+	public void insertReview(ReviewVo reviewVo) {
+		int bno = reviewDao.getBnoNextVal();
+		reviewVo.setBno(bno);
 		reviewDao.insertReview(reviewVo);
+		String [] files = reviewVo.getFiles();
+		if(files != null && files.length > 0) {
+			for (String file_name : files) {
+				reviewDao.insrtAttach(file_name, bno);
+			}
+		}
+	}
+	
+	public ReviewVo getReview(int bno) {
+		reviewDao.updateViewcnt(bno);
+		ReviewVo reviewVo = reviewDao.getReview(bno);
+		String [] filenames = reviewDao.getFilenames(bno);
+		reviewVo.setFiles(filenames);
+		return reviewVo;
+	}
+	
+	@Transactional
+	public String[] deleteReview(int bno) {
+		String[] filenames = reviewDao.getFilenames(bno);
+		reviewDao.deleteAttach(bno); // 첨부파일 데이터 삭제
+		reviewDao.deleteReview(bno); // 리뷰글 삭제
+		return filenames;
+	}
+	
+	public void modifyReview(ReviewVo reviewVo) {
+		reviewDao.modifyReveiw(reviewVo);
 	}
 	
 	// 특정 리뷰 조회
@@ -30,26 +59,5 @@ public class ReviewService {
 		reviewDao.updateReview(reviewVo);
 	}
 	
-//	// 첨부파일 정보 등록
-//	@Transactional
-//	@Override
-//	public void addAttach(ReviewVo reviewVo) throws Exception{
-//		String title = reviewVo.getTitle();
-//		String content = reviewVo.getContent();
-//		title = title.replace("<", "&lt;");
-//		title = title.replace("<", "&gt;");
-//		title = title.replace(" ",  "nbsp;&nbsp;");
-//		content = content.replace("\n","<br>");
-//		reviewVo.getTitle();
-//		reviewVo.getContent();
-//		reviewDao.create(reviewVo);
-//		// 게시물의 첨부파일 정보 등록
-//		String[] files = reviewVo.getFiles(); // 첨부파일 배열
-//		if(files == null) return; // 첨부파일이 없으면 메서드 종료
-//		// 첨부파일들의 정보를 tbl_attach 테이블에 insert
-//		for(String name : files){
-//			reviewDao.addAttach(name);
-//		}
-//	}
 
 }
