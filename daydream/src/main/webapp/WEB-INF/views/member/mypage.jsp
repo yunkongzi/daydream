@@ -31,14 +31,12 @@ $(function() {
 				<h2>
 					마이페이지
 				</h2>
-				<p>
-					<a class="btn btn-outline-success" href="/member/login">먼저 로그인 하기</a>
-				</p>
 			</div>
 			
 			<div class="jumbotron">
 				<h5>【내 정보】</h5>
-				로그인 한 아이디 의 정보값 가져오기....
+				아이디: ${sessionScope.memberVo.user_id} <br>
+				이름: ${sessionScope.memberVo.user_name}
 			</div>
 			
 			<div class="jumbotron">
