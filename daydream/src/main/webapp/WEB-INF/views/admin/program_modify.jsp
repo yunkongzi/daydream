@@ -64,7 +64,7 @@ ${programVo}
 
 								<label for="class_intro"> 프로그램 소개 </label><br>
 								<textarea rows="5" cols="50" id="class_intro" name="class_intro"
-									value=""></textarea>
+									><c:out value="${programVo.class_intro}" /></textarea>
 								
 							</div>
 							
