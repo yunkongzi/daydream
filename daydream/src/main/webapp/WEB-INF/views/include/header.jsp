@@ -17,7 +17,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
-
+<script src="/js/myscript.js"></script>
 
 
 <body class="homepage is-preload">
@@ -36,8 +36,8 @@
 					<ul>
 						<li><a href="index.html"><span>데이드림</span></a></li>
 						<li><a href="#"><span>프로그램</span></a></li>
-						<li><a href="left-sidebar.html"><span>예약하기</span></a></li>
-						<li><a href="no-sidebar.html"><span>인재모집</span></a></li>
+						<li><a href="/reservation/reservation_regist"><span>예약하기</span></a></li>
+						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>
 						<li><a href="no-sidebar.html"><span>공지사항</span></a></li>
 					</ul>
 				</nav>

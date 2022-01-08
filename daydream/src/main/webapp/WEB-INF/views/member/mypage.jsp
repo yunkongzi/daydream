@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>마이페이지</title>
 
-	
 <script>
 
 $(function() {
@@ -26,9 +25,9 @@ $(function() {
 			<header>
 				
 				
-				<div class="container-fluid">
+				<div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" style="margin:0 auto;">
 			<div class="jumbotron" >
 				<h2>
 					마이페이지
@@ -38,8 +37,13 @@ $(function() {
 			<div class="jumbotron">
 				<h5>【내 정보】</h5>
 				아이디: ${sessionScope.memberVo.user_id} <br>
-				이름: ${sessionScope.memberVo.user_name}
-			</div>
+				이름: ${sessionScope.memberVo.user_name} <br>
+				전화번호: ${sessionScope.memberVo.user_phone} <br>
+				
+				<button type="button" class="btn btn-outline-primary" 
+				onclick="location.href='/member/member_regist'">정보수정</button><br><br>
+				
+			</div><br><br><br>
 			
 			<div class="jumbotron">
 				<h5>【예약 현황】</h5>
