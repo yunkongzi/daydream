@@ -52,6 +52,13 @@ public class ProgramService {
 		return programVo;
 	}
 	
+	// 프로그램 수정 처리
+		public ProgramVo updateProgram(ProgramVo programVo) {
+			programDao.updateProgram(programVo);
+			return programVo;
+			
+		}
+	
 	
 	
 }

@@ -67,12 +67,18 @@ public class AdminController {
 			model.addAttribute("programVo", programVo);
 			return "/admin/program_modify";
 		}
-	
-	
-	// 예약자 현황 보기
-	@RequestMapping(value="/rev_list", method=RequestMethod.GET)
-	public String revListAll() {
-		return "/admin/rev_list";
+		
+		// 프로그램 수정 처리
+		@RequestMapping(value="/modify_run", method= RequestMethod.POST)
+		public String updateProgram(ProgramVo programVo) {
+			programService.updateProgram(programVo);
+			return "redirect:/admin/program_list";
+		}
+
+		// 예약자 현황 보기
+		@RequestMapping(value="/rev_list", method=RequestMethod.GET)
+		public String revListAll() {
+			return "/admin/rev_list";
 	}
 	
 }
