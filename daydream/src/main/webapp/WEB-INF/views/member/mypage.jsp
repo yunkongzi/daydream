@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
 $(function() {
@@ -41,7 +41,7 @@ $(function() {
 				전화번호: ${sessionScope.memberVo.user_phone} <br>
 				
 				<button type="button" class="btn btn-outline-primary" 
-				onclick="location.href='/member/member_regist'">정보수정</button><br><br>
+				onclick="location.href='/member/member_modify'">정보수정</button><br><br>
 				
 			</div><br><br><br>
 			

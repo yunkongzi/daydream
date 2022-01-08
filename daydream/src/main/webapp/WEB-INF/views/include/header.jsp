@@ -17,7 +17,6 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
-<script src="/js/myscript.js"></script>
 
 
 <body class="homepage is-preload">
@@ -68,7 +67,7 @@
 									 ${sessionScope.memberVo.user_name} 님!<br>
 
 							<button type="button" onclick="location.href='/member/mypage'">마이페이지</button>
-							<button type="button" id="btnLogout">로그아웃</button>
+							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
 
 						</c:otherwise>
 					</c:choose>
