@@ -60,7 +60,6 @@ public class MemberController {
 	@RequestMapping(value = "/login_run", method = RequestMethod.POST)
 	public String loginRun(LoginDto loginDto, RedirectAttributes rttr,
 						   HttpSession session) {
-							//HttpSession -> 로그인 정보 기억(LoginDto)
 		System.out.println("HomeController, loginRun, loginDto: " + loginDto);
 		MemberVo memberVo = memberService.login(
 				loginDto.getUser_id(), loginDto.getUser_pw());
@@ -96,3 +95,6 @@ public class MemberController {
 		}
 
 }
+
+
+//관리자 로그인 시 버튼 생성
