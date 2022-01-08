@@ -65,7 +65,12 @@
    		class_intro = #{class_intro},
    		time_no = #{time_no}
    		where class_no = #{class_no}
-   		
    </update>
+   
+   <!-- 프로그램 삭제 -->
+   <delete id="deleteProgram">
+   		delete from tbl_program
+   		where class_no = #{class_no}
+   </delete>
 </mapper>
 

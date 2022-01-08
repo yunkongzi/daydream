@@ -74,6 +74,13 @@ public class AdminController {
 			programService.updateProgram(programVo);
 			return "redirect:/admin/program_list";
 		}
+		
+		// 프로그램 삭제 
+		@RequestMapping(value="/deleteProgram", method=RequestMethod.GET)
+		public String deleteProgram(int class_no) {
+			programService.deleteProgram(class_no);
+			return "redirect:/admin/program_list";
+		}
 
 		// 예약자 현황 보기
 		@RequestMapping(value="/rev_list", method=RequestMethod.GET)
