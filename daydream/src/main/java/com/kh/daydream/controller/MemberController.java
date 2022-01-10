@@ -26,7 +26,7 @@ public class MemberController {
 	// 회원 가입 폼
 		@RequestMapping(value="/member_regist", method=RequestMethod.GET)
 		public String memberRegist() {
-			return "member/member_regist";
+			return "/member/member_regist";
 		}
 		
 	//회원 가입 처리
@@ -53,46 +53,60 @@ public class MemberController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String memberLogin() {
 		
-		return "member/login";
+		return "/member/login";
 	}
 	
 	//로그인 런
-	@RequestMapping(value = "/login_run", method = RequestMethod.POST)
-	public String loginRun(LoginDto loginDto, RedirectAttributes rttr,
-						   HttpSession session) {
-							//HttpSession -> 로그인 정보 기억(LoginDto)
-		System.out.println("HomeController, loginRun, loginDto: " + loginDto);
-		MemberVo memberVo = memberService.login(
-				loginDto.getUser_id(), loginDto.getUser_pw());
-		System.out.println("HomeController, loginRun, memberVo: " + memberVo);
-		if (memberVo == null) {
-			rttr.addFlashAttribute("msg", "fail");
-			//로그인 실패했을 때
-			return "redirect:/member/login";
-		} else {
-			session.setAttribute("memberVo", memberVo);
-			String targetLocation = (String)session.getAttribute("targetLocation");
-			session.removeAttribute("targetLocation");
-			if (targetLocation == null) {
-				//로그인 성공했을 때
-				String user_id = loginDto.getUser_id();
-				if(user_id.equals("kongzi")) {
-					return "admin/admin_main"; //관리자페이지로
-				} else {
-					return "redirect:/main";
-				}
-			} else {
-				return "redirect:" + targetLocation;
-			}
-			
-		}
-		
-	}
+	   @RequestMapping(value = "/login_run", method = RequestMethod.POST)
+	   public String loginRun(LoginDto loginDto, RedirectAttributes rttr,
+	                     HttpSession session) {
+	      System.out.println("HomeController, loginRun, loginDto: " + loginDto);
+	      MemberVo memberVo = memberService.login(
+	            loginDto.getUser_id(), loginDto.getUser_pw());
+	      System.out.println("HomeController, loginRun, memberVo: " + memberVo);
+	      if (memberVo == null) {
+	         rttr.addFlashAttribute("msg", "fail");
+	         //로그인 실패했을 때
+	         return "redirect:/member/login";
+	      } else {
+	         session.setAttribute("memberVo", memberVo);
+	         String targetLocation = (String)session.getAttribute("targetLocation");
+	         session.removeAttribute("targetLocation");
+	         if (targetLocation == null) {
+	            //로그인 성공했을 때
+	            String user_id = loginDto.getUser_id();
+	            if(user_id.equals("kongzi")) {
+	               return "admin/admin_main"; //관리자페이지로
+	            } else {
+	               return "redirect:/main";
+	            }
+	         } else {
+	            return "redirect:" + targetLocation;
+	         }
+	         
+	      }
+	      
+	   }
 	
 	//마이페이지
 		@RequestMapping(value="/mypage", method=RequestMethod.GET)
 		public String memberPage() {
-			return "member/mypage";
+			return "/member/mypage";
+		}
+		
+	//로그아웃
+		@RequestMapping(value="/logout", method=RequestMethod.GET)
+		public String memberlogout() {
+			return "/member/logout";
 		}
 
+		//내 정보 수정 폼
+		@RequestMapping(value="/modify", method=RequestMethod.GET)
+		public String memberModify_form() {
+			return "/member/modify";
+		}
+		
 }
+
+
+//관리자 로그인 시 버튼 생성

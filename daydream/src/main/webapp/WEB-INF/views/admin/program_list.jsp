@@ -18,6 +18,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>			
 </head>
+<script>
+$(function() {
+	$(".btnModify").click(function() {
+		var class_no = $(this).attr("data-class_no");
+		console.log("class_no: ", class_no);
+		location.href = "/admin/program_modify?class_no=" + class_no;
+	});
+	
+	$(".btnDelete").click(function() {
+		var class_no = $(this).attr("data-class_no");
+		location.href = "/admin/deleteProgram?class_no=" + class_no;
+	});
+});
+
+</script>
 <body>
 			<div class="container-fluid">
 	<div class="row">

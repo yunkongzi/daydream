@@ -9,7 +9,13 @@
 </head>
 <body>
 
-
+<!-- Logo -->
+<!-- 			<section id="header"> -->
+<!--                <div class="container" style="padding-top:50px; padding-bottom:50px;"> -->
+<!--                      <h1 id="logo"><a href="/main">DAYDREAM</a></h1> -->
+<!--                      <p>One Day, One Dream</p> -->
+<!--                </div> -->
+<!--             </section> -->
 
 	<section id="features">
 		<div class="container">
@@ -17,7 +23,6 @@
 				
 				
 				"여기에 내용물을 넣어주세요"
-				
 				
 			</header>
 		</div>
