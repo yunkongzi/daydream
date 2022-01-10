@@ -7,26 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>											
+<title>회원정보수정</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
 $(function() {
 	
-	//아이디 중복 체크
-	$("#btnCheckDupId").click(function() {
-		var url = "member/checkDupId/" + $("#user_id").val();
-		$.get(url, function(rData) {
-			console.log(rData);
-			if (rData == "used") {
-				$("#btnCheckDupId").next().html("<br>사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
-				$("#btnCheckDupId").next().css("color", "red");
-			} else {
-				$("#btnCheckDupId").next().html("<br>사용가능한 아이디입니다.");
-				$("#btnCheckDupId").next().css("color", "blue");
-			}
-		});
-	});
 
 
 });
@@ -46,25 +32,20 @@ $(function() {
 	<div class="row">
 
 	<div class="col-md-10" style="margin:0 auto;">
-	<h3>데이드림 가입양식</h3>
-	<p>아래 내용을 빠짐없이 입력해주세요</p>
+	<h3>데이드림 회원 정보 수정</h3>
+	<p>아이디는 변경이 불가능합니다.</p>
 	</div><br><br>
 
 
 	</div>
 	<div class="row" >
 		<div class="col-md-5" style="margin:0 auto;">
-			<form role="form" action="/member/regist_run" 
+			<form role="form" action="/member/modify_run" 
 				method="post">
 				<div class="form-group" >
 					<label for="user_id">아이디</label>
 					<input type="text" class="form-control" 
-						id="user_id" name="user_id" />
-				</div><br>
-				<div class="form-group">
-					<button type="button" class="btn btn-warning"
-						id="btnCheckDupId">아이디 중복체크</button>
-					<span></span>
+						id="user_id" name="user_id" value="${sessionScope.memberVo.user_name}" readonly/>
 				</div>
 				<div class="form-group">
 					<label for="user_pw">패스워드</label>
@@ -83,7 +64,7 @@ $(function() {
 				</div><br><br>
 				
 				<button type="submit" class="btn btn-primary">
-					가입 완료
+					수정 완료
 				</button>
 			</form>
 		</div>

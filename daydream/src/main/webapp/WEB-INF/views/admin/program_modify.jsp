@@ -77,7 +77,7 @@ ${programVo}
 								</c:forEach>
 							</div>
 							<button type="submit" class="btn btn-primary btnProgramReg">
-								등록</button>
+								수정</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">
 								관리자 메인 화면
 							</a>

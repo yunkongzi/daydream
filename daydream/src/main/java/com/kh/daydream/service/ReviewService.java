@@ -15,8 +15,38 @@ public class ReviewService {
 	private ReviewDao reviewDao;
 	
 	// 리뷰 추가
-	public void insertReview (ReviewVo reviewVo) {
+	@Transactional
+	public void insertReview(ReviewVo reviewVo) {
+		int bno = reviewDao.getBnoNextVal();
+		reviewVo.setBno(bno);
 		reviewDao.insertReview(reviewVo);
+		String [] files = reviewVo.getFiles();
+		if(files != null && files.length > 0) {
+			for (String file_name : files) {
+				reviewDao.insrtAttach(file_name, bno);
+			}
+		}
+	}
+	
+	public ReviewVo getReview(int bno) {
+		reviewDao.updateViewcnt(bno);
+		ReviewVo reviewVo = reviewDao.getReview(bno);
+		String [] filenames = reviewDao.getFilenames(bno);
+		reviewVo.setFiles(filenames);
+		return reviewVo;
+	}
+	
+	// 리뷰 삭제
+	@Transactional
+	public String[] deleteReview(int bno) {
+		String[] filenames = reviewDao.getFilenames(bno);
+		reviewDao.deleteAttach(bno); // 첨부파일 데이터 삭제
+		reviewDao.deleteReview(bno); // 리뷰글 삭제
+		return filenames;
+	}
+	
+	public void modifyReview(ReviewVo reviewVo) {
+		reviewDao.modifyReveiw(reviewVo);
 	}
 	
 	// 특정 리뷰 조회
@@ -29,5 +59,6 @@ public class ReviewService {
 	public void updateReview(ReviewVo reviewVo) {
 		reviewDao.updateReview(reviewVo);
 	}
+	
 
 }
