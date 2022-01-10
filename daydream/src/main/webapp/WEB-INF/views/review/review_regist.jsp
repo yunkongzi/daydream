@@ -37,7 +37,7 @@ $(function () {
         });
         rate = score;
     }
-})();
+});
 
 // 파일 업로드 요청 처리
 $(document).ready(function(){
@@ -86,7 +86,7 @@ $(document).ready(function(){
 			div.show(1000);
 			}
 		});
-	}); // $("fileDrop").on("drop"
+	}); //fileDrop
 	
 			
 	$("#frmRegist").submit(function(){
@@ -119,7 +119,7 @@ $(document).ready(function(){
 	});
 });
 
-	${}
+
 	
 </script>
 <style>
