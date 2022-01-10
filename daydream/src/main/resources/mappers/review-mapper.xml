@@ -8,9 +8,14 @@
 	<insert id="insertReview">
 		insert into tbl_review(
 		bno, user_id, title, content, class_no)
-		values
-		(seq_review.nextval, #{user_id}, #{title}, #{content}, #{class_no})
+		values(#{bno}, #{user_id}, #{title}, #{content}, #{class_no})
 	</insert>
+	
+	<!-- bno 얻기 -->
+		<select id="getBnoNextVal" resultType="int">
+			select seq_bno.nextval
+			from dual
+		</select>
 	<!-- 리뷰  정보 보기 -->
 	<select id="selectById" resultType="ReviewVo">
 		selct * from tbl_review
@@ -23,14 +28,8 @@
 				user_id = #{user_id},
 				title = #{title},
 				content = #{content}
-			where 
-		</update>
-		
-	<!-- 리뷰글 삭제 -->
-		<delete id="deleteReview">
-			delete from tbl_review
 			where bno = #{bno}
-		</delete>
+		</update>
 	
 	<!-- 리뷰글 수정 -->
 		<update id="modifyReview">
