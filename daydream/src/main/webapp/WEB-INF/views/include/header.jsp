@@ -52,9 +52,6 @@
 						<a href="/main">DAYDREAM</a>
 					</h1>
 					<p>One Day, One Dream</p>
-					<hr>
-					${sessionScope.memberVo.user_name}
-					<hr>
 					
 					<c:set var="id" value="${sessionScope.memberVo.user_id}"/>
 
