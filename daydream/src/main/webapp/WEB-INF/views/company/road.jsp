@@ -1,6 +1,8 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+
 <html>
 <head>
 	<title>데이드림 오시는길</title>
@@ -29,5 +31,6 @@
 <p class="copy">copyright &copy; <strong>ULSAN DAYDREAM</strong>. All Rights Reserved.</p>
 </div>
 
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>
