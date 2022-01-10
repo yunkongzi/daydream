@@ -61,6 +61,7 @@
 								onclick="location.href='/member/member_regist'">회원가입</button>
 						</c:when>
 						
+						
 						<c:otherwise>
 							<br>♡<br>
 									데이드림과 꿈을 꾸실<br>
