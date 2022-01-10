@@ -25,7 +25,6 @@ $(function() {
 
 
 
-
 <section id="features">
 		<div class="container">
 			<header>
@@ -33,7 +32,7 @@ $(function() {
 				
 				<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" style="padding-left: 450px;">
 			
 				<h2>DAYDREAM LOGIN PAGE</h2>
 				
@@ -41,7 +40,7 @@ $(function() {
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" style="margin:0 auto;">
 			<form role="form" action="/member/login_run" 
 				method="post">
 				<div class="form-group">
@@ -54,14 +53,15 @@ $(function() {
 					<label for="user_pw">패스워드</label>
 					<input type="password" class="form-control" 
 						id="user_pw" name="user_pw" />
-				</div><br>
+				</div><br><br><br>
 				
-				<button type="button" class="btn btn-outline-primary" 
-				onclick="location.href='/member/member_regist'">회원가입하기</button><br><br>
-
 				<button type="submit" class="btn btn-outline-success">
 					 로그인
-				</button>
+				</button><br><br>
+				
+				<button type="button" class="btn btn-outline-primary" 
+				onclick="location.href='/member/member_regist'">회원가입</button><br><br>
+
 				
 			</form>
 		</div>
