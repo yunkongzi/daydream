@@ -9,8 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.kh.daydream.vo.ReviewVo;
-import com.kh.daydream.vo.ReviewVo;
+import com.kh.daydream.vo.AttendClassVo;
 import com.kh.daydream.vo.ReviewVo;
 
 @Repository
@@ -80,6 +79,14 @@ public class ReviewDao {
 	
 	public void deleteAttach(int bno) {
 		sqlsession.delete(NAMESPACE + "deleteAttach", bno);
+	}
+	
+	public List<AttendClassVo> reviewList(String user_id, String status) {
+		Map<String, String> map = new HashMap<>();
+		map.put("user_id", user_id);
+		map.put("status", status);
+		List<AttendClassVo> list = sqlsession.selectList(NAMESPACE + "reviewList", map);
+		return list;
 	}
 	
 }
