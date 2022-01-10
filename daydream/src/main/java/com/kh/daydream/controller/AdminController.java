@@ -55,6 +55,7 @@ public class AdminController {
 		@RequestMapping(value="/program_list", method=RequestMethod.GET)
 		public String programListAll(Model model) {
 			List<ProgramVo> list = programService.selectAll();
+			List<ClassTimeVo> timeList =  programService.selectTimeList();
 			model.addAttribute("list", list);
 			return "/admin/program_list";
 		}

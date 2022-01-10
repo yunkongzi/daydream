@@ -44,7 +44,7 @@
 <!--    </select> -->
 
 	<select id="selectAll" resultType="ProgramVo">
-		select p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, s.program_time
+		select p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, c.time_no
 		from tbl_program p, tbl_program_sub s, tbl_class_time c
 		where p.class_no = s.class_no 
 		and s.program_time = c.time_no
