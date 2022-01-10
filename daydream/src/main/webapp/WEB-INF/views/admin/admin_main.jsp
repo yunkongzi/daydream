@@ -30,18 +30,23 @@
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
+					<a class="btn btn-outline-info btn-lg btn-block
+							btnReserv" href="/main">
+						메인으로 돌아이잉ㅇ
+					</a> 
+					<p></p>
 					<a class="btn btn-outline-warning btn-lg btn-block
 							btnReserv" href="/admin/rev_list">
 						예약자 현황
 					</a> 
 					<p></p>
-					<a class="btn btn-outline-primary btn-lg btn-block
+					<a class="btn btn-outline-success btn-lg btn-block
 							btnProReg" href="/admin/program_regist">
 							
 						프로그램 등록
 					</a> 
 					<p></p>
-					<button type="button" class="btn btn-outline-success btn-lg btn-block
+					<button type="button" class="btn btn-outline-primary btn-lg btn-block
 							btnBoardAd">
 						게시판 관리
 					</button> 
@@ -51,6 +56,7 @@
 						강사지원 관리
 					</button>
 					<p></p>
+					
 				</div>
 				<div class="col-md-2">
 				</div>

@@ -56,4 +56,14 @@ public class ProgramDao {
 		
 		return list;
 	}
+	
+	// 프로그램 수정 처리
+	public void updateProgram(ProgramVo programVo) {
+		sqlSession.update(NAMESPACE + "updateProgram", programVo); 
+	}
+	
+	// 프로그램 삭제 처리
+	public void deleteProgram(int class_no) {
+		sqlSession.delete(NAMESPACE + "deleteProgram", class_no);
+	}
 }

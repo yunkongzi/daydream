@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ include file="/WEB-INF/views/include/header.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,24 +9,29 @@
 </head>
 <body>
 
-<<<<<<< HEAD
+<!-- Logo -->
+<!-- 			<section id="header"> -->
+<!--                <div class="container" style="padding-top:50px; padding-bottom:50px;"> -->
+<!--                      <h1 id="logo"><a href="/main">DAYDREAM</a></h1> -->
+<!--                      <p>One Day, One Dream</p> -->
+<!--                </div> -->
+<!--             </section> -->
 
-<a href="member/member_regist">회원가입</a><br>
-<a href="member/login">로그인</a><br>
+	<section id="features">
+		<div class="container">
+			<header>
+				
+				
+				"여기에 내용물을 넣어주세요"
+				
+			</header>
+		</div>
+	</section>
 
 
-<a href="member/member_regist">회원가입</a><br><br>
-<a href="member/login">로그인</a><br><br>
-<a href="member/mypage">마이페이지</a><br><br>
-
-=======
-<a href="/member/member_regist">회원가입</a><br><br>
-<a href="/member/login">로그인</a><br><br>
-<a href="/member/mypage">마이페이지</a><br><br>
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 
 
 </body>
 </html>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>

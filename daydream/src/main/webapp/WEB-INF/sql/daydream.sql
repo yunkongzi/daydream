@@ -40,18 +40,8 @@ create sequence seq_bno;
 
 -- 첨부파일 테이블
 create table tbl_attach(
-    fullname varchar2(150) not null,  -- 첨부파일 이름
-    bno number not null, -- 글번호
-    regdate date default sysdate, -- 작성일
-    primary key(fullname)
+	file_name varchar2(100) primary key,
+	bno number references tbl_board(bno)
 );
 
--- bno 외래키 설정
-alter table tbl_attach add constraint
-fk_review_attch foreign key(bno) 
-references tbl_review(bno);
 
-
--- tbl_review 테이블의 bno 컬럼을 위한 시퀀스 생성
-create sequence seq_review start with 1
-increment by 1;

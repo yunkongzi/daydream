@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">	
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
 $(function() {
@@ -24,10 +19,16 @@ $(function() {
 </head>
 <body>
 
-<div class="container-fluid">
+
+<section id="features">
+		<div class="container" style="margin:0 auto;">
+			<header>
+				
+				
+				<div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron" style="background-color:olive !important;">
+		<div class="col-md-12" style="margin:0 auto;">
+			<div class="jumbotron" >
 				<h2>
 					마이페이지
 				</h2>
@@ -36,8 +37,13 @@ $(function() {
 			<div class="jumbotron">
 				<h5>【내 정보】</h5>
 				아이디: ${sessionScope.memberVo.user_id} <br>
-				이름: ${sessionScope.memberVo.user_name}
-			</div>
+				이름: ${sessionScope.memberVo.user_name} <br>
+				전화번호: ${sessionScope.memberVo.user_phone} <br>
+				
+				<button type="button" class="btn btn-outline-primary" 
+				onclick="location.href='/member/member_modify'">정보수정</button><br><br>
+				
+			</div><br><br><br>
 			
 			<div class="jumbotron">
 				<h5>【예약 현황】</h5>
@@ -56,5 +62,16 @@ $(function() {
 	</div>
 </div>
 
+				
+				
+			</header>
+		</div>
+	</section>
+
+
+
+
 </body>
 </html>
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
