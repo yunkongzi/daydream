@@ -18,11 +18,11 @@ import com.kh.daydream.vo.TeacherVo;
 
 @Controller
 public class HomeController {
-	
-	@RequestMapping("/")
-	@ResponseBody
-	public String showMain() {
-		return "/teacher/teacher_form";
-	}
-	
-}
+   
+   // 메인 페이지
+   @RequestMapping(value="/main", method=RequestMethod.GET)
+   public String mainHome() {
+      return "/main";
+   }
+   //
+}   
