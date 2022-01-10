@@ -9,7 +9,7 @@
 		insert into tbl_review(
 		bno, user_id, title, content, class_no)
 		values
-		(seq_review.nextval, #{user_id}, #{title}, #{content}, #{class_no}, 'y')
+		(seq_review.nextval, #{user_id}, #{title}, #{content}, #{class_no})
 	</insert>
 	<!-- 리뷰  정보 보기 -->
 	<select id="selectById" resultType="ReviewVo">
@@ -39,6 +39,12 @@
 				content = #{content}
 			where bno = #{bno}
 		</update>
+		
+	<!-- 리뷰글 삭제 -->
+		<delete id="deleteReview">
+			delete from tbl_review
+			where bno = #{bno}
+		</delete>
 		
 	<!-- 첨부파일 목록 -->
 	<select id="getFilenames" resultType="string">

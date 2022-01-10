@@ -36,6 +36,7 @@ public class ReviewService {
 		return reviewVo;
 	}
 	
+	// 리뷰 삭제
 	@Transactional
 	public String[] deleteReview(int bno) {
 		String[] filenames = reviewDao.getFilenames(bno);

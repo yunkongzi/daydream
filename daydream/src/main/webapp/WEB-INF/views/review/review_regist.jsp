@@ -14,6 +14,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
 <script>
+// 별점 처리
 $(function () {
     var starEls = document.querySelectorAll('#star span.star');
     var rate = 0;
@@ -23,11 +24,9 @@ $(function () {
             rating(index + 1);
         });
     });
-
     function loop(list, func) {
         Array.prototype.forEach.call(list, func);
     }
-
     function rating(score) {
         loop(starEls, function (el, index) {
             if (index < score) {
@@ -36,7 +35,6 @@ $(function () {
                 el.classList.remove('on');
             }
         });
-
         rate = score;
     }
 })();
@@ -120,6 +118,9 @@ $(document).ready(function(){
 		});
 	});
 });
+
+	${}
+	
 </script>
 <style>
 // 별점 스타일
@@ -166,6 +167,12 @@ $(document).ready(function(){
 		<div class="col-md-12">
 			<form role="form" action="/review/regist_run" id="frmRegist"
 				method="post">
+				<div class="form-group">
+					<label for="class_no">클래스</label>
+					<input type="text" class="form-control" 
+						id="class_no" name="class_no" required="required"
+						value="${reviewVo.class_no}" readonly="readonly"/>
+				</div>
 				<div class="form-group">
 					<label for="userid">아이디</label>
 					<input type="text" class="form-control" 

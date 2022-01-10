@@ -46,4 +46,7 @@ public class ReviewController {
 		reviewService.updateReview(reviewVo);
 		return "redirect:/review/review_list";
 	}
+	
+	// 리뷰 삭제처리
+	
 }
