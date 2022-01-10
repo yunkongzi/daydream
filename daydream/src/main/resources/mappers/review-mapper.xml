@@ -3,12 +3,22 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.daydream.mappers.review">
+
+	<!-- 로그인한 사용자의 수강완료 목록 -->
+	<select id="reviewList" resultType="AttendClassVo">
+		select r.user_id, r.res_date, p.class_name, s.program_time, r.status, p.class_no
+		from tbl_reservation r, tbl_program p , tbl_program_sub s
+		where r.class_sub_no = s.program_sub_no
+		and s.class_no = p.class_no
+		and r.user_id = #{user_id}
+		and r.status = #{status}
+	</select>
 	
 	<!-- 리뷰글 추가 -->
 	<insert id="insertReview">
 		insert into tbl_review(
 		bno, user_id, title, content, class_no)
-		values(#{bno}, #{user_id}, #{title}, #{content}, #{class_no})
+		values(seq_bno.nextval, #{user_id}, #{title}, #{content}, #{class_no})
 	</insert>
 	
 	<!-- bno 얻기 -->

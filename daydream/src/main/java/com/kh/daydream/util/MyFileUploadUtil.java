@@ -65,11 +65,12 @@ public class MyFileUploadUtil {
 		try {
 			BufferedImage srcImage = ImageIO.read(orgFile);
 			// org.imgscalr.Scalr
-			BufferedImage descImage = Scalr.resize(srcImage, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100); // 높이
-																														// 100에
-																														// 맞춰서
-																														// 너비
-																														// 자동조절
+			BufferedImage descImage = Scalr.resize(
+					srcImage, 
+					Scalr.Method.AUTOMATIC, 
+					Scalr.Mode.FIT_TO_HEIGHT, 
+					100); 
+																														
 			ImageIO.write(descImage, getExtName(rear), thumbFile);
 
 		} catch (Exception e) {
@@ -88,7 +89,9 @@ public class MyFileUploadUtil {
 
 	public static boolean isImage(String fileName) {
 		String extName = getExtName(fileName);
-		if (extName.equals("JPG") || extName.equals("PNG") || extName.equals("GIF")) {
+		if (extName.equals("JPG") || 
+				extName.equals("PNG") || 
+				extName.equals("GIF")) {
 			return true;
 		}
 		return false;
