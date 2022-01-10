@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.kh.daydream.service.TeacherService;
 
-import com.kh.daydream.vo.TeacherVo;
 
 @Controller
 public class HomeController {

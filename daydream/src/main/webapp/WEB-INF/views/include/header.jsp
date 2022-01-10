@@ -15,6 +15,10 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
 
@@ -48,8 +52,11 @@
 						<a href="/main">DAYDREAM</a>
 					</h1>
 					<p>One Day, One Dream</p>
-
-
+					<hr>
+					${sessionScope.memberVo.user_name}
+					<hr>
+					
+					<c:set var="id" value="${sessionScope.memberVo.user_id}"/>
 
 					<c:choose>
 						<c:when test="${empty sessionScope.memberVo }">
@@ -59,6 +66,15 @@
 							<button type="button" onclick="location.href='/member/login'">로그인</button>
 							<button type="button"
 								onclick="location.href='/member/member_regist'">회원가입</button>
+						</c:when>
+						
+						<c:when test="${id eq 'kongzi'}">
+							<br>
+							<br>
+							<br>
+							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
+							<button type="button"
+								onclick="location.href='/admin/admin_main'">관리자메인</button>
 						</c:when>
 						
 						
