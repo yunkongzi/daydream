@@ -8,7 +8,7 @@
   
   <function>
   	<name>isImage</name>
-  	<function-class>com.kh.ex01.util.MyFileUploadUtil</function-class>
+  	<function-class>com.kh.daydream.util.MyFileUploadUtil</function-class>
   	<function-signature>
   		boolean isImage(java.lang.String)
   	</function-signature>
@@ -16,7 +16,7 @@
   
   <function>
   	<name>getShortName</name>
-  	<function-class>com.kh.ex01.util.MyFileUploadUtil</function-class>
+  	<function-class>com.kh.daydream.util.MyFileUploadUtil</function-class>
   	<function-signature>
   		java.lang.String getShortName(java.lang.String)
   	</function-signature>

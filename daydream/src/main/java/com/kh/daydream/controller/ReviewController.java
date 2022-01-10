@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kh.daydream.service.ReviewService;
+import com.kh.daydream.util.MyFileUploadUtil;
 import com.kh.daydream.vo.ReviewVo;
 
 @Controller
 @RequestMapping("/review")
 public class ReviewController {
+	
+	private static final String UPLOAD_PATH = "D:/upload";
 	
 	@Inject
 	private ReviewService reviewService;
@@ -48,5 +51,13 @@ public class ReviewController {
 	}
 	
 	// 리뷰 삭제처리
-	
+	@RequestMapping(value="/deleteReview", method=RequestMethod.GET)
+	public String deleteReview(int bno) {
+		System.out.println("ReviewController, deleteReview");
+		String[] filenames = reviewService.deleteReview(bno);
+		for (String filename : filenames) {
+			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
+		}
+		return "redirect:/review/list_all";
+	}
 }

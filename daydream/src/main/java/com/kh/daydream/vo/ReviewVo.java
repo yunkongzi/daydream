@@ -18,15 +18,6 @@ public class ReviewVo {
 		super();
 	}
 
-	/**
-	 * @param bno
-	 * @param user_id
-	 * @param title
-	 * @param content
-	 * @param regdate
-	 * @param viewcnt
-	 * @param class_no
-	 */
 	public ReviewVo(int bno, String user_id, String title, String content, Timestamp regdate, int viewcnt,
 			int class_no) {
 		super();
