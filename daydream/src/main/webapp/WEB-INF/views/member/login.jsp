@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function() {
 	
@@ -22,7 +22,6 @@ $(function() {
 </script>
 </head>
 <body>
-
 
 
 
@@ -41,7 +40,7 @@ $(function() {
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12" style="padding-left: 530px;">
+		<div class="col-md-12" style="margin:0 auto;">
 			<form role="form" action="/member/login_run" 
 				method="post">
 				<div class="form-group">
