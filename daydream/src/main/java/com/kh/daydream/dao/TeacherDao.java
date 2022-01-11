@@ -23,6 +23,8 @@ public class TeacherDao {
 		sqlSession.insert(NAMESPACE + "insertTeacher", teacherVo);
 	}
 	
+	
+	
 	// 강사 정보 보기
 	public TeacherVo selectByTno(String tno) {
 		TeacherVo teacherVo = sqlSession.selectOne(
