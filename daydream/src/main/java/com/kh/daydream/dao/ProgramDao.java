@@ -77,6 +77,7 @@ public class ProgramDao {
 	// 프로그램 수정 처리
 	public void updateProgram(ProgramVo programVo) {
 		sqlSession.update(NAMESPACE + "updateProgram", programVo); 
+		
 	}
 	
 	// 프로그램 삭제 처리

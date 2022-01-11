@@ -77,6 +77,7 @@ public class AdminController {
 	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
 	public String updateProgram(ProgramVo programVo) {
 		programService.updateProgram(programVo);
+		
 		return "redirect:/admin/program_list";
 	}
 
