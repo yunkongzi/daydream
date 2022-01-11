@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,9 +117,6 @@ $(document).ready(function(){
 		});
 	});
 });
-
-
-	
 </script>
 <style>
 // 별점 스타일
@@ -176,7 +172,8 @@ $(document).ready(function(){
 				<div class="form-group">
 					<label for="userid">아이디</label>
 					<input type="text" class="form-control" 
-						id="userid" name="userid" required="required"/>
+						id="userid" name="userid" required="required"
+						value="${reviewVo.user_id}" readonly="readonly"/>
 				</div>
 				<div class="form-group">
 					<label for="title">글제목</label>
@@ -193,7 +190,6 @@ $(document).ready(function(){
 				<div>
 					<label>첨부할 파일을 드래그 &amp; 드롭하세요</label>
 					<div class="fileDrop"></div>
-					<div class="uploadedList"></div>
 				</div>
 				
 				<!-- 업로드할 항목의 템플릿 -->
