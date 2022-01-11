@@ -16,7 +16,9 @@ public class TeacherVo {
 		super();
 	}
 	
-	public TeacherVo(String tno, String class_name, String price, String personnel, String target, String introduce) {
+
+	public TeacherVo(String tno, String class_name, String price, String personnel, String target, String certificate,
+			String introduce) {
 		super();
 		this.tno = tno;
 		this.class_name = class_name;
@@ -26,7 +28,9 @@ public class TeacherVo {
 		this.certificate = certificate;
 		this.introduce = introduce;
 	}
-	
+
+
+
 	public String getTno() {
 		return tno;
 	}

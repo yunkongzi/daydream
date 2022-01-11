@@ -13,9 +13,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+<link rel="stylesheet" href="/css/mystyle.css">
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid"
+style="padding-top: 20px; padding-bottom: 20px; 
+	   padding-left: 400px; padding-right: 400px;">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
@@ -31,7 +34,7 @@
 								<th>금액</th>
 								<th>인원</th>
 								<th>참가대상</th>
-								<th>자격증</th>								
+								<th>자격증파일</th>								
 								<th>자기소개</th>					
 								<th>수정</th>					
 								<th>삭제</th>					
@@ -63,6 +66,6 @@
 	</div>
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
