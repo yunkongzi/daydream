@@ -96,8 +96,10 @@ public class MemberController {
 		
 	//로그아웃
 		@RequestMapping(value="/logout", method=RequestMethod.GET)
-		public String memberlogout() {
-			return "/member/logout";
+		public String memberlogout(HttpSession session, RedirectAttributes rttr) {
+			session.invalidate();
+			rttr.addFlashAttribute("message", "logout");
+			return "redirect:/main";
 		}
 
 		//내 정보 수정 폼
@@ -106,7 +108,9 @@ public class MemberController {
 			return "/member/modify";
 		}
 		
-}
+		
+		
+		
+}//
 
 
-//관리자 로그인 시 버튼 생성

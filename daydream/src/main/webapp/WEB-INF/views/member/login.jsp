@@ -2,12 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
 <script>
 $(function() {
 	
@@ -16,6 +13,9 @@ $(function() {
 	if (msg == "fail") {
 		alert("아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요.");
 	}
+	
+	//아이디나 비밀번호가 비어있을 때
+	
 	
 });
 
@@ -59,7 +59,7 @@ $(function() {
 					 로그인
 				</button><br><br>
 				
-				<button type="button" class="btn btn-outline-primary" 
+				<button type="button" class="btn btn-outline-primary" id="btnRegist"
 				onclick="location.href='/member/member_regist'">회원가입</button><br><br>
 
 				

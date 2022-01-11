@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+
+<script>
+$(function() {
+	var message = "${message}";
+	if (message == "logout") {
+		alert("로그아웃 되었습니다.");
+	}
+});
+</script>
 <title>DAYDREAM MAIN PAGE</title>
 </head>
 <body>

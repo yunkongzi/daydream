@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.daydream.dao.ProgramDao;
 import com.kh.daydream.vo.ClassTimeVo;
+import com.kh.daydream.vo.ProgramListVo;
 import com.kh.daydream.vo.ProgramVo;
 
 @Service
@@ -35,8 +36,29 @@ public class ProgramService {
 	}
 
 	// 모든 프로그램 조회
-	public List<ProgramVo> selectAll() {
-		List<ProgramVo> list = programDao.selectAll();
+	public List<ProgramListVo> selectProgramList() {
+		List<ProgramListVo> list = programDao.selectProgramList();
+		return list;
+	}
+	
+	// 개설된 프로그램 목록 - selectOpenedProgramList
+	@Transactional
+	public List<ProgramVo> selectOpenedProgramList(){
+		List<ProgramVo> list = programDao.selectOpenedProgramList();
+		System.out.println("ProgramService, selectOpenedProgramList, list:" + list);
+		for (int i = 0; i < list.size(); i++) {
+			
+			ProgramVo vo = list.get(i);
+			int class_no = vo.getClass_no();
+			List<Integer> timeList = programDao.openedTimeList(class_no);
+			System.out.println("ProgramService, selectOpenedProgramList, timeList:" + timeList);
+			int[] time_nos = new int[timeList.size()];
+			for (int j = 0; j < time_nos.length; j++) {
+				time_nos[j] = timeList.get(j);
+			}
+			vo.setTime_no(time_nos);
+		}
+		
 		return list;
 	}
 
@@ -49,6 +71,15 @@ public class ProgramService {
 	// 클래스 번호로 조회
 	public ProgramVo selectByClassNo(int class_no) {
 		ProgramVo programVo = programDao.selectByClassNo(class_no);
+		
+		List<Integer> timeList = programDao.openedTimeList(class_no);
+		System.out.println("ProgramService, selectByClassNo, timeList:" + timeList);
+		int[] time_nos = new int[timeList.size()];
+		for (int j = 0; j < time_nos.length; j++) {
+			time_nos[j] = timeList.get(j);
+		}
+		programVo.setTime_no(time_nos);
+		System.out.println("ProgramService, selectByClassNo, programVo:" + programVo);
 		return programVo;
 	}
 

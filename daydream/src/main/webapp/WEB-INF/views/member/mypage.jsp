@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
 
 $(function() {
@@ -43,13 +43,16 @@ $(function() {
 				<button type="button" class="btn btn-outline-primary" 
 				onclick="location.href='/member/member_modify'">정보수정</button><br><br>
 				
-			</div><br><br><br>
+			</div><br><br>
 			
 			<div class="jumbotron">
-				<h5>【예약 현황】</h5>
-				예약한 수업 리스트 ...
+				<h5>【나의 클래스 내역】</h5>
 				
-			</div>
+				${attendClassVo.user_id}
+			</div><br><br>
+			
+			
+			
 			
 			<div class="jumbotron">
 				<h5>【나의 후기】</h5>

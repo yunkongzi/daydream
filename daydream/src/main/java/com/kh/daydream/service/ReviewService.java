@@ -1,11 +1,16 @@
 package com.kh.daydream.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.daydream.dao.ReviewDao;
+import com.kh.daydream.vo.AttendClassVo;
 import com.kh.daydream.vo.ReviewVo;
 
 @Service
@@ -36,6 +41,7 @@ public class ReviewService {
 		return reviewVo;
 	}
 	
+	// 리뷰 삭제
 	@Transactional
 	public String[] deleteReview(int bno) {
 		String[] filenames = reviewDao.getFilenames(bno);
@@ -57,6 +63,11 @@ public class ReviewService {
 	// 리뷰 정보 수정
 	public void updateReview(ReviewVo reviewVo) {
 		reviewDao.updateReview(reviewVo);
+	}
+	
+	public List<AttendClassVo> reviewList(String user_id, String status) {
+		List<AttendClassVo> list = reviewDao.reviewList(user_id, status);
+		return list;
 	}
 	
 

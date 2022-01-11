@@ -5,27 +5,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title> 프로그램 수정 폼</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">													
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>													
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+<script>
+/* $(function() { 
+	$("input[name=time_no]").change(function() {
+		
+		var isChecked = $(this).prop("checked");
+		var q = "";
+		if (isChecked == true) {
+			q = "insert";
+		} else {
+			q = "delete";
+		}
+		console.log(isChecked);
+		var time_no = $(this).val();
+		console.log(time_no);
+		var class_no = "${programVo.class_no}";
+		var sendData = {
+				"time_no" : time_no,
+				"class_no" : class_no,
+				"q" : q
+		};
+		var url = "/admin/changeProgramTime";
+		$.post(url, sendData, function(rData) {
+			if (rData == "success") {
+				alert("시간 변경 완료");
+			}
+		});
+		
+	});
+}); */
+</script>
 </head>
 <body>
-${programVo}
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="jumbotron">
-					<h2 style=" text-align: center;">원데이 프로그램 수정</h2>
+					<h2 style="text-align: center;">원데이 프로그램 수정</h2>
 					<p></p>
 				</div>
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						<form role="form" action="/admin/modify_run" method="post">
-						<input type="hidden" name="class_no" value="${programVo.class_no}">
 							<div class="form-group">
 								<label for="class_no"> 클래스 번호 </label><br> 
 								<input
@@ -68,14 +96,19 @@ ${programVo}
 								
 							</div>
 							
-							<div class="form-group">
+							 <div class="form-group">
 
 								<label for="time_no"> 개설 시간 </label><br>
 								<c:forEach items="${timeList}" var="classTimeVo">
-									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}">
-									${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
+									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}" disabled
+									 <c:forEach items="${programVo.time_no}" var="no">
+										<c:if test="${no == classTimeVo.time_no}">
+										checked
+										</c:if>
+									</c:forEach> 
+									> ${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
 								</c:forEach>
-							</div>
+							</div> 
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								수정</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">
@@ -85,7 +118,7 @@ ${programVo}
 								프로그램 목록보기
 							</a>
 						</form>
-					</div>
+					</div> 
 					<div class="col-md-2"></div>
 				</div>
 			</div>
