@@ -31,8 +31,9 @@ public class ReservationController {
 		public String reservationResgistrun(ReservationVo reservationVo) {
 			System.out.println("RerservationController, insertRerservation, insertReservation:"+reservationVo);
 			reservationService.insertReservation(reservationVo);
-			return "redirect:/reservation/reservation_regist";
+			return "redirect:/reservation/reservation_list";
 	}
+		//클래스 타임 등록
 		
 	
 }

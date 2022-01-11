@@ -15,7 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 <script type="text/javascript">
-//var reserve_count = 0;
+
 //오늘 날짜
 var today = new Date();
 
@@ -67,7 +67,7 @@ function buildCalendar(){
 		console.log(clickedYMD);
     	document.getElementById("date").value = clickedYMD;
 //     	$("#date").val(clickedYMD);
-//     	self.close();
+
     }
 
     if (cnt % 7 == 1) {
@@ -101,12 +101,6 @@ function nextCalendar(){
 	today = new Date(today.getFullYear(), today.getMonth()+1, today.getDate());
 	buildCalendar();
 }
-
-function disableAllTheseDays(date){
-	var day = date.getDay();
-	return[(day !=1 && day !=2)]; 
-} 
-
 
 </script>
 
@@ -168,23 +162,28 @@ function disableAllTheseDays(date){
 			선택한 날짜 : <input type="text" id="date" name="date" readonly>
 		</div><br>
 				<div class="form-group">
-					<label for="program_time">예약 시간 : </label>
+		
+					<label for="time_no"> 예약 시간 :</label><br>
 					<select>
-						<option>10-12</option>
-						<option>14-16</option>
-						<option>16-18</option>
-						<option>19-21</option>
+						<c:forEach items="${timeList}" var="classTimeVo">
+		
+							<option value="${classTimeVo.time_no}">${classTimeVo.time_start} ~ ${classTimeVo.time_end}</option>
+									
+						</c:forEach>
 					</select>
 				</div><br>
+				
 				<div class="form-group">
-					<label for="count">인원 : </label>
+		
+					<label for="count"> 인원 수 </label><br>
 					<select>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
+						<c:forEach items="${count}" var="reservationVo">
+		
+							<option value="${reservationVo.count}">${count}</option>
+									
+						</c:forEach>
 					</select>
-				</div>
+				</div><br>
 				
 				<button type="submit" class="btn btn-primary">
 					예약 등록 완료

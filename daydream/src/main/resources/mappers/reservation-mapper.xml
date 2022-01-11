@@ -13,8 +13,14 @@
 	
 	<!-- 예약등록 -->
 	<insert id="insertReservation">
-		insert into tbl_reservation(user_id, res_date, rno, class_no, count)
-		values(#{user_id}, #{res_date}, seq_rno.nextval, #{class_sub_no}, #{count})
+		insert into tbl_reservation(user_id, res_date, rno, class_sub_no, count, status)
+		values(#{user_id}, #{res_date}, seq_rno.nextval, #{class_sub_no}, #{count}, #{status})
 	</insert>
+	
+	<!-- 클래스 시간 목록 (1~4) -->
+   <select id="selectTimeList" resultType="ClassTimeVo">
+   		select * from tbl_class_time
+		order by time_no
+   </select>
 
 </mapper>
