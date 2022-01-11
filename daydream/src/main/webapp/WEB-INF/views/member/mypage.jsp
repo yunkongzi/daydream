@@ -48,9 +48,20 @@ $(function() {
 			<div class="jumbotron">
 				<h5>【나의 클래스 내역】</h5>
 				
-				<table>
-				
-				</table>
+				<table border="1">
+<c:forEach items="${reviewList}" var="attendClassVo">
+	<tr>
+		<td>${attendClassVo.user_id}</td>
+		<td>${attendClassVo.res_date}</td>
+		<td>${attendClassVo.class_name}</td>
+		<td>${attendClassVo.program_time}</td>
+		<td>${attendClassVo.status}</td>
+		<td>${attendClassVo.class_no}</td>
+		<td><a href="/review/review_regist?class_no=${attendClassVo.class_no}">후기 작성</a></td>
+	</tr>
+
+</c:forEach>
+</table>
 				
 
 				
