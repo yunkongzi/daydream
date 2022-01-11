@@ -30,6 +30,7 @@
 						</c:if>
 						<td>${programVo.class_name}<br>
 							${programVo.price}<br>
+							${prorgramVo. }
 							</td>
 						<c:if test="${status.index % 3  == 2}">
 							</tr>
