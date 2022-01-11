@@ -20,10 +20,12 @@
 </head>
 <script>
 $(function() {
-	$(".btnModify").click(function() {
+	$(".btnModify").click(function(e) {
+		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
+		var href = $(this).attr("href");
 		console.log("class_no: ", class_no);
-		location.href = "/admin/program_modify?class_no=" + class_no;
+		location.href = href + "?class_no=" + class_no;
 	});
 	
 	$(".btnDelete").click(function() {
@@ -57,7 +59,7 @@ $(function() {
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${list}" var="programVo" >
+						<c:forEach items="${programList}" var="programVo" >
 							<tr>
 								<td>${programVo.class_name}</td>
 								<td>${programVo.price}</td>
@@ -66,7 +68,17 @@ $(function() {
 								<td>${programVo.class_intro}</td>
 								<td>${programVo.class_no}</td>
 								
-								<td>${programVo.time_no}</td>
+								<td>
+								<c:forEach items="${timeList}" var="time">
+									<c:forEach items="${programVo.time_no}" var="no">
+										<c:if test="${time.time_no == no}">
+											${time.time_start }:00 ~ ${time.time_end }:00<br>
+										</c:if>
+									</c:forEach>
+								
+								</c:forEach>
+								
+								</td>
 								<td><a class="btn btn-outline-info btnModify"
 										href="/admin/program_modify" data-class_no="${programVo.class_no}">수정</a></td>
 								<td><button type="button"
