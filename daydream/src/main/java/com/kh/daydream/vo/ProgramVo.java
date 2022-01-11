@@ -11,6 +11,7 @@ public class ProgramVo {
 	private String class_intro;
 	private int class_no;
 	private int[] time_no;
+	private String file_image;
 	
 	public ProgramVo() {
 		super();
@@ -75,13 +76,26 @@ public class ProgramVo {
 	}
 
 
+	public String getFile_image() {
+		return file_image;
+	}
+
+
+
+	public void setFile_image(String file_image) {
+		this.file_image = file_image;
+	}
+
+
 
 	@Override
 	public String toString() {
 		return "ProgramVo [class_name=" + class_name + ", price=" + price + ", target=" + target + ", personnel="
 				+ personnel + ", class_intro=" + class_intro + ", class_no=" + class_no + ", time_no="
-				+ Arrays.toString(time_no) + "]";
+				+ Arrays.toString(time_no) + ", file_image=" + file_image + "]";
 	}
+
+
 
 
 
