@@ -41,9 +41,9 @@
 					</a> 
 					<p></p>
 					<a class="btn btn-outline-success btn-lg btn-block
-							btnProReg" href="/admin/program_regist">
+							btnProReg" href="/admin/program_list">
 							
-						프로그램 등록
+						프로그램 목록
 					</a> 
 					<p></p>
 					<button type="button" class="btn btn-outline-primary btn-lg btn-block

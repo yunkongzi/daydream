@@ -86,8 +86,15 @@
 	   		target = #{target},
 	   		personnel = #{personnel},
 	   		class_intro = #{class_intro},
-	   		time_no = #{time_no}
  		where class_no = #{class_no}
+   </update>
+   
+   <!-- 프로그램 시간 수정 -->
+   <update id="updateTimeList">
+   		update tbl_class_time set
+	   		time_start = #{time_start},
+	   		time_end = #{time_end}
+   		where time_no = #{time_no}
    </update>
    
    <!-- 프로그램 삭제 -->
