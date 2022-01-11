@@ -85,7 +85,7 @@
 	   		price = #{price},
 	   		target = #{target},
 	   		personnel = #{personnel},
-	   		class_intro = #{class_intro},
+	   		class_intro = #{class_intro}
  		where class_no = #{class_no}
    </update>
    
