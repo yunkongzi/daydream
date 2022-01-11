@@ -33,7 +33,7 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html"><span>데이드림</span></a></li>
+						<li><a href="/company/road"><span>데이드림</span></a></li>
 						<li><a href="#"><span>프로그램</span></a></li>
 						<li><a href="/reservation/reservation_regist"><span>예약하기</span></a></li>
 						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>
