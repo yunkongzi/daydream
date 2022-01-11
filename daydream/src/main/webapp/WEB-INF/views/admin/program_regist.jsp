@@ -56,7 +56,7 @@
 
 								<label for="time_no"> 개설 시간 </label><br>
 								<c:forEach items="${timeList}" var="classTimeVo">
-									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}">
+									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}" checked>
 									${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
 								</c:forEach>
 							</div>

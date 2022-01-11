@@ -9,7 +9,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
+${programList }
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -24,6 +26,45 @@
 					<a class="btn btn-primary btn-large" href="#">Learn more</a>
 				</p>
 			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Product
+						</th>
+						<th>
+							Payment Taken
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					 
+					<c:forEach items="${programList}" var="programVo" varStatus="status">
+						<c:if test="${status.index % 3 == 0}">
+							<tr>
+						</c:if>
+						<td>${programVo.class_name}<br>
+							${programVo.price}<br>
+							${status.index }</td>
+						<c:if test="${status.index % 3  == 2}">
+							</tr>
+						</c:if>
+					</c:forEach>	
+				
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-2">
 		</div>
 	</div>
 	<div class="row">
