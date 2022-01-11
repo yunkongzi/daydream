@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <title>관리자 메인</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">													
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
@@ -24,7 +21,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2 style=" text-align: center;"> ~ 관리자가 관리할 수 있는 관리자 메뉴 ~ </h2>
+				<h2 style=" text-align: center;"> 관리자 메뉴 </h2>
 			</div>
 			<div class="row">
 				<div class="col-md-2">
@@ -41,20 +38,20 @@
 					</a> 
 					<p></p>
 					<a class="btn btn-outline-success btn-lg btn-block
-							btnProReg" href="/admin/program_regist">
+							btnProReg" href="/admin/program_list">
 							
-						프로그램 등록
+						프로그램 목록
 					</a> 
 					<p></p>
-					<button type="button" class="btn btn-outline-primary btn-lg btn-block
+					<a class="btn btn-outline-primary btn-lg btn-block
 							btnBoardAd">
 						게시판 관리
-					</button> 
+					</a> 
 					<p></p>
-					<button type="button" class="btn btn-lg btn-outline-danger btn-block
+					<a class="btn btn-lg btn-outline-danger btn-block
 							btnTeachAd">
 						강사지원 관리
-					</button>
+					</a>
 					<p></p>
 					
 				</div>
@@ -66,3 +63,4 @@
 </div>
 </body>
 </html>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
