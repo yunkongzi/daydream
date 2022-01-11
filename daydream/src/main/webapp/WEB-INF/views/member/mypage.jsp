@@ -48,6 +48,7 @@ $(function() {
 			<div class="jumbotron">
 				<h5>【나의 클래스 내역】</h5>
 				
+<<<<<<< HEAD
 				<table border="1">
 <c:forEach items="${reviewList}" var="attendClassVo">
 	<tr>
@@ -64,6 +65,8 @@ $(function() {
 </table>
 				
 
+=======
+>>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 				
 			</div><br><br>
 			

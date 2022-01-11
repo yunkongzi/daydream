@@ -37,4 +37,16 @@
 		where tno = #{tno}
 	</delete>
 	
+	<!-- tno 얻기 -->
+	<select id="getTnoNextVal" resultType="String">
+		select seq_tno.nextval
+		from dual
+	</select>
+	
+	<!-- 첨부파일 추가 -->
+<!-- 	<insert id="insertAttach"> -->
+<!-- 		insert into tbl_teacher(file_name, tno) -->
+<!-- 		values(#{file_name}, #{tno}) -->
+<!-- 	</insert> -->
+	
 </mapper>

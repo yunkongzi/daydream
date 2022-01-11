@@ -13,7 +13,46 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-
+<script>
+$(function() {
+	
+	
+	var d = new Date("2022-01-07");
+	var w = d.getDay(d);
+	console.log(w);
+	var day = 0;
+	while (day <= 31) {
+		var tr = "<tr>";
+		var weekNum = 0; // 0 ~ 6(일~토)
+		var weekV = 0;
+		if (day == 0) {
+			while (weekNum < w) {
+				console.log("없음");
+				tr += "<td class='none'></td>";
+				weekNum++;
+			}
+		}
+		
+		while (weekNum < 7 ) {
+			
+			day++;
+			if (day <= 31) {
+				tr += "<td>" + day + "</td>";
+			} else {
+				tr += "<td class='none'></td>";
+			}
+			
+			weekNum++;
+			
+		}
+		tr += "</tr>";
+		$("#calTable").append(tr);
+		
+	}
+});
+	
+	
+</script>
 <style type="text/css">
 
 a:link { font-family: "";font-size:14pt; text-decoration:none; color:darkblue}

@@ -38,7 +38,7 @@ $(function() {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2 style="text-align:center;">등록된 프로그램 목록</h2>
+				<h2 style="text-align:center;">등록된 프로그램 </h2>
 			</div>
 			<div class="row">
 				<div class="col-md-12">

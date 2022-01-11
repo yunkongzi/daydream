@@ -14,7 +14,7 @@ $(function() {
 		alert("아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요.");
 	}
 	
-	//아이디나 비밀번호가 비어있을 때
+
 	
 	
 });
@@ -32,7 +32,7 @@ $(function() {
 				
 				<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12" style="padding-left: 450px;">
+		<div class="col-md-12" style="margin:0 auto;">
 			
 				<h2>DAYDREAM LOGIN PAGE</h2>
 				
@@ -55,7 +55,7 @@ $(function() {
 						id="user_pw" name="user_pw" />
 				</div><br><br><br>
 				
-				<button type="submit" class="btn btn-outline-success">
+				<button type="submit" class="btn btn-outline-success" id="btnLogin">
 					 로그인
 				</button><br><br>
 				

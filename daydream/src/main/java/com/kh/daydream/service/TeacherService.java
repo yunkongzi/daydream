@@ -36,8 +36,9 @@ public class TeacherService {
 	}
 	
 	// 강사 정보 삭제
-	public void deleteTeacher(String tno) {
+	public String[] deleteTeacher(String tno, String[] list) {
 		teacherDao.deleteTeacher(tno);
+		return list;
 	}
 	
 	
