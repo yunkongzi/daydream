@@ -38,4 +38,10 @@ public class CompanyController {
 	public String CompanyRoad() {
 		return "/company/road";
 	}
+	
+	//업체소개
+		@RequestMapping(value = "/introduction", method = RequestMethod.GET)
+		public String CompanyIntroduction() {
+			return "/company/introduction";
+		}
 }
