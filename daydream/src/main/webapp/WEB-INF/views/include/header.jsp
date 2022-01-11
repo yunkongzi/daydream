@@ -37,8 +37,7 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="/company/road"><span>데이드림</span></a></li>
-						<li><a href="#"><span>프로그램</span></a></li>
+						
 					<li>
 						<a href="#"><span>데이드림</span></a>
 										<ul>
