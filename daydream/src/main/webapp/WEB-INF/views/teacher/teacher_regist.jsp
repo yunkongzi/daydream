@@ -2,18 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<!DOCTYPE html>
-<html>
+
 <head>
 <meta charset="UTF-8">
 <title>강사등록</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">	
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-<link rel="stylesheet" href="/css/mystyle.css">
 
 <script src="/js/myscript.js"></script>
 
@@ -108,23 +100,20 @@ $(function() {
 	});
 }); // $(function)
 </script>
-
-
 </head>
-<body>
 
-<div class="container-fluid" style="padding-top: 20px; padding-bottom: 20px;
-								    padding-left: 600px; padding-right: 600px;">
+<body>
+							
+<div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
-		<div class="col-md-12" style="margin:500 auto;">
-			<div class="jumbotron">
-				<h2>강사 등록 양식</h2>
-				
+		<div class="col-md-12" style="margin:0 auto;">
+			<div class="jumbotron" style="margin:0 auto;">
+				<h2>강사 등록</h2>				
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" style="margin:0 auto;">
 			<form role="form" action="/teacher/regist_run" 
 				method="post" enctype="multipart/form-data">
 				<div class="form-group">
@@ -133,7 +122,7 @@ $(function() {
 						id="tno" name="tno" />
 				</div>
 				<div class="form-group">
-					<label for="class_name">강의명</label>
+					<label for="class_name">강좌명</label>
 					<input type="text" class="form-control" 
 						id="class_name" name="class_name" />
 				</div>
@@ -160,8 +149,7 @@ $(function() {
 						id="certificate" name="certificate" style="display:none"/>
 					<button type="button" id="btnFile">파일 첨부</button>
 				</div>
-								
-				
+												
 				<div class="form-group">
 					<label for="introduce">자기소개</label>
 					<textarea class="form-control" placeholder="50자 내외로 글을 작성해주세요."
@@ -175,5 +163,5 @@ $(function() {
 </div>
 
 </body>
-</html>
+
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
