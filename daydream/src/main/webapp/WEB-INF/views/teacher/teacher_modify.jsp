@@ -14,21 +14,17 @@
 $(function() {
 	
 
-
 });
 </script>
 </head>
 <body>
 
 
-
 <section id="features">
-		<div class="container">
+		<div class="container" style="margin:0 auto;">
 			<header>
-				
-				
-				
-<div class="container-fluid">
+												
+<div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
 
 	<div class="col-md-10" style="margin:0 auto;">
@@ -90,13 +86,11 @@ $(function() {
 		</div>
 	</div>
 </div>
-								
-			</header>
-		</div>
-	</section>
-
+</header>
+</div>
+</section>
 
 </body>
-</html>
+
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

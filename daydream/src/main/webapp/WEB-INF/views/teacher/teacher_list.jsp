@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<!DOCTYPE html>
-<html>
+
 <head>
 <meta charset="UTF-8">
 <title>강사리스트</title>
@@ -16,9 +15,7 @@
 <link rel="stylesheet" href="/css/mystyle.css">
 </head>
 <body>
-<div class="container-fluid"
-style="padding-top: 20px; padding-bottom: 20px; 
-	   padding-left: 400px; padding-right: 400px;">
+<div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
@@ -65,7 +62,5 @@ style="padding-top: 20px; padding-bottom: 20px;
 		</div>
 	</div>
 </div>
-
 </body>
-</html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
