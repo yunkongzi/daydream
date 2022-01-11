@@ -102,5 +102,7 @@
    		delete from tbl_program
    		where class_no = #{class_no}
    </delete>
+   
+   <select id=""></select>
 </mapper>
 

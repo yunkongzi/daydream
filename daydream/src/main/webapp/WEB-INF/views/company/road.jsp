@@ -3,12 +3,16 @@
 <%@ page session="false" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<html>
 <head>
 	<title>데이드림 오시는길</title>
 </head>
 <body>
-<h1>
+
+<section id="features">
+		<div class="container" style="margin:0 auto;">
+			<header>								
+				<div class="container-fluid" style="margin:0 auto;">
+<h1  style="font-size:30px;">
 	오시는길
 </h1>
 
@@ -30,7 +34,10 @@
 <span>통신판매업신고번호 : <em>제 2012-울산남구-0050호 </em></span>
 <p class="copy">copyright &copy; <strong>ULSAN DAYDREAM</strong>. All Rights Reserved.</p>
 </div>
-
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+</div>			
+</header>
+</div>
+</section>
 </body>
 </html>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>

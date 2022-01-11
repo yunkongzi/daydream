@@ -56,9 +56,13 @@
 
 								<label for="time_no"> 개설 시간 </label><br>
 								<c:forEach items="${timeList}" var="classTimeVo">
-									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}">
+									<input type="checkbox" name="time_no" value="${classTimeVo.time_no}" checked>
 									${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
 								</c:forEach>
+							</div>
+							<div class="form-group">
+								<label for="image"> 사진 </label><br> 
+								<input type="file" class="form-control" name="image" />
 							</div>
 							
 							
