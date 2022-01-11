@@ -39,9 +39,10 @@ $(function () {
 });
 
 // 파일 업로드 요청 처리
-$(document).ready(function(){
+$(function() {
 	$(".fileDrop").on("dragenter dragover", function(e){
 		e.preventDefault();
+		console.log("엔터, 오버");
 	});
 	$(".fileDrop").on("drop", function(e){
 		e.preventDefault();

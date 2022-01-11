@@ -22,13 +22,13 @@ public class ReviewService {
 	// 리뷰 추가
 	@Transactional
 	public void insertReview(ReviewVo reviewVo) {
-		int bno = reviewDao.getBnoNextVal();
+		int bno = reviewDao.getBnoNextVal(); // seq_bno.nextval
 		reviewVo.setBno(bno);
-		reviewDao.insertReview(reviewVo);
-		String [] files = reviewVo.getFiles();
+		reviewDao.insertReview(reviewVo); // tbl_review
+		String[] files = reviewVo.getFiles();
 		if(files != null && files.length > 0) {
 			for (String file_name : files) {
-				reviewDao.insrtAttach(file_name, bno);
+				reviewDao.insertAttach(file_name, bno); // tbl_attach
 			}
 		}
 	}
@@ -65,6 +65,7 @@ public class ReviewService {
 		reviewDao.updateReview(reviewVo);
 	}
 	
+	// 리뷰 리스트 
 	public List<AttendClassVo> reviewList(String user_id, String status) {
 		List<AttendClassVo> list = reviewDao.reviewList(user_id, status);
 		return list;
