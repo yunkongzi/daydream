@@ -12,7 +12,7 @@
 		<div class="container" style="margin:0 auto;">
 			<header>								
 				<div class="container-fluid" style="margin:0 auto;">
-<h1>
+<h1  style="font-size:30px;">
 	오시는길
 </h1>
 
@@ -35,9 +35,9 @@
 <p class="copy">copyright &copy; <strong>ULSAN DAYDREAM</strong>. All Rights Reserved.</p>
 </div>
 </div>			
-			</header>
-		</div>
-	</section>
+</header>
+</div>
+</section>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
