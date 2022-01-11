@@ -15,6 +15,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
 <script type="text/javascript">
+//var reserve_count = 0;
 
 var today = new Date();
 function buildCalendar(){
@@ -32,15 +33,13 @@ function buildCalendar(){
 
   row = calendarTable.insertRow();
   for(i = 0; i < firstDate.getDay(); i++){
-  	cell = row.insertCell();
-  	cnt += 1;
+	cell = row.insertCell();
+  	cnt++;
   }
-
-  row = calendarTable.insertRow();
 
   for(i = 1; i <= lastDate.getDate(); i++){
   	cell = row.insertCell();
-  	cnt += 1;
+  	cnt++;
 
     cell.setAttribute('id', i);
   	cell.innerHTML = i;
@@ -85,28 +84,20 @@ function nextCalendar(){
 	today = new Date(today.getFullYear(), today.getMonth()+1, today.getDate());
 	buildCalendar();
 }
+
+function disableAllTheseDays(date){
+	var day = date.getDay();
+	return[(day !=1 && day !=2)]; 
+} 
 </script>
 
  <style type="text/css">
 /* 기본스타일  */	
 	table{ background-color: #F2F2F2;}
 	
-	tr{height: 60px;}
-	td{width: 100px; text-align: right; font-size: 15pt; font-family: D2coding;}
-/* 타이틀 스타일 */
-	th#title {font-size: 20pt; font-weight: bold; color: #FFBF00; font-family: D2coding; }
+	tr{height:60px;}
+	td{width:100px; text-align:center; font-size:15pt; font-family:D2coding;}
 
-/* 요일 스타일 */
-	td.sunday{ text-align: center; font-weight: bold; color: red; font-family: D2coding; }
-	td.saturday{ text-align: center; font-weight: bold; color: blue; font-family: D2coding; }
-	td.etcday{ text-align: center; font-weight: bold; color: black; font-family: D2coding; }
-
-/* 날짜 스타일 */
-	td.sun{ text-align: right; font-size: 15pt; color: red; font-family: D2coding; vertical-align: top;}
-	td.sat{ text-align: right; font-size: 15pt; color: blue; font-family: D2coding; vertical-align: top;}
-	td.etc{ text-align: right; font-size: 15pt; color: black; font-family: D2coding; vertical-align: top;}
-	
-	
 </style>
 
 
@@ -132,8 +123,8 @@ function nextCalendar(){
 			<table id="calendar">
 					<tr>
 						<td><label onclick="prevCalendar()"> ◀ 이전 달 </label></td>
-						<td colspan="3" align="center" id="calendarTitle">yyyy년 m월</td>
-						<td  colspan="3"><label onclick="nextCalendar()"> 다음 달 ▶ </label></td>
+						<td colspan="5" align="center" id="calendarTitle">yyyy년 m월</td>
+						<td  colspan="5"><label onclick="nextCalendar()"> 다음 달 ▶ </label></td>
 					</tr>
 					<tr>
 						<td align="center"><font color ="#F79DC2">일</font></td>
