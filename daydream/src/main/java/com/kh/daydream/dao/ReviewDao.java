@@ -10,7 +10,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.kh.daydream.vo.AttendClassVo;
+import com.kh.daydream.vo.PagingDto;
 import com.kh.daydream.vo.ReviewVo;
+
 
 @Repository
 public class ReviewDao {
@@ -18,6 +20,11 @@ public class ReviewDao {
 	
 	@Inject
 	private SqlSession sqlsession;
+	
+	public List<ReviewVo> selectAll(PagingDto pagingDto) {
+		List<ReviewVo> list = sqlsession.selectList(NAMESPACE + "selectAll", pagingDto);
+		return list;
+	}
 	
 	// 리뷰 추가
 	public void insertReview (ReviewVo reviewVo) {
@@ -42,6 +49,11 @@ public class ReviewDao {
 	
 	public void modifyReveiw(ReviewVo reviewVo) {
 		sqlsession.update(NAMESPACE + "modifyBoard", reviewVo);
+	}
+	
+	public int getCount(PagingDto pagingDto) {
+		int count = sqlsession.selectOne(NAMESPACE + "getCount", pagingDto);
+		return count;
 	}
 	
 	// 조회수 

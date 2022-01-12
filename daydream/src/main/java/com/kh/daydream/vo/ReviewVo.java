@@ -12,23 +12,8 @@ public class ReviewVo {
 	private Timestamp regdate;
 	private int viewcnt;
 	private int class_no;
+	private int star_count;
 	private String[] files;
-
-	public ReviewVo() {
-		super();
-	}
-
-	public ReviewVo(int bno, String user_id, String title, String content, Timestamp regdate, int viewcnt,
-			int class_no) {
-		super();
-		this.bno = bno;
-		this.user_id = user_id;
-		this.title = title;
-		this.content = content;
-		this.regdate = regdate;
-		this.viewcnt = viewcnt;
-		this.class_no = class_no;
-	}
 
 	public int getBno() {
 		return bno;
@@ -86,6 +71,14 @@ public class ReviewVo {
 		this.class_no = class_no;
 	}
 
+	public int getStar_count() {
+		return star_count;
+	}
+
+	public void setStar_count(int star_count) {
+		this.star_count = star_count;
+	}
+
 	public String[] getFiles() {
 		return files;
 	}
@@ -97,8 +90,8 @@ public class ReviewVo {
 	@Override
 	public String toString() {
 		return "ReviewVo [bno=" + bno + ", user_id=" + user_id + ", title=" + title + ", content=" + content
-				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + ", files="
-				+ Arrays.toString(files) + "]";
+				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + ", star_count="
+				+ star_count + ", files=" + Arrays.toString(files) + "]";
 	}
 
 }

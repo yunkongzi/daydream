@@ -35,6 +35,8 @@ $(function () {
             }
         });
         rate = score;
+        var input_star_count = document.getElementById("star_count");
+        input_star_count.value = rate;
     }
 });
 
@@ -99,9 +101,9 @@ $(function() {
 		divs.each(function(index){
 			var filename = $(this).attr("data-filename");
 			var inputHtml = "<input type='hidden' name='files["+ index +"]' value='" + filename + "'>";
-			$("#rfmRegist").prepend(inputHtml);
+			$("#frmRegist").prepend(inputHtml);
 		});
-		// return false;
+// 		return false;
 	});
 	
 	// 파일 삭제 
@@ -182,18 +184,14 @@ function isImage(fileName){
 		<div class="col-md-12">
 			<form role="form" action="/review/regist_run" id="frmRegist"
 				method="post">
+				<input type="hidden" name="star_count" id="star_count">
+				<input type="hidden" name="class_no" value="${class_no}">
 				<div class="form-group">
-					<label for="class_no">클래스</label>
+					<label for="class_name">클래스이름</label>
 					<input type="text" class="form-control" 
-						id="class_no" name="class_no" required="required"
-						value="${reviewVo.class_no}" readonly="readonly"/>
+						id="class_name" value="${class_name}" readonly />
 				</div>
-				<div class="form-group">
-					<label for="userid">아이디</label>
-					<input type="text" class="form-control" 
-						id="userid" name="userid" required="required"
-						value="${reviewVo.user_id}" readonly="readonly"/>
-				</div>
+				
 				<div class="form-group">
 					<label for="title">글제목</label>
 					<input type="text" class="form-control" 
