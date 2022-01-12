@@ -61,8 +61,8 @@
 								</c:forEach>
 							</div>
 							<div class="form-group">
-								<label for="image"> 사진 </label><br> 
-								<input type="file" class="form-control" name="image" />
+								<label for="file_image"> 사진 </label><br> 
+								<input type="file" class="form-control" name="file_image" />
 							</div>
 							
 							
