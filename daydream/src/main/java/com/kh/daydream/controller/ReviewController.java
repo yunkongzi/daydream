@@ -1,11 +1,13 @@
 package com.kh.daydream.controller;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +26,8 @@ import com.kh.daydream.vo.ReviewVo;
 public class ReviewController {
 	
 	private static final String UPLOAD_PATH = "//192.168.0.80/reviewpic";
-	private static final String RESERVED = "1";
-	private static final String INCLASS = "2";
+//	private static final String RESERVED = "1";
+//	private static final String INCLASS = "2";
 	private static final String FINISH = "3";
 	
 	@Inject
@@ -33,9 +35,9 @@ public class ReviewController {
 	
 	@RequestMapping(value="/reviewList", method=RequestMethod.GET)
 	public String reviewList(HttpSession session, Model model) {
-//		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-//		String user_id = memberVo.getUser_id();
-		String user_id = "hong";
+		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+		String user_id = memberVo.getUser_id();
+//		String user_id = "hong";
 		List<AttendClassVo> reviewList= reviewService.reviewList(user_id, FINISH);
 		model.addAttribute("reviewList", reviewList);
 		return "review/reviewList";
@@ -49,11 +51,11 @@ public class ReviewController {
 		}
 		
 	// 리뷰쓰기 처리(/review/review_regist_run)
-	@RequestMapping(value="/review_regist_run", method=RequestMethod.POST)
+	@RequestMapping(value="/review_reviewList", method=RequestMethod.POST)
 		public String reviewRegistRun(ReviewVo reviewVo) {
 		System.out.println("ReviewController, reviewRegistRun, reviewVo:" + reviewVo);
 		reviewService.insertReview(reviewVo);
-		return "redirect:/review/mypage.jsp";
+		return "review/reviewList";
 	}
 	
 	// 리뷰 수정 폼
@@ -70,7 +72,7 @@ public class ReviewController {
 	public String updateReviewRun(ReviewVo reviewVo) {
 		System.out.println("ReviewController, updateReviewRun, reviewVo:" + reviewVo);
 		reviewService.updateReview(reviewVo);
-		return "redirect:/review/mypage.jsp";
+		return "review/reviewList";
 	}
 	
 	// 리뷰 삭제처리
@@ -81,7 +83,7 @@ public class ReviewController {
 		for (String filename : filenames) {
 			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
 		}
-		return "redirect:/review/mypage.jsp";
+		return "review/reviewList";
 	}
 	
 	// 파일 업로드 처리
@@ -104,5 +106,30 @@ public class ReviewController {
 		
 		return filePath.substring(UPLOAD_PATH.length());
 		
+	}
+	// 썸네일 이미지
+	@RequestMapping(value="/displayImage", method=RequestMethod.GET) 
+	@ResponseBody
+	public byte[] displayImage(String fileName) throws Exception {
+//		System.out.println("ReviewController, displayImage, fileName: " + fileName);
+//		int slashIndex = fileName.lastIndexOf("/");
+//		String front = fileName.substring(0, slashIndex + 1);
+//		String rear = fileName.substring(slashIndex + 1);
+//		FileInputStream fis = new FileInputStream(
+//				UPLOAD_PATH + front + "sm_" + rear);
+		byte[] bytes = MyFileUploadUtil.displayImage(UPLOAD_PATH, fileName);
+		return bytes;
+	}
+	
+	// 파일 삭제
+	@RequestMapping(value="/deleteFile", method=RequestMethod.GET)
+	@ResponseBody
+	public String deleteFile(String fileName) {
+		System.out.println("UploadController, deleteFile, fileName:" + fileName);
+		boolean result = MyFileUploadUtil.deleteFile(UPLOAD_PATH + fileName);
+		if (result == true) {
+			return "success";
+		}
+		return "fail";
 	}
 }

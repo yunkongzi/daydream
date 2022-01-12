@@ -13,7 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
 <script>
-// 별점 처리
+// 별점 처리 요청 
 $(function () {
     var starEls = document.querySelectorAll('#star span.star');
     var rate = 0;
@@ -78,9 +78,9 @@ $(function() {
 			var fileName = rData.substring(underIndex + 1);
 			div.find("span").text(fileName);
 			var result = isImage(fileName);
-			if(reuslt == true) {
+			if(result == true) {
 				var img = div.find("img");
-				img.attr("src", "/reviewpic/displayImage?fileName" + rData);
+				img.attr("src", "/review/displayImage?fileName=" + rData);
 			}
 			
 			var a = div.find("a");
@@ -104,6 +104,7 @@ $(function() {
 		// return false;
 	});
 	
+	// 파일 삭제 
 	$("#uploadedList").on("click", ".a_times", function(e){
 		e.preventDefault();
 		var that = $(this);
@@ -122,6 +123,19 @@ $(function() {
 		});
 	});
 });
+
+// isImage
+function isImage(fileName){
+	var dotIndex = fileName.lastIndexOf(".");
+	var extName = fileName.substring(dotIndex + 1);
+	var upper = extName.toUpperCase(); // 대문자로 JPG ,PNG, GIF
+	
+	if(upper == "JPG" || upper == "PNG" || upper == "GIF") {
+		return true;
+	} else {
+		return false;
+	}
+}
 </script>
 <style>
 // 별점 스타일
@@ -194,7 +208,7 @@ $(function() {
 				<!-- 첨부파일 업로드  영역-->
 				<div>
 					<label>첨부할 파일을 드래그 &amp; 드롭하세요</label>
-					<div class="fileDrop"></div>
+					<div class="fileDrop"></div><br>
 				</div>
 				
 				<!-- 업로드할 항목의 템플릿 -->
@@ -208,7 +222,7 @@ $(function() {
 				<div id="uploadedList">
 				
 				</div>
-				
+				<hr  style="clear:both;">
 				<!-- 별점 첨부 -->
 				<div class="from-group">
 				<label for="star_rating">별점</label>

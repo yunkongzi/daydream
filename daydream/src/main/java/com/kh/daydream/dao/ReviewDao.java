@@ -76,7 +76,7 @@ public class ReviewDao {
 		map.put("bno", bno);
 		sqlsession.insert(NAMESPACE + "insertAttach", map);
 	}
-	
+	// 파일 삭제
 	public void deleteAttach(int bno) {
 		sqlsession.delete(NAMESPACE + "deleteAttach", bno);
 	}
