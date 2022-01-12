@@ -18,7 +18,7 @@ $(function() {
 		console.log("class_no: ", class_no);
 		location.href = href + "?class_no=" + class_no;
 	});
-});
+}); 
 </script>
 <body>
 	<div class="container-fluid">
