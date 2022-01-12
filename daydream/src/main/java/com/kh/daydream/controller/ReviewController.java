@@ -58,8 +58,8 @@ public class ReviewController {
 	
 	// 리뷰쓰기 폼 (/review/review_regist)
 	@RequestMapping(value="/review_regist", method=RequestMethod.GET)
-<<<<<<< HEAD
-		public String reviewRegistForm(int class_no, Model model, HttpSession session) {
+
+		public void reviewRegistForm(int class_no, Model model, HttpSession session) {
 //		MemberVo memberVo  = (MemberVo)session.getAttribute("memberVo");
 //		if (memberVo == null) {
 //			return "redirect:/main";
@@ -69,10 +69,11 @@ public class ReviewController {
 			String class_name = programVo.getClass_name();
 			model.addAttribute("class_name", class_name);
 			model.addAttribute("class_no", class_no);
-=======
+		}
+
 		public String reviewRegistForm(String class_name) {
 			System.out.println("ReviewController, reviewRegistForm, class_name: " + class_name);
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
+
 			return "review/review_regist";
 		}
 		
