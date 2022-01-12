@@ -49,7 +49,7 @@
 					</a> 
 					<p></p>
 					<a class="btn btn-lg btn-outline-danger btn-block
-							btnTeachAd">
+							btnTeachAd" href="/teacher/teacher_list">
 						강사지원 관리
 					</a>
 					<p></p>
