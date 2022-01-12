@@ -50,6 +50,7 @@ $(function() {
 								<th>클래스 대상</th>
 								<th>가능 인원</th>
 								<th>클래스 소개</th>
+								<th>이미지</th>
 								<th>클래스 번호</th>
 								<th>클래스 시간</th>
 								<th>수정</th>
@@ -64,8 +65,8 @@ $(function() {
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
 								<td>${programVo.class_intro}</td>
+								<td>${programVo.file_image}</td>
 								<td>${programVo.class_no}</td>
-								
 								<td>
 								<c:forEach items="${timeList}" var="time">
 									<c:forEach items="${programVo.time_no}" var="no">

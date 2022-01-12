@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<head>
-<meta charset="UTF-8">
+
 <title>강사등록</title>
 
 <script src="/js/myscript.js"></script>
@@ -108,7 +107,8 @@ $(function() {
 	<div class="row">
 		<div class="col-md-12" style="margin:0 auto;">
 			<div class="jumbotron" style="margin:0 auto;">
-				<h2>강사 등록</h2>				
+				<h2>강사 등록</h2>	
+						
 			</div>
 		</div>
 	</div>
@@ -117,6 +117,7 @@ $(function() {
 			<form role="form" action="/teacher/regist_run" 
 				method="post" enctype="multipart/form-data">
 				<div class="form-group">
+				    <p>로그인 후 등록해주세요</p>	
 					<label for="tno">강사번호</label>
 					<input type="text" class="form-control" 
 						id="tno" name="tno" />
@@ -161,7 +162,5 @@ $(function() {
 		</div>
 	</div>
 </div>
-
-</body>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

@@ -69,15 +69,9 @@ $(function() {
 </div>
 				
 				
-			</header>
-		</div>
-	</section>
-	
-	
-	
-	
-
-
+</header>
+</div>
+</section>
 </body>
 </html>
 
