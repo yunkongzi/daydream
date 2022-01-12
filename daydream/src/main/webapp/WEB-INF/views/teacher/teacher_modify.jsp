@@ -20,9 +20,6 @@ $(function() {
 <body>
 ${teacherVo}
 
-<section id="features">
-		<div class="container" style="margin:0 auto;">
-			<header>
 												
 <div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
@@ -31,7 +28,6 @@ ${teacherVo}
 	<h3>데이드림 강사 정보 수정</h3>
 	<p>강사번호는 변경이 불가능합니다.</p>
 	</div><br><br>
-
 
 	</div>
 	<div class="row" >
@@ -64,13 +60,13 @@ ${teacherVo}
 					<input type="text" class="form-control" 
 						id="target" name="target" value="${teacherVo.target}"/>
 				</div>
-				<img src="/teacher/displayImage?fileName=${teacherVo.certificate }"/>				
-<!-- 				<div class="form-group"> -->
-<!-- 					<label for="certificate">자격증 파일 첨부</label> -->
-<!-- 					<input type="file" class="form-control"  -->
-<!-- 						id="certificate" name="certificate" style="display:none"/> -->
-<!-- 					<button type="button" id="btnFile">파일 첨부</button> -->
-<!-- 				</div> -->
+				<img src="/teacher/displayImage?fileName=${teacherVo.certificate}"/>				
+				<div class="form-group">
+					<label for="certificate">자격증 파일 첨부</label>
+					<input type="file" class="form-control" 
+						id="certificate" name="certificate" style="display:none"/>
+					<button type="button" id="btnFile">파일 첨부</button>
+				</div> -->
 				
 				<div class="form-group">
 					<label for="introduce">자기소개</label>
@@ -86,10 +82,6 @@ ${teacherVo}
 		</div>
 	</div>
 </div>
-</header>
-</div>
-</section>
-
 </body>
 
 
