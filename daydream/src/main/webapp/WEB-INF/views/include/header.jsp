@@ -37,12 +37,7 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-<<<<<<< HEAD
-						
-					<li>
-=======
 						<li>
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 						<a href="#"><span>데이드림</span></a>
 										<ul>
 											<li><a href="/company/introduction">데이드림 소개</a></li>
