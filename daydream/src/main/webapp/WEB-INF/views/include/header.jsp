@@ -38,7 +38,7 @@
 				<nav id="nav">
 					<ul>
 
-						<a href="#"><span>데이드림</span></a>
+						<li><a href="#"><span>데이드림</span></a>
 										<ul>
 											<li><a href="/company/introduction">데이드림 소개</a></li>
 											<li><a href="/company/road">오시는 길</a></li>
