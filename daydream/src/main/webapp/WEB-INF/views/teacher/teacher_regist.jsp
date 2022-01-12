@@ -108,7 +108,8 @@ $(function() {
 	<div class="row">
 		<div class="col-md-12" style="margin:0 auto;">
 			<div class="jumbotron" style="margin:0 auto;">
-				<h2>강사 등록</h2>				
+				<h2>강사 등록</h2>	
+						
 			</div>
 		</div>
 	</div>
@@ -117,6 +118,7 @@ $(function() {
 			<form role="form" action="/teacher/regist_run" 
 				method="post" enctype="multipart/form-data">
 				<div class="form-group">
+				    <p>로그인 후 등록해주세요</p>	
 					<label for="tno">강사번호</label>
 					<input type="text" class="form-control" 
 						id="tno" name="tno" />
