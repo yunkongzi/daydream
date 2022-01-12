@@ -28,8 +28,11 @@
 						<c:if test="${status.index % 3 == 0}">
 							<tr>
 						</c:if>
-						<td>${programVo.class_name}<br>
+						<td>
+							${programVo.file_image}<br>
+							${programVo.class_name}<br>
 							${programVo.price}<br>
+							
 							
 							</td>
 						<c:if test="${status.index % 3  == 2}">

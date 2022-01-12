@@ -20,6 +20,7 @@ ${reviewList}
 		<td>${attendClassVo.class_no}</td>
 		<td><a href="/review/review_regist?class_no=${attendClassVo.class_no}">후기 작성</a></td>
 	</tr>
+	
 
 </c:forEach>
 </table>

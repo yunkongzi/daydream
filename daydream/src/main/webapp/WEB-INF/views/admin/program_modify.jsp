@@ -109,6 +109,15 @@
 									> ${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
 								</c:forEach>
 							</div> 
+							
+							<div class="form-group">
+
+								<label for="file_image"> 사진 </label><br> 
+								<input
+									type="file" class="form-control" id="file_image" name="file_image" 
+									value="${programVo.file_image}"/>
+							</div>
+							
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								수정</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">

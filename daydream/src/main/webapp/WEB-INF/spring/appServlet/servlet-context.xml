@@ -35,7 +35,6 @@
    		<beans:property name="maxUploadSize" value="10000000"></beans:property>
    </beans:bean>
    
-   <!-- 인터셉터 -->
    
 </beans:beans>
 

@@ -40,18 +40,26 @@
 							</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>
+						<c:forEach items="${reservationList }" var="reservationVo">
+							<tr>
+								<td>${reservationVo.user_id }</td>
+								<td>${reservationVo.res_date }</td>
+								<td>${reservationVo.rno }</td>
+								<td>
 								<c:forEach items="${timeList}" var="time">
-									<c:forEach items="${programVo.time_no}" var="no">
+									<c:forEach items="${reservationVo.time_no}" var="no">
 										<c:if test="${time.time_no == no}">
 											${time.time_start }:00 ~ ${time.time_end }:00<br>
 										</c:if>
 									</c:forEach>
-								
 								</c:forEach>
-							</td>
-						</tr>
+								</td>
+								<td>${reservationVo.count }</td>
+								<td>${reservationVo.status }</td>
+							
+								
+							</tr>
+						</c:forEach>	
 						</tbody>
 					</table>
 				</div>
