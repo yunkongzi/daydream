@@ -1,9 +1,12 @@
 package com.kh.daydream.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.daydream.service.MemberService;
+import com.kh.daydream.vo.AttendClassVo;
 import com.kh.daydream.vo.LoginDto;
 import com.kh.daydream.vo.MemberVo;
 
@@ -91,8 +95,12 @@ public class MemberController {
 	//마이페이지
 		@RequestMapping(value="/mypage", method=RequestMethod.GET)
 		public String memberPage() {
+			
 			return "/member/mypage";
 		}
+		
+	//예약현황
+		
 		
 	//로그아웃
 		@RequestMapping(value="/logout", method=RequestMethod.GET)
