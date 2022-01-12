@@ -13,7 +13,9 @@ import org.springframework.util.FileCopyUtils;
 
 public class MyFileUploadUtil {
 	
-	public static String uploadFile(String uploadPath, String originalName, byte[] fileData) {
+	public static String uploadFile(
+			String uploadPath, 
+			String originalName, byte[] fileData) {
 		UUID uuid = UUID.randomUUID();
 		String datePath = calcPath(uploadPath);
 		// -> D:/upload/2022/01/07

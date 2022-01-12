@@ -22,6 +22,18 @@ $(function() {
 			}
 		});
 	});
+	
+// 	$("#btnSubmit").click(function() {
+// 		if ($("#user_id").val() == null) {
+// 			alert("아이디를 입력해주세요.");
+// 		} else if ($("#user_pw").val() == null) {
+// 			alert("비밀번호를 입력해주세요.");
+// 		} else if ($("#user_name").val() == null) {
+// 			alert("이름을 입력해주세요.");
+// 		} else if ($("#user_phone").val() == null) {
+// 			alert("전화번호를 입력해주세요.");
+// 		} 
+// 	});
 
 
 });
@@ -77,7 +89,7 @@ $(function() {
 						id="user_phone" name="user_phone" />
 				</div><br><br>
 				
-				<button type="submit" class="btn btn-primary">
+				<button type="submit" class="btn btn-primary" id="btnSubmit">
 					가입 완료
 				</button>
 			</form>

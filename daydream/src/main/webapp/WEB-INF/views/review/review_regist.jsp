@@ -39,43 +39,48 @@ $(function () {
 });
 
 // 파일 업로드 요청 처리
-$(document).ready(function(){
+$(function() {
 	$(".fileDrop").on("dragenter dragover", function(e){
 		e.preventDefault();
+		console.log("엔터, 오버");
 	});
 	$(".fileDrop").on("drop", function(e){
 		e.preventDefault();
-		var files = e.originalEvent.dataTransfer.files[0];
-// 		var file = files[0];
+		console.log(e);
+		var file = e.originalEvent.dataTransfer.files[0];
 		console.log(file);
-		
-		var formData = new FormData();
-		formData.append("file", file);
-		var url = "/upload/uploadAjax"
+		var filename = file.name;
+		console.log(filename);
+		var formData = new FormData(); // <form action="/upload/uploadAjax", method="post", enctype="mutipart/form-data">
+		formData.append("file", file); // <input type="file">
+		var url = "/review/uploadAjax"; // 
 		
 		$.ajax({
-			"method": "post",
-			"url": url,
-			"data": formData,
-			"processData" : false,
-			"contentType" : false,
-			"success" : function(rData) {
-				console.log(rData)
+			"processData"	: false,
+			"contentType"	: false,
+			"method"		: "post",
+			"url"			: url,
+			"data"			: formData,
+			"success"		: function(rData) {
+				console.log(rData);
+				
+				
 				if(rData == "fail") {
 					alert("잘못된 형식의 파일입니다.");
 					return;
 				}
+				
 			var div = $("#uploadedList").prev().clone();
 			div.attr("data-filename", rData);
 			
 			console.log(div);
-			var underIndex = rData.indexof("_");
+			var underIndex = rData.indexOf("_");
 			var fileName = rData.substring(underIndex + 1);
 			div.find("span").text(fileName);
 			var result = isImage(fileName);
 			if(reuslt == true) {
 				var img = div.find("img");
-				img.attr("src", "/upload/displayImage?fileName" + rData);
+				img.attr("src", "/reviewpic/displayImage?fileName" + rData);
 			}
 			
 			var a = div.find("a");
@@ -105,10 +110,10 @@ $(document).ready(function(){
 		var filename = that.attr("data-filename");
 		console.log(filename);
 		var url = "/upload/deleteFile?fileName=" + filename;
-		$.get(url, function(rData){
+		$.get(url, function(rData) {
 			console.log(rData);
 			if(rData == "success") {
-				that.parent().hide(1000, function(){
+				that.parent().hide(1000, function() {
 					that.parent().remove();
 				});
 			} else {
@@ -195,7 +200,7 @@ $(document).ready(function(){
 				<!-- 업로드할 항목의 템플릿 -->
 				<div style="display:none"
 					class="divUploaded">
-					<img src="/img/default.png" height="100"><br>
+					<img src="/images/default.png" height="100"><br>
 					<span>default.png</span>
 					<a href="#" class="a_times">&times;</a>
 				</div>

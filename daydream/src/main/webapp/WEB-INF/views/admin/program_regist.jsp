@@ -60,6 +60,10 @@
 									${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
 								</c:forEach>
 							</div>
+							<div class="form-group">
+								<label for="file_image"> 사진 </label><br> 
+								<input type="file" class="form-control" name="file_image" />
+							</div>
 							
 							
 							<button type="submit" class="btn btn-primary btnProgramReg">

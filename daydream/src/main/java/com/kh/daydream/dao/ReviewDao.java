@@ -70,17 +70,18 @@ public class ReviewDao {
 	}
 	
 	// 파일 업로드 
-	public void insrtAttach(String file_name, int bno) {
-		Map<String,Object> map = new HashMap<>();
+	public void insertAttach(String file_name, int bno) {
+		Map<String, Object> map = new HashMap<>();
 		map.put("file_name", file_name);
 		map.put("bno", bno);
-		sqlsession.insert(NAMESPACE + "insrtAttach", map);
+		sqlsession.insert(NAMESPACE + "insertAttach", map);
 	}
 	
 	public void deleteAttach(int bno) {
 		sqlsession.delete(NAMESPACE + "deleteAttach", bno);
 	}
 	
+	// 리뷰 리스트
 	public List<AttendClassVo> reviewList(String user_id, String status) {
 		Map<String, String> map = new HashMap<>();
 		map.put("user_id", user_id);
