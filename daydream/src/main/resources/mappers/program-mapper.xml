@@ -11,7 +11,7 @@
 	<insert id="insertProgram">
 		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no)
 		values(#{class_name}, #{price}, #{target}, #{personnel},
-				 #{class_intro}, #{class_no}, #{file_image})
+				 #{class_intro}, #{class_no})
 	</insert>   
 	
 	<!-- 프로그램 서브 -->
@@ -86,7 +86,6 @@
 	   		target = #{target},
 	   		personnel = #{personnel},
 	   		class_intro = #{class_intro}
-	   		file_image = #{file_image}
  		where class_no = #{class_no}
    </update>
    

@@ -107,8 +107,5 @@ public class TeacherController<PagingDto> {
 	}
 
 
-//너. 말 조심해라.
-// 오랜 수감 생활로, 젇젇한 인셍애
-//나를 자극하지 마씨오.
 
 
