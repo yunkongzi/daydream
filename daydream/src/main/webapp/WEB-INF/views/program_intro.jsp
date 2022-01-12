@@ -9,7 +9,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-
+<script>
+$(function() {
+	$(".btnReserv").click(function(e) {
+		e.preventDefault();
+		var class_no = $(this).attr("data-class_no");
+		var href = $(this).attr("href");
+		console.log("class_no: ", class_no);
+		location.href = href + "?class_no=" + class_no;
+	});
+}); 
+</script>
 <body>
 	<div class="container-fluid">
 	<div class="row">
@@ -31,7 +41,9 @@
 						<td>
 							<${programVo.class_name}><br>
 							- ${programVo.class_intro} -<br>
-							${programVo.price}<br>
+							가격 : ${programVo.price}원<br>
+							<a class="btn btn-sm btn-outline-warning btnReserv" href="/reservation/reservation_regist"
+								data-class_no="${programVo.class_no}">예약</a>
 							
 							</td>
 						<c:if test="${status.index % 3  == 2}">

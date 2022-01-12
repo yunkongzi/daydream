@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<head>
-<meta charset="UTF-8">
+
 <title>강사등록</title>
 
 <script src="/js/myscript.js"></script>
@@ -93,8 +92,7 @@ $(function() {
 				alert("파일 삭제에 실패했습니다.");
 			}
 		});
-	});
-	
+	});	
 	$("#btnFile").click(function() {
 		$("#certificate").trigger("click")
 	});
@@ -163,7 +161,5 @@ $(function() {
 		</div>
 	</div>
 </div>
-
-</body>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

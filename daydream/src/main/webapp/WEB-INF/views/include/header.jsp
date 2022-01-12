@@ -44,6 +44,7 @@
 											<li><a href="/company/road">오시는 길</a></li>
 										</ul></li>
 						<li><a href="/program_intro"><span>프로그램</span></a></li>
+						<li><a href="/program_intro"><span>수강후기</span></a></li>
 						<li><a href="/reservation/reservation_regist"><span>예약하기</span></a></li>
 						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>
 						<li><a href="no-sidebar.html"><span>공지사항</span></a></li>
@@ -74,6 +75,7 @@
 							<br>
 							<br>
 							<br>
+							 ${sessionScope.memberVo.user_name}! 일해라!<br>
 							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
 							<button type="button"
 								onclick="location.href='/admin/admin_main'">관리자메인</button>

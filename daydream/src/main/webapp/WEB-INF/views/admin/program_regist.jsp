@@ -111,7 +111,12 @@ $(function() {
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<form role="form" action="/admin/regist_run" method="post">
+						<form role="form" action="/admin/regist_run" method="post"
+								enctype="multipart/form-data">
+								<p>
+									<input type="hidden" id="class_no" name="class_no" value="${programVo.class_no}">
+								</p>
+								
 							<div class="form-group">
 
 								<label for="class_name"> 클래스명 </label><br> 
