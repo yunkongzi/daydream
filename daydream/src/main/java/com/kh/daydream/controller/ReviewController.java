@@ -1,5 +1,6 @@
 package com.kh.daydream.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.daydream.service.ReviewService;
 import com.kh.daydream.util.MyFileUploadUtil;
@@ -20,7 +23,7 @@ import com.kh.daydream.vo.ReviewVo;
 @RequestMapping("/review")
 public class ReviewController {
 	
-	private static final String UPLOAD_PATH = "D:/upload";
+	private static final String UPLOAD_PATH = "//192.168.0.80/reviewpic";
 	private static final String RESERVED = "1";
 	private static final String INCLASS = "2";
 	private static final String FINISH = "3";
@@ -79,5 +82,27 @@ public class ReviewController {
 			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
 		}
 		return "redirect:/review/mypage.jsp";
+	}
+	
+	// 파일 업로드 처리
+	@RequestMapping(value="/uploadAjax" , method=RequestMethod.POST,
+			produces = "application/text;charset=utf-8")
+	
+	@ResponseBody
+	public String uploadAjax(MultipartFile file) throws IOException {
+		System.out.println("UploadController, uploadAjax, file: " + file);
+		String originalName = file.getOriginalFilename();
+		System.out.println("UploadController, uploadAjax, originalName:" + originalName);
+		String filePath = MyFileUploadUtil.uploadFile(UPLOAD_PATH, originalName, file.getBytes());
+		boolean isImage = MyFileUploadUtil.isImage(originalName);
+		if(isImage) {
+			boolean result = MyFileUploadUtil.makeThumbnail(filePath);
+			if(!result) {
+				return "fail";
+			} 
+		}
+		
+		return filePath.substring(UPLOAD_PATH.length());
+		
 	}
 }
