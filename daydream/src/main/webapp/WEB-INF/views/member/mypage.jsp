@@ -56,7 +56,7 @@
 											<td>${MyReservationVo.count}</td>
 											<td>${MyReservationVo.status}</td>
 											<td><button type="button"
-													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
+													onclick="location.href='/review/review_regist?class_name=${MyReservationVo.class_name}'">후기작성</button></td>
 											<td><button type="button" onclick=>예약취소</button></td>
 										</tr>
 

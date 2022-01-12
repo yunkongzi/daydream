@@ -43,8 +43,8 @@ public class ReviewController {
 	
 	// 리뷰쓰기 폼 (/review/review_regist)
 	@RequestMapping(value="/review_regist", method=RequestMethod.GET)
-		public String reviewRegistForm(int class_no) {
-			System.out.println("ReviewController, reviewRegistForm, class_no: " + class_no);
+		public String reviewRegistForm(String class_name) {
+			System.out.println("ReviewController, reviewRegistForm, class_name: " + class_name);
 			return "review/review_regist";
 		}
 		
