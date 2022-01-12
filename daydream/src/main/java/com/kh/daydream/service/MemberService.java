@@ -1,11 +1,14 @@
 package com.kh.daydream.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import com.kh.daydream.dao.MemberDao;
 import com.kh.daydream.vo.MemberVo;
+import com.kh.daydream.vo.MyReservationVo;
 
 @Service
 public class MemberService {
@@ -30,5 +33,9 @@ public class MemberService {
 			return memberVo;
 		}
 
-	
+		// 리뷰 리스트 
+		public List<MyReservationVo> reservationList(String user_id) {
+			List<MyReservationVo> list = memberDao.reservationList(user_id);
+			return list;
+		}
 }

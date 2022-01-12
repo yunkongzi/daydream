@@ -92,7 +92,7 @@ public class TeacherController<PagingDto> {
 //		@RequestMapping(value="/modify_run", method=RequestMethod.POST)
 //		public String modifyBoard(TeacherVo boardVo, PagingDto pagingDto, 
 //								  RedirectAttributes rttr) {
-//			System.out.println("TeacherController, modifyTeacher, boardVo:" + boardVo);
+//			System.out.println("TeacherController, modifyTeacher, teacherVo:" + teacherVo);
 //			System.out.println("TeacherController, modifyTeacher, pagingDto:" + pagingDto);
 //			((Object) teacherService).modifyteacher(teacherVo);
 //			rttr.addFlashAttribute("message", "modify_success");
@@ -105,7 +105,6 @@ public class TeacherController<PagingDto> {
 
 				
 	}
-
 
 
 

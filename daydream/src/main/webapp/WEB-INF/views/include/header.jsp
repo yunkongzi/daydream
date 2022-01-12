@@ -37,19 +37,12 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-<<<<<<< HEAD
-						
-					<li>
-=======
-						<li>
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
-						<a href="#"><span>데이드림</span></a>
+
+						<li><a href="#"><span>데이드림</span></a>
 										<ul>
 											<li><a href="/company/introduction">데이드림 소개</a></li>
 											<li><a href="/company/road">오시는 길</a></li>
 										</ul></li>
-						<li><a href="#"><span>프로그램</span></a></li>
-					
 						<li><a href="/program_intro"><span>프로그램</span></a></li>
 						<li><a href="/reservation/reservation_regist"><span>예약하기</span></a></li>
 						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>

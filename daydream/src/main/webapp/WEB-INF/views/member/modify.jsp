@@ -70,17 +70,11 @@ $(function() {
 		</div>
 	</div>
 </div>
-				
-				
-			</header>
-		</div>
-	</section>
-
-
-
-
+								
+</header>
+</div>
+</section>
 
 </body>
 </html>
-
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

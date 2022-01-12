@@ -29,10 +29,9 @@
 							<tr>
 						</c:if>
 						<td>
-							${programVo.file_image}<br>
-							${programVo.class_name}<br>
+							<${programVo.class_name}><br>
+							- ${programVo.class_intro} -<br>
 							${programVo.price}<br>
-							
 							
 							</td>
 						<c:if test="${status.index % 3  == 2}">
