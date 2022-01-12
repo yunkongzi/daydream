@@ -75,6 +75,7 @@
 							<br>
 							<br>
 							<br>
+							 ${sessionScope.memberVo.user_name}! 일해라!<br>
 							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
 							<button type="button"
 								onclick="location.href='/admin/admin_main'">관리자메인</button>
