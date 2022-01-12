@@ -48,7 +48,20 @@ $(function() {
 			<div class="jumbotron">
 				<h5>【나의 클래스 내역】</h5>
 				
-
+<table border="1">
+<c:forEach items="${reservationList}" var="MyReservationVo">
+	<tr>
+		<td>${MyReservationVo.res_date}</td>
+		<td>${MyReservationVo.class_name}</td>
+		<td>${MyReservationVo.program_time}</td>
+		<td>${MyReservationVo.count}</td>
+		<td>${MyReservationVo.status}</td>
+		<td><a href="/review/review_regist?class_no=${MyReservationVo.class_no}">후기 작성</a></td>
+	</tr>
+	
+	
+</c:forEach>
+</table>
 				
 			</div><br><br>
 			
