@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<!DOCTYPE html>
-<html>
 <head>
 <meta charset="UTF-8">
 <title>데이드림 업체소개</title>
@@ -14,10 +12,9 @@
 		<div class="container" style="margin:0 auto;">
 			<header>								
 				<div class="container-fluid" style="margin:0 auto;">
-	<img src="/images/1.jpg" alt="소개" width="300" height="500" align="right">
+	<img src="/images/1.jpg" border=0 vspace=30 alt="소개" width="400" height="500" align="left">
 	<br>
-	<br>
-	<br>
+	
     데이드림을 방문해주신 모든 분들에게 감사의 인사를 드립니다.<br>
  데이드림은 회원들의 잠재된 능력과 소질을 찾고 다양한<br> 
  세대들의 폭넓은 체험의 기회를 제공하고자 합니다.<br> 
@@ -29,7 +26,7 @@
  부업정보 등 개성 탐구와 능력 향상을 위해 노력하며 즐거운 <br>
  삶을 지향하는 장으로 강사와 회원여러분이 함께 참여하여 만들어<br>
  가도록 노력하겠습니다. 감사합니다^^<br><br>
- 
+
 </header>
 </div>
 </section>
