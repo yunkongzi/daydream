@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<head>
-<meta charset="UTF-8">
+
 <title>강사등록</title>
 
 <script src="/js/myscript.js"></script>
@@ -163,7 +162,5 @@ $(function() {
 		</div>
 	</div>
 </div>
-
-</body>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
