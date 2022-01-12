@@ -10,6 +10,11 @@
 
 <script>
 	$(function() {
+		$("#btnDeleteMember").click(function() {
+			var user_id = $(this).attr("data-user");
+			var url = "/member/deleteMember";
+			location.href = url;
+		});
 
 	});
 </script>
@@ -36,13 +41,9 @@
 								${sessionScope.memberVo.user_phone} <br>
 
 								<button type="button" class="btn btn-outline-primary"
-									onclick="location.href='/member/member_modify'">정보수정</button>
-								<br>
-								<br>
+									onclick="location.href='/member/modify'">정보수정</button><br><br>
 
-							</div>
-							<br>
-							<br>
+							</div><br><br>
 
 							<div class="jumbotron">
 								<h5>【나의 클래스 내역】</h5>
@@ -64,9 +65,7 @@
 									</c:forEach>
 								</table>
 
-							</div>
-							<br>
-							<br>
+							</div><br><br>
 
 
 
@@ -75,7 +74,16 @@
 								<h5>【나의 후기】</h5>
 								후기후기후기후기
 
-							</div>
+							</div><br><br>
+							
+							
+							
+							
+							<button type="button"
+									data-user="${sessionScope.memberVo.user_id}"
+									id="btnDeleteMember">
+									회원탈퇴할래요 (정말요?😭)</button>
+							
 
 
 						</div>

@@ -112,5 +112,24 @@ public class MemberController {
 	public String memberModify_form() {
 		return "/member/modify";
 	}
+	
+	//내 정보 수정처리
+	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
+	   public String updateMemberRun(MemberVo memberVo, HttpSession session, RedirectAttributes rttr) {
+	      System.out.println("MemberController, updateStudentRun, memberVo:" + memberVo);
+	      memberService.updateMember(memberVo);
+	      session.invalidate();
+			rttr.addFlashAttribute("message", "login");
+			return "redirect:/main";
+	            
+	   }
+	
+	//회원 삭제
+	@RequestMapping(value="/deleteMember", method=RequestMethod.GET)
+	public String memberDelete(String user_id) {
+		System.out.println("user_id:" + user_id);
+		memberService.deleteMember(user_id);
+		return "redirect:/main";
+	}
 
 }//
