@@ -13,8 +13,19 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	$('#reservationTime').change(function(e){
+		$('#remain_count').empty();
+		$("#remain_count option:eq(0)")
+		.after("<option value='1'>1명</option>");
+		
+	});
+	
+		
+	
+});
 
 //오늘 날짜
 var today = new Date();
@@ -87,6 +98,7 @@ function buildCalendar(){
   		cell = row.insertCell();
   	}
   }
+  
 }
 //이전달
 // 이전 달을 today에 값을 저장하고 달력에 today를 넣어줌
@@ -164,10 +176,12 @@ function nextCalendar(){
 				<div class="form-group">
 		
 					<label for="time_no"> 예약 시간 :</label><br>
-					<select>
-						<c:forEach items="${timeList}" var="classTimeVo">
-		
-							<option value="${classTimeVo.time_no}">${classTimeVo.time_start} ~ ${classTimeVo.time_end}</option>
+					<select id="reservationTime">
+					<option value="">시간을 선택하세요</option>
+						<c:forEach items="${timeList}" var="reservationTimeVo">
+							<option value="${reservationTimeVo.time_no}" data-remain_count="${reservationTimeVo.remain_count}">
+								${reservationTimeVo.time_start}시 ~ ${reservationTimeVo.time_end}시
+								(${reservationTimeVo.remain_count}명 가능)</option>
 									
 						</c:forEach>
 					</select>
@@ -176,12 +190,13 @@ function nextCalendar(){
 				<div class="form-group">
 		
 					<label for="count"> 인원 수 </label><br>
-					<select>
-						<c:forEach items="${count}" var="reservationVo">
-		
-							<option value="${reservationVo.count}">${count}</option>
-									
+					<select id="remain_count">
+					<option value="" selected="selected">인원수를 선택하세요</option>
+						<c:forEach items="${reservationTimeVo.remain_count}" var="ReservationTimeVo">
+							<option value="1"></option>
 						</c:forEach>
+							
+							
 					</select>
 				</div><br>
 				

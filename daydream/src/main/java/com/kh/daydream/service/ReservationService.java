@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.kh.daydream.dao.ReservationDao;
-import com.kh.daydream.vo.ClassTimeVo;
+import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
 @Service
@@ -23,9 +23,9 @@ public class ReservationService {
 		reservationDao.insertReservation(reservationVo);
 	}
 	
-	public List<ClassTimeVo> selectTimeList() {
-		List<ClassTimeVo> list = reservationDao.selectTimeList();
-
+	//클래스 시간 목록
+	public List<ReservationTimeVo> selectTimeList(int class_no) {
+		List<ReservationTimeVo> list = reservationDao.selectTimeList(class_no);
 		return list;
 	}
 	

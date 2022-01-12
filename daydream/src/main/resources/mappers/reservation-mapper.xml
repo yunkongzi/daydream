@@ -4,23 +4,35 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.daydream.mappers.reservation">
 
-	<!-- 클래스 목록 -->
-	<!-- <select id="classList">
-		select * from tbl_reservation
-		where class_no = #{class_no}
-		order by class_no desc
-	</select> -->
+	
 	
 	<!-- 예약등록 -->
 	<insert id="insertReservation">
-		insert into tbl_reservation(user_id, res_date, rno, class_sub_no, count, status)
-		values(#{user_id}, #{res_date}, seq_rno.nextval, #{class_sub_no}, #{count}, #{status})
+		insert into tbl_reservation(user_id, res_date, time_no ,rno, class_sub_no, count, status)
+		values(#{user_id}, #{res_date}, #{time_no}, seq_rno.nextval, #{class_sub_no}, #{count}, #{status})
 	</insert>
 	
 	<!-- 클래스 시간 목록 (1~4) -->
-   <select id="selectTimeList" resultType="ClassTimeVo">
-   		select * from tbl_class_time
-		order by time_no
+    <select id="selectTimeList" resultType="ReservationTimeVo">
+   		select t.time_no, t.time_start, t.time_end, 
+   			(p.personnel - s.reserve_count) remain_count
+		from tbl_program_sub s, tbl_class_time t, tbl_program p
+		where s.program_time = t.time_no
+		and p.class_no = s.class_no
+		and s.class_no = #{class_no}
+    </select>
+   
+   	<!-- rno 얻기 -->
+	<select id="getRnoNextVal" resultType="int">
+		select seq_rno.nextval
+		from dual
+	</select>
+	
+	<!-- 클래스 번호 -->
+   <select id="selectByClassNo" resultType="ProgramVo">
+   		select * from tbl_program
+   		where class_no = #{class_no}
    </select>
+	
 
 </mapper>

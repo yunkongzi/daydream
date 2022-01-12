@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.kh.daydream.vo.ClassTimeVo;
+import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
 @Repository
@@ -25,11 +26,13 @@ public class ReservationDao {
 	public void insertReservation(ReservationVo reservationVo) {
 		sqlSession.insert(NAMESPACE + "insertReservation", reservationVo);
 	}
-
-	public List<ClassTimeVo> selectTimeList() {
-		List<ClassTimeVo> list = sqlSession.selectList(NAMESPACE + "selectTimeList");
+	//클래스 시간 목록
+	public List<ReservationTimeVo> selectTimeList(int class_no) {
+		List<ReservationTimeVo> list = sqlSession.selectList(NAMESPACE + "selectTimeList", class_no);
 		return list;
 	}
+	
+	
 	
 	
 
