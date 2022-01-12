@@ -44,20 +44,15 @@ $(function() {
 					</div>
 					<div class="modal-body"><img id="imgCer" src="" width="450"></div>
 					<div class="modal-footer">
-
-						
+										
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
 					</div>
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 </div>
-
 <div>
 	<div>
 		<div class="jumbotron">
@@ -99,18 +94,8 @@ $(function() {
 			</table>
 		</div>
 	</div>
+</div>          
 </div>
-<section id="footer" style="padding-top:0px; padding-bottom:0px;">
-              
-               <div id="copyright" class="container" style="margin-top:0px;">
-                  <ul class="links">
-                     <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                  </ul>
-               </div>
-            </section>
-
-      </div>
-
-   </body>
+</body>
 </html>
 
