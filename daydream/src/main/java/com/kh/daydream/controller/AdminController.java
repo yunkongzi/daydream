@@ -1,6 +1,8 @@
 package com.kh.daydream.controller;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 
@@ -8,7 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.kh.daydream.service.ProgramService;
 import com.kh.daydream.vo.ClassTimeVo;
@@ -36,12 +39,37 @@ public class AdminController {
 	}
 
 	// 프로그램 등록 처리
-	@RequestMapping(value = "/regist_run", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/regist_run", method = RequestMethod.POST)
 	public String programRegistRun(ProgramVo programVo) {
 		programService.insertProgram(programVo);
 		System.out.println("program_regist:" + programVo);
 		return "redirect:/admin/program_list";
-	}
+	}*/
+	
+	// 프로그램 등록 처리, 파일 첨부
+		@RequestMapping(value = "/regist_run", method = RequestMethod.POST)
+		public String programRegistRun(MultipartHttpServletRequest request, int[] time_no) throws Exception {
+			MultipartFile multi = request.getFile("file_name");
+			String filename = multi.getOriginalFilename();
+			String uuid = UUID.randomUUID().toString();
+			String file_name = uuid + "_" + filename;
+			multi.transferTo(new File("\\192.168.0.80/programpic/" + uuid + "_" + file_name));
+			
+			String class_name = request.getParameter("class_name");
+			String price = request.getParameter("price");
+			String target = request.getParameter("target");
+			String personnel = request.getParameter("personnel");
+			String class_intro = request.getParameter("class_intro");
+			int class_no = Integer.parseInt(request.getParameter("class_no"));
+			String file_image = request.getParameter("file_image");
+			ProgramVo programVo = new ProgramVo(class_name, price, target, 
+					personnel,class_intro, class_no, time_no, file_image);
+			System.out.println("AdminController, programRegistRun, programVo:" + programVo); 
+			
+			programService.insertProgram(programVo);
+			System.out.println("program_regist:" + programVo);
+			return "redirect:/admin/program_list";
+		}
 
 	// 프로그램 목록
 	/*
