@@ -153,7 +153,7 @@ $(function() {
 							<div class="form-group">
 								<label for="file_image"> 사진 </label><br> 
 								<input type="file" class="form-control" 
-									id="file_image" name="file_image" style="display:none"/>
+									id="file_image" name="file_image"/>
 								<button type="button" id="btnFile">사진 찾아보기</button>
 							</div>
 							
