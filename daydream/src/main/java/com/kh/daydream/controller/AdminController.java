@@ -21,7 +21,6 @@ import com.kh.daydream.vo.ProgramVo;
 @RequestMapping("/admin")
 public class AdminController {
 	
-	private static final String programVo = null;
 	private static final String UPLOAD_PATH = "//192.168.0.80/programpic/";
 
 	@Inject
@@ -51,7 +50,7 @@ public class AdminController {
 	
 	// 프로그램 등록 처리, 파일 첨부
 		@RequestMapping(value = "/regist_run", method = RequestMethod.POST)
-		public String programRegistRun(MultipartHttpServletRequest request, int[] time_no) throws Exception {
+		public String programRegistRun(MultipartHttpServletRequest request) throws Exception {
 			MultipartFile multi = request.getFile("file_image");
 			String filename = multi.getOriginalFilename();
 			String uuid = UUID.randomUUID().toString();
@@ -65,7 +64,7 @@ public class AdminController {
 			String class_intro = request.getParameter("class_intro");
 			int class_no = Integer.parseInt(request.getParameter("class_no"));
 			ProgramVo programVo = new ProgramVo(class_name, price, target, 
-					personnel,class_intro, class_no, time_no, file_image);
+					personnel, class_intro, class_no, null, file_image);
 			System.out.println("AdminController, programRegistRun, programVo:" + programVo); 
 			
 //			programService.insertProgram(programVo);
