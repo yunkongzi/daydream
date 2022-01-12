@@ -14,6 +14,8 @@
 		<div class="container" style="margin:0 auto;">
 			<header>								
 				<div class="container-fluid" style="margin:0 auto;">
+	<img src="/images/1.jpg" alt="소개" width="200" height="600">
+<br>
     데이드림을 방문해주신 모든 분들에게 감사의 인사를 드립니다.<br>
  데이드림은 회원들의 잠재된 능력과 소질을 찾고 다양한 세대들의 폭넓은 체험의 기회를 제공하고자 합니다.<br> 
  스트레스 해소와 일상의 활력을 위한 취미활동을 넘어 기초부터 고급과정까지 높은 퀄리티의 강의를 제공하겠습니다.<br>
