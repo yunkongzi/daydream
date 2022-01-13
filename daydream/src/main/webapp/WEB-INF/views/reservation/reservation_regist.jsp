@@ -17,13 +17,24 @@
 <script type="text/javascript">
 
 $(function(){
-	
 	$("#selectForm").on("change","#reservationTime",function(e){
-		var thisval = $(this).val()
-		console.log("thisval>>" + thisval);
-		var remaincount = $(this).find("data-remain_count");
-		var remaincountval = remaincount.val();
-		console.log("remaincount>>" + remaincount);
+		
+		var thisVal = $(this).find("option:selected").attr("data-remain_count");
+		if (thisVal == '') {
+			return;
+		}
+		var count = parseInt(thisVal);
+		console.log("count : " + count);
+		console.log($(this).find("option:selected").attr("data-remain_count"));
+		var options = "<option value='' selected>인원수를 선택하세요</option>";
+		if (count > 0) {
+			for (var v = 1; v <= count; v++) {
+				console.log(v);
+				options += "<option value='" + v +"'>" + v + "</option>";
+			}
+		}
+		$("#remain_countList").empty().append(options);
+		$("#divCount").show(1000);
 
 	});
 	
@@ -80,6 +91,7 @@ function buildCalendar(){
 		console.log(clickedYMD);
     	document.getElementById("date").value = clickedYMD;
 //     	$("#date").val(clickedYMD);
+		$("#selectForm").show(1000);
 
     }
 
@@ -175,7 +187,7 @@ function nextCalendar(){
 		<div>
 			선택한 날짜 : <input type="text" id="date" name="date" readonly>
 		</div><br>
-				<div class="form-group" id="selectForm">
+				<div class="form-group" id="selectForm" style="display:none;">
 		
 					<label for="time_no"> 예약 시간 :</label><br>
 					<select id="reservationTime">
@@ -192,7 +204,7 @@ function nextCalendar(){
 					</select>
 				</div><br>
 				
-				<div class="form-group">
+				<div class="form-group" style="display:none;" id="divCount">
 					<label for="count"> 인원 수 : </label><br>
 						<select id="remain_countList">
 							<option value="" selected="selected">인원수를 선택하세요</option>

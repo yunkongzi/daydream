@@ -28,12 +28,6 @@
 		from dual
 	</select>
 	
-	<!-- 클래스 번호 
-   <select id="selectByClassNo" resultType="ProgramVo">
-   		select * from tbl_program
-   		where class_no = #{class_no}
-   </select> -->
-	
 	
 	<!-- <select id="reservationList" resultType="reservationVo">
 		select r.user_id, r.res_date,

@@ -41,7 +41,7 @@ public class ReservationTimeVo {
 	@Override
 	public String toString() {
 		return "ReservationTimeVo [time_no=" + time_no + ", time_start=" + time_start + ", time_end=" + time_end
-				+ ", ramain_count=" + remain_count + "]";
+				+ ", remain_count=" + remain_count + "]";
 	}
 
 }
