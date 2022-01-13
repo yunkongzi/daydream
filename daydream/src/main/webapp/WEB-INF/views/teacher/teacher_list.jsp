@@ -28,6 +28,18 @@ $(function() {
 		var tno = $(this).attr("data-tno");
 		location.href = "/teacher/deleteTeacher?tno=" + tno;
 	});
+	
+	$(".btnStatus").click(function() {
+		var that = $(this);
+		var tno = that.attr("data-tno");
+		var url = "/teacher/updateStatus/" + tno;
+		$.get(url, function(rData) {
+			if (rData == "success") {
+				alert("상태 수락");
+				that.hide(1000);
+			}
+		});
+	});
 });
 </script>
 
@@ -65,6 +77,7 @@ $(function() {
 	<div>
 		<div class="jumbotron">
 			<h2>강사 리스트</h2>
+			<a href="/teacher/teacher_regist" class="btn btn-sm btn-primary">강사 등록</a>
 		</div>
 		<div style="margin: 0 auto">
 			<table class="table">
@@ -79,9 +92,11 @@ $(function() {
 						<th>자기소개</th>
 						<th>수정</th>
 						<th>삭제</th>
+						<th>수락</th>
 					</tr>
 				</thead>
 				<tbody>
+				${list}
 					<c:forEach items="${list}" var="teacherVo">
 						<tr>
 							<td>${teacherVo.tno}</td>
@@ -101,6 +116,13 @@ $(function() {
 									data-tno="${teacherVo.tno}">수정</button></td>
 							<td><button type="button" class="btn btn-info btnDelete"
 								 data-tno="${teacherVo.tno}">삭제</button></td>
+							<td>
+							<c:if test="${teacherVo.status == 'N'}">
+							<button type="button" class="btn btn-primary btnStatus"
+								 data-tno="${teacherVo.tno}">수락</button>
+							</c:if>
+							</td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>
