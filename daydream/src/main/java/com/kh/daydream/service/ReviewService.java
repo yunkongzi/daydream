@@ -11,13 +11,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.daydream.dao.ReviewDao;
 import com.kh.daydream.vo.AttendClassVo;
+import com.kh.daydream.vo.PagingDto;
 import com.kh.daydream.vo.ReviewVo;
+
+
 
 @Service
 public class ReviewService {
 	
 	@Inject
 	private ReviewDao reviewDao;
+	
+	
+	public List<ReviewVo> selectAll(PagingDto pagingDto) {
+		List<ReviewVo> list = reviewDao.selectAll(pagingDto);
+		return list;
+	}
 	
 	// 리뷰 추가
 	@Transactional
@@ -54,6 +63,11 @@ public class ReviewService {
 		reviewDao.modifyReveiw(reviewVo);
 	}
 	
+	public int getCount(PagingDto pagingDto) {
+		int count = reviewDao.getCount(pagingDto);
+		return count;
+	}
+	
 	// 특정 리뷰 조회
 	public ReviewVo selectById(int bno) {
 		ReviewVo reviewVo = reviewDao.selectById(bno);
@@ -66,8 +80,8 @@ public class ReviewService {
 	}
 	
 	// 리뷰 리스트 
-	public List<AttendClassVo> reviewList(String user_id, String status) {
-		List<AttendClassVo> list = reviewDao.reviewList(user_id, status);
+	public List<AttendClassVo> reviewListAll(String user_id, String status) {
+		List<AttendClassVo> list = reviewDao.reviewListAll(user_id, status);
 		return list;
 	}
 	

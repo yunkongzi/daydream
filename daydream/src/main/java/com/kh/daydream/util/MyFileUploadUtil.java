@@ -2,12 +2,14 @@ package com.kh.daydream.util;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.io.IOUtils;
 import org.imgscalr.Scalr;
 import org.springframework.util.FileCopyUtils;
 
@@ -144,6 +146,18 @@ public class MyFileUploadUtil {
 		String rear = filePath.substring(slashIndex + 1);
 		String thumbnailPath = front + "sm_" + rear;
 		return thumbnailPath;
+	}
+	
+	public static byte[] displayImage(String uploadPath, String fileName) throws Exception {
+		// 서버의 파일을 다운로드하기 위한 스트림
+		System.out.println("UploadController, displayFile, fileName: " + fileName);
+		int slashIndex = fileName.lastIndexOf("/");
+		String front = fileName.substring(0, slashIndex + 1);
+		String rear = fileName.substring(slashIndex + 1);
+		FileInputStream fis = new FileInputStream(
+				uploadPath + front + "sm_" + rear);
+		byte[] bytes = IOUtils.toByteArray(fis);
+		return bytes;
 	}
 
 } // class
