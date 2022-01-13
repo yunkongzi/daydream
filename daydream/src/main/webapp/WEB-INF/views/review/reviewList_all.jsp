@@ -57,7 +57,7 @@ $(".a_title").click(function(e) {
 
 </script>
 <body>
-${reviewList_all}
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -67,7 +67,7 @@ ${reviewList_all}
 				</h2>
 				
 				<p>
-					<a class="btn btn-primary btn-large" href="/review/review_regist">후기쓰기</a>
+					<a class="btn btn-primary btn-large" href="/member/mypage">마이페이지로가기</a>
 				</p>
 			</div>
 			<div class="row">
@@ -126,7 +126,7 @@ ${reviewList_all}
 						</thead>
 						<tbody>
 						<!-- 게시글 목록 -->
-						<c:forEach items="${reviewlist}" var="reviewVo">
+						<c:forEach items="${list}" var="reviewVo">
 							<tr>
 								<td>${reviewVo.bno}</td>
 								<td>${reviewVo.title}</td> 

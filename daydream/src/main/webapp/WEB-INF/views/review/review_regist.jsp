@@ -176,7 +176,7 @@ function isImage(fileName){
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2>후기 양식</h2>
-				<p><a class="btn btn-primary btn-large" href="/">후기 목록</a></p>
+				<p><a class="btn btn-primary btn-large" href="/review/reviewList_all">후기 목록</a></p>
 			</div>
 		</div>
 	</div>

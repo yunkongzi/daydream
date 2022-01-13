@@ -81,14 +81,14 @@ public class ReviewController {
 	@RequestMapping(value="/regist_run", method=RequestMethod.POST)
 		public String reviewRegistRun(ReviewVo reviewVo, RedirectAttributes rttr, HttpSession session) {
 		System.out.println("ReviewController, reviewRegistRun");
-//		MemberVo memberVo  = (MemberVo)session.getAttribute("memberVo");
-//		if (memberVo == null) {
-//			return "redirect:/main";
-//		}
-//		
+		MemberVo memberVo  = (MemberVo)session.getAttribute("memberVo");
+		if (memberVo == null) {
+			return "redirect:/main";
+		}
+		
 		System.out.println("ReviewController, reviewRegistRun, reviewVo:" + reviewVo);
-//		String user_id = memberVo.getUser_id();
-		String user_id = "hong";
+		String user_id = memberVo.getUser_id();
+//		String user_id = "hong";
 		reviewVo.setUser_id(user_id);
 		System.out.println("ReviewController, reviewRegistRun, reviewVo:" + reviewVo);
 		reviewService.insertReview(reviewVo);
