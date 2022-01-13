@@ -52,18 +52,15 @@ $(function() {
 				if (result == true) {
 					var img = div.find("img");
 					img.attr("src", "/upload/displayImage?fileName=" + rData);
-				}
-				
+				}				
 				var a = div.find("a");
 				a.attr("data-filename", rData);
-				
-				
+								
 				$("#uploadedList").append(div);
 				div.show(1000);
 			}
 		});
-	}); // $("#fileDrop").on("drop"
-			
+	}); // $("#fileDrop").on("drop"			
 	$("#frmRegist").submit(function() {
 		var divs = $("#uploadedList > .divUploaded");
 		console.log("divs:", divs);
@@ -73,8 +70,7 @@ $(function() {
 			$("#frmRegist").prepend(inputHtml);
 		});
 // 		return false;
-	});		
-	
+	});			
 	$("#uploadedList").on("click", ".a_times", function(e) {
 		e.preventDefault();
 		var that = $(this);
@@ -99,9 +95,7 @@ $(function() {
 }); // $(function)
 </script>
 </head>
-
-<body>
-							
+<body>							
 <div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
 		<div class="col-md-12" style="margin:0 auto;">

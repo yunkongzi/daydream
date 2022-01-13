@@ -13,10 +13,34 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-//var reserve_count = 0;
-//오늘 날짜
+
+$(function(){
+	$("#selectForm").on("change","#reservationTime",function(e){
+		
+		var thisVal = $(this).find("option:selected").attr("data-remain_count");
+		if (thisVal == '') {
+			return;
+		}
+		var count = parseInt(thisVal);
+		console.log("count : " + count);
+		console.log($(this).find("option:selected").attr("data-remain_count"));
+		var options = "<option value='' selected>인원수를 선택하세요</option>";
+		if (count > 0) {
+			for (var v = 1; v <= count; v++) {
+				console.log(v);
+				options += "<option value='" + v +"'>" + v + "</option>";
+			}
+		}
+		$("#remain_countList").empty().append(options);
+		$("#divCount").show(1000);
+
+	});
+	
+});
+
+// 오늘 날짜
 var today = new Date();
 
 //현재 달력 만들기
@@ -67,7 +91,8 @@ function buildCalendar(){
 		console.log(clickedYMD);
     	document.getElementById("date").value = clickedYMD;
 //     	$("#date").val(clickedYMD);
-//     	self.close();
+		$("#selectForm").show(1000);
+
     }
 
     if (cnt % 7 == 1) {
@@ -75,7 +100,7 @@ function buildCalendar(){
     } else if (cnt % 7 == 2 || cnt % 7 == 3) {
     	cell.innerHTML = "<font color=#cccccc>" + i + "</font>";
     } 
-    
+   
     if (cnt % 7 == 0){
     	cell.innerHTML = "<font color=skyblue>" + i + "</font>";
     	row = calendar.insertRow();
@@ -87,6 +112,7 @@ function buildCalendar(){
   		cell = row.insertCell();
   	}
   }
+  
 }
 //이전달
 // 이전 달을 today에 값을 저장하고 달력에 today를 넣어줌
@@ -101,12 +127,6 @@ function nextCalendar(){
 	today = new Date(today.getFullYear(), today.getMonth()+1, today.getDate());
 	buildCalendar();
 }
-
-function disableAllTheseDays(date){
-	var day = date.getDay();
-	return[(day !=1 && day !=2)]; 
-} 
-
 
 </script>
 
@@ -167,24 +187,29 @@ function disableAllTheseDays(date){
 		<div>
 			선택한 날짜 : <input type="text" id="date" name="date" readonly>
 		</div><br>
-				<div class="form-group">
-					<label for="program_time">예약 시간 : </label>
-					<select>
-						<option>10-12</option>
-						<option>14-16</option>
-						<option>16-18</option>
-						<option>19-21</option>
+				<div class="form-group" id="selectForm" style="display:none;">
+		
+					<label for="time_no"> 예약 시간 :</label><br>
+					<select id="reservationTime">
+						<option value="">시간을 선택하세요</option>
+						
+						<c:forEach items="${timeList}" var="reservationTimeVo">
+						
+						<option value="${reservationTimeVo.time_no}" data-remain_count="${reservationTimeVo.remain_count}">
+								${reservationTimeVo.time_start}시 ~ ${reservationTimeVo.time_end}시
+								(${reservationTimeVo.remain_count}명 가능)</option>
+									
+						</c:forEach>
+						
 					</select>
 				</div><br>
-				<div class="form-group">
-					<label for="count">인원 : </label>
-					<select>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-					</select>
-				</div>
+				
+				<div class="form-group" style="display:none;" id="divCount">
+					<label for="count"> 인원 수 : </label><br>
+						<select id="remain_countList">
+							<option value="" selected="selected">인원수를 선택하세요</option>
+						</select>
+				</div><br>
 				
 				<button type="submit" class="btn btn-primary">
 					예약 등록 완료

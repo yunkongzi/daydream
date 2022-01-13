@@ -13,6 +13,7 @@ import com.kh.daydream.vo.TeacherVo;
 public class TeacherService {
 	@Inject
 	private TeacherDao teacherDao;
+	private Object list;
 	
 	// 강사 추가
 	public void insertTeacher(TeacherVo teacherVo) {
@@ -33,12 +34,12 @@ public class TeacherService {
 	// 강사정보 수정
 	public void updateTeacher(TeacherVo teacherVo) {
 		teacherDao.updateTeacher(teacherVo);
+		
 	}
 	
 	// 강사 정보 삭제
-	public String[] deleteTeacher(String tno, String[] list) {
+	public void deleteTeacher(String tno) {
 		teacherDao.deleteTeacher(tno);
-		return list;
 	}
 	
 	
