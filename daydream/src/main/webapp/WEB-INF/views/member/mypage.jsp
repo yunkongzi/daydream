@@ -2,11 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>마이페이지</title>
+
+
 
 <script>
 $(function() {
@@ -38,27 +35,40 @@ $(function() {
 							</div>
 
 							<div class="jumbotron">
-								<h5>【내 정보】</h5>
+								<h5>【회원님의 정보입니다】</h5>
 								아이디: ${sessionScope.memberVo.user_id} <br> 이름:
 								${sessionScope.memberVo.user_name} <br> 전화번호:
 								${sessionScope.memberVo.user_phone} <br>
 
-								<button type="button" class="btn btn-outline-primary"
+								<button type="button"
 									onclick="location.href='/member/modify'">정보수정</button><br><br>
 
 							</div><br><br>
 
 							<div class="jumbotron">
-								<h5>【나의 클래스 내역】</h5>
+								<h5>【예약하신 클래스 목록이에요】</h5>
 
 								<table>
+								
+								<th>예약날짜</th>
+											<th>클래스이름</th>
+											<th>교시</th>
+											<th>예약인원</th>
+											<th>상태</th>
+											<th>후기작성</th>
+											<th>예약취소</th>
+								
+								
 									<c:forEach items="${reservationList}" var="MyReservationVo">
 										<tr>
 											<td>${MyReservationVo.res_date}</td>
 											<td>${MyReservationVo.class_name}</td>
-											<td>${MyReservationVo.program_time}</td>
-											<td>${MyReservationVo.count}</td>
+											<td>${MyReservationVo.program_time}교시</td>
+											<td>${MyReservationVo.count}명</td>
 											<td>${MyReservationVo.status}</td>
+											
+											
+											
 											
 											
 											
@@ -67,6 +77,8 @@ $(function() {
 											
 											<td><button type="button"
 													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
+											
+											
 											<td><button type="button" onclick=>예약취소</button></td>
 											
 											
@@ -87,8 +99,15 @@ $(function() {
 
 
 							<div class="jumbotron">
-								<h5>【나의 후기】</h5>
+								<h5>【작성하신 후기가 여기 있어요】</h5>
 								후기후기후기후기
+
+							</div><br><br>
+							
+							
+							<div class="jumbotron">
+								<h5>【강사 지원 하셨나요?】</h5>
+								강사 지원 내용 
 
 							</div><br><br>
 							
