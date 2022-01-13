@@ -30,6 +30,7 @@ public class ReservationController {
 		public String reservationRegistForm(@PathVariable("class_no") int class_no, Model model) {
 			List<ReservationTimeVo> timeList = reservationService.selectTimeList(class_no);
 			model.addAttribute("timeList", timeList);
+			System.out.println("ReservationController , reservationRegistForm , timeList >> " + timeList);
 			return "reservation/reservation_regist";
 	}
 		// 예약 등록 처리

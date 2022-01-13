@@ -15,19 +15,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	$('#reservationTime').change(function(e){
-		$('#remain_count').empty();
-		$("#remain_count option:eq(0)")
-		.after("<option value='1'>1명</option>");
-		
-	});
+
+$(function(){
 	
-		
+	$("#selectForm").on("change","#reservationTime",function(e){
+		var thisval = $(this).val()
+		console.log("thisval>>" + thisval);
+		var remaincount = $(this).find("data-remain_count");
+		var remaincountval = remaincount.val();
+		console.log("remaincount>>" + remaincount);
+
+	});
 	
 });
 
-//오늘 날짜
+// 오늘 날짜
 var today = new Date();
 
 //현재 달력 만들기
@@ -86,7 +88,7 @@ function buildCalendar(){
     } else if (cnt % 7 == 2 || cnt % 7 == 3) {
     	cell.innerHTML = "<font color=#cccccc>" + i + "</font>";
     } 
-    
+   
     if (cnt % 7 == 0){
     	cell.innerHTML = "<font color=skyblue>" + i + "</font>";
     	row = calendar.insertRow();
@@ -173,31 +175,28 @@ function nextCalendar(){
 		<div>
 			선택한 날짜 : <input type="text" id="date" name="date" readonly>
 		</div><br>
-				<div class="form-group">
+				<div class="form-group" id="selectForm">
 		
 					<label for="time_no"> 예약 시간 :</label><br>
 					<select id="reservationTime">
-					<option value="">시간을 선택하세요</option>
+						<option value="">시간을 선택하세요</option>
+						
 						<c:forEach items="${timeList}" var="reservationTimeVo">
-							<option value="${reservationTimeVo.time_no}" data-remain_count="${reservationTimeVo.remain_count}">
+						
+						<option value="${reservationTimeVo.time_no}" data-remain_count="${reservationTimeVo.remain_count}">
 								${reservationTimeVo.time_start}시 ~ ${reservationTimeVo.time_end}시
 								(${reservationTimeVo.remain_count}명 가능)</option>
 									
 						</c:forEach>
+						
 					</select>
 				</div><br>
 				
 				<div class="form-group">
-		
-					<label for="count"> 인원 수 </label><br>
-					<select id="remain_count">
-					<option value="" selected="selected">인원수를 선택하세요</option>
-						<c:forEach items="${reservationTimeVo.remain_count}" var="ReservationTimeVo">
-							<option value="1"></option>
-						</c:forEach>
-							
-							
-					</select>
+					<label for="count"> 인원 수 : </label><br>
+						<select id="remain_countList">
+							<option value="" selected="selected">인원수를 선택하세요</option>
+						</select>
 				</div><br>
 				
 				<button type="submit" class="btn btn-primary">
