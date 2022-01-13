@@ -6,18 +6,20 @@ public class MemberVo {
 	String user_pw;
 	String user_name;
 	String user_phone;
+	String is_out;
 	
 	public MemberVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MemberVo(String user_id, String user_pw, String user_name, String user_phone) {
+	public MemberVo(String user_id, String user_pw, String user_name, String user_phone, String is_out) {
 		super();
 		this.user_id = user_id;
 		this.user_pw = user_pw;
 		this.user_name = user_name;
 		this.user_phone = user_phone;
+		this.is_out = is_out;
 	}
 
 	public String getUser_id() {
@@ -52,12 +54,19 @@ public class MemberVo {
 		this.user_phone = user_phone;
 	}
 
+	public String getIs_out() {
+		return is_out;
+	}
+
+	public void setIs_out(String is_out) {
+		this.is_out = is_out;
+	}
+
 	@Override
 	public String toString() {
-		return "member [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_phone="
-				+ user_phone + "]";
+		return "MemberVo [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_phone="
+				+ user_phone + ", is_out=" + is_out + "]";
 	}
-	
-	
 
+	
 }

@@ -38,4 +38,14 @@ public class MemberService {
 			List<MyReservationVo> list = memberDao.reservationList(user_id);
 			return list;
 		}
+		
+	//회원 정보 수정
+		public void updateMember(MemberVo memberVo) {
+			memberDao.updateMember(memberVo);
+		}
+		
+	//회원 탈퇴
+		public void deleteMember(String user_id) {
+			memberDao.deleteMember(user_id);
+		}
 }

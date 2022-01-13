@@ -9,9 +9,17 @@
 <title>마이페이지</title>
 
 <script>
-	$(function() {
-
+$(function() {
+	
+	
+	$("#btnDeleteMember").click(function() {
+		var user = $(this).attr("data-user");
+		console.log("user: " + user);
+		var url = "/member/deleteMember?user_id=" + user;
+		location.href = url;
 	});
+
+});
 </script>
 </head>
 <body>
@@ -36,13 +44,9 @@
 								${sessionScope.memberVo.user_phone} <br>
 
 								<button type="button" class="btn btn-outline-primary"
-									onclick="location.href='/member/member_modify'">정보수정</button>
-								<br>
-								<br>
+									onclick="location.href='/member/modify'">정보수정</button><br><br>
 
-							</div>
-							<br>
-							<br>
+							</div><br><br>
 
 							<div class="jumbotron">
 								<h5>【나의 클래스 내역】</h5>
@@ -55,18 +59,29 @@
 											<td>${MyReservationVo.program_time}</td>
 											<td>${MyReservationVo.count}</td>
 											<td>${MyReservationVo.status}</td>
+											
+											
+											
+											
+											
+											
 											<td><button type="button"
-													onclick="location.href='/review/review_regist?class_name=${MyReservationVo.class_name}'">후기작성</button></td>
+													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
 											<td><button type="button" onclick=>예약취소</button></td>
+											
+											
+											
+											
+											
+											
+											
 										</tr>
 
 
 									</c:forEach>
 								</table>
 
-							</div>
-							<br>
-							<br>
+							</div><br><br>
 
 
 
@@ -75,7 +90,16 @@
 								<h5>【나의 후기】</h5>
 								후기후기후기후기
 
-							</div>
+							</div><br><br>
+							
+							
+							
+							
+							<button type="button"
+									data-user="${sessionScope.memberVo.user_id}"
+									id="btnDeleteMember">
+									회원탈퇴할래요 (정말요?😭)</button>
+							
 
 
 						</div>
