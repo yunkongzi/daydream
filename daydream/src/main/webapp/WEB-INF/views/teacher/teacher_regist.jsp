@@ -91,6 +91,7 @@ $(function() {
 	});	
 	$("#btnFile").click(function() {
 		$("#certificate").trigger("click")
+		$()
 	});
 }); // $(function)
 </script>
@@ -109,12 +110,12 @@ $(function() {
 		<div class="col-md-12" style="margin:0 auto;">
 			<form role="form" action="/teacher/regist_run" 
 				method="post" enctype="multipart/form-data">
-				<div class="form-group">
-				    <p>로그인 후 등록해주세요</p>	
-					<label for="tno">강사번호</label>
-					<input type="text" class="form-control" 
-						id="tno" name="tno" />
-				</div>
+<!-- 				<div class="form-group"> -->
+<!-- 				    <p>로그인 후 등록해주세요</p>	 -->
+<!-- 					<label for="tno">강사번호</label> -->
+<!-- 					<input type="text" class="form-control"  -->
+<!-- 						id="tno" name="tno" /> -->
+<!-- 				</div> -->
 				<div class="form-group">
 					<label for="class_name">강좌명</label>
 					<input type="text" class="form-control" 

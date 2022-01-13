@@ -34,7 +34,6 @@ public class MemberController {
 	// 회원 가입 처리
 	@RequestMapping(value = "/regist_run", method = RequestMethod.POST)
 	public String memberRegistRun(MemberVo memberVo) {
-
 		memberService.insertMember(memberVo);
 		return "redirect:/member/login";
 	}
@@ -111,6 +110,27 @@ public class MemberController {
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public String memberModify_form() {
 		return "/member/modify";
+	}
+	
+	//내 정보 수정처리
+	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
+	   public String updateMemberRun(MemberVo memberVo, HttpSession session, RedirectAttributes rttr) {
+	      System.out.println("MemberController, updateStudentRun, memberVo:" + memberVo);
+	      memberService.updateMember(memberVo);
+	      session.invalidate();
+			rttr.addFlashAttribute("message", "login");
+			return "redirect:/main";
+	            
+	   }
+	
+	//회원 삭제
+	@RequestMapping(value="/deleteMember", method=RequestMethod.GET)
+	public String memberDelete(String user_id, HttpSession session, RedirectAttributes rttr) {
+		System.out.println("user_id:" + user_id);
+		memberService.deleteMember(user_id);
+		session.invalidate();
+		rttr.addFlashAttribute("message", "delete");
+		return "redirect:/main";
 	}
 
 }//

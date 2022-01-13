@@ -70,5 +70,9 @@ public class TeacherDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void updateStatus(String tno) {
+		sqlSession.delete(NAMESPACE + "updateStatus", tno);
+	}
 
 }
