@@ -13,7 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
 <script>
-// 별점 처리
+// 별점 처리 요청 
 $(function () {
     var starEls = document.querySelectorAll('#star span.star');
     var rate = 0;
@@ -35,6 +35,8 @@ $(function () {
             }
         });
         rate = score;
+        var input_star_count = document.getElementById("star_count");
+        input_star_count.value = rate;
     }
 });
 
@@ -78,9 +80,9 @@ $(function() {
 			var fileName = rData.substring(underIndex + 1);
 			div.find("span").text(fileName);
 			var result = isImage(fileName);
-			if(reuslt == true) {
+			if(result == true) {
 				var img = div.find("img");
-				img.attr("src", "/reviewpic/displayImage?fileName" + rData);
+				img.attr("src", "/review/displayImage?fileName=" + rData);
 			}
 			
 			var a = div.find("a");
@@ -99,11 +101,12 @@ $(function() {
 		divs.each(function(index){
 			var filename = $(this).attr("data-filename");
 			var inputHtml = "<input type='hidden' name='files["+ index +"]' value='" + filename + "'>";
-			$("#rfmRegist").prepend(inputHtml);
+			$("#frmRegist").prepend(inputHtml);
 		});
-		// return false;
+// 		return false;
 	});
 	
+	// 파일 삭제 
 	$("#uploadedList").on("click", ".a_times", function(e){
 		e.preventDefault();
 		var that = $(this);
@@ -122,6 +125,19 @@ $(function() {
 		});
 	});
 });
+
+// isImage
+function isImage(fileName){
+	var dotIndex = fileName.lastIndexOf(".");
+	var extName = fileName.substring(dotIndex + 1);
+	var upper = extName.toUpperCase(); // 대문자로 JPG ,PNG, GIF
+	
+	if(upper == "JPG" || upper == "PNG" || upper == "GIF") {
+		return true;
+	} else {
+		return false;
+	}
+}
 </script>
 <style>
 // 별점 스타일
@@ -160,7 +176,7 @@ $(function() {
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2>후기 양식</h2>
-				<p><a class="btn btn-primary btn-large" href="/">후기 목록</a></p>
+				<p><a class="btn btn-primary btn-large" href="/review/reviewList_all">후기 목록</a></p>
 			</div>
 		</div>
 	</div>
@@ -168,18 +184,14 @@ $(function() {
 		<div class="col-md-12">
 			<form role="form" action="/review/regist_run" id="frmRegist"
 				method="post">
+				<input type="hidden" name="star_count" id="star_count">
+				<input type="hidden" name="class_no" value="${class_no}">
 				<div class="form-group">
-					<label for="class_no">클래스</label>
+					<label for="class_name">클래스이름</label>
 					<input type="text" class="form-control" 
-						id="class_no" name="class_no" required="required"
-						value="${reviewVo.class_no}" readonly="readonly"/>
+						id="class_name" value="${class_name}" readonly />
 				</div>
-				<div class="form-group">
-					<label for="userid">아이디</label>
-					<input type="text" class="form-control" 
-						id="userid" name="userid" required="required"
-						value="${reviewVo.user_id}" readonly="readonly"/>
-				</div>
+				
 				<div class="form-group">
 					<label for="title">글제목</label>
 					<input type="text" class="form-control" 
@@ -194,7 +206,7 @@ $(function() {
 				<!-- 첨부파일 업로드  영역-->
 				<div>
 					<label>첨부할 파일을 드래그 &amp; 드롭하세요</label>
-					<div class="fileDrop"></div>
+					<div class="fileDrop"></div><br>
 				</div>
 				
 				<!-- 업로드할 항목의 템플릿 -->
@@ -208,7 +220,7 @@ $(function() {
 				<div id="uploadedList">
 				
 				</div>
-				
+				<hr  style="clear:both;">
 				<!-- 별점 첨부 -->
 				<div class="from-group">
 				<label for="star_rating">별점</label>

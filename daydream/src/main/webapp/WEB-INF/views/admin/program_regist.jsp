@@ -111,7 +111,12 @@ $(function() {
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<form role="form" action="/admin/regist_run" method="post">
+						<form role="form" action="/admin/regist_run" method="post"
+								enctype="multipart/form-data">
+								<p>
+									<input type="hidden" id="class_no" name="class_no" value="${programVo.class_no}">
+								</p>
+								
 							<div class="form-group">
 
 								<label for="class_name"> 클래스명 </label><br> 
@@ -153,8 +158,8 @@ $(function() {
 							<div class="form-group">
 								<label for="file_image"> 사진 </label><br> 
 								<input type="file" class="form-control" 
-									id="file_image" name="file_image"/>
-								<button type="button" id="btnFile">사진 찾아보기</button>
+									id="file_image" name="file_image" style="display:none"/>
+								<button type="button" id="btnFile">사진 업로드하기</button>
 							</div>
 							
 							

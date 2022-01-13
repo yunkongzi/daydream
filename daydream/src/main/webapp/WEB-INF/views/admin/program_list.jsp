@@ -18,6 +18,14 @@
 </head>
 <script>
 $(function() {
+	$(".a_file_image").click(function(e){
+		e.preventDefault();
+		var fileName = $(this).text();
+		var class_no = $(this).attr("data-class_no");
+		var href = $(this).attr("href");
+		location.href = href + "?class_no=" + class_no;
+		
+	});
 	$(".btnModify").click(function(e) {
 		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
@@ -34,6 +42,7 @@ $(function() {
 
 </script>
 <body>
+
 			<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -58,6 +67,7 @@ $(function() {
 							</tr>
 						</thead>
 						<tbody>
+						
 						<c:forEach items="${programList}" var="programVo" >
 							<tr>
 								<td>${programVo.class_name}</td>
@@ -65,7 +75,13 @@ $(function() {
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
 								<td>${programVo.class_intro}</td>
-								<td>${programVo.file_image}</td>
+								<td>
+								<c:if test="${not empty programVo.file_image}">
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="120"/>
+								</c:if>
+								
+								
+								</td>
 								<td>${programVo.class_no}</td>
 								<td>
 								<c:forEach items="${timeList}" var="time">

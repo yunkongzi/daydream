@@ -31,19 +31,35 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th>클래스명</th>
-								<th>예약시간</th>
-								<th>예약날짜</th>
+								<th>아이디</th>
+								<th>예약 날짜</th>
+								<th>예약 번호</th>
+								<th>예약 시간</th>
+								<th>인원 수</th>
+								<th>상태</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${list}" var="reservationVo">
+						<c:forEach items="${reservationList }" var="reservationVo">
 							<tr>
-								<td>${reservationVo.class_name}</td>
-								<td>${reservationVo.res_time}</td>
-								<td>${reservationVo.res_date}</td>
+								<td>${reservationVo.user_id }</td>
+								<td>${reservationVo.res_date }</td>
+								<td>${reservationVo.rno }</td>
+								<td>
+								<c:forEach items="${timeList}" var="time">
+									<c:forEach items="${reservationVo.time_no}" var="no">
+										<c:if test="${time.time_no == no}">
+											${time.time_start }:00 ~ ${time.time_end }:00<br>
+										</c:if>
+									</c:forEach>
+								</c:forEach>
+								</td>
+								<td>${reservationVo.count }</td>
+								<td>${reservationVo.status }</td>
+							
+								
 							</tr>
-						</c:forEach>
+						</c:forEach>	
 						</tbody>
 					</table>
 				</div>
