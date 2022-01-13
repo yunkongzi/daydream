@@ -18,6 +18,14 @@
 </head>
 <script>
 $(function() {
+	$(".a_file_image").click(function(e){
+		e.preventDefault();
+		var fileName = $(this).text();
+		var class_no = $(this).attr("data-class_no");
+		var href = $(this).attr("href");
+		location.href = href + "?class_no=" + class_no;
+		
+	});
 	$(".btnModify").click(function(e) {
 		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
@@ -65,7 +73,7 @@ $(function() {
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
 								<td>${programVo.class_intro}</td>
-								<td>${programVo.file_image}</td>
+								<td><a class="a_file_image" data-class_no="${programVo.class_no}">${programVo.file_image}</a></td>
 								<td>${programVo.class_no}</td>
 								<td>
 								<c:forEach items="${timeList}" var="time">
