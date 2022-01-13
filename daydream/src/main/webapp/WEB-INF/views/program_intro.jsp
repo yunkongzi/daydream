@@ -39,6 +39,7 @@ $(function() {
 							<tr>
 						</c:if>
 						<td>
+							<img src="/admin/displayImage?fileName=${programVo.file_image}" height="220" width="300"/><br>
 							<${programVo.class_name}><br>
 							- ${programVo.class_intro} -<br>
 							가격 : ${programVo.price}원<br>

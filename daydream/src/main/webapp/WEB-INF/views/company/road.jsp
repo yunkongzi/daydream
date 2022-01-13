@@ -7,17 +7,17 @@
 	<title>데이드림 오시는길</title>
 </head>
 <body>
-
 <section id="features">
-		<div class="container" style="margin:0 auto;">
-			<header>								
-				<div class="container-fluid" style="margin:0 auto;">
+				
+							
+<div class="container-fluid" style="margin:0 auto;">
 <h1  style="font-size:30px;">
 	오시는길
 </h1>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.7547132686295!2d129.30870435112865!3d35.53505874548436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35662d66cf9ecfaf%3A0x2d8f16207dd9335b!2zKOyjvCnsmrjsgrBLSOygleuztOq1kOycoeybkA!5e0!3m2!1sko!2skr!4v1641450794832!5m2!1sko!2skr"
+<p align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.7547132686295!2d129.30870435112865!3d35.53505874548436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35662d66cf9ecfaf%3A0x2d8f16207dd9335b!2zKOyjvCnsmrjsgrBLSOygleuztOq1kOycoeybkA!5e0!3m2!1sko!2skr!4v1641450794832!5m2!1sko!2skr"
  width="954" height="628" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</p>
 <br>
 
 <img src="/images/kh.jpg" alt="kh정보교육원" width="954" height="628">
@@ -35,8 +35,6 @@
 <p class="copy">copyright &copy; <strong>ULSAN DAYDREAM</strong>. All Rights Reserved.</p>
 </div>
 </div>			
-</header>
-</div>
 </section>
 </body>
 </html>

@@ -9,7 +9,7 @@
 		values (#{user_id}, #{user_pw}, #{user_name}, #{user_phone})
 	</insert>
 	
-<!-- 	아이디 중복 체크 -->
+	<!-- 아이디 중복 체크 -->
 	<select id="checkDupId" resultType="int">
 		select count(*) from tbl_member
 		where user_id = #{user_id}
@@ -22,6 +22,7 @@
 		and user_pw = #{user_pw}
 	</select>
 	
+	<!-- 예약목록 -->
 	<select id="reservationList" resultType="MyReservationVo">
 		select r.res_date,p.class_name, s.program_time, r.count, r.status, s.class_no
 			from tbl_reservation r, tbl_program p , tbl_program_sub s
@@ -29,5 +30,21 @@
 			and s.class_no = p.class_no
 			and r.user_id = #{user_id}
 	</select>
+	
+	<!-- 정보 수정 -->
+	 <update id="updateMember">
+	 	update tbl_member set
+	 		user_name = #{user_name},
+	 		user_pw = #{user_pw},
+	 		user_phone = #{user_phone}
+	 	where user_id = #{user_id}
+	 </update>
+	 
+	 <!-- 회원 삭제 -->
+	 <update id="deleteMember">
+	 	update tbl_member set
+	 		is_out = 'Y'
+	 	where user_id = #{user_id}
+	 </update>
 
 </mapper>

@@ -46,5 +46,15 @@ public class MemberDao {
 			List<MyReservationVo> list = sqlSession.selectList(NAMESPACE + "reservationList", user_id);
 			return list;
 		}
+		
+	//회원정보 수정
+		public void updateMember(MemberVo memberVo) {
+			sqlSession.update(NAMESPACE + "updateMember", memberVo);
+		}
+		
+	//회원 탈퇴
+		public void deleteMember(String user_id) {
+			sqlSession.delete(NAMESPACE + "deleteMember", user_id);
+		}
 
 }

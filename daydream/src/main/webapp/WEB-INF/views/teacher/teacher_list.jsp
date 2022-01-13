@@ -13,7 +13,10 @@ $(function() {
 	$(".a_certificate").click(function(e) {
 		e.preventDefault();
 		var fileName = $(this).text();
+		var tno = $(this).attr("data-tno");
 		$("#imgCer").attr("src", "/teacher/displayImage?fileName=" + fileName);
+		$("#modalModify").attr("data-tno", tno);
+		$("#modalDelete").attr("data-tno", tno);
 		$("#modal-511270").trigger("click");
 	});
 	$(".btnModify").click(function() {
@@ -23,6 +26,7 @@ $(function() {
 	
 	$(".btnDelete").click(function() {
 		var tno = $(this).attr("data-tno");
+		location.href = "/teacher/deleteTeacher?tno=" + tno;
 	});
 });
 </script>
@@ -37,16 +41,20 @@ $(function() {
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">자격증 사진</h5>
+						<h5 class="modal-title" id="myModalLabel">자격증 보기</h5>
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">×</span>
 						</button>
 					</div>
 					<div class="modal-body"><img id="imgCer" src="" width="450"></div>
 					<div class="modal-footer">
-										
+					
+						<button type="button" class="btn btn-warning btnModify"
+							id="modalModify">수정</button>
+						<button type="button" class="btn btn-info btnDelete"
+							id="modalDelete">삭제</button>				
 						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
+							data-dismiss="modal">닫기</button>							
 					</div>
 				</div>
 			</div>
@@ -81,7 +89,12 @@ $(function() {
 							<td>${teacherVo.price}</td>
 							<td>${teacherVo.personnel}</td>
 							<td>${teacherVo.target}</td>
-							<td><a href="#" class="a_certificate">${teacherVo.certificate}</a></td>
+							<td>
+							<c:if test="${not empty teacherVo.certificate}">
+								<a href="#" class="a_certificate" data-tno="${teacherVo.tno}">${teacherVo.certificate}</a>
+							</c:if>
+							
+							</td>
 							<td>${teacherVo.introduce}</td>
 							<!-- 								<div style="clear:both"></div> -->
 							<td><button type="button" class="btn btn-warning btnModify"
@@ -95,7 +108,7 @@ $(function() {
 		</div>
 	</div>
 </div>          
-</div>
+
 </body>
 </html>
 
