@@ -38,27 +38,27 @@ public class ReviewController {
 	@Inject
 	private ProgramService programService;
 	
+	
 	@RequestMapping(value="/reviewList_all", method=RequestMethod.GET)
-	public String reviewList(HttpSession session, Model model, PagingDto pagingDto) {
+	public String reviewListAll(HttpSession session, Model model, PagingDto pagingDto) {
 		
 		int count = reviewService.getCount(pagingDto);
 		pagingDto.setCount(count);
 		pagingDto.setPageInfo();
-		System.out.println("ReivewControler, reviewList, pagingDto:" + pagingDto);
+		System.out.println("ReivewControler, reviewListAll, pagingDto:" + pagingDto);
 		List<ReviewVo> list = reviewService.selectAll(pagingDto);
 		model.addAttribute("list", list);
 		model.addAttribute("pagingDto", pagingDto);
 //		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
 //		String user_id = memberVo.getUser_id();
 		String user_id = "hong";
-		List<AttendClassVo> reviewList_all= reviewService.reviewList(user_id, FINISH);
+		List<AttendClassVo> reviewList_all= reviewService.reviewListAll(user_id, FINISH);
 		model.addAttribute("reviewList_all", reviewList_all);
 		return "review/reviewList_all";
 	}
 	
 	// 리뷰쓰기 폼 (/review/review_regist)
 	@RequestMapping(value="/review_regist", method=RequestMethod.GET)
-
 		public void reviewRegistForm(int class_no, Model model, HttpSession session) {
 //		MemberVo memberVo  = (MemberVo)session.getAttribute("memberVo");
 //		if (memberVo == null) {

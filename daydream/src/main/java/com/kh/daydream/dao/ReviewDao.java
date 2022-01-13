@@ -94,11 +94,11 @@ public class ReviewDao {
 	}
 	
 	// 리뷰 리스트
-	public List<AttendClassVo> reviewList(String user_id, String status) {
+	public List<AttendClassVo> reviewListAll(String user_id, String status) {
 		Map<String, String> map = new HashMap<>();
 		map.put("user_id", user_id);
 		map.put("status", status);
-		List<AttendClassVo> list = sqlsession.selectList(NAMESPACE + "reviewList", map);
+		List<AttendClassVo> list = sqlsession.selectList(NAMESPACE + "reviewListAll", map);
 		return list;
 	}
 	

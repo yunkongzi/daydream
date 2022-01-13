@@ -80,8 +80,8 @@ public class ReviewService {
 	}
 	
 	// 리뷰 리스트 
-	public List<AttendClassVo> reviewList(String user_id, String status) {
-		List<AttendClassVo> list = reviewDao.reviewList(user_id, status);
+	public List<AttendClassVo> reviewListAll(String user_id, String status) {
+		List<AttendClassVo> list = reviewDao.reviewListAll(user_id, status);
 		return list;
 	}
 	

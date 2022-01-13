@@ -57,6 +57,7 @@ $(".a_title").click(function(e) {
 
 </script>
 <body>
+${reviewList_all}
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -119,18 +120,20 @@ $(".a_title").click(function(e) {
 								<th>글제목</th>
 								<th>작성자</th>
 								<th>작성일</th>
+								<th>별점</th>
 								<th>조회수</th>
 							</tr>
 						</thead>
 						<tbody>
 						<!-- 게시글 목록 -->
-						<c:forEach items="${list}" var="reviewVo">
+						<c:forEach items="${reviewlist}" var="reviewVo">
 							<tr>
 								<td>${reviewVo.bno}</td>
 								<td>${reviewVo.title}</td> 
 								<td>${reviewVo.userid}</td>
 								<td>${reviewVo.regdate}</td>
 								<td>${reviewVo.viewcnt}</td>
+								<td>${reviewVo.star_count}</td>
 							</tr>
 						</c:forEach>
 						</tbody>
