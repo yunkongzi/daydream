@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<head>
-<meta charset="UTF-8">
+
 <title>강사등록</title>
 
 <script src="/js/myscript.js"></script>
@@ -53,18 +52,15 @@ $(function() {
 				if (result == true) {
 					var img = div.find("img");
 					img.attr("src", "/upload/displayImage?fileName=" + rData);
-				}
-				
+				}				
 				var a = div.find("a");
 				a.attr("data-filename", rData);
-				
-				
+								
 				$("#uploadedList").append(div);
 				div.show(1000);
 			}
 		});
-	}); // $("#fileDrop").on("drop"
-			
+	}); // $("#fileDrop").on("drop"			
 	$("#frmRegist").submit(function() {
 		var divs = $("#uploadedList > .divUploaded");
 		console.log("divs:", divs);
@@ -74,8 +70,7 @@ $(function() {
 			$("#frmRegist").prepend(inputHtml);
 		});
 // 		return false;
-	});		
-	
+	});			
 	$("#uploadedList").on("click", ".a_times", function(e) {
 		e.preventDefault();
 		var that = $(this);
@@ -93,22 +88,21 @@ $(function() {
 				alert("파일 삭제에 실패했습니다.");
 			}
 		});
-	});
-	
+	});	
 	$("#btnFile").click(function() {
 		$("#certificate").trigger("click")
+		$()
 	});
 }); // $(function)
 </script>
 </head>
-
-<body>
-							
+<body>							
 <div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
 		<div class="col-md-12" style="margin:0 auto;">
 			<div class="jumbotron" style="margin:0 auto;">
-				<h2>강사 등록</h2>				
+				<h2>강사 등록</h2>	
+						
 			</div>
 		</div>
 	</div>
@@ -116,11 +110,12 @@ $(function() {
 		<div class="col-md-12" style="margin:0 auto;">
 			<form role="form" action="/teacher/regist_run" 
 				method="post" enctype="multipart/form-data">
-				<div class="form-group">
-					<label for="tno">강사번호</label>
-					<input type="text" class="form-control" 
-						id="tno" name="tno" />
-				</div>
+<!-- 				<div class="form-group"> -->
+<!-- 				    <p>로그인 후 등록해주세요</p>	 -->
+<!-- 					<label for="tno">강사번호</label> -->
+<!-- 					<input type="text" class="form-control"  -->
+<!-- 						id="tno" name="tno" /> -->
+<!-- 				</div> -->
 				<div class="form-group">
 					<label for="class_name">강좌명</label>
 					<input type="text" class="form-control" 
@@ -161,7 +156,5 @@ $(function() {
 		</div>
 	</div>
 </div>
-
-</body>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

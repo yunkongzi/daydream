@@ -53,7 +53,12 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<form role="form" action="/admin/modify_run" method="post">
+						<form role="form" action="/admin/modify_run" method="post"
+								enctype="multipart/form-data" >
+								<%-- <p>
+									<input type="hidden" id="file_image" name="file_image" value="${programVo.file_image}">
+								</p> --%>
+							
 							<div class="form-group">
 								<label for="class_no"> 클래스 번호 </label><br> 
 								<input
@@ -115,7 +120,7 @@
 								<label for="file_image"> 사진 </label><br> 
 								<input
 									type="file" class="form-control" id="file_image" name="file_image" 
-									value="${programVo.file_image}"/>
+									value= "${programVo.file_image}"/>
 							</div>
 							
 							<button type="submit" class="btn btn-primary btnProgramReg">

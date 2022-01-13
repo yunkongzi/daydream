@@ -2,12 +2,43 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
+<title>리뷰수정게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">	
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
+<script>
+//$(document).ready(function())
+$(function() {
+	var message = "${message}";
+	if (message == "modify_success") {
+		alert("글 수정이 완료 되었습니다.");
+	}
+	
+	// 삭제 버튼
+	$("#btnDelete").click(function() {
+		var bno = $(this).attr("data-bno");
+		console.log("bno:", bno);
+		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
+		$("#frmPaging").append(input_bno);
+		$("#frmPaging > input[name=bno]").val(bno);
+		$("#frmPaging").attr("action", "/review/deleteReview");
+		$("#frmPaging").submit();
+	});
+	// 수정 버튼
+	$("#btnModify").click(function() {
+		console.log($(".modify"));
+// 		class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
+		$(".modify").prop("readonly", false);
+		$("#btnModifyOk").fadeIn(500); // show, slideDown
+		$(this).fadeOut(500); // hide, slideUp
+	});
+});
+
+</script>
+
 <body>
 	<div class="container-fluid">
 	<div class="row">
@@ -31,7 +62,8 @@
 				<div class="form-group">
 					<label for="userid">아이디</label>
 					<input type="text" class="form-control" 
-						id="userid" name="userid" required="required"/>
+						id="userid" name="userid" required="required"
+						value="${reviewVo.user_id}" readonly="readonly"/>
 				</div>
 				<div class="form-group">
 					<label for="title">글제목</label>
@@ -44,9 +76,9 @@
 						id="content" name="content"></textarea>
 				</div>
 				<div class="form-group"> 
-					<label for="title">작성일</label>
+					<label for="regdate">작성일</label>
 					<input type="text" class="form-control"
-					id="title" required="required"
+					id="regdate" required="required"
 					value="${reviewVo.regdate}" readonly="readonly"/>
 				</div>
 				
@@ -67,10 +99,13 @@
 					</div>
 				</c:forEach>
 				</div>
-				<div>
-					<button type="submit" class="btn btn-primary" id="btnSubmit">
-					후기 수정 완료
-					</button>
+				<div style="clear:both">
+					<button type="button" class="btn btn-warning"
+						id="btnModify">수정</button>
+					<button type="submit" class="btn btn-success"
+						id="btnModifyOk" style="display:none">수정완료</button>
+					<button type="button" class="btn btn-danger"
+						id="btnDelete" data-bno="${reviewVo.bno}">삭제</button>
 				</div>
 			</form>
 		</div>
