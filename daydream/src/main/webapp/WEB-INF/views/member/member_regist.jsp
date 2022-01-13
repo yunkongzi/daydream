@@ -3,12 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>											
+											
 <script>
 
 $(function() {
@@ -27,6 +22,7 @@ $(function() {
 			}
 		});
 	});
+	
 
 
 });
@@ -82,7 +78,7 @@ $(function() {
 						id="user_phone" name="user_phone" />
 				</div><br><br>
 				
-				<button type="submit" class="btn btn-primary">
+				<button type="submit" class="btn btn-primary" id="btnSubmit">
 					가입 완료
 				</button>
 			</form>

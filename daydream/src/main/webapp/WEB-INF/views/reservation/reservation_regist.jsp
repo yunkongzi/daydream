@@ -1,4 +1,5 @@
-<%@ page import ="java.text.*,java.util.*" contentType="text/html;charset=euc-kr"
+<%@ page import="java.util.Date" %>
+<%@ page language="java"  contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -9,106 +10,141 @@
 <title>예약 등록</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">	
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-<script>
-$(function() {
-	
-	
-	var d = new Date("2022-01-07");
-	var w = d.getDay(d);
-	console.log(w);
-	var day = 0;
-	while (day <= 31) {
-		var tr = "<tr>";
-		var weekNum = 0; // 0 ~ 6(일~토)
-		var weekV = 0;
-		if (day == 0) {
-			while (weekNum < w) {
-				console.log("없음");
-				tr += "<td class='none'></td>";
-				weekNum++;
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	$("#selectForm").on("change","#reservationTime",function(e){
+		
+		var thisVal = $(this).find("option:selected").attr("data-remain_count");
+		if (thisVal == '') {
+			return;
+		}
+		var count = parseInt(thisVal);
+		console.log("count : " + count);
+		console.log($(this).find("option:selected").attr("data-remain_count"));
+		var options = "<option value='' selected>인원수를 선택하세요</option>";
+		if (count > 0) {
+			for (var v = 1; v <= count; v++) {
+				console.log(v);
+				options += "<option value='" + v +"'>" + v + "</option>";
 			}
 		}
-		
-		while (weekNum < 7 ) {
-			
-			day++;
-			if (day <= 31) {
-				tr += "<td>" + day + "<br>캔들 5명</td>";
-			} else {
-				tr += "<td class='none'></td>";
-			}
-			
-			weekNum++;
-			
-		}
-		tr += "</tr>";
-		$("#calTable").append(tr);
-		
-	}
+		$("#remain_countList").empty().append(options);
+		$("#divCount").show(1000);
+
+	});
+	
 });
-	
-	
+
+// 오늘 날짜
+var today = new Date();
+
+//현재 달력 만들기
+function buildCalendar(){
+  var row = null;
+  var cnt = 0;
+  var calendarTable = document.getElementById("calendar");
+  var calendarTableTitle = document.getElementById("calendarTitle");
+  	 calendarTableTitle.innerHTML = today.getFullYear()+"년"+(today.getMonth()+1)+"월";
+  
+  var firstDate = new Date(today.getFullYear(), today.getMonth(), 1);
+  var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0);
+  while(calendarTable.rows.length > 2){
+  	calendarTable.deleteRow(calendarTable.rows.length -1);
+  }
+
+  row = calendarTable.insertRow();
+  for(i = 0; i < firstDate.getDay(); i++){
+	cell = row.insertCell();
+  	cnt++;
+  }
+
+  for(i = 1; i <= lastDate.getDate(); i++){
+  	cell = row.insertCell();
+  	cnt++;
+
+    cell.setAttribute('id', i);
+    if (i % 7 == 3 || i % 7 == 4) {
+    	cell.setAttribute('class', 'dis');
+    	cell.setAttribute('title', '월,화요일은 휴무입니다.');
+    }
+  	cell.innerHTML = i;
+  	cell.align = "center";
+
+    cell.onclick = function(){
+    	var isdis = this.getAttribute('class');
+    	console.log(isdis);
+    	if (isdis == 'dis') {
+    		return;
+    	}
+    	clickedYear = today.getFullYear();
+    	clickedMonth = (today.getMonth() +1);
+    	clickedDate = this.getAttribute('id');
+
+    	clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
+    	clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
+    	clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
+		console.log(clickedYMD);
+    	document.getElementById("date").value = clickedYMD;
+//     	$("#date").val(clickedYMD);
+		$("#selectForm").show(1000);
+
+    }
+
+    if (cnt % 7 == 1) {
+    	cell.innerHTML = "<font color=#F79DC2>" + i + "</font>";
+    } else if (cnt % 7 == 2 || cnt % 7 == 3) {
+    	cell.innerHTML = "<font color=#cccccc>" + i + "</font>";
+    } 
+   
+    if (cnt % 7 == 0){
+    	cell.innerHTML = "<font color=skyblue>" + i + "</font>";
+    	row = calendar.insertRow();
+    }
+  }
+
+  if(cnt % 7 != 0){
+  	for(i = 0; i < 7 - (cnt % 7); i++){
+  		cell = row.insertCell();
+  	}
+  }
+  
+}
+//이전달
+// 이전 달을 today에 값을 저장하고 달력에 today를 넣어줌
+//today.getFullYear() 현재 년도//today.getMonth() 월  //today.getDate() 일 
+//getMonth()는 현재 달을 받아 오므로 이전달을 출력하려면 -1을 해줘야함
+function prevCalendar(){
+	today = new Date(today.getFullYear(), today.getMonth()-1, today.getDate());
+	buildCalendar();
+}
+//다음달
+function nextCalendar(){
+	today = new Date(today.getFullYear(), today.getMonth()+1, today.getDate());
+	buildCalendar();
+}
+
 </script>
 
-<style type="text/css">
-
-a:link { font-family: "";font-size:14pt; text-decoration:none; color:darkblue}
-a:visited { font-family: "";font-size:14pt;text-decoration:none; color:darkblue}
-a:hover {font-family: "";font-size:14pt;text-decoration::none; color:red}
-font {  font-family: ""; font-size:14pt; text-decoration: none}
-.inputline {  border:1 solid; color: #002669}
-.input {  border:1 solid}
-.head {  font-family: "arial"; font-size: 10pt; font-weight: bold; color: #000000}
-.text_jp {  font-family: ""; font-size:9pt; line-height: 12pt}
-.text_sjp {  font-family: ""; font-size:8pt; line-height: 12pt}
-.text_mjp {  font-family: ""; font-size:11pt; line-height: 12pt}
-.text_bjp {  font-family: ""; font-size:12pt; line-height: 12pt}
-.body1{ font-size:38px;}
-.body2{ font-size:26px;}
-.body3{ font-size:14px;}
-.body4{ font-size:8px;}
-.body5{ font-size:10px;}
-.body6{ font-size:9px;}
-.lt { font-size:12pt; text-decoration: line-through }
-
-input.locked {  background-color:#DDDDDD;  }
-#calTable td { width: 30px;}
-#calTable td.none {
-	background-color: gray;
+ <style type="text/css">
+/* 기본스타일  */	
+	table{ background-color: #F2F2F2;}
 	
-}
+	tr{height:60px;}
+	td{width:100px; text-align:center; font-size:15pt; font-family:D2coding; cursor: pointer}
+	.dis {cursor:help;}
+
 </style>
+</head>
 
-<%  
-int year;
-int month;
-   Calendar today=Calendar.getInstance();
-   Calendar cal = new GregorianCalendar();
-   year = (request.getParameter("year")==null) ?  today.get(Calendar.YEAR) :      Integer.parseInt(request.getParameter("year").trim()) ;
 
- month = (request.getParameter("month")==null) ?   today.get(Calendar.MONTH)+1:      Integer.parseInt(request.getParameter("month").trim()) ;
 
-if (month<=0){
-
- month = 12;
- year  =year- 1;
-}else if (month>=13){
-
- month = 1;
- year =year+ 1;
-}
-   cal.set(Calendar.YEAR,year);
-   cal.set(Calendar.MONTH,(month-1));
-   cal.set(Calendar.DATE,1);
-
-%>
  <body>
  
-
  <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -119,70 +155,61 @@ if (month<=0){
 		</div>
 	</div>
 	<div class="row">
-		<div class="left-box">
+		<div class="col-md-12">
 			<form role="form" action="/member/regist_run" 
 				method="post">
 				<div class="form-group">
 		<label for="res_date">예약날짜</label>
 <hr>		
-<table id="calTable" border="1">
-	<tr><td>&lt;</td><td colspan="5">1월</td><td>&gt;</td>
-</table>
+
+			<table id="calendar">
+					<tr>
+						<td><label onclick="prevCalendar()"> ◀ 이전 달 </label></td>
+						<td colspan="5" align="center" id="calendarTitle">yyyy년 m월</td>
+						<td  colspan="5"><label onclick="nextCalendar()"> 다음 달 ▶ </label></td>
+					</tr>
+					<tr>
+						<td align="center"><font color ="#F79DC2">일</font></td>
+						<td align="center">월</td>
+						<td align="center">화</td>
+						<td align="center">수</td>
+						<td align="center">목</td>
+						<td align="center">금</td>
+						<td align="center"><font color ="skyblue">토</font></td>
+					</tr>
+					
+			</table>
+
 <hr>
-<table style="text-align:center;">
+		
 
-
-<tr >
- <td align="center" bgcolor='#CCE3C6' height='18' valign='bottom' colspan="7">
-   <a href='calendar.jsp?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)-1)%>'><font color='484848' size='2'>◀ </font></a><font color='484848' size='2'><%=cal.get(Calendar.YEAR)%> / <%=(cal.get(Calendar.MONTH)+1)%> </font><a href='calendar.jsp?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)+1)%>'><font color='484848' size='2'>▶ </font></a>
- </td></tr>
-<tr align="right" bgcolor="#6ea1aa">
-<td>  일</td><td>  월</td><td>  화</td><td>  수</td><td>  목</td><td>  금</td><td>  토</td>
-</tr>
-
-<%  
-cal.set(year, month-1, 1);
-int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-%>
-<tr align="right" bgcolor="#6ea1aa">
-<%
-for(int i=1;i<dayOfWeek;i++){
-%><td align="right" bgcolor="#CCE3C6"></td>
-<% }
-
-for(int i=1;
-        i<=cal.getActualMaximum(Calendar.DAY_OF_MONTH);i++){
-    %>
-<td>
-  <a href='day.jsp?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1))%>&day=<%=i %>'><%=i %></a>
-  </td><%
-            if((dayOfWeek-1+i)%7==0){
-                %></tr><tr align="right" bgcolor="#6ea1aa">
-   <% }
-  }%>
- 
- </tr>
- 
-</table><br>
 		</div>	
-				<div class="form-group">
-					<label for="program_time">예약 시간</label>
-					<select>
-						<option>10-12</option>
-						<option>14-16</option>
-						<option>16-18</option>
-						<option>19-21</option>
+		<div>
+			선택한 날짜 : <input type="text" id="date" name="date" readonly>
+		</div><br>
+				<div class="form-group" id="selectForm" style="display:none;">
+		
+					<label for="time_no"> 예약 시간 :</label><br>
+					<select id="reservationTime">
+						<option value="">시간을 선택하세요</option>
+						
+						<c:forEach items="${timeList}" var="reservationTimeVo">
+						
+						<option value="${reservationTimeVo.time_no}" data-remain_count="${reservationTimeVo.remain_count}">
+								${reservationTimeVo.time_start}시 ~ ${reservationTimeVo.time_end}시
+								(${reservationTimeVo.remain_count}명 가능)</option>
+									
+						</c:forEach>
+						
 					</select>
 				</div><br>
-				<div class="form-group">
-					<label for="count">인원</label>
-					<select>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-					</select>
-				</div>
+				
+				<div class="form-group" style="display:none;" id="divCount">
+					<label for="count"> 인원 수 : </label><br>
+						<select id="remain_countList">
+							<option value="" selected="selected">인원수를 선택하세요</option>
+						</select>
+				</div><br>
 				
 				<button type="submit" class="btn btn-primary">
 					예약 등록 완료
@@ -191,5 +218,6 @@ for(int i=1;
 		</div>
 	</div>
 </div>
+<script type="text/javascript">buildCalendar();</script>
  </body>
  </html>

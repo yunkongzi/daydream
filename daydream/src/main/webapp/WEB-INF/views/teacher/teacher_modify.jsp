@@ -1,12 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<style>
+* {
+	margin: 0 auto;
+	text-align: center;
+}
+section.a {
+	width: 700px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+input, textarea {
+	text-align:left;
+}
 
-
-<title>강사등록</title>
-
-<script src="/js/myscript.js"></script>
+</style>
 
 <script>
 $(function() {
@@ -91,70 +103,77 @@ $(function() {
 	});	
 	$("#btnFile").click(function() {
 		$("#certificate").trigger("click")
-		$()
 	});
 }); // $(function)
 </script>
-</head>
-<body>							
-<div class="container-fluid" style="margin:0 auto;">
-	<div class="row">
-		<div class="col-md-12" style="margin:0 auto;">
-			<div class="jumbotron" style="margin:0 auto;">
-				<h2>강사 등록</h2>	
-						
-			</div>
-		</div>
+										
+	<section class="a">
+	<div style="margin:0 auto; text-align:center;">
+		<h3>데이드림 강사 정보 수정</h3>
+		<p style="margin:0 auto; text-align:center;">강사번호 변경은 관리자에게 문의하세요.</p>
+		
 	</div>
-	<div class="row">
-		<div class="col-md-12" style="margin:0 auto;">
-			<form role="form" action="/teacher/regist_run" 
-				method="post" enctype="multipart/form-data">
-<!-- 				<div class="form-group"> -->
-<!-- 				    <p>로그인 후 등록해주세요</p>	 -->
-<!-- 					<label for="tno">강사번호</label> -->
-<!-- 					<input type="text" class="form-control"  -->
-<!-- 						id="tno" name="tno" /> -->
-<!-- 				</div> -->
-				<div class="form-group">
-					<label for="class_name">강좌명</label>
-					<input type="text" class="form-control" 
-						id="class_name" name="class_name" />
+	</section>
+	<hr/>
+		
+	<section class="a">
+	<div>
+		
+		<form action="/teacher/modify_run" 
+				method="post">
+		<div style="margin:0 auto;">
+			
+				<div>
+					<label for="tno">강사번호</label>
+					<input type="text"  
+						id="tno" name="tno" value="${teacherVo.tno}" readonly/>
 				</div>
 				<div class="form-group">
-					<label for="price">금액</label>
+					<label for="class_name">클래스명</label>
 					<input type="text" class="form-control" 
-						id="price" name="price" />
+						id="class_name" name="class_name" value="${teacherVo.class_name}" />
 				</div>
 				<div class="form-group">
-					<label for="personnel">참가인원</label>
+					<label for="price">가격</label>
 					<input type="text" class="form-control" 
-						id="personnel" name="personnel" />
+						id="price" name="price" value="${teacherVo.price}"/>
+				</div>
+				<div class="form-group">
+					<label for="personnel">인원</label>
+					<input type="text" class="form-control" 
+						id="personnel" name="personnel" value="${teacherVo.personnel}"/>
 				</div>
 				
 				<div class="form-group">
 					<label for="target">참가대상</label>
 					<input type="text" class="form-control" 
-						id="target" name="target" />
+						id="target" name="target" value="${teacherVo.target}"/>
 				</div>
-				
+				<c:if test="${not empty teacherVo.certificate}">
+				<img src="/teacher/displayImage?fileName=${teacherVo.certificate}"/>
+				</c:if>	
+						
 				<div class="form-group">
 					<label for="certificate">자격증 파일 첨부</label>
 					<input type="file" class="form-control" 
 						id="certificate" name="certificate" style="display:none"/>
 					<button type="button" id="btnFile">파일 첨부</button>
 				</div>
-												
+				
 				<div class="form-group">
 					<label for="introduce">자기소개</label>
-					<textarea class="form-control" placeholder="50자 내외로 글을 작성해주세요."
-						id="introduce" name="introduce"></textarea>
-				</div>
-				
-				<button type="submit" class="btn btn-primary">등록완료</button>				
-			</form>
+					<textarea class="form-control" id="introduce" name="introduce">${teacherVo.introduce}</textarea> 
+				</div>				
+				<br><br>				
+				<button type="submit" class="btn btn-primary">
+					수정 완료
+				</button>
+			
 		</div>
+		</form>
+		
 	</div>
-</div>
+	</section>
+</body>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

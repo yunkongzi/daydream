@@ -9,9 +9,9 @@
 	
 	<!-- 프로그램 등록 -->
 	<insert id="insertProgram">
-		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no)
+		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no, file_image)
 		values(#{class_name}, #{price}, #{target}, #{personnel},
-				 #{class_intro}, #{class_no})
+				 #{class_intro}, #{class_no}, #{file_image})
 	</insert>   
 	
 	<!-- 프로그램 서브 -->
@@ -43,28 +43,59 @@
 <!-- 		order by s.status_code -->
 <!--    </select> -->
 
-	<select id="selectAll" resultType="ProgramVo">
-		select p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, s.program_time
+	<select id="selectProgramList" resultType="ProgramListVo">
+		select p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, 
+			c.time_no, c.time_start, c.time_end
 		from tbl_program p, tbl_program_sub s, tbl_class_time c
 		where p.class_no = s.class_no 
 		and s.program_time = c.time_no
 	</select>
+	
+	<select id="selectOpenedProgramList" resultType="ProgramVo">
+		select distinct p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, p.file_image
+		from tbl_program p, tbl_program_sub s
+		where p.class_no = s.class_no
+	</select>
+	
+	<!-- 프로그램 서브 정보 얻기 -->
+	<select id="selectProgramByClassNo" resultType="ProgramVo">
+		select distinct p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no
+		from tbl_program p, tbl_program_sub s
+		where p.class_no = s.class_no 
+        and p.class_no = #{class_no}
+	</select>
    
+   <!-- 클래스 시간 목록 (1~4) -->
    <select id="selectTimeList" resultType="ClassTimeVo">
    		select * from tbl_class_time
 		order by time_no
    </select>
    
+   <!-- 개설된 time -->
+   <select id="openedTimeList" resultType="int">
+   		select program_time from tbl_program_sub
+   		where class_no = #{class_no}
+   		order by program_time
+   </select>
+   
    <!-- 프로그램 수정 -->
    <update id="updateProgram">
    		update tbl_program set
-   		class_name = #{class_name},
-   		price = #{price},
-   		target = #{target},
-   		personnel = #{personnel},
-   		class_intro = #{class_intro},
-   		time_no = #{time_no}
-   		where class_no = #{class_no}
+	   		class_name = #{class_name},
+	   		price = #{price},
+	   		target = #{target},
+	   		personnel = #{personnel},
+	   		class_intro = #{class_intro},
+	   		file_image = #{file_image}
+ 		where class_no = #{class_no}
+   </update>
+   
+   <!-- 프로그램 시간 수정 -->
+   <update id="updateTimeList">
+   		update tbl_class_time set
+	   		time_start = #{time_start},
+	   		time_end = #{time_end}
+   		where time_no = #{time_no}
    </update>
    
    <!-- 프로그램 삭제 -->
@@ -72,5 +103,7 @@
    		delete from tbl_program
    		where class_no = #{class_no}
    </delete>
+   
+   <select id=""></select>
 </mapper>
 

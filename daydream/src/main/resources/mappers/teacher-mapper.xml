@@ -6,8 +6,10 @@
 
 	<!--강사 추가  -->
 <insert id="insertTeacher">
-		insert into tbl_teacher(tno, class_name, price, personnel, target, introduce)
-		values (#{tno}, #{class_name}, #{price}, #{personnel}, #{target}, #{introduce})
+		insert into tbl_teacher(tno, class_name, price, personnel, 
+								target, certificate, introduce, user_id)
+		values ((select max(to_number(tno)) + 1 from tbl_teacher), #{class_name}, #{price}, 
+				#{personnel}, #{target}, #{certificate}, #{introduce}, #{user_id})
 	</insert>
 	
 	<!--특정 강사 찾기  -->
@@ -27,8 +29,10 @@
 			class_name = #{class_name},
 			price = #{price},
 			personnel = #{personnel},			
-			target = #{target}			
-		where userid = #{tno}
+			target = #{target},
+			certificate = #{certificate, jdbcType=VARCHAR},		
+			introduce = #{introduce}	
+		where tno = #{tno}
 	</update>
 	
 	<!-- 강사 정보 삭제 -->
@@ -36,5 +40,24 @@
 		delete from tbl_teacher
 		where tno = #{tno}
 	</delete>
+	
+	<!-- tno 얻기 -->
+	<select id="getTnoNextVal" resultType="String">
+		select seq_tno.nextval
+		from dual
+	</select>
+	
+	<!-- 첨부파일 추가 -->
+	<insert id="insertAttach">
+		insert into tbl_teacher_attach(tno, tfile)
+		values(#{tno}, #{tfile})
+	</insert>
+	
+	<!-- 강사 상태 변경 -->
+	<update id="updateStatus">
+		update tbl_teacher set
+		    status = 'Y'
+		where tno = #{tno}
+	</update>
 	
 </mapper>

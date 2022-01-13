@@ -2,12 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
 <script>
 $(function() {
 	
@@ -15,7 +12,8 @@ $(function() {
 	var msg = "${msg}"; // fail
 	if (msg == "fail") {
 		alert("아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요.");
-	}
+	} 
+	
 	
 });
 
@@ -32,7 +30,7 @@ $(function() {
 				
 				<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12" style="padding-left: 450px;">
+		<div class="col-md-12" style="margin:0 auto;">
 			
 				<h2>DAYDREAM LOGIN PAGE</h2>
 				
@@ -55,11 +53,11 @@ $(function() {
 						id="user_pw" name="user_pw" />
 				</div><br><br><br>
 				
-				<button type="submit" class="btn btn-outline-success">
+				<button type="submit" class="btn btn-outline-success" id="btnLogin">
 					 로그인
 				</button><br><br>
 				
-				<button type="button" class="btn btn-outline-primary" 
+				<button type="button" class="btn btn-outline-primary" id="btnRegist"
 				onclick="location.href='/member/member_regist'">회원가입</button><br><br>
 
 				
@@ -69,15 +67,9 @@ $(function() {
 </div>
 				
 				
-			</header>
-		</div>
-	</section>
-	
-	
-	
-	
-
-
+</header>
+</div>
+</section>
 </body>
 </html>
 

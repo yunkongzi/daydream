@@ -11,9 +11,28 @@ public class ProgramVo {
 	private String class_intro;
 	private int class_no;
 	private int[] time_no;
+	private String file_image;
 	
+	
+
+
 	public ProgramVo() {
 		super();
+	}
+	
+	
+
+	public ProgramVo(String class_name, String price, String target, String personnel, String class_intro, int class_no,
+			int[] time_no, String file_image) {
+		super();
+		this.class_name = class_name;
+		this.price = price;
+		this.target = target;
+		this.personnel = personnel;
+		this.class_intro = class_intro;
+		this.class_no = class_no;
+		this.time_no = time_no;
+		this.file_image = file_image;
 	}
 
 
@@ -73,6 +92,17 @@ public class ProgramVo {
 	public void setTime_no(int[] time_no) {
 		this.time_no = time_no;
 	}
+	
+
+	public String getFile_image() {
+		return file_image;
+	}
+
+
+
+	public void setFile_image(String file_image) {
+		this.file_image = file_image;
+	}
 
 
 
@@ -80,7 +110,7 @@ public class ProgramVo {
 	public String toString() {
 		return "ProgramVo [class_name=" + class_name + ", price=" + price + ", target=" + target + ", personnel="
 				+ personnel + ", class_intro=" + class_intro + ", class_no=" + class_no + ", time_no="
-				+ Arrays.toString(time_no) + "]";
+				+ Arrays.toString(time_no) + ", file_image=" + file_image + "]";
 	}
 
 
@@ -89,16 +119,6 @@ public class ProgramVo {
 	
 
 	
-	//윤지야 많이 지쳐보이는 구나. 당연함. 
-	//흠흠 오늘은 맛있는 걸 먹어서 기운을 보충해야할 것 같어
-	//나는 오늘 한 게 없는 것 같은데 왜이렇게 힘들까?
-	//로그인 했으니까 된 거겠지.. 관리자 로그인도 되고.. 회원가입 아이디 중복도 했어
-	//응응 그럼 된 거야... 그렇다고 해줘
-	//그런데 아이디 기억하기 어케 하지 그냥 하지 말까 그래도 있어보이게 만들고싶은데
-	//ㅎㅎ 근데 뭐.. 그냥 회원가입도 안보고 못하는 내가 ^^ 할 수 있을까?
-	//하면 되겠지.. 구글링 하고 이것저것 하면(결국 공부네) 되는 일이겠지
-	//그런데 나는 시간이 없는 기분이야 그냥 얼레벌레 구현만 되면 되는 거 아닐까요?
-	//우리 쪽지 안 쓴 지 되게 오래됐다. 엥 벌써 5시 반이네 우리 집에 가자.. 
 
 
 }

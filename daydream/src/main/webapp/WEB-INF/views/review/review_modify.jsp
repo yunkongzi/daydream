@@ -1,14 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">					
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">					
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>					
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>					
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>					
+<title>리뷰수정게시판</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
+<script>
+//$(document).ready(function())
+$(function() {
+	var message = "${message}";
+	if (message == "modify_success") {
+		alert("글 수정이 완료 되었습니다.");
+	}
+	
+	// 삭제 버튼
+	$("#btnDelete").click(function() {
+		var bno = $(this).attr("data-bno");
+		console.log("bno:", bno);
+		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
+		$("#frmPaging").append(input_bno);
+		$("#frmPaging > input[name=bno]").val(bno);
+		$("#frmPaging").attr("action", "/review/deleteReview");
+		$("#frmPaging").submit();
+	});
+	// 수정 버튼
+	$("#btnModify").click(function() {
+		console.log($(".modify"));
+// 		class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
+		$(".modify").prop("readonly", false);
+		$("#btnModifyOk").fadeIn(500); // show, slideDown
+		$(this).fadeOut(500); // hide, slideUp
+	});
+});
+
+</script>
+
 <body>
 	<div class="container-fluid">
 	<div class="row">
@@ -23,11 +53,17 @@
 		<div class="col-md-12">
 			<form role="form" action="/review/regist_run" id="frmRegist"
 				method="post">
-				
+			<input type="hidden" name="bno" value="${reviewVo.bno}">
+				<div class="form-group">
+					<label for="bno">글번호</label>
+					<input type="text" class="form-control"
+						id="bno" name="bno" required="required" value="${reveiwVo.bno}" readonly/>
+				</div>
 				<div class="form-group">
 					<label for="userid">아이디</label>
 					<input type="text" class="form-control" 
-						id="userid" name="userid" required="required"/>
+						id="userid" name="userid" required="required"
+						value="${reviewVo.user_id}" readonly="readonly"/>
 				</div>
 				<div class="form-group">
 					<label for="title">글제목</label>
@@ -39,20 +75,41 @@
 					<textarea class="form-control" 
 						id="content" name="content"></textarea>
 				</div>
-				
-				<!-- 이미지파일 업로드 -->
-				<div>
-					<label>첨부할 파일을 드래그 &amp; 드롭하세요</label>
-					<div id="fileDrop"></div>
+				<div class="form-group"> 
+					<label for="regdate">작성일</label>
+					<input type="text" class="form-control"
+					id="regdate" required="required"
+					value="${reviewVo.regdate}" readonly="readonly"/>
 				</div>
-				<div>
-					<button type="submit" class="btn btn-primary" id="btnSubmit">
-					작성 완료
-					</button>
+				
+				<div id="uploadedList">
+				<c:forEach items="${reviewVo.files}" var="filename">
+					<div class="divUploaded">
+						<img height="100" class="img-rounded"
+						<c:choose>
+							<c:when test="">
+								src="/upload/displayImage?fileName=${filename}"
+							</c:when>
+							<c:otherwise>
+								src="/img/default.png"
+							</c:otherwise>
+						</c:choose>
+						><br>
+						<span><a href="#"></a></span>
+					</div>
+				</c:forEach>
+				</div>
+				<div style="clear:both">
+					<button type="button" class="btn btn-warning"
+						id="btnModify">수정</button>
+					<button type="submit" class="btn btn-success"
+						id="btnModifyOk" style="display:none">수정완료</button>
+					<button type="button" class="btn btn-danger"
+						id="btnDelete" data-bno="${reviewVo.bno}">삭제</button>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
-	</body>
+</body>
 </html>

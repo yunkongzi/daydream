@@ -15,6 +15,10 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
 
@@ -33,8 +37,14 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html"><span>데이드림</span></a></li>
-						<li><a href="#"><span>프로그램</span></a></li>
+
+						<li><a href="#"><span>데이드림</span></a>
+										<ul>
+											<li><a href="/company/introduction">데이드림 소개</a></li>
+											<li><a href="/company/road">오시는 길</a></li>
+										</ul></li>
+						<li><a href="/program_intro"><span>프로그램</span></a></li>
+						<li><a href="/review/reviewList_all"><span>수강후기</span></a></li>
 						<li><a href="/reservation/reservation_regist"><span>예약하기</span></a></li>
 						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>
 						<li><a href="no-sidebar.html"><span>공지사항</span></a></li>
@@ -48,8 +58,8 @@
 						<a href="/main">DAYDREAM</a>
 					</h1>
 					<p>One Day, One Dream</p>
-
-
+					
+					<c:set var="id" value="${sessionScope.memberVo.user_id}"/>
 
 					<c:choose>
 						<c:when test="${empty sessionScope.memberVo }">
@@ -60,6 +70,17 @@
 							<button type="button"
 								onclick="location.href='/member/member_regist'">회원가입</button>
 						</c:when>
+						
+						<c:when test="${id eq 'kongzi'}">
+							<br>
+							<br>
+							<br>
+							 ${sessionScope.memberVo.user_name}! 일해라!<br>
+							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
+							<button type="button"
+								onclick="location.href='/admin/admin_main'">관리자메인</button>
+						</c:when>
+						
 						
 						<c:otherwise>
 							<br>♡<br>
