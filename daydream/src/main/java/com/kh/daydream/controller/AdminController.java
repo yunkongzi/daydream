@@ -45,11 +45,11 @@ public class AdminController {
 	// 프로그램 등록 폼
 	@RequestMapping(value = "/program_regist", method = RequestMethod.GET)
 	public String programRegist(HttpSession session, Model model) {
-		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-		
-		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
-			return "redirect:/main";
-		}
+//		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+//		
+//		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
+//			return "redirect:/main";
+//		}
 		
 		List<ClassTimeVo> timeList = programService.selectTimeList();
 		model.addAttribute("timeList", timeList);
@@ -117,11 +117,11 @@ public class AdminController {
 	// 프로그램 목록
 	@RequestMapping(value = "/program_list", method = RequestMethod.GET)
 	public String programListAll(HttpSession session, Model model) {
-		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-		
-		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
-			return "redirect:/main";
-		}
+//		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+//		
+//		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
+//			return "redirect:/main";
+//		}
 		
 		List<ProgramVo> programList = programService.selectOpenedProgramList();
 		System.out.println("ProgramController, selectOpenedProgramList, programList:" + programList);
@@ -133,13 +133,13 @@ public class AdminController {
 	
 
 	// 프로그램 수정 폼
-	@RequestMapping(value = "/program_modify", method = RequestMethod.GET)
+	@RequestMapping(value ="/program_modify", method = RequestMethod.GET)
 	public String programModify(HttpSession session, int class_no, Model model) {
-		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-		
-		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
-			return "redirect:/main";
-		}
+//		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+//		
+//		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
+//			return "redirect:/main";
+//		}
 		
 		System.out.println("class_no" + class_no);
 		ProgramVo programVo = programService.selectByClassNo(class_no);
@@ -152,6 +152,7 @@ public class AdminController {
 	// 프로그램 수정 처리
 	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
 	public String updateProgram(ProgramVo programVo) {
+		System.out.println("StudentController, updateStudentRun, studentVo:" + programVo);
 		programService.updateProgram(programVo);
 		
 		return "redirect:/admin/program_list";

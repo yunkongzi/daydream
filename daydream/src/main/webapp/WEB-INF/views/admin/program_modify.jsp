@@ -54,10 +54,11 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						<form role="form" action="/admin/modify_run" method="post"
-								enctype="multipart/form-data">
-								<p>
+								enctype="multipart/form-data" >
+								<%-- <p>
 									<input type="hidden" id="file_image" name="file_image" value="${programVo.file_image}">
-								</p>
+								</p> --%>
+							
 							<div class="form-group">
 								<label for="class_no"> 클래스 번호 </label><br> 
 								<input

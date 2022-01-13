@@ -39,7 +39,6 @@ $(function() {
 		location.href = "/admin/deleteProgram?class_no=" + class_no;
 	});
 });
-
 </script>
 <body>
 
