@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kh.daydream.vo.PagingDto;
 import com.kh.daydream.vo.TeacherVo;
 
 @Repository
@@ -47,6 +48,27 @@ public class TeacherDao {
 	// 강사 정보 삭제
 	public void deleteTeacher(String tno) {
 		sqlSession.delete(NAMESPACE + "deleteTeacher", tno);
+	}
+
+
+
+	public List<TeacherVo> selectAll(PagingDto pagingDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public String getTnoNextVal() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public String[] getFilenames(String tno) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
