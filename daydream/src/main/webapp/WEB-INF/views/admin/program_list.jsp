@@ -42,6 +42,7 @@ $(function() {
 
 </script>
 <body>
+
 			<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -66,6 +67,7 @@ $(function() {
 							</tr>
 						</thead>
 						<tbody>
+						
 						<c:forEach items="${programList}" var="programVo" >
 							<tr>
 								<td>${programVo.class_name}</td>
@@ -73,7 +75,13 @@ $(function() {
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
 								<td>${programVo.class_intro}</td>
-								<td><a class="a_file_image" data-class_no="${programVo.class_no}">${programVo.file_image}</a></td>
+								<td>
+								<c:if test="${not empty programVo.file_image}">
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="120"/>
+								</c:if>
+								
+								
+								</td>
 								<td>${programVo.class_no}</td>
 								<td>
 								<c:forEach items="${timeList}" var="time">
