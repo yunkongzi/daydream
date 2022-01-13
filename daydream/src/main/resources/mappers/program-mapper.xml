@@ -86,7 +86,7 @@
 	   		target = #{target},
 	   		personnel = #{personnel},
 	   		class_intro = #{class_intro},
-	   		file_image = #{file_image}
+	   		file_image = #{file_image, jdbcType=VARCHAR}
  		where class_no = #{class_no}
    </update>
    
@@ -104,6 +104,10 @@
    		where class_no = #{class_no}
    </delete>
    
-   <select id=""></select>
+  <!-- 첨부파일 추가 -->
+	<insert id="insertAttach">
+		insert into tbl_program_attach(file_name, class_no)
+		values(#{file_name}, #{class_no})
+	</insert>
 </mapper>
 

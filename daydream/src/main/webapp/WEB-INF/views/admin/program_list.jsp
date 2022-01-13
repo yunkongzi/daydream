@@ -22,9 +22,10 @@ $(function() {
 		e.preventDefault();
 		var fileName = $(this).text();
 		var class_no = $(this).attr("data-class_no");
-		var href = $(this).attr("href");
-		location.href = href + "?class_no=" + class_no;
-		
+		$("#imgClass").attr("src", "/admin/displayImage?fileName=" + fileName);
+		$("#modalModify").attr("data-class_no", class_no);
+		$("#modalDelete").attr("data-class_no", class_no);
+		$("#modal-511270").trigger("click");
 	});
 	$(".btnModify").click(function(e) {
 		e.preventDefault();
@@ -40,7 +41,38 @@ $(function() {
 	});
 });
 </script>
+<div class="row">
+	<div class="col-md-12">
+		<a id="modal-511270" href="#modal-container-511270" role="button"
+			class="btn" data-toggle="modal" style="display:none;">Launch demo modal</a>
+
+		<div class="modal fade" id="modal-container-511270" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">사진 보기</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body"><img id="imgClass" src="" width="450"></div>
+					<div class="modal-footer">
+					
+						<button type="button" class="btn btn-warning btnModify"
+							id="modalModify">수정</button>
+						<button type="button" class="btn btn-info btnDelete"
+							id="modalDelete">삭제</button>				
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">닫기</button>							
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <body>
+
 
 			<div class="container-fluid">
 	<div class="row">
@@ -76,7 +108,7 @@ $(function() {
 								<td>${programVo.class_intro}</td>
 								<td>
 								<c:if test="${not empty programVo.file_image}">
-									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="120"/>
+									<a href="#" class="a_file_image" data-class_no="${programVo.class_no}">${programVo.file_image}</a>
 								</c:if>
 								
 								
@@ -115,4 +147,3 @@ $(function() {
 </div>
 </body>
 </html>
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>

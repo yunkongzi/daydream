@@ -26,7 +26,8 @@ import com.kh.daydream.vo.ProgramVo;
 @RequestMapping("/admin")
 public class AdminController {
 	
-	private static final String UPLOAD_PATH = "//192.168.0.80/programpic/";
+//	private static final String UPLOAD_PATH = "//192.168.0.80/programpic/";
+	private static final String UPLOAD_PATH = "//192.168.35.42/programpic/";
 
 	@Inject
 	private ProgramService programService;
@@ -106,6 +107,8 @@ public class AdminController {
 			return bytes;
 		}
 		
+		
+		
 	// 프로그램 목록
 	/*
 	 * @RequestMapping(value="/program_list", method=RequestMethod.GET) public
@@ -148,18 +151,31 @@ public class AdminController {
 		model.addAttribute("timeList", timeList);
 		return "/admin/program_modify";
 	}
+	
+//	@RequestMapping(value = "/displayImage", method = RequestMethod.GET)
+//	@ResponseBody
+//	public byte[] displayImage(String fileName) throws Exception {
+//		System.out.println("fileName:" + fileName);
+//		byte[] bytes = null;
+//		// 서버의 파일을 다운로드하기 위한 스트림
+//		if (fileName != null && !fileName.equals("")) {
+//			FileInputStream fis = new FileInputStream(UPLOAD_PATH + fileName);
+//			bytes = IOUtils.toByteArray(fis);
+//		}
+//		return bytes;
+//	}
 
 	// 프로그램 수정 처리
 	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
 	public String updateProgram(ProgramVo programVo) {
-		System.out.println("StudentController, updateStudentRun, studentVo:" + programVo);
+		System.out.println("AdminController, updateProgram:" + programVo);
 		programService.updateProgram(programVo);
 		
 		return "redirect:/admin/program_list";
 	}
 	
 //	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
-//	public String updateProgram(MultipartHttpServletRequest request) throws Exception {
+//	public String updateProgram(MultipartHttpServletRequest request, ProgramVo programVo) throws Exception {
 //		MultipartFile multi = request.getFile("file_image");
 //		String filename = multi.getOriginalFilename();
 //		String uuid = UUID.randomUUID().toString();
@@ -180,10 +196,10 @@ public class AdminController {
 //		System.out.println(arr_time_no[0]);
 //		ProgramVo programVo = new ProgramVo(class_name, price, target, 
 //				personnel, class_intro, 0, time_no, file_image);
-//		System.out.println("AdminController, programRegistRun, programVo:" + programVo); 
-//		
+		
+//		System.out.println("AdminController, updateProgram:" + programVo);
 //		programService.updateProgram(programVo);
-////		System.out.println("program_regist:" + programVo);
+//		System.out.println("program_regist:" + programVo);
 //		return "redirect:/admin/program_list";
 //	}
 	

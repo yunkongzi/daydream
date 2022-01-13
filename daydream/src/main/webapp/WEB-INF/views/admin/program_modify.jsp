@@ -12,8 +12,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 <script>
-/* $(function() { 
-	$("input[name=time_no]").change(function() {
+ $(function() { 
+	$("#btnFile").click(function() {
+		$("#file_image").trigger("click")
+	});
+ });
+/*	$("input[name=time_no]").change(function() {
 		
 		var isChecked = $(this).prop("checked");
 		var q = "";
@@ -53,11 +57,11 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<form role="form" action="/admin/modify_run" method="post"
-								enctype="multipart/form-data" >
-								<%-- <p>
+						<form role="form" action="/admin/modify_run" method="post">
+								<!-- enctype="multipart/form-data" --> 
+								 <%-- <p>
 									<input type="hidden" id="file_image" name="file_image" value="${programVo.file_image}">
-								</p> --%>
+								</p>  --%>
 							
 							<div class="form-group">
 								<label for="class_no"> 클래스 번호 </label><br> 
@@ -113,16 +117,22 @@
 									</c:forEach> 
 									> ${classTimeVo.time_start} ~ ${classTimeVo.time_end}<br>
 								</c:forEach>
-							</div> 
-							
-							<div class="form-group">
-
-								<label for="file_image"> 사진 </label><br> 
-								<input
-									type="file" class="form-control" id="file_image" name="file_image" 
-									value= "${programVo.file_image}"/>
 							</div>
-							
+
+							<c:if test="${not empty programVo.file_image}">
+								<img
+									src="/admin/displayImage?fileName=${programVo.file_image}" />
+							</c:if>
+
+							<div class="form-group">
+								<label for="file_image">사진</label> <input type="file"
+									class="form-control" id="file_image" name="file_image"
+									style="display: none" />
+								<button type="button" id="btnFile">사진 첨부</button>
+							</div>
+
+
+
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								수정</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">
