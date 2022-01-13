@@ -54,7 +54,7 @@ public class MemberDao {
 		
 	//회원 탈퇴
 		public void deleteMember(String user_id) {
-			sqlSession.delete(NAMESPACE + "user_id");
+			sqlSession.delete(NAMESPACE + "deleteMember", user_id);
 		}
 
 }

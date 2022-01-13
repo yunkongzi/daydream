@@ -34,7 +34,6 @@ public class MemberController {
 	// 회원 가입 처리
 	@RequestMapping(value = "/regist_run", method = RequestMethod.POST)
 	public String memberRegistRun(MemberVo memberVo) {
-
 		memberService.insertMember(memberVo);
 		return "redirect:/member/login";
 	}
@@ -126,9 +125,11 @@ public class MemberController {
 	
 	//회원 삭제
 	@RequestMapping(value="/deleteMember", method=RequestMethod.GET)
-	public String memberDelete(String user_id) {
+	public String memberDelete(String user_id, HttpSession session, RedirectAttributes rttr) {
 		System.out.println("user_id:" + user_id);
 		memberService.deleteMember(user_id);
+		session.invalidate();
+		rttr.addFlashAttribute("message", "delete");
 		return "redirect:/main";
 	}
 

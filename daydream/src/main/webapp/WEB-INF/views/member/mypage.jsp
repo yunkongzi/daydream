@@ -9,14 +9,18 @@
 <title>마이페이지</title>
 
 <script>
-	$(function() {
-		$("#btnDeleteMember").click(function() {
-			var user_id = $(this).attr("data-user");
-			var url = "/member/deleteMember";
-			location.href = url;
-		});
-
+$(function() {
+	
+	
+	
+	$("#btnDeleteMember").click(function() {
+		var user = $(this).attr("data-user");
+		console.log("user: " + user);
+		var url = "/member/deleteMember?user_id=" + user;
+		location.href = url;
 	});
+
+});
 </script>
 </head>
 <body>
