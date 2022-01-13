@@ -27,7 +27,6 @@ import com.kh.daydream.vo.TeacherVo;
 @RequestMapping("/teacher")
 public class TeacherController<PagingDto> {
 
-	private static final String teacherVo = null;
 	private static final String UPLOAD_PATH = "//192.168.0.80/teacherpic/";
 	@Inject
 	private TeacherService teacherService;
@@ -69,8 +68,8 @@ public class TeacherController<PagingDto> {
 	@RequestMapping(value = "/teacher_list", method = RequestMethod.GET)
 	public String teacherListAll(HttpSession session, Model model) {
 		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-		String user_id = memberVo.getUser_id();
-		if (!user_id.equals("kongzi")) {
+		
+		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
 			return "redirect:/main";
 		}
 		List<TeacherVo> list = teacherService.selectAll();

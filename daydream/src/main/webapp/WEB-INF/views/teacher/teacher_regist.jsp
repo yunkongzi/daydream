@@ -92,8 +92,7 @@ $(function() {
 				alert("파일 삭제에 실패했습니다.");
 			}
 		});
-	});
-	
+	});	
 	$("#btnFile").click(function() {
 		$("#certificate").trigger("click")
 	});
