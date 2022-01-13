@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,8 +121,8 @@ $(".a_title").click(function(e) {
 								<th>글제목</th>
 								<th>작성자</th>
 								<th>작성일</th>
-								<th>별점</th>
 								<th>조회수</th>
+								<th>별점</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -129,11 +130,12 @@ $(".a_title").click(function(e) {
 						<c:forEach items="${list}" var="reviewVo">
 							<tr>
 								<td>${reviewVo.bno}</td>
-								<td>${reviewVo.title}</td> 
-								<td>${reviewVo.userid}</td>
+								<td><a class="a_title" href="${reviewVo.bno}"
+										style="margin-left:${reviewVo.re_level * 50}px">${reviewVo.title}</a> 
+										<span style="color:red">[${reviewVo.comment_cnt}]</span></td>
+								<td>${reviewVo.user_id}</td>
 								<td>${reviewVo.regdate}</td>
 								<td>${reviewVo.viewcnt}</td>
-								<td>${reviewVo.star_count}</td>
 							</tr>
 						</c:forEach>
 						</tbody>

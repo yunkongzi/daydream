@@ -38,7 +38,7 @@ public class ReviewController {
 	@Inject
 	private ProgramService programService;
 	
-	
+	// 리뷰 목록보기
 	@RequestMapping(value="/reviewList_all", method=RequestMethod.GET)
 	public String reviewListAll(HttpSession session, Model model, PagingDto pagingDto) {
 		
@@ -100,8 +100,8 @@ public class ReviewController {
 	@RequestMapping(value="/review_modify", method=RequestMethod.GET)
 	public String updateReviewForm(int bno, Model model) {
 		System.out.println("ReviewController, updateReviewForm, bno: " + bno);
-//		ReviewVo reviewVo = reviewService.selectById(bno);
-//		model.addAttribute("ReviewVo", reviewVo);
+		ReviewVo reviewVo = reviewService.selectById(bno);
+		model.addAttribute("ReviewVo", reviewVo);
 		return "review/review_modify";
 	}
 	
