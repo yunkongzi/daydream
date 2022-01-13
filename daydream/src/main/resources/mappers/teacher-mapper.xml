@@ -6,8 +6,10 @@
 
 	<!--강사 추가  -->
 <insert id="insertTeacher">
-		insert into tbl_teacher(tno, class_name, price, personnel, target, certificate, introduce)
-		values (#{tno}, #{class_name}, #{price}, #{personnel}, #{target}, #{certificate}, #{introduce})
+		insert into tbl_teacher(tno, class_name, price, personnel, 
+								target, certificate, introduce, user_id)
+		values ((select max(to_number(tno)) + 1 from tbl_teacher), #{class_name}, #{price}, 
+				#{personnel}, #{target}, #{certificate}, #{introduce}, #{user_id})
 	</insert>
 	
 	<!--특정 강사 찾기  -->
@@ -50,5 +52,12 @@
 		insert into tbl_teacher_attach(tno, tfile)
 		values(#{tno}, #{tfile})
 	</insert>
+	
+	<!-- 강사 상태 변경 -->
+	<update id="updateStatus">
+		update tbl_teacher set
+		    status = 'Y'
+		where tno = #{tno}
+	</update>
 	
 </mapper>
