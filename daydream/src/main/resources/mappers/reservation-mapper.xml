@@ -29,7 +29,7 @@
 	</select>
 	
 	
-	<!-- <select id="reservationList" resultType="reservationVo">
+	<select id="reservationList" resultType="reservationVo">
 		select r.user_id, r.res_date,
 		p.class_name, s.program_time, r.status, p.class_no
 		from tbl_reservation r, tbl_program p , tbl_program_sub s
@@ -41,6 +41,6 @@
 		and r. rno = #{rno}
 		and r.count = #{count}
 		and r.status = #{status}
-	</select> -->
+	</select>
 
 </mapper>

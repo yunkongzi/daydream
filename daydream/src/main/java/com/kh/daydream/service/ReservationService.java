@@ -25,8 +25,13 @@ public class ReservationService {
 	
 	//클래스 시간 목록
 	public List<ReservationTimeVo> selectTimeList(int class_no) {
-		List<ReservationTimeVo> list = reservationDao.selectTimeList(class_no);
-		return list;
+		List<ReservationTimeVo> timeList = reservationDao.selectTimeList(class_no);
+		return timeList;
+	}
+	//예약자 목록
+	public List<ReservationVo> resvList(String user_id, String finish) {
+		List<ReservationTimeVo> resvList = reservationDao.resvList(user_id);
+		return null;
 	}
 	
 }

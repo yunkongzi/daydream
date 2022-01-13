@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kh.daydream.service.ReservationService;
+import com.kh.daydream.vo.AttendClassVo;
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
@@ -28,7 +29,10 @@ public class ReservationController {
 		// 예약 등록 폼
 		@RequestMapping(value="/reservation_regist/{class_no}", method=RequestMethod.GET)
 		public String reservationRegistForm(@PathVariable("class_no") int class_no, Model model) {
+			String user_id = "hong";
+			List<ReservationVo> resvList= reservationService.resvList(user_id, FINISH);
 			List<ReservationTimeVo> timeList = reservationService.selectTimeList(class_no);
+			model.addAttribute("resvList",resvList);
 			model.addAttribute("timeList", timeList);
 			System.out.println("ReservationController , reservationRegistForm , timeList >> " + timeList);
 			return "reservation/reservation_regist";
@@ -37,6 +41,7 @@ public class ReservationController {
 		@RequestMapping(value="/regist_run", method=RequestMethod.POST)
 		public String reservationResgistrun(ReservationVo reservationVo) {
 			System.out.println("RerservationController, insertRerservation, insertReservation:"+reservationVo);
+			
 			reservationService.insertReservation(reservationVo);
 			return "redirect:/admin/rev_list";
 	}

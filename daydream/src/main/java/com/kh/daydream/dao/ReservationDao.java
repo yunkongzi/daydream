@@ -28,8 +28,12 @@ public class ReservationDao {
 	}
 	//클래스 시간 목록
 	public List<ReservationTimeVo> selectTimeList(int class_no) {
-		List<ReservationTimeVo> list = sqlSession.selectList(NAMESPACE + "selectTimeList", class_no);
-		return list;
+		List<ReservationTimeVo> timeList = sqlSession.selectList(NAMESPACE + "selectTimeList", class_no);
+		return timeList;
+	}
+	public List<ReservationTimeVo> resvList(String user_id) {
+		List<ReservationTimeVo> resvlist = sqlSession.selectList(NAMESPACE + "selectTimeList", user_id);
+		return resvlist;
 	}
 	
 	
