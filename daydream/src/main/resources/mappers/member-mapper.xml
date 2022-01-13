@@ -41,9 +41,10 @@
 	 </update>
 	 
 	 <!-- 회원 삭제 -->
-	 <delete id="deleteMember">
-	 	delete from tbl_member
+	 <update id="deleteMember">
+	 	update tbl_member set
+	 		is_out = 'Y'
 	 	where user_id = #{user_id}
-	 </delete>
+	 </update>
 
 </mapper>

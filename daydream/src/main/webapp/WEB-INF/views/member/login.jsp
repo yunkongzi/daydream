@@ -12,12 +12,7 @@ $(function() {
 	var msg = "${msg}"; // fail
 	if (msg == "fail") {
 		alert("아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요.");
-	} else if (msg == "logout") {
-		alert("로그아웃 하셨습니다.");
-	} else if (msg == "delete") {
-		alert("탈퇴");
 	} 
-
 	
 	
 });
