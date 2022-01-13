@@ -97,31 +97,38 @@ public class ReviewController {
 	}
 	
 	// 리뷰 수정 폼
-	@RequestMapping(value="/review_modify", method=RequestMethod.GET)
+	@RequestMapping(value="/content", method=RequestMethod.GET)
 	public String updateReviewForm(int bno, Model model) {
 		System.out.println("ReviewController, updateReviewForm, bno: " + bno);
 		ReviewVo reviewVo = reviewService.selectById(bno);
 		model.addAttribute("ReviewVo", reviewVo);
-		return "review/review_modify";
+		return "review/content";
 	}
 	
 	// 리뷰 수정처리
-	@RequestMapping(value="/review_modify_run", method=RequestMethod.POST)
-	public String updateReviewRun(ReviewVo reviewVo) {
+	@RequestMapping(value="/content_run", method=RequestMethod.POST)
+	public String updateReviewRun(ReviewVo reviewVo, PagingDto pagingDto,
+								  RedirectAttributes rttr) {
 		System.out.println("ReviewController, updateReviewRun, reviewVo:" + reviewVo);
+		System.out.println("ReviewController, updateReviewRun, pagingDto:" + pagingDto);
 		reviewService.updateReview(reviewVo);
-		return "review/reviewList";
+		rttr.addFlashAttribute("message", "modify_success");
+		return "review/reviewList_all";
 	}
 	
 	// 리뷰 삭제처리
 	@RequestMapping(value="/deleteReview", method=RequestMethod.GET)
-	public String deleteReview(int bno) {
-		System.out.println("ReviewController, deleteReview");
+	public String deleteReview(int bno, PagingDto pagingDto, RedirectAttributes rttr) {
+		System.out.println("ReviewController, deleteReview, pagingDto:" + pagingDto);
 		String[] filenames = reviewService.deleteReview(bno);
 		for (String filename : filenames) {
 			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
 		}
-		return "review/reviewList";
+		rttr.addFlashAttribute("message", "deletd_success");
+		return "review/reviewList_all?page=" + pagingDto.getPage() + 
+				"&perPage=" + pagingDto.getPerPage() +
+				"&searchType=" + pagingDto.getSearchType() +
+				"&keyword=" + pagingDto.getKeyword();
 	}
 	
 	// 파일 업로드 처리

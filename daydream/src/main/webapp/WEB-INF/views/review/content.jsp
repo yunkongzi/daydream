@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-<title>리뷰수정게시판</title>
+<title>후기수정게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">	
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
@@ -29,7 +29,7 @@ $(function() {
 	});
 	// 수정 버튼
 	$("#btnModify").click(function() {
-		console.log($(".modify"));
+// 		console.log($(".modify"));
 // 		class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
 		$(".modify").prop("readonly", false);
 		$("#btnModifyOk").fadeIn(500); // show, slideDown
@@ -37,22 +37,79 @@ $(function() {
 	});
 });
 
+	//글목록 버튼
+	$("#btnList").click(function(e) {
+		e.preventDefault();
+		$("#frmPaging").submit();
+});
+	
+// 별점 처리 요청 
+$(function () {
+	   var starEls = document.querySelectorAll('#star span.star');
+	   var rate = 0;
+
+	   loop(starEls, function (el, index) {
+	       el.addEventListener('click', function () {
+	           rating(index + 1);
+	       });
+	   });
+	   function loop(list, func) {
+	       Array.prototype.forEach.call(list, func);
+	   }
+	   function rating(score) {
+	       loop(starEls, function (el, index) {
+	           if (index < score) {
+	               el.classList.add('on');
+	           } else {
+	               el.classList.remove('on');
+	           }
+	       });
+	       rate = score;
+	       var input_star_count = document.getElementById("star_count");
+	       input_star_count.value = rate;
+	   }
+});
+
 </script>
+<style>
+// 별점 스타일
+#star {
+  display: flex;
+}
+.star {
+  font-size: 2rem;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.star:not(.on) {
+  color: #ccc;
+}
+.star.on {
+  color: orange;
+}
+</style>
 
 <body>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2>후기 수정 양식</h2>
-				<p><a class="btn btn-primary btn-large" href="/">후기 목록</a></p>
+				<h2>글 상세보기</h2>
+				<p>
+					<a class="btn btn-primary btn-large" id="btnList"
+					href="#">후기 목록</a>
+				</p>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<form role="form" action="/review/regist_run" id="frmRegist"
-				method="post">
+			<form role="form" action="/review/modify_run" method="post">
+			<input type="hidden" name="bno" value="${boardVo.bno}">
+				<input type="hidden" name="page" value="${param.page}">
+				<input type="hidden" name="perPage" value="${param.perPage}">
+				<input type="hidden" name="searchType" value="${param.searchType}">
+				<input type="hidden" name="keyword" value="${param.keyword}">
 			<input type="hidden" name="bno" value="${reviewVo.bno}">
 				<div class="form-group">
 					<label for="bno">글번호</label>
@@ -67,13 +124,15 @@ $(function() {
 				</div>
 				<div class="form-group">
 					<label for="title">글제목</label>
-					<input type="text" class="form-control" 
-						id="title" name="title" required="required"/>
+					<input type="text" class="form-control modify" 
+						id="title" name="title" required="required"
+						value="${reviewVo.title}" readonly="readonly"/>
 				</div>
 				<div class="form-group">
 					<label for="content">후기 내용</label>
-					<textarea class="form-control" 
-						id="content" name="content"></textarea>
+					<textarea class="form-control modify" 
+						id="content" name="content"
+						readonly="readonly">${reviewVo.content}</textarea>
 				</div>
 				<div class="form-group"> 
 					<label for="regdate">작성일</label>
@@ -88,7 +147,7 @@ $(function() {
 						<img height="100" class="img-rounded"
 						<c:choose>
 							<c:when test="">
-								src="/upload/displayImage?fileName=${filename}"
+								src="/reivewpic/displayImage?fileName=${filename}"
 							</c:when>
 							<c:otherwise>
 								src="/img/default.png"
@@ -99,6 +158,19 @@ $(function() {
 					</div>
 				</c:forEach>
 				</div>
+				<!--  별점처리 -->
+				<div class="from-group">
+				<label for="star_rating">별점</label>
+					<div class="star-container">
+ 						<span class="star">★</span>
+  						<span class="star">★</span>
+  						<span class="star">★</span>
+  						<span class="star">★</span>
+  						<span class="star">★</span>
+					</div>
+				</div>	
+				</div>
+				
 				<div style="clear:both">
 					<button type="button" class="btn btn-warning"
 						id="btnModify">수정</button>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-<title>후기목록게시판</title>
+
 </head>
 <script>
 
@@ -51,7 +52,7 @@ $(".a_title").click(function(e) {
 	console.log("bno:", bno);
 //		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
 	$("#frmPaging > input[name=bno]").val(bno);
-	$("#frmPaging").attr("action", "/review/reviewList_all")
+	$("#frmPaging").attr("action", "/review/review_modify")
 				   .submit();
 	
 });
@@ -62,15 +63,6 @@ $(".a_title").click(function(e) {
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="jumbotron">
-				<h2>
-					 후기목록 
-				</h2>
-				
-				<p>
-					<a class="btn btn-primary btn-large" href="/member/mypage">마이페이지로가기</a>
-				</p>
-			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<select id="perPage">
@@ -181,3 +173,4 @@ $(".a_title").click(function(e) {
 </div>
 </body>
 </html>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>

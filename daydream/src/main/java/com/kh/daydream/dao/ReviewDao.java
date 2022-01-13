@@ -61,6 +61,7 @@ public class ReviewDao {
 		sqlsession.update(NAMESPACE + "updateViewcnt" , bno);
 	}
 	
+	// 리뷰 상세보기
 	public ReviewVo getReview(int bno) {
 		ReviewVo boardVo = sqlsession.selectOne(NAMESPACE + "getReview", bno);
 		return boardVo;
