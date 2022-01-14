@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.kh.daydream.service.ProgramService;
 import com.kh.daydream.service.ReservationService;
 import com.kh.daydream.vo.AttendClassVo;
 import com.kh.daydream.vo.ClassTimeVo;
@@ -32,19 +33,24 @@ public class ReservationController {
 	
 	@Inject
 	private ReservationService reservationService;
+	@Inject
+	private ProgramService programService;
 	
 		// 예약 등록 폼
 		@RequestMapping(value="/reservation_regist/{class_no}", method=RequestMethod.GET)
 		public String reservationRegistForm(@PathVariable("class_no") int class_no, Model model) {
 			List<ReservationTimeVo> timeList = reservationService.selectTimeList(class_no);	
 			model.addAttribute("timeList", timeList);
+			ProgramVo programVo = programService.selectByClassNo(class_no);
+			model.addAttribute("programVo",programVo);
+			model.addAttribute("class_no", class_no);
+			System.out.println("ReservationController, reservationRegistFrom, class_no : " + class_no);
 			System.out.println("ReservationController , reservationRegistForm , timeList : " + timeList);
-			return "reservation/reservation_regist";
+			return "/reservation/reservation_regist";
 	}
 		// 예약 등록 처리
 		@RequestMapping(value="/regist_run", method=RequestMethod.POST)
 		public String reservationResgistrun(ReservationVo reservationVo){
-			
 			System.out.println("ReservationController, reservationResgistrun, reservationVo : " + reservationVo);
 			reservationService.insertReservation(reservationVo);
 			return "redirect:/reservation/reservation_regist";

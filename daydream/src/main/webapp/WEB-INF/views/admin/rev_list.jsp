@@ -36,6 +36,7 @@
 								<th>예약 날짜</th>
 								<th>예약번호</th>
 								<th>클래스 번호</th>
+								<th>클래스 이름</th>
 								<th>인원수</th>
 								<th>상태</th>
 							</tr>
@@ -47,8 +48,10 @@
 								<td>${ReservationVo.res_date}</td>
 								<td>${ReservationVo.rno}</td>
 								<td>${ReservationVo.class_sub_no}</td>
+								<td>${ReservationVo.class_name}</td>
 								<td>${ReservationVo.count}</td>
 								<td>${ReservationVo.status}</td>
+								<td>${ReservationVo.status_name}</td>
 							</tr>
 						</c:forEach>
 						</tbody>
