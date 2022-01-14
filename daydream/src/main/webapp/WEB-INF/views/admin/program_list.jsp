@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,14 +19,14 @@
 </head>
 <script>
 $(function() {
-	$(".a_file_image").click(function(e){
-		e.preventDefault();
-		var fileName = $(this).text();
-		var class_no = $(this).attr("data-class_no");
-		var href = $(this).attr("href");
-		location.href = href + "?class_no=" + class_no;
+// 	$(".a_file_image").click(function(e){
+// 		e.preventDefault();
+// 		var fileName = $(this).text();
+// 		var class_no = $(this).attr("data-class_no");
+// 		var href = $(this).attr("href");
+// 		location.href = href + "?class_no=" + class_no;
 		
-	});
+// 	});
 	$(".btnModify").click(function(e) {
 		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
@@ -39,9 +40,9 @@ $(function() {
 		location.href = "/admin/deleteProgram?class_no=" + class_no;
 	});
 });
-
 </script>
 <body>
+
 			<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -66,6 +67,7 @@ $(function() {
 							</tr>
 						</thead>
 						<tbody>
+						
 						<c:forEach items="${programList}" var="programVo" >
 							<tr>
 								<td>${programVo.class_name}</td>
@@ -73,7 +75,13 @@ $(function() {
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
 								<td>${programVo.class_intro}</td>
-								<td><a class="a_file_image" data-class_no="${programVo.class_no}">${programVo.file_image}</a></td>
+								<td>
+								<c:if test="${not empty programVo.file_image}">
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
+								</c:if>
+								
+								
+								</td>
 								<td>${programVo.class_no}</td>
 								<td>
 								<c:forEach items="${timeList}" var="time">

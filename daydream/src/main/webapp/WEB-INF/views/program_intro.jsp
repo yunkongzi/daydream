@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -39,6 +40,7 @@ $(function() {
 							<tr>
 						</c:if>
 						<td>
+							<img src="/admin/displayImage?fileName=${programVo.file_image}" height="220" width="300"/><br>
 							<${programVo.class_name}><br>
 							- ${programVo.class_intro} -<br>
 							가격 : ${programVo.price}원<br>
@@ -61,3 +63,4 @@ $(function() {
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
+

@@ -9,9 +9,9 @@
 	
 	<!-- 프로그램 등록 -->
 	<insert id="insertProgram">
-		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no)
+		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no, file_image)
 		values(#{class_name}, #{price}, #{target}, #{personnel},
-				 #{class_intro}, #{class_no})
+				 #{class_intro}, #{class_no}, #{file_image})
 	</insert>   
 	
 	<!-- 프로그램 서브 -->
@@ -52,7 +52,7 @@
 	</select>
 	
 	<select id="selectOpenedProgramList" resultType="ProgramVo">
-		select distinct p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no
+		select distinct p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, p.file_image
 		from tbl_program p, tbl_program_sub s
 		where p.class_no = s.class_no
 	</select>
@@ -85,7 +85,8 @@
 	   		price = #{price},
 	   		target = #{target},
 	   		personnel = #{personnel},
-	   		class_intro = #{class_intro}
+	   		class_intro = #{class_intro},
+	   		file_image = #{file_image, jdbcType=VARCHAR}
  		where class_no = #{class_no}
    </update>
    
@@ -103,6 +104,10 @@
    		where class_no = #{class_no}
    </delete>
    
-   <select id=""></select>
+  <!-- 첨부파일 추가 -->
+	<insert id="insertAttach">
+		insert into tbl_program_attach(file_name, class_no)
+		values(#{file_name}, #{class_no})
+	</insert>
 </mapper>
 

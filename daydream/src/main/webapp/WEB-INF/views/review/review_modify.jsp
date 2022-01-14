@@ -21,19 +21,21 @@ $(function() {
 	$("#btnDelete").click(function() {
 		var bno = $(this).attr("data-bno");
 		console.log("bno:", bno);
-// 		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
-// 		$("#frmPaging").append(input_bno);
+		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
+		$("#frmPaging").append(input_bno);
 		$("#frmPaging > input[name=bno]").val(bno);
 		$("#frmPaging").attr("action", "/review/deleteReview");
 		$("#frmPaging").submit();
 	});
+	// 수정 버튼
 	$("#btnModify").click(function() {
-// 		console.log($(".modify"));
-		// class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
+		console.log($(".modify"));
+// 		class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
 		$(".modify").prop("readonly", false);
 		$("#btnModifyOk").fadeIn(500); // show, slideDown
 		$(this).fadeOut(500); // hide, slideUp
 	});
+});
 
 </script>
 
@@ -60,7 +62,8 @@ $(function() {
 				<div class="form-group">
 					<label for="userid">아이디</label>
 					<input type="text" class="form-control" 
-						id="userid" name="userid" required="required"/>
+						id="userid" name="userid" required="required"
+						value="${reviewVo.user_id}" readonly="readonly"/>
 				</div>
 				<div class="form-group">
 					<label for="title">글제목</label>
@@ -73,9 +76,9 @@ $(function() {
 						id="content" name="content"></textarea>
 				</div>
 				<div class="form-group"> 
-					<label for="title">작성일</label>
+					<label for="regdate">작성일</label>
 					<input type="text" class="form-control"
-					id="title" required="required"
+					id="regdate" required="required"
 					value="${reviewVo.regdate}" readonly="readonly"/>
 				</div>
 				
@@ -85,7 +88,7 @@ $(function() {
 						<img height="100" class="img-rounded"
 						<c:choose>
 							<c:when test="">
-								src="/reviewpic/displayImage?fileName=${filename}"
+								src="/upload/displayImage?fileName=${filename}"
 							</c:when>
 							<c:otherwise>
 								src="/img/default.png"
@@ -103,8 +106,6 @@ $(function() {
 						id="btnModifyOk" style="display:none">수정완료</button>
 					<button type="button" class="btn btn-danger"
 						id="btnDelete" data-bno="${reviewVo.bno}">삭제</button>
-					<button type="button" class="btn btn-info"
-						id="btnReply" data-bno="${reviewVo.bno}">답글</button>
 				</div>
 			</form>
 		</div>

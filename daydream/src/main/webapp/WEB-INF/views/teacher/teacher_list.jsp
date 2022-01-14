@@ -13,7 +13,10 @@ $(function() {
 	$(".a_certificate").click(function(e) {
 		e.preventDefault();
 		var fileName = $(this).text();
+		var tno = $(this).attr("data-tno");
 		$("#imgCer").attr("src", "/teacher/displayImage?fileName=" + fileName);
+		$("#modalModify").attr("data-tno", tno);
+		$("#modalDelete").attr("data-tno", tno);
 		$("#modal-511270").trigger("click");
 	});
 	$(".btnModify").click(function() {
@@ -23,6 +26,19 @@ $(function() {
 	
 	$(".btnDelete").click(function() {
 		var tno = $(this).attr("data-tno");
+		location.href = "/teacher/deleteTeacher?tno=" + tno;
+	});
+	
+	$(".btnStatus").click(function() {
+		var that = $(this);
+		var tno = that.attr("data-tno");
+		var url = "/teacher/updateStatus/" + tno;
+		$.get(url, function(rData) {
+			if (rData == "success") {
+				alert("상태 수락");
+				that.hide(1000);
+			}
+		});
 	});
 });
 </script>
@@ -37,16 +53,20 @@ $(function() {
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">자격증 사진</h5>
+						<h5 class="modal-title" id="myModalLabel">자격증 보기</h5>
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">×</span>
 						</button>
 					</div>
 					<div class="modal-body"><img id="imgCer" src="" width="450"></div>
 					<div class="modal-footer">
-										
+					
+						<button type="button" class="btn btn-warning btnModify"
+							id="modalModify">수정</button>
+						<button type="button" class="btn btn-info btnDelete"
+							id="modalDelete">삭제</button>				
 						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
+							data-dismiss="modal">닫기</button>							
 					</div>
 				</div>
 			</div>
@@ -57,6 +77,7 @@ $(function() {
 	<div>
 		<div class="jumbotron">
 			<h2>강사 리스트</h2>
+			<a href="/teacher/teacher_regist" class="btn btn-sm btn-primary">강사 등록</a>
 		</div>
 		<div style="margin: 0 auto">
 			<table class="table">
@@ -71,9 +92,11 @@ $(function() {
 						<th>자기소개</th>
 						<th>수정</th>
 						<th>삭제</th>
+						<th>수락</th>
 					</tr>
 				</thead>
 				<tbody>
+				${list}
 					<c:forEach items="${list}" var="teacherVo">
 						<tr>
 							<td>${teacherVo.tno}</td>
@@ -81,13 +104,25 @@ $(function() {
 							<td>${teacherVo.price}</td>
 							<td>${teacherVo.personnel}</td>
 							<td>${teacherVo.target}</td>
-							<td><a href="#" class="a_certificate">${teacherVo.certificate}</a></td>
+							<td>
+							<c:if test="${not empty teacherVo.certificate}">
+								<a href="#" class="a_certificate" data-tno="${teacherVo.tno}">${teacherVo.certificate}</a>
+							</c:if>
+							
+							</td>
 							<td>${teacherVo.introduce}</td>
 							<!-- 								<div style="clear:both"></div> -->
 							<td><button type="button" class="btn btn-warning btnModify"
 									data-tno="${teacherVo.tno}">수정</button></td>
 							<td><button type="button" class="btn btn-info btnDelete"
 								 data-tno="${teacherVo.tno}">삭제</button></td>
+							<td>
+							<c:if test="${teacherVo.status == 'N'}">
+							<button type="button" class="btn btn-primary btnStatus"
+								 data-tno="${teacherVo.tno}">수락</button>
+							</c:if>
+							</td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -95,7 +130,7 @@ $(function() {
 		</div>
 	</div>
 </div>          
-</div>
+
 </body>
 </html>
 

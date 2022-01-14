@@ -10,13 +10,13 @@
 
 <script>
 $(function() {
-	$("#fileDrop").on("dragenter dragover", function(e) {
+	$("#fileDrop").on("dragenter dragover", function(e){
 		e.preventDefault();
-// 		console.log("엔터, 오버");
 	});
-	$("#fileDrop").on("drop", function(e) {
+	
+	$("fileDrop").on("drop", function(e){
 		e.preventDefault();
-		var file = e.originalEvent.dataTransfer.files[0];
+		var file = e.origianlEvent.dataTransfer.files[0];
 		console.log(file);
 		// <form method="post" enctype="multipart/form-data">
 		// get: 1KB 이내, multipart/form-data: 바이너리
@@ -26,8 +26,7 @@ $(function() {
 		// -> enctype="multipart/form-data"
 		var formData = new FormData(); // <form>
 		formData.append("file", file); // <input type="file" name="file">
-		var url = "/upload/uploadAjax"; // Controller의 RequestMapping
-		
+		var url = "/upload/displayImage"; // Controller의 RequestMapping
 		$.ajax({
 			"processData"	: false,
 			"contentType"	: false,
@@ -92,16 +91,16 @@ $(function() {
 				alert("파일 삭제에 실패했습니다.");
 			}
 		});
-	});	
+	});
+	
 	$("#btnFile").click(function() {
-		$("#certificate").trigger("click")
+		$("#file_image").trigger("click")
 	});
 }); // $(function)
+		
 </script>
 </head>
-
-<body>
-							
+<body>							
 <div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
 		<div class="col-md-12" style="margin:0 auto;">
@@ -115,12 +114,12 @@ $(function() {
 		<div class="col-md-12" style="margin:0 auto;">
 			<form role="form" action="/teacher/regist_run" 
 				method="post" enctype="multipart/form-data">
-				<div class="form-group">
-				    <p>로그인 후 등록해주세요</p>	
-					<label for="tno">강사번호</label>
-					<input type="text" class="form-control" 
-						id="tno" name="tno" />
-				</div>
+<!-- 				<div class="form-group"> -->
+<!-- 				    <p>로그인 후 등록해주세요</p>	 -->
+<!-- 					<label for="tno">강사번호</label> -->
+<!-- 					<input type="text" class="form-control"  -->
+<!-- 						id="tno" name="tno" /> -->
+<!-- 				</div> -->
 				<div class="form-group">
 					<label for="class_name">강좌명</label>
 					<input type="text" class="form-control" 
