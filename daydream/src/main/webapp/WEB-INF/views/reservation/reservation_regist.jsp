@@ -156,7 +156,7 @@ function nextCalendar(){
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<form role="form" action="/member/regist_run" 
+			<form role="form" action="/reservation/regist_run" 
 				method="post">
 				<div class="form-group">
 		<label for="res_date">예약날짜</label>
