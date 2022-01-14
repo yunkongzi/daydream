@@ -10,68 +10,61 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <script>
 
-// 페이지 번호
-$(".page-link").click(function(e) {
-	e.prventDefault(); 
-	console.log($(this));
-	var page = $(this).attr("href");
-	$("#frmPaging > input[name=page]").val(page);
-	$("#frmPaging > input[name=searchType]").val("${pagingDto.searchType}");
-	$("#frmPaging > input[name=keyword]").val("${pagingDto.keyword}");
-	$("#frmPaging").submit();
-});
+$(function() {
+	var message = "${message}";
+	if (message == "regist_success") {
+		alert("글 등록이 완료 되었습니다.");
+	} else if (message == "delete_success") {
+		alert("글 삭제가 완료 되어습니다.");
+	}
 
-// n줄씩 보기
-$("#perPage").change(function(){
-	console.log("change");
-	var perPage = $(this).val();
-	console.log("perPage:", perPage);
-	$("#frmPaging > input[name=perPage]").val(perPage);
-	$("#frmPaging").submit();
-});
+	// 페이지 번호
+	$(".page-link").click(function(e) {
+		e.prventDefault();
+		console.log($(this));
+		var page = $(this).attr("href");
+		$("#frmPaging > input[name=page]").val(page);
+		$("#frmPaging > input[name=searchType]").val("${pagingDto.searchType}");
+		$("#frmPaging > input[name=keyword]").val("${pagingDto.keyword}");
+		$("#frmPaging").submit();
+	});
 
-// 검색 버튼
-$("#btnSearh").click(function(){
-	var searchType = $("#searchType").val();
-	var keyword = $("#keyword").val();
-	$("#frmPaging > input[name=page]").val();
-	$("#frmPaging > input[name=searchType]").val(searchType);
-	$("#frmPaging > input[name=keyword]").val(keyword);
-	$("#frmPaging").submit();
-});
+	// n줄씩 보기
+	$("#perPage").change(function() {
+		console.log("change");
+		var perPage = $(this).val();
+		console.log("perPage:", perPage);
+		$("#frmPaging > input[name=perPage]").val(perPage);
+		$("#frmPaging").submit();
+	});
 
-//글제목
-$(".a_title").click(function(e) {
-	e.preventDefault();
-	var bno = $(this).attr("href");
-	console.log("bno:", bno);
+	// 검색 버튼
+	$("#btnSearh").click(function() {
+		var searchType = $("#searchType").val();
+		var keyword = $("#keyword").val();
+		$("#frmPaging > input[name=page]").val();
+		$("#frmPaging > input[name=searchType]").val(searchType);
+		$("#frmPaging > input[name=keyword]").val(keyword);
+		$("#frmPaging").submit();
+	});
+
+	//글제목
+	$(".a_title").click(function(e) {
+		e.preventDefault();
+		var bno = $(this).attr("href");
+		console.log("bno:", bno);
 //		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
-	$("#frmPaging > input[name=bno]").val(bno);
-	$("#frmPaging").attr("action", "/review/review_modify")
-				   .submit();
-	
+		$("#frmPaging > input[name=bno]").val(bno);
+		$("#frmPaging").attr("action", "/review/review_modify")
+					   .submit();
+	});
 });
-
 </script>
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
@@ -85,10 +78,6 @@ $(".a_title").click(function(e) {
 			</div>
 		</div>
 	</div>
-
-
-
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
