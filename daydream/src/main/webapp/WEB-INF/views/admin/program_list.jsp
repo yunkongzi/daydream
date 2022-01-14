@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,14 +19,14 @@
 </head>
 <script>
 $(function() {
-	$(".a_file_image").click(function(e){
-		e.preventDefault();
-		var fileName = $(this).text();
-		var class_no = $(this).attr("data-class_no");
-		var href = $(this).attr("href");
-		location.href = href + "?class_no=" + class_no;
+// 	$(".a_file_image").click(function(e){
+// 		e.preventDefault();
+// 		var fileName = $(this).text();
+// 		var class_no = $(this).attr("data-class_no");
+// 		var href = $(this).attr("href");
+// 		location.href = href + "?class_no=" + class_no;
 		
-	});
+// 	});
 	$(".btnModify").click(function(e) {
 		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
@@ -39,7 +40,6 @@ $(function() {
 		location.href = "/admin/deleteProgram?class_no=" + class_no;
 	});
 });
-
 </script>
 <body>
 
@@ -77,7 +77,7 @@ $(function() {
 								<td>${programVo.class_intro}</td>
 								<td>
 								<c:if test="${not empty programVo.file_image}">
-									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="120"/>
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
 								</c:if>
 								
 								
