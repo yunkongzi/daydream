@@ -24,10 +24,11 @@
 	
 	<!-- 예약목록 -->
 	<select id="reservationList" resultType="MyReservationVo">
-		select r.res_date,p.class_name, s.program_time, r.count, r.status, s.class_no
-			from tbl_reservation r, tbl_program p , tbl_program_sub s
+		select r.res_date,p.class_name, s.program_time, r.count, s.class_no, r.status, c.status_name
+			from tbl_reservation r, tbl_program p , tbl_program_sub s, tbl_reservation_code c
 			where r.class_sub_no = s.program_sub_no
 			and s.class_no = p.class_no
+            and r.status = c.status_code
 			and r.user_id = #{user_id}
 	</select>
 	
