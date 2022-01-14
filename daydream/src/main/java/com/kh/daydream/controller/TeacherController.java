@@ -12,6 +12,7 @@ import org.apache.commons.io.IOUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,15 +36,22 @@ public class TeacherController<PagingDto> {
 
 	// 강사 가입 폼
 	@RequestMapping(value = "/teacher_regist", method = RequestMethod.GET)
-	public String teacherRegist() {
-
+	public String teacherRegist(HttpSession session) {
+		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+		if (memberVo == null) {
+			return "redirect:/member/login";
+		}
 		return "/teacher/teacher_regist";
 	}
 
 	// 강사등록 처리, 파일첨부
 	@RequestMapping(value = "/regist_run", method = RequestMethod.POST)
-	public String teacherRegistRun(MultipartHttpServletRequest request) throws Exception {
+	public String teacherRegistRun(MultipartHttpServletRequest request, HttpSession session) throws Exception {
 		System.out.println("TeacherController, teacherRegistRun...");
+		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+		if (memberVo == null) {
+			return "redirect:/member/login";
+		}
 		MultipartFile multi = request.getFile("certificate");
 		String filename = multi.getOriginalFilename();
 		String uuid = UUID.randomUUID().toString();
@@ -58,10 +66,12 @@ public class TeacherController<PagingDto> {
 		String personnel = request.getParameter("personnel");
 		String target = request.getParameter("target");
 		String introduce = request.getParameter("introduce");
-		TeacherVo teacherVo = new TeacherVo(tno, class_name, price, personnel, target, certificate, introduce);
+		String user_id = memberVo.getUser_id();
+		TeacherVo teacherVo = new TeacherVo(
+				tno, class_name, price, personnel, target, certificate, introduce, user_id, "N");
 //			System.out.println("TeacherController, teacherRegistRun, filename:" + filename);
 		System.out.println("TeacherController, teacherRegistRun, teacherVo:" + teacherVo);
-//			teacherService.insertTeacher(teacherVo);
+			teacherService.insertTeacher(teacherVo);
 		return "redirect:/teacher/teacher_list";
 	}
 
@@ -74,6 +84,7 @@ public class TeacherController<PagingDto> {
 			return "redirect:/main";
 		}
 		List<TeacherVo> list = teacherService.selectAll();
+		System.out.println("TeacherController, teacherListAll, list: " + list);
 		model.addAttribute("list", list);
 		return "/teacher/teacher_list";
 	}
@@ -150,5 +161,13 @@ public class TeacherController<PagingDto> {
 	public String deleteTeacher(String tno) {
 		teacherService.deleteTeacher(tno);
 		return "redirect:/teacher/teacher_list";
+	}
+	
+	// 강사 수락 상태 변경
+	@RequestMapping(value = "/updateStatus/{tno}", method = RequestMethod.GET)
+	@ResponseBody
+	public String updateStatus(@PathVariable("tno") String tno) {
+		teacherService.updateStatus(tno);
+		return "success";
 	}
 }

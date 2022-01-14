@@ -53,22 +53,23 @@ public class TeacherDao {
 
 
 	public List<TeacherVo> selectAll(PagingDto pagingDto) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 
 	public String getTnoNextVal() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-
+	//파일명
 	public String[] getFilenames(String tno) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+	//수락
+	public void updateStatus(String tno) {
+		sqlSession.delete(NAMESPACE + "updateStatus", tno);
 	}
 
 }

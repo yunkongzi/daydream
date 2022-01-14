@@ -42,5 +42,9 @@ public class TeacherService {
 		teacherDao.deleteTeacher(tno);
 	}
 	
+	public void updateStatus(String tno) {
+		teacherDao.updateStatus(tno);
+	}
+	
 	
 }
