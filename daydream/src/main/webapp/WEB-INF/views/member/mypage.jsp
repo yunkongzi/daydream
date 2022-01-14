@@ -8,13 +8,7 @@
 <script>
 	$(function() {
 
-		$("#btnDeleteMember").click(function() {
-			var user = $(this).attr("data-user");
-			console.log("user: " + user);
-			var url = "/member/deleteMember?user_id=" + user;
-			location.href = url;
-		});
-
+		
 	});
 </script>
 </head>
