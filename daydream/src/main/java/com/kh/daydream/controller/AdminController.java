@@ -1,3 +1,4 @@
+
 package com.kh.daydream.controller;
 
 import java.io.File;
@@ -26,8 +27,8 @@ import com.kh.daydream.vo.ProgramVo;
 @RequestMapping("/admin")
 public class AdminController {
 	
-//	private static final String UPLOAD_PATH = "//192.168.0.80/programpic/";
-	private static final String UPLOAD_PATH = "//192.168.35.42/programpic/";
+	private static final String UPLOAD_PATH = "//192.168.0.80/programpic/";
+//	private static final String UPLOAD_PATH = "//192.168.35.42/programpic/";
 
 	@Inject
 	private ProgramService programService;
@@ -96,18 +97,29 @@ public class AdminController {
 		}
 		
 		// 이미지 보이기 
-		@RequestMapping(value="/displayImage", method=RequestMethod.GET)
+//		@RequestMapping(value="/displayImage", method=RequestMethod.GET)
+//		@ResponseBody
+//		public byte[] displayImage(String fileName) throws Exception {
+//			// 서버의 파일을 다운로드하기 위한 스트림
+//			System.out.println("UploadController, displayFile, fileName: " + fileName);
+//			FileInputStream fis = new FileInputStream(
+//					UPLOAD_PATH + fileName);
+//			byte[] bytes = IOUtils.toByteArray(fis);
+//			return bytes;
+//		}
+		
+		@RequestMapping(value = "/displayImage", method = RequestMethod.GET)
 		@ResponseBody
 		public byte[] displayImage(String fileName) throws Exception {
+			System.out.println("fileName:" + fileName);
+			byte[] bytes = null;
 			// 서버의 파일을 다운로드하기 위한 스트림
-			System.out.println("UploadController, displayFile, fileName: " + fileName);
-			FileInputStream fis = new FileInputStream(
-					UPLOAD_PATH + fileName);
-			byte[] bytes = IOUtils.toByteArray(fis);
+			if (fileName != null && !fileName.equals("")) {
+				FileInputStream fis = new FileInputStream(UPLOAD_PATH + fileName);
+				bytes = IOUtils.toByteArray(fis);
+			}
 			return bytes;
 		}
-		
-		
 		
 	// 프로그램 목록
 	/*
@@ -151,19 +163,6 @@ public class AdminController {
 		model.addAttribute("timeList", timeList);
 		return "/admin/program_modify";
 	}
-	
-//	@RequestMapping(value = "/displayImage", method = RequestMethod.GET)
-//	@ResponseBody
-//	public byte[] displayImage(String fileName) throws Exception {
-//		System.out.println("fileName:" + fileName);
-//		byte[] bytes = null;
-//		// 서버의 파일을 다운로드하기 위한 스트림
-//		if (fileName != null && !fileName.equals("")) {
-//			FileInputStream fis = new FileInputStream(UPLOAD_PATH + fileName);
-//			bytes = IOUtils.toByteArray(fis);
-//		}
-//		return bytes;
-//	}
 
 	// 프로그램 수정 처리
 	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
