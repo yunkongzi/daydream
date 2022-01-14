@@ -33,22 +33,22 @@
 						<thead>
 							<tr>
 								<th>회원 아이디</th>
-								<th>회원 이름</th>
-								<th>연락처</th>
-								<th>클래스명</th>
-								<th>시간</th>
-								<th>날짜</th>
+								<th>예약 날짜</th>
+								<th>예약번호</th>
+								<th>클래스 번호</th>
+								<th>인원수</th>
+								<th>상태</th>
 							</tr>
 						</thead>
 						<tbody>
 						<c:forEach items="${list}" var="ReservationVo">
 							<tr>
 								<td>${ReservationVo.user_id}</td>
-								<td>${ReservationVo.user_name}</td>
-								<td>${ReservationVo.user_phone}</td>
-								<td>${ReservationVo.class_name}</td>
-								<td>${ReservationVo.res_time}</td>
 								<td>${ReservationVo.res_date}</td>
+								<td>${ReservationVo.rno}</td>
+								<td>${ReservationVo.class_sub_no}</td>
+								<td>${ReservationVo.count}</td>
+								<td>${ReservationVo.status}</td>
 							</tr>
 						</c:forEach>
 						</tbody>

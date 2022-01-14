@@ -10,6 +10,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.kh.daydream.dao.ReservationDao;
+import com.kh.daydream.vo.ProgramListVo;
+import com.kh.daydream.vo.ProgramVo;
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
@@ -20,6 +22,8 @@ public class ReservationService {
 	private ReservationDao reservationDao;
 	//예약등록
 	public void insertReservation(ReservationVo reservationVo) {
+		int rno = reservationDao.getRnoNextVal(); // seq_rno.nextval
+		reservationVo.setRno(rno);
 		reservationDao.insertReservation(reservationVo);
 	}
 	
@@ -28,10 +32,28 @@ public class ReservationService {
 		List<ReservationTimeVo> timeList = reservationDao.selectTimeList(class_no);
 		return timeList;
 	}
-	//예약자 목록
-	public List<ReservationVo> resvList(String user_id, String finish) {
-		List<ReservationTimeVo> resvList = reservationDao.resvList(user_id);
+	
+	public List<ReservationVo> selectAll() {
+		
 		return null;
 	}
+
+
+	public ProgramVo selectByClassNo(int class_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateReservation(ReservationVo reservationVo) {
+		
+		return;
+	}
+
+	public void deleteReservation(int class_no) {
+		
+		return;
+	}
+
+
 	
 }
