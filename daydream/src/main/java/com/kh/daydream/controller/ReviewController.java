@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,9 +50,9 @@ public class ReviewController {
 		List<ReviewVo> list = reviewService.selectAll(pagingDto);
 		model.addAttribute("list", list);
 		model.addAttribute("pagingDto", pagingDto);
-//		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-//		String user_id = memberVo.getUser_id();
-		String user_id = "hong";
+		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+		String user_id = memberVo.getUser_id();
+//		String user_id = "hong";
 		List<AttendClassVo> reviewList_all= reviewService.reviewListAll(user_id, FINISH);
 		model.addAttribute("reviewList_all", reviewList_all);
 		return "review/reviewList_all";
@@ -59,23 +60,24 @@ public class ReviewController {
 	
 	// 리뷰쓰기 폼 (/review/review_regist)
 	@RequestMapping(value="/review_regist", method=RequestMethod.GET)
-		public void reviewRegistForm(int class_no, Model model, HttpSession session) {
-//		MemberVo memberVo  = (MemberVo)session.getAttribute("memberVo");
-//		if (memberVo == null) {
-//			return "redirect:/main";
-//		}
+	public String reviewRegistForm(int class_no, Model model, HttpSession session) {
+		MemberVo memberVo  = (MemberVo)session.getAttribute("memberVo");
+		if (memberVo == null) {
+			return "redirect:/main";
+		}
 		System.out.println("ReviewController, reviewRegistForm, class_no: " + class_no);
-			ProgramVo programVo = programService.selectByClassNo(class_no);
-			String class_name = programVo.getClass_name();
-			model.addAttribute("class_name", class_name);
-			model.addAttribute("class_no", class_no);
-		}
+		ProgramVo programVo = programService.selectByClassNo(class_no);
+		String class_name = programVo.getClass_name();
+		model.addAttribute("class_name", class_name);
+		model.addAttribute("class_no", class_no);
+		return "review/review_regist";
+	}
 
-		public String reviewRegistForm(String class_name) {
-			System.out.println("ReviewController, reviewRegistForm, class_name: " + class_name);
-
-			return "review/review_regist";
-		}
+//		public String reviewRegistForm(String class_name) {
+//			System.out.println("ReviewController, reviewRegistForm, class_name: " + class_name);
+//
+//			return "review/review_regist";
+//		}
 		
 	// 리뷰쓰기 처리(/review/review_regist_run)
 	@RequestMapping(value="/regist_run", method=RequestMethod.POST)
@@ -96,24 +98,28 @@ public class ReviewController {
 		return "redirect:/review/reviewList_all";
 	}
 	
-	// 리뷰 수정 폼
+	// 상세보기
 	@RequestMapping(value="/content", method=RequestMethod.GET)
 	public String updateReviewForm(int bno, Model model) {
 		System.out.println("ReviewController, updateReviewForm, bno: " + bno);
-		ReviewVo reviewVo = reviewService.selectById(bno);
-		model.addAttribute("ReviewVo", reviewVo);
+		ReviewVo reviewVo = reviewService.selectByBno(bno);
+		model.addAttribute("reviewVo", reviewVo);
 		return "review/content";
 	}
 	
 	// 리뷰 수정처리
-	@RequestMapping(value="/content_run", method=RequestMethod.POST)
+	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
 	public String updateReviewRun(ReviewVo reviewVo, PagingDto pagingDto,
 								  RedirectAttributes rttr) {
 		System.out.println("ReviewController, updateReviewRun, reviewVo:" + reviewVo);
 		System.out.println("ReviewController, updateReviewRun, pagingDto:" + pagingDto);
-		reviewService.updateReview(reviewVo);
+		reviewService.modifyReview(reviewVo);
 		rttr.addFlashAttribute("message", "modify_success");
-		return "review/reviewList_all";
+		return "redirect:/review/content?bno=" + reviewVo.getBno() +
+				"&page=" + pagingDto.getPage() +
+				"&perPagd=" + pagingDto.getPerPage() +
+				"&searchType=" + pagingDto.getSearchType() +
+				"&keyword=" + pagingDto.getKeyword();
 	}
 	
 	// 리뷰 삭제처리
@@ -137,9 +143,9 @@ public class ReviewController {
 	
 	@ResponseBody
 	public String uploadAjax(MultipartFile file) throws IOException {
-		System.out.println("UploadController, uploadAjax, file: " + file);
+		System.out.println("ReviewController, uploadAjax, file: " + file);
 		String originalName = file.getOriginalFilename();
-		System.out.println("UploadController, uploadAjax, originalName:" + originalName);
+		System.out.println("ReviewController, uploadAjax, originalName:" + originalName);
 		String filePath = MyFileUploadUtil.uploadFile(UPLOAD_PATH, originalName, file.getBytes());
 		boolean isImage = MyFileUploadUtil.isImage(originalName);
 		if(isImage) {
@@ -170,11 +176,19 @@ public class ReviewController {
 	@RequestMapping(value="/deleteFile", method=RequestMethod.GET)
 	@ResponseBody
 	public String deleteFile(String fileName) {
-		System.out.println("UploadController, deleteFile, fileName:" + fileName);
+		System.out.println("ReviewController, deleteFile, fileName:" + fileName);
 		boolean result = MyFileUploadUtil.deleteFile(UPLOAD_PATH + fileName);
 		if (result == true) {
 			return "success";
 		}
 		return "fail";
 	}
+	
+	// 상세보기
+//	@RequestMapping(value="/detail/{bno}", method=RequestMethod.GET)
+//	public void content(@PathVariable("bno") int bno, Model model) {
+//		System.out.println("ReviewController, content, bno:	" + bno);
+//		ReviewVo reviewVo = reviewService.selectByBno(bno);
+//		model.addAttribute("ReviewVo", reviewVo);
+//	}
 }

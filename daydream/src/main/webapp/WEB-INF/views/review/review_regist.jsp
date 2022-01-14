@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
 </head>
+
 <script>
 // 별점 처리 요청 
 $(function () {
@@ -140,34 +142,33 @@ function isImage(fileName){
 }
 </script>
 <style>
-// 별점 스타일
+<!-- // 별점 스타일 -->
 #star {
-  display: flex;
-}
-.star {
-  font-size: 2rem;
-  margin: 10px 0;
-  cursor: pointer;
-}
+ display: flex;
+ } 
+.star { 
+ font-size: 2rem; 
+ margin: 10px 0;
+cursor: pointer;
+ } 
 .star:not(.on) {
-  color: #ccc;
+color: #ccc;
 }
 .star.on {
-  color: orange;
-}
+ color: orange;
+ }
 
-.fileDrop{
-	width:80%;
-	height:100px;
-	background-color: gray;
-	margin: 20px auto;
-	border:1px dotted blue;
-}
-.divUploaded {
-	width: 150px;
-	float: left;
-}
-
+.fileDrop {
+width:80%;
+height:100px;
+background-color: gray;
+margin: 20px auto; 
+border:1px dotted blue;
+ }
+ .divUploaded { 
+width: 150px;
+float: left;
+ }
 </style>
 
 <body>
@@ -223,7 +224,7 @@ function isImage(fileName){
 				<hr  style="clear:both;">
 				<!-- 별점 첨부 -->
 				<div class="from-group">
-				<label for="star_rating">별점</label>
+					<label for="star_rating">별점</label>
 					<div class="star-container" id="star">
  						<span class="star">★</span>
   						<span class="star">★</span>

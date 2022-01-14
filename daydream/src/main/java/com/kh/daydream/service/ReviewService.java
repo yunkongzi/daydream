@@ -69,8 +69,10 @@ public class ReviewService {
 	}
 	
 	// 특정 리뷰 조회
-	public ReviewVo selectById(int bno) {
-		ReviewVo reviewVo = reviewDao.selectById(bno);
+	public ReviewVo selectByBno(int bno) {
+		ReviewVo reviewVo = reviewDao.selectByBno(bno);
+		String[] files = reviewDao.getFilenames(bno);
+		reviewVo.setFiles(files);
 		return reviewVo;
 	}
 	

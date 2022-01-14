@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/include/header.jsp"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+
 
 </head>
 <script>
@@ -59,6 +60,34 @@ $(".a_title").click(function(e) {
 
 </script>
 <body>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<h2>
+					리뷰 목록
+				</h2>
+				
+				<p>
+					<a class="btn btn-primary btn-large" href="/member/mypage">마이페이지(리뷰 등록)</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+
 
 <div class="container-fluid">
 	<div class="row">
@@ -122,7 +151,7 @@ $(".a_title").click(function(e) {
 						<c:forEach items="${list}" var="reviewVo">
 							<tr>
 								<td>${reviewVo.bno}</td>
-								<td><a class="a_title" href="${reviewVo.bno}"
+								<td><a class="a_title" href="/review/content?bno=${reviewVo.bno}"
 										style="margin-left:${reviewVo.re_level * 50}px">${reviewVo.title}</a> 
 										<span style="color:red">[${reviewVo.comment_cnt}]</span></td>
 								<td>${reviewVo.user_id}</td>
@@ -173,4 +202,3 @@ $(".a_title").click(function(e) {
 </div>
 </body>
 </html>
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>

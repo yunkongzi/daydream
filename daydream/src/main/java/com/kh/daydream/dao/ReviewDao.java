@@ -32,8 +32,8 @@ public class ReviewDao {
 	}
 	
 	// 리뷰 정보 보기
-	public ReviewVo selectById(int bno) {
-		ReviewVo reviewVo = sqlsession.selectOne(NAMESPACE + "selectById", bno);
+	public ReviewVo selectByBno(int bno) {
+		ReviewVo reviewVo = sqlsession.selectOne(NAMESPACE + "selectByBno", bno);
 		return reviewVo;
 	}
 	
