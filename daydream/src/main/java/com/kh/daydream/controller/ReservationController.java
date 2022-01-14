@@ -44,13 +44,14 @@ public class ReservationController {
 		// 예약 등록 처리
 		@RequestMapping(value="/regist_run", method=RequestMethod.POST)
 		public String reservationResgistrun(ReservationVo reservationVo){
+			
 			System.out.println("ReservationController, reservationResgistrun, reservationVo : " + reservationVo);
 			reservationService.insertReservation(reservationVo);
 			return "redirect:/reservation/reservation_regist";
 	} 
 		//에약 목록
 		 @RequestMapping(value="/rev_list", method=RequestMethod.GET)
-		   public String reservationListAll(Model model) {
+		   public String reservationList(Model model) {
 			  List<ReservationVo> allList =  reservationService.selectAll();
 			  model.addAttribute("allList", allList);
 			  return "/admin/rev_list";

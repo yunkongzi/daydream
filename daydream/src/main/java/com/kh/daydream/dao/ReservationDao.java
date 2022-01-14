@@ -36,7 +36,7 @@ public class ReservationDao {
 		int rno = sqlSession.selectOne(NAMESPACE+"getRnoNextVal");
 		return rno;
 	}
-	public List<ReservationVo> selectReservationList() {
+	public List<ReservationVo> reservationList() {
 		
 		return null;
 	}

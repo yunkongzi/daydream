@@ -32,12 +32,11 @@ public class ReservationService {
 		List<ReservationTimeVo> timeList = reservationDao.selectTimeList(class_no);
 		return timeList;
 	}
-	
 	public List<ReservationVo> selectAll() {
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 
 	public ProgramVo selectByClassNo(int class_no) {
 		// TODO Auto-generated method stub
@@ -53,6 +52,8 @@ public class ReservationService {
 		
 		return;
 	}
+
+	
 
 
 	
