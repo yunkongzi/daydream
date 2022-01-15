@@ -27,5 +27,14 @@ public class MainController {
 		model.addAttribute("programList", programList);
 		return "/program_intro";
 	}
+	
+	// 프로그램 상세페이지로 넘어가기
+	@RequestMapping(value="program_detail", method = RequestMethod.GET)
+	public String proDetail(Model model) {
+		List<ProgramVo> programList = programService.selectOpenedProgramList();
+		System.out.println("ProgramController, selectOpenedProgramList, programList:" + programList);
+		model.addAttribute("programList", programList);
+		return "/program_detail";
+	}
 
 }
