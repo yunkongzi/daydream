@@ -8,8 +8,8 @@
 	
 	<!-- 예약등록 -->
 	<insert id="insertReservation">
-		insert into tbl_reservation(user_id, res_date, time_no ,rno, class_sub_no, count, status)
-		values(#{user_id}, #{res_date}, #{time_no}, seq_rno.nextval, #{class_sub_no}, #{count}, #{status})
+		insert into tbl_reservation(user_id, res_date ,rno, class_sub_no, count, status)
+		values(#{user_id}, #{res_date}, seq_rno.nextval, #{class_sub_no}, #{count}, #{status})
 	</insert>
 	
 	<!-- 클래스 시간 목록 (1~4) -->
@@ -29,18 +29,18 @@
 	</select>
 	
 	
-	<!-- <select id="reservationList" resultType="reservationVo">
-		select r.user_id, r.res_date,
-		p.class_name, s.program_time, r.status, p.class_no
-		from tbl_reservation r, tbl_program p , tbl_program_sub s
-		where r.class_sub_no = s.program_sub_no
-		and s.class_no = p.class_no
-		and r.user_id = #{user_id}
-		and r.res_date = #{res_date}
-		and r.time_no = #{time_no} 
-		and r. rno = #{rno}
-		and r.count = #{count}
-		and r.status = #{status}
-	</select> -->
+<!-- 	<select id="reservationList" resultType="reservationVo"> -->
+<!-- 		select r.user_id, r.res_date, -->
+<!-- 		p.class_name, s.program_time, r.status, p.class_no -->
+<!-- 		from tbl_reservation r, tbl_program p , tbl_program_sub s -->
+<!-- 		where r.class_sub_no = s.program_sub_no -->
+<!-- 		and s.class_no = p.class_no -->
+<!-- 		and r.user_id = #{user_id} -->
+<!-- 		and r.res_date = #{res_date} -->
+<!-- 		and r.time_no = #{time_no}  -->
+<!-- 		and r. rno = #{rno} -->
+<!-- 		and r.count = #{count} -->
+<!-- 		and r.status = #{status} -->
+<!-- 	</select> -->
 
 </mapper>
