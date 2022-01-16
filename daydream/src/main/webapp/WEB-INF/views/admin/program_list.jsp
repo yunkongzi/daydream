@@ -77,7 +77,7 @@ $(function() {
 								<td>${programVo.class_intro}</td>
 								<td>
 								<c:if test="${not empty programVo.file_image}">
-									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250" width="350"/>
 								</c:if>
 								
 								

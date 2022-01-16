@@ -183,7 +183,8 @@ $(function() {
 							<div class="form-group">
 								<label for="file_image"> 사진 </label><br> 
 								<input
-									type="file" class="form-control" id="file_image" name="file_image"/>
+									type="file" class="form-control" id="file_image" name="file_image" style="display:none"/>
+									<button type="button" id="btnFile">파일 첨부</button>
 									</div>
 								
 							
