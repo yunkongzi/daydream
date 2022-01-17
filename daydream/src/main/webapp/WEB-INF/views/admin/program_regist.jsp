@@ -147,11 +147,6 @@ $(function() {
 								<label for="class_intro"> 프로그램 소개 </label><br>
 								<textarea rows="5" cols="50" name="class_intro"></textarea>
 							</div>
-							<div class="form-group">
-
-								<label for="class_content"> 상세 소개 </label><br>
-								<textarea rows="5" cols="50" name="class_content"></textarea>
-							</div>
 							
 							<div class="form-group">
 

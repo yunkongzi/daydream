@@ -6,10 +6,17 @@
 
 
 <script>
-	$(function() {
-
-		
+$(function() {
+	
+	
+	$("#btnDeleteMember").click(function() {
+		var user = $(this).attr("data-user");
+		console.log("user: " + user);
+		var url = "/member/deleteMember?user_id=" + user;
+		location.href = url;
 	});
+
+});
 </script>
 </head>
 <body>
@@ -33,51 +40,60 @@
 								${sessionScope.memberVo.user_name} <br> 전화번호:
 								${sessionScope.memberVo.user_phone} <br>
 
-								<button type="button" onclick="location.href='/member/modify'">정보수정</button>
-								<br>
-								<br>
+								<button type="button"
+									onclick="location.href='/member/modify'">정보수정</button><br><br>
 
-							</div>
-							<br>
-							<br>
+							</div><br><br>
 
 							<div class="jumbotron">
 								<h5>【예약하신 클래스 목록이에요】</h5>
 
 								<table>
-
-									<th>예약날짜</th>
-									<th>클래스이름</th>
-									<th>교시</th>
-									<th>예약인원</th>
-									<th>상태</th>
-									<th>후기작성</th>
-									<th>예약취소</th>
-
-
+								
+								<th>예약날짜</th>
+											<th>클래스이름</th>
+											<th>교시</th>
+											<th>예약인원</th>
+											<th>상태</th>
+											<th>후기작성</th>
+											<th>예약취소</th>
+								
+								
 									<c:forEach items="${reservationList}" var="MyReservationVo">
 										<tr>
 											<td>${MyReservationVo.res_date}</td>
 											<td>${MyReservationVo.class_name}</td>
 											<td>${MyReservationVo.program_time}교시</td>
 											<td>${MyReservationVo.count}명</td>
-											<td>${MyReservationVo.status_name}</td>
-
+											<td>${MyReservationVo.status}</td>
+											
+											
+											
+											
+											
+											
+											
+											
+											
 											<td><button type="button"
 													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
-
-
+											
+											
 											<td><button type="button" onclick=>예약취소</button></td>
-
+											
+											
+											
+											
+											
+											
+											
 										</tr>
 
 
 									</c:forEach>
 								</table>
 
-							</div>
-							<br>
-							<br>
+							</div><br><br>
 
 
 
@@ -86,26 +102,23 @@
 								<h5>【작성하신 후기가 여기 있어요】</h5>
 								후기후기후기후기
 
-							</div>
-							<br>
-							<br>
-
-
+							</div><br><br>
+							
+							
 							<div class="jumbotron">
 								<h5>【강사 지원 하셨나요?】</h5>
-								강사 지원 내용
+								강사 지원 내용 
 
-							</div>
-							<br>
-							<br>
-
-
-
-
+							</div><br><br>
+							
+							
+							
+							
 							<button type="button"
-								data-user="${sessionScope.memberVo.user_id}"
-								id="btnDeleteMember">회원탈퇴할래요 (정말요?😭)</button>
-
+									data-user="${sessionScope.memberVo.user_id}"
+									id="btnDeleteMember">
+									회원탈퇴할래요 (정말요?😭)</button>
+							
 
 
 						</div>
