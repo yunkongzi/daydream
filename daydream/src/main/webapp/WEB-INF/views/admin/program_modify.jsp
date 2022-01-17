@@ -161,6 +161,13 @@ $(function() {
 									><c:out value="${programVo.class_intro}" /></textarea>
 								
 							</div>
+							<div class="form-group">
+
+								<label for="class_content"> 상세 소개 </label><br>
+								<textarea rows="5" cols="50" id="class_content" name="class_content"
+									><c:out value="${programVo.class_content}" /></textarea>
+								
+							</div>
 							
 							 <div class="form-group">
 
