@@ -18,12 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.daydream.service.TeacherService;
-import com.kh.daydream.vo.ClassTimeVo;
 import com.kh.daydream.vo.MemberVo;
-import com.kh.daydream.vo.ProgramVo;
+import com.kh.daydream.vo.TeacherMemberVo;
 import com.kh.daydream.vo.TeacherVo;
 
 @Controller
@@ -56,7 +54,7 @@ public class TeacherController<PagingDto> {
 		String filename = multi.getOriginalFilename();
 		String uuid = UUID.randomUUID().toString();
 		String certificate = uuid + "_" + filename;
-		multi.transferTo(new File("E:/teacher_attach/" + uuid + "_" + certificate));
+		multi.transferTo(new File(UPLOAD_PATH + certificate));
 
 //			FileCopyUtils.copy(bytes, f);
 
@@ -169,5 +167,12 @@ public class TeacherController<PagingDto> {
 	public String updateStatus(@PathVariable("tno") String tno) {
 		teacherService.updateStatus(tno);
 		return "success";
+	}
+	// 강사 목록
+	@RequestMapping(value = "/statusList", method = RequestMethod.GET)
+	public String statusList(String status, Model model) {
+		List<TeacherMemberVo> statusList = teacherService.statusList(status);
+		model.addAttribute("statusList", statusList);
+		return "teacher/statusList";
 	}
 }
