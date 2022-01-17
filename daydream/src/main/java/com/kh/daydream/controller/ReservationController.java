@@ -60,8 +60,13 @@ public class ReservationController {
 		//에약 목록
 		 @RequestMapping(value="/rev_list", method=RequestMethod.GET)
 		   public String reservationList(Model model,HttpSession session) {
-			  List<ReservationListVo> allList =  reservationService.reservationList();
-			  model.addAttribute("allList", allList);
+			 MemberVo memberVo = (MemberVo) session.getAttribute("memberVo");
+
+				if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
+					return "redirect:/main";
+				}
+			  List<ReservationListVo> revList =  reservationService.reservationList();
+			  model.addAttribute("revList", revList);
 			  return "/admin/rev_list";
 		   }
 //		// 예약 수정 폼
