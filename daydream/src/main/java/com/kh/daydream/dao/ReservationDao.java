@@ -8,8 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.kh.daydream.vo.ClassTimeVo;
+
 import com.kh.daydream.vo.ProgramListVo;
 import com.kh.daydream.vo.ReservationListVo;
+
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
@@ -28,9 +30,10 @@ public class ReservationDao {
 
 	// 클래스 시간 목록
 	public List<ReservationTimeVo> selectTimeList(int class_no) {
-		List<ReservationTimeVo> timeList = sqlSession.selectList(NAMESPACE + "selectTimeList", class_no);
-		return timeList;
+		List<ReservationTimeVo> list = sqlSession.selectList(NAMESPACE + "selectTimeList", class_no);
+		return list;
 	}
+
 
 	// 예약 번호
 	public int getRnoNextVal() {
@@ -43,6 +46,7 @@ public class ReservationDao {
 		List<ReservationListVo> allList = sqlSession.selectList(NAMESPACE + "reservationList");
 		return allList;
 	}
+
 
 	// 예약 수정
 	public void updateReservation(ReservationVo reservationVo) {

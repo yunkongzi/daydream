@@ -6,10 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.daydream.service.ProgramService;
 import com.kh.daydream.vo.ClassTimeVo;
@@ -21,8 +19,6 @@ public class MainController {
 
 	@Inject
 	ProgramService programService;
-	
-	
 
 	// 회원들이 보는 프로그램 페이지 열기
 	@RequestMapping(value = "/program_intro", method = RequestMethod.GET)
@@ -32,19 +28,9 @@ public class MainController {
 		model.addAttribute("programList", programList);
 		return "/program_intro";
 	}
+
 	
 	// 프로그램 상세페이지로 넘어가기
-//	@RequestMapping(value="program_detail", method = RequestMethod.GET)
-//	public String proDetail(Model model, int class_no) {
-//		System.out.println("ProgramController, proDetail, class_no:" + class_no);
-//		List<ProgramVo> programList = programService.selectOpenedProgramList();
-//		ProgramVo programVo = programService.contentList(class_no);
-//		List<ClassTimeVo> timeList = programService.selectTimeList();
-//		model.addAttribute("programVo", programVo);
-//		model.addAttribute("timeList", timeList);
-//		
-//		return "/program_detail";
-//	}
 	@RequestMapping(value="program_detail", method = RequestMethod.GET)
 	public String proDetail(Model model, int class_no) {
 		 ProgramVo programVo = programService.contentDetail(class_no);
