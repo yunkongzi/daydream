@@ -17,6 +17,8 @@ public class ProgramService {
 
 	@Inject
 	private ProgramDao programDao;
+	
+	
 
 	// 프로그램 등록
 	@Transactional
@@ -58,8 +60,8 @@ public class ProgramService {
 			}
 			vo.setTime_no(time_nos);
 		}
-		
 		return list;
+		
 	}
 
 	public List<ClassTimeVo> selectTimeList() {
@@ -95,5 +97,13 @@ public class ProgramService {
 		programDao.deleteProgram(class_no);
 
 	}
+	
+	// 상세 페이지
+	
+	public ProgramVo contentDetail(int class_no) {
+		ProgramVo programVo = programDao.contentDetail(class_no);
+		return programVo;
+	}
 
+	
 }
