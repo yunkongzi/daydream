@@ -16,6 +16,7 @@ import com.kh.daydream.service.ProgramService;
 import com.kh.daydream.service.ReservationService;
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.ProgramVo;
+import com.kh.daydream.vo.ReservationListVo;
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
@@ -58,14 +59,8 @@ public class ReservationController {
 	} 
 		//에약 목록
 		 @RequestMapping(value="/rev_list", method=RequestMethod.GET)
-		   public String reservationList(int class_no, Model model, HttpSession session, ReservationVo reservationVo) {
-			  MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-			  String user_id = memberVo.getUser_id();
-			  reservationVo.setUser_id(user_id);
-			  ProgramVo programVo = programService.selectByClassNo(class_no);
-			  model.addAttribute("programVo",programVo);
-			  model.addAttribute("class_no", class_no);
-			  List<ReservationVo> allList =  reservationService.selectAll();
+		   public String reservationList(Model model,HttpSession session) {
+			  List<ReservationListVo> allList =  reservationService.reservationList();
 			  model.addAttribute("allList", allList);
 			  return "/admin/rev_list";
 		   }
