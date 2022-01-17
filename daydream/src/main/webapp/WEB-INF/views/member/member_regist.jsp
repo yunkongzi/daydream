@@ -7,7 +7,7 @@
 <script>
 
 $(function() {
-	
+	var isDupIdChecked = false;
 	//아이디 중복 체크
 	$("#btnCheckDupId").click(function() {
 		var url = "member/checkDupId/" + $("#user_id").val();
@@ -19,11 +19,18 @@ $(function() {
 			} else {
 				$("#btnCheckDupId").next().html("<br>사용가능한 아이디입니다.");
 				$("#btnCheckDupId").next().css("color", "blue");
+				isDupIdChecked = true;
 			}
 		});
 	});
 	
-
+	
+	$("#registform").submit(function() {
+		if (isDupIdChecked == false) {
+			alert("아이디 중복체크를 해주세요.");
+			return false;
+		}
+	});
 
 });
 </script>
@@ -50,12 +57,12 @@ $(function() {
 	</div>
 	<div class="row" >
 		<div class="col-md-5" style="margin:0 auto;">
-			<form role="form" action="/member/regist_run" 
+			<form role="form" action="/member/regist_run" id="registform"
 				method="post">
 				<div class="form-group" >
 					<label for="user_id">아이디</label>
 					<input type="text" class="form-control" 
-						id="user_id" name="user_id" />
+						id="user_id" name="user_id" size="25" maxlength="25" required/>
 				</div><br>
 				<div class="form-group">
 					<button type="button" class="btn btn-warning"
@@ -65,17 +72,17 @@ $(function() {
 				<div class="form-group">
 					<label for="user_pw">패스워드</label>
 					<input type="password" class="form-control" 
-						id="user_pw" name="user_pw" />
+						id="user_pw" name="user_pw" required />
 				</div>
 				<div class="form-group">
 					<label for="user_name">이름</label>
 					<input type="text" class="form-control" 
-						id="user_name" name="user_name" />
+						id="user_name" name="user_name" required />
 				</div>
 				<div class="form-group">
 					<label for="user_phone">전화번호</label>
 					<input type="text" class="form-control" 
-						id="user_phone" name="user_phone" />
+						id="user_phone" name="user_phone" required />
 				</div><br><br>
 				
 				<button type="submit" class="btn btn-primary" id="btnSubmit">
