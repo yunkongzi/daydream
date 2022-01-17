@@ -37,10 +37,10 @@
 					<table class="table table-bordered">
 						
 						<tbody>
-								<tr><td class="text-center">${programVo.class_name}</td></tr>
+								<tr><td class="class_name">< ${programVo.class_name} ></td></tr>
 								<tr><td>
 								<c:if test="${not empty programVo.file_image}">
-									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="400" width="500"/>
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="450" width="700"/>
 								</c:if></td></tr>
 								<tr><td>${programVo.class_content}</td></tr>
 								<tr><td>개설 시간</td></tr>

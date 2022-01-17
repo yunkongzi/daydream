@@ -34,17 +34,6 @@ public class MainController {
 	}
 	
 	// 프로그램 상세페이지로 넘어가기
-//	@RequestMapping(value="program_detail", method = RequestMethod.GET)
-//	public String proDetail(Model model, int class_no) {
-//		System.out.println("ProgramController, proDetail, class_no:" + class_no);
-//		List<ProgramVo> programList = programService.selectOpenedProgramList();
-//		ProgramVo programVo = programService.contentList(class_no);
-//		List<ClassTimeVo> timeList = programService.selectTimeList();
-//		model.addAttribute("programVo", programVo);
-//		model.addAttribute("timeList", timeList);
-//		
-//		return "/program_detail";
-//	}
 	@RequestMapping(value="program_detail", method = RequestMethod.GET)
 	public String proDetail(Model model, int class_no) {
 		 ProgramVo programVo = programService.contentDetail(class_no);
