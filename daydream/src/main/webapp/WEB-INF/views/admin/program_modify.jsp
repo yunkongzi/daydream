@@ -161,13 +161,6 @@ $(function() {
 									><c:out value="${programVo.class_intro}" /></textarea>
 								
 							</div>
-							<div class="form-group">
-
-								<label for="class_content"> 상세 소개 </label><br>
-								<textarea rows="5" cols="50" id="class_content" name="class_content"
-									><c:out value="${programVo.class_content}" /></textarea>
-								
-							</div>
 							
 							 <div class="form-group">
 
@@ -190,8 +183,7 @@ $(function() {
 							<div class="form-group">
 								<label for="file_image"> 사진 </label><br> 
 								<input
-									type="file" class="form-control" id="file_image" name="file_image" style="display:none"/>
-									<button type="button" id="btnFile">파일 첨부</button>
+									type="file" class="form-control" id="file_image" name="file_image"/>
 									</div>
 								
 							

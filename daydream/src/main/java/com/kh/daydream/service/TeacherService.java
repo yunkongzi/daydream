@@ -7,13 +7,14 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.kh.daydream.dao.TeacherDao;
+import com.kh.daydream.vo.TeacherMemberVo;
 import com.kh.daydream.vo.TeacherVo;
 
 @Service
 public class TeacherService {
 	@Inject
 	private TeacherDao teacherDao;
-	private Object list;
+	private TeacherVo list;
 	
 	// 강사 추가
 	public void insertTeacher(TeacherVo teacherVo) {
@@ -42,9 +43,21 @@ public class TeacherService {
 		teacherDao.deleteTeacher(tno);
 	}
 	
+	//수락
 	public void updateStatus(String tno) {
 		teacherDao.updateStatus(tno);
 	}
-	
-	
+	//status리스트
+	public List<TeacherMemberVo> statusList(String status) {
+		List<TeacherMemberVo> statusList = teacherDao.statusList(status);
+		return statusList;
+	}
+//	public TeacherVo selectByStatus(String status) {
+//		TeacherVo teacherVo = teacherDao.selectByTno(status);
+//		return list;
+//	}
 }
+	
+	
+	
+

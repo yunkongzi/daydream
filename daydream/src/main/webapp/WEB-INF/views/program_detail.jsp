@@ -21,6 +21,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <script>
+$(function() {
+	$(".btnReserv").click(function(e) {
+		e.preventDefault();
+		var class_no = $(this).attr("data-class_no");
+		var href = $(this).attr("href");
+		console.log("class_no: ", class_no);
+		location.href = href + "/" + class_no;
+	});
+});
 
 </script>
 <body>
@@ -30,6 +39,7 @@
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2 style="text-align:center;">클래스 보기 </h2>
+				
 			</div>
 			
 			<div class="row">
@@ -50,6 +60,10 @@
 											${time.time_no}: ${time.time_start}:00 ~ ${time.time_end}:00<br>
 										</c:forEach>
 									</td>
+								</tr>
+								<tr>
+									<td><a class="btn btn-outline-warning btnReserv" href="/reservation/reservation_regist"
+											data-class_no="${programVo.class_no}">예약하기</a></td>
 								</tr>
 								
 								

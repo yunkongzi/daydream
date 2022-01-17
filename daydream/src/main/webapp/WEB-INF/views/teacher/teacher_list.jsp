@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1">													
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>													
@@ -37,16 +38,17 @@ $(function() {
 			if (rData == "success") {
 				alert("상태 수락");
 				that.hide(1000);
+				location.href = "/teacher/statusList?status=Y";
 			}
 		});
-	});
+	});	
 });
 </script>
 
 <div class="row">
 	<div class="col-md-12">
 		<a id="modal-511270" href="#modal-container-511270" role="button"
-			class="btn" data-toggle="modal" style="display:none;">Launch demo modal</a>
+			class="btn" data-toggle="modal" style="display:none;">자격증보기</a>
 
 		<div class="modal fade" id="modal-container-511270" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
@@ -74,17 +76,19 @@ $(function() {
 	</div>
 </div>
 <div>
-	<div>
 		<div class="jumbotron">
 			<h2>강사 리스트</h2>
-			<a href="/teacher/teacher_regist" class="btn btn-sm btn-primary">강사 등록</a>
+			<a href="/teacher/statusList?status=Y" class="btn btn-sm statusList">채용강사 보기</a>
+			<a href="/teacher/statusList?status=N" class="btn btn-sm statusList">신청중인 강사 보기</a>
 		</div>
 		<div style="margin: 0 auto">
 			<table class="table">
 				<thead>
 					<tr>
-						<th>강사번호</th>
-						<th>강의명</th>
+						
+						<th>강의코드</th>
+						<th>아이디</th>
+						<th>강좌명</th>
 						<th>금액</th>
 						<th>인원</th>
 						<th>참가대상</th>
@@ -96,33 +100,33 @@ $(function() {
 					</tr>
 				</thead>
 				<tbody>
-				${list}
-					<c:forEach items="${list}" var="teacherVo">
+				<%-- ${list} --%>
+					<c:forEach items="${list}" var="teacherMemberVo">
 						<tr>
-							<td>${teacherVo.tno}</td>
-							<td>${teacherVo.class_name}</td>
-							<td>${teacherVo.price}</td>
-							<td>${teacherVo.personnel}</td>
-							<td>${teacherVo.target}</td>
+							<td>${teacherMemberVo.tno}</td>
+							<td>${teacherMemberVo.user_id}</td>
+							<td>${teacherMemberVo.class_name}</td>
+							<td>${teacherMemberVo.price}</td>
+							<td>${teacherMemberVo.personnel}</td>
+							<td>${teacherMemberVo.target}</td>
 							<td>
-							<c:if test="${not empty teacherVo.certificate}">
-								<a href="#" class="a_certificate" data-tno="${teacherVo.tno}">${teacherVo.certificate}</a>
+							<c:if test="${not empty teacherMemberVo.certificate}">
+								<a href="#" class="a_certificate" data-tno="${teacherMemberVo.tno}">${teacherMemberVo.certificate}</a>
 							</c:if>
 							
 							</td>
-							<td>${teacherVo.introduce}</td>
-							<!-- 								<div style="clear:both"></div> -->
+							<td>${teacherMemberVo.introduce}</td>
+							<!-- 		<div style="clear:both"></div> -->
 							<td><button type="button" class="btn btn-warning btnModify"
-									data-tno="${teacherVo.tno}">수정</button></td>
+									data-tno="${teacherMemberVo.tno}">수정</button></td>
 							<td><button type="button" class="btn btn-info btnDelete"
-								 data-tno="${teacherVo.tno}">삭제</button></td>
+								 data-tno="${teacherMemberVo.tno}">삭제</button></td>
 							<td>
-							<c:if test="${teacherVo.status == 'N'}">
+							<c:if test="${teacherMemberVo.status == 'N'}">
 							<button type="button" class="btn btn-primary btnStatus"
-								 data-tno="${teacherVo.tno}">수락</button>
+								 data-tno="${teacherMemberVo.tno}">수락</button>
 							</c:if>
-							</td>
-							
+							</td>							
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -130,7 +134,6 @@ $(function() {
 		</div>
 	</div>
 </div>          
-
 </body>
 </html>
 

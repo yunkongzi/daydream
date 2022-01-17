@@ -8,13 +8,13 @@
 	
 	<!-- 예약등록 -->
 	<insert id="insertReservation">
-		insert into tbl_reservation(user_id, res_date ,rno, class_sub_no, count)
-		values(#{user_id}, #{res_date}, seq_reservation_rno.nextval, #{class_sub_no}, #{count})
+		insert into tbl_reservation(user_id, res_date, time_no ,rno, class_sub_no, count, status)
+		values(#{user_id}, #{res_date}, #{time_no}, seq_rno.nextval, #{class_sub_no}, #{count}, #{status})
 	</insert>
 	
 	<!-- 클래스 시간 목록 (1~4) -->
     <select id="selectTimeList" resultType="ReservationTimeVo">
-   		select s.program_sub_no, t.time_no, t.time_start, t.time_end, 
+   		select t.time_no, t.time_start, t.time_end, 
    			(p.personnel - s.reserve_count) remain_count
 		from tbl_program_sub s, tbl_class_time t, tbl_program p
 		where s.program_time = t.time_no
@@ -24,12 +24,12 @@
    
    	<!-- rno 얻기 -->
 	<select id="getRnoNextVal" resultType="int">
-		select seq_reservation_rno.nextval
+		select seq_rno.nextval
 		from dual
 	</select>
 	
-	<!-- 예약목록 -->
-	<select id="reservationList" resultType="reservationVo">
+	
+	<!-- <select id="reservationList" resultType="reservationVo">
 		select r.user_id, r.res_date,
 		p.class_name, s.program_time, r.status, p.class_no
 		from tbl_reservation r, tbl_program p , tbl_program_sub s
@@ -41,6 +41,6 @@
 		and r. rno = #{rno}
 		and r.count = #{count}
 		and r.status = #{status}
-	</select>
+	</select> -->
 
 </mapper>
