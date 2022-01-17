@@ -17,6 +17,13 @@ $(function() {
 		var class_no = $(this).attr("data-class_no");
 		var href = $(this).attr("href");
 		console.log("class_no: ", class_no);
+		location.href = href + "/" + class_no;
+	});
+	
+	$(".proDetail").click(function(e){
+		e.preventDefault();
+		var class_no = $(this).attr("data-class_no");
+		var href = $(this).attr("href");
 		location.href = href + "?class_no=" + class_no;
 	});
 }); 
@@ -40,7 +47,9 @@ $(function() {
 							<tr>
 						</c:if>
 						<td>
-							<img src="/admin/displayImage?fileName=${programVo.file_image}" height="220" width="300"/><br>
+						<a class="proDetail" data-class_no="${programVo.class_no}" href="/program_detail">
+							<img src="/admin/displayImage?fileName=${programVo.file_image}" 
+								height="220" width="300"/></a><br>
 							<${programVo.class_name}><br>
 							- ${programVo.class_intro} -<br>
 							가격 : ${programVo.price}원<br>
