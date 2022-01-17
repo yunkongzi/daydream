@@ -33,22 +33,43 @@
 						<thead>
 							<tr>
 								<th>회원 아이디</th>
+<<<<<<< HEAD
+								<th>회원이름</th>	
+								<th>회원 전화번호</th>
+								<th>클래스 이름</th>
+								<th>예약 날짜</th>
+								<th>예약 시간</th>
+								<th>예약 인원수</th>
+								<th>상태</th>
+=======
 								<th>회원 이름</th>
 								<th>연락처</th>
 								<th>클래스명</th>
 								<th>시간</th>
 								<th>날짜</th>
+>>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${list}" var="ReservationVo">
+						<c:forEach items="${list}" var="ReservationListVo">
 							<tr>
+<<<<<<< HEAD
+								<td>${ReservationListVo.user_id}</td>
+								<td>${ReservationListVo.user_name}</td>
+								<td>${ReservationListVo.user_phone}</td>
+								<td>${ReservationListVo.class_name}</td>
+								<td>${ReservationListVo.res_date}</td>
+								<td>${ReservationListVo.program_time}</td>
+								<td>${ReservationListVo.count}명</td>
+								<td>${ReservationListVo.status_name}</td>
+=======
 								<td>${ReservationVo.user_id}</td>
 								<td>${ReservationVo.user_name}</td>
 								<td>${ReservationVo.user_phone}</td>
 								<td>${ReservationVo.class_name}</td>
 								<td>${ReservationVo.res_time}</td>
 								<td>${ReservationVo.res_date}</td>
+>>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 							</tr>
 						</c:forEach>
 						</tbody>
