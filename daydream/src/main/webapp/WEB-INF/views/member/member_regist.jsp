@@ -70,9 +70,14 @@ $(function() {
 					<span></span>
 				</div>
 				<div class="form-group">
-					<label for="user_pw">패스워드</label>
+					<label for="user_pw">비밀번호</label>
 					<input type="password" class="form-control" 
 						id="user_pw" name="user_pw" required />
+				</div>
+				<div class="form-group">
+					<label for="user_pwCk">비밀번호 확인</label>
+					<input type="password" class="form-control" 
+						id="user_pwCk" name="user_pwCk" required />
 				</div>
 				<div class="form-group">
 					<label for="user_name">이름</label>
