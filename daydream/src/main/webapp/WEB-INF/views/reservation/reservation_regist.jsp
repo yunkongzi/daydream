@@ -194,7 +194,7 @@ function nextCalendar(){
 				<div class="form-group" id="selectForm" style="display:none;">
 		
 					<label for="time_no"> 예약 시간 :</label><br>
-					<select id="reservationTime">
+					<select id="reservationTime" name="class_sub_no">
 						<option value="">시간을 선택하세요</option>
 						
 						<c:forEach items="${timeList}" var="reservationTimeVo">
