@@ -84,4 +84,13 @@ public class ProgramDao {
 	public void deleteProgram(int class_no) {
 		sqlSession.delete(NAMESPACE + "deleteProgram", class_no);
 	}
+	
+	// 프로그램 상세 페이지로 넘기기
+	public ProgramVo contentDetail(int class_no) {
+		ProgramVo programVo = sqlSession.selectOne(NAMESPACE + "contentDetail", class_no);
+		return programVo;
+	}
+	
+
+	
 }
