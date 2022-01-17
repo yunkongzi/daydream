@@ -23,20 +23,22 @@ public class ReservationService {
 
 	// 예약등록
 	public void insertReservation(ReservationVo reservationVo) {
+		int rno = reservationDao.getRnoNextVal();
+		reservationVo.setRno(rno);
 		reservationDao.insertReservation(reservationVo);
 	}
 
 	// 클래스 시간 목록
 	public List<ReservationTimeVo> selectTimeList(int class_no) {
-		List<ReservationTimeVo> list = reservationDao.selectTimeList(class_no);
-		return list;
+		List<ReservationTimeVo> timelist = reservationDao.selectTimeList(class_no);
+		return timelist;
 	}
 
-	//예약 현황
-	public List<ReservationListVo> reservationList() {
-		List<ReservationListVo> allList = reservationDao.reservationList();
-		return allList;
-	}
+//	//예약 현황
+//	public List<ReservationListVo> reservationList() {
+//		List<ReservationListVo> allList = reservationDao.reservationList();
+//		return allList;
+//	}
 	//예약 수정
 	public void updateReservation(ReservationVo reservationVo) {
 
