@@ -50,7 +50,6 @@
 								<td>${ReservationVo.class_sub_no}</td>
 								<td>${ReservationVo.class_name}</td>
 								<td>${ReservationVo.count}</td>
-								<td>${ReservationVo.status}</td>
 								<td>${ReservationVo.status_name}</td>
 							</tr>
 						</c:forEach>
