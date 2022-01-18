@@ -30,10 +30,9 @@ public class ReservationDao {
 
 	// 클래스 시간 목록
 	public List<ReservationTimeVo> selectTimeList(int class_no) {
-		List<ReservationTimeVo> list = sqlSession.selectList(NAMESPACE + "selectTimeList", class_no);
-		return list;
+		List<ReservationTimeVo> timelist = sqlSession.selectList(NAMESPACE + "selectTimeList", class_no);
+		return timelist;
 	}
-
 
 	// 예약 번호
 	public int getRnoNextVal() {
@@ -41,12 +40,10 @@ public class ReservationDao {
 		return rno;
 	}
 
-	// 예약현황
-	public List<ReservationListVo> reservationList() {
-		List<ReservationListVo> allList = sqlSession.selectList(NAMESPACE + "reservationList");
-		return allList;
+	public List<ReservationListVo> selectAll() {
+		
+		return null;
 	}
-
 
 	// 예약 수정
 	public void updateReservation(ReservationVo reservationVo) {

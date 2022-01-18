@@ -12,7 +12,9 @@ $(function() {
 	var msg = "${msg}"; // fail
 	if (msg == "fail") {
 		alert("아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요.");
-	} 
+	} else if (msg == "nothing") {
+		alert("탈퇴한 회원입니다.");
+	}
 	
 	
 });
@@ -44,20 +46,18 @@ $(function() {
 				<div class="form-group">
 					<label for="user_id">아이디</label>
 					<input type="text" class="form-control" 
-						id="user_id" name="user_id" />
+						id="user_id" name="user_id" required/>
 						
 				</div>
 				<div class="form-group">
 					<label for="user_pw">패스워드</label>
 					<input type="password" class="form-control" 
-						id="user_pw" name="user_pw" />
+						id="user_pw" name="user_pw" required/>
 				</div><br><br><br>
 				
-				<button type="submit" class="btn btn-outline-success" id="btnLogin">
-					 로그인
-				</button><br><br>
+				<button type="submit" id="btnLogin">로그인</button><br><br>
 				
-				<button type="button" class="btn btn-outline-primary" id="btnRegist"
+				<button type="button" id="btnRegist"
 				onclick="location.href='/member/member_regist'">회원가입</button><br><br>
 
 				

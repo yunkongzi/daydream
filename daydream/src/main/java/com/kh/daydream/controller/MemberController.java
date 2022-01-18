@@ -74,9 +74,15 @@ public class MemberController {
 			if (targetLocation == null) {
 				// 로그인 성공했을 때
 				String user_id = loginDto.getUser_id();
+				String is_out = memberVo.getIs_out();
 				if (user_id.equals("kongzi")) {
 					return "admin/admin_main"; // 관리자페이지로
-				} else {
+				} else if (is_out.equals("Y")) {
+					rttr.addFlashAttribute("msg", "nothing");
+					session.invalidate();
+					return "redirect:/member/login";
+				}
+				else {
 					return "redirect:/main";
 				}
 			} else {

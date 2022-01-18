@@ -32,6 +32,7 @@ public class ReviewService {
 	@Transactional
 	public void insertReview(ReviewVo reviewVo) {
 		int bno = reviewDao.getBnoNextVal(); // seq_bno.nextval
+		System.out.println("ReviewService, insertReview, bno: " + bno);
 		reviewVo.setBno(bno);
 		reviewDao.insertReview(reviewVo); // tbl_review
 		String[] files = reviewVo.getFiles();
@@ -67,13 +68,6 @@ public class ReviewService {
 		int count = reviewDao.getCount(pagingDto);
 		return count;
 	}
-	
-	// 특정 리뷰 조회
-	public ReviewVo selectById(int bno) {
-		ReviewVo reviewVo = reviewDao.selectById(bno);
-		return reviewVo;
-	}
-	
 	// 리뷰 정보 수정
 	public void updateReview(ReviewVo reviewVo) {
 		reviewDao.updateReview(reviewVo);
