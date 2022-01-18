@@ -7,11 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.kh.daydream.vo.ClassTimeVo;
-
-import com.kh.daydream.vo.ProgramListVo;
 import com.kh.daydream.vo.ReservationListVo;
-
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
@@ -42,19 +38,24 @@ public class ReservationDao {
 
 	public List<ReservationListVo> selectAll() {
 		
-		return null;
+		List<ReservationListVo> list = sqlSession.selectList(NAMESPACE+"reservationList");
+		System.out.println("ReservationDao, selectAll, list: " + list);
+		return list;
 	}
-
+	
 	// 예약 수정
-	public void updateReservation(ReservationVo reservationVo) {
+	public void updateReservation(ReservationListVo reservationListVo) {
 
 		return;
 	}
 
 	// 예약 삭제
-	public void deleteReservation(int class_no) {
-
+	public void deleteReservation(int rno) {
+		sqlSession.delete(NAMESPACE+"deleteReservation", rno);
 		return;
 	}
+
+
+
 
 }

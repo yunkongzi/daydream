@@ -7,6 +7,7 @@ public class MyReservationVo {
 	private String count;
 	private String status;
 	private String class_no;
+	private String status_name;
 	
 	public MyReservationVo() {
 		super();
@@ -14,7 +15,7 @@ public class MyReservationVo {
 	}
 
 	public MyReservationVo(String res_date, String class_name, String program_time, String count, String status,
-			String class_no) {
+			String class_no, String status_name) {
 		super();
 		this.res_date = res_date;
 		this.class_name = class_name;
@@ -22,6 +23,7 @@ public class MyReservationVo {
 		this.count = count;
 		this.status = status;
 		this.class_no = class_no;
+		this.status_name = status_name;
 	}
 
 	public String getRes_date() {
@@ -71,11 +73,20 @@ public class MyReservationVo {
 	public void setClass_no(String class_no) {
 		this.class_no = class_no;
 	}
+	
+	public String getStatus_name() {
+		return status_name;
+	}
+
+	public void setStatus_name(String status_name) {
+		this.status_name = status_name;
+	}
 
 	@Override
 	public String toString() {
 		return "MyReservationVo [res_date=" + res_date + ", class_name=" + class_name + ", program_time=" + program_time
-				+ ", count=" + count + ", status=" + status + ", class_no=" + class_no + "]";
+				+ ", count=" + count + ", status=" + status + ", class_no=" + class_no + ", status_name=" + status_name
+				+ "]";
 	}
 
 	

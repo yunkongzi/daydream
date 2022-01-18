@@ -15,6 +15,14 @@ $(function() {
 		var url = "/member/deleteMember?user_id=" + user;
 		location.href = url;
 	});
+	
+	$(".btnReview").click(function() {
+		var bno = $(this).attr("data-bno");
+		console.log("bno: " + bno);
+		var url = "/review/content?page=1&perPage=10&searchType=&keyword=&bno=" + bno;
+		location.href = url;
+	});
+	
 
 });
 </script>
@@ -49,7 +57,6 @@ $(function() {
 								<h5>【예약하신 클래스 목록이에요】</h5>
 
 								<table>
-								
 								<th>예약날짜</th>
 											<th>클래스이름</th>
 											<th>교시</th>
@@ -65,34 +72,14 @@ $(function() {
 											<td>${MyReservationVo.class_name}</td>
 											<td>${MyReservationVo.program_time}교시</td>
 											<td>${MyReservationVo.count}명</td>
-											<td>${MyReservationVo.status}</td>
-											
-											
-											
-											
-											
-											
-											
-											
+											<td>${MyReservationVo.status_name}</td>
 											
 											<td><button type="button"
 													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
-											
-											
-											<td><button type="button" onclick=>예약취소</button></td>
-											
-											
-											
-											
-											
-											
-											
+											<td><button type="button" >예약취소</button></td>
 										</tr>
-
-
 									</c:forEach>
 								</table>
-
 							</div><br><br>
 
 
@@ -100,7 +87,29 @@ $(function() {
 
 							<div class="jumbotron">
 								<h5>【작성하신 후기가 여기 있어요】</h5>
-								후기후기후기후기
+								<table>
+									<th>글번호</th>
+									<th>작성날짜</th>
+									<th>제목</th>
+									<th>글 보기</th>
+								
+									<c:forEach items="${myreviewList}" var="ReviewVo">
+										<tr>
+											<td>${ReviewVo.bno}</td>
+											<td>${ReviewVo.regdate}</td>
+											<td>${ReviewVo.title}</td>
+											<td><button type="button" 
+												data-bno="${ReviewVo.bno}"
+												class="btnReview">글 보기</button></td>
+										</tr>
+									</c:forEach>
+									
+								</table>
+								
+								
+								
+								
+								
 
 							</div><br><br>
 							

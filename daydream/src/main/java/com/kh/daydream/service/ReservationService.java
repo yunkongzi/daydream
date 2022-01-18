@@ -40,25 +40,23 @@ public class ReservationService {
 		List<ReservationListVo> list = reservationDao.selectAll();
 		return list;
 	}
-
-//	//예약 현황
-//	public List<ReservationListVo> reservationList() {
-//		List<ReservationListVo> allList = reservationDao.reservationList();
-//		return allList;
-//	}
-//	//예약 수정
-//	public void updateReservation(ReservationVo reservationVo) {
-//
-//		return;
-//	}
-//	//예약 삭제
-//	public void deleteReservation(int class_no) {
-//
-//		return;
-//	}
-
-
+	//예약조회
+	public ProgramVo selectByClassNo(int rno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	//예약 수정
+	public void updateReservation(ReservationListVo reservationListVo) {
+		reservationDao.updateReservation(reservationListVo);
+		
+	}
+	//예약 삭제
+	public void deleteReservation(int rno) {
+		reservationDao.deleteReservation(rno);
+		
+	}
 
 	
+
 
 }

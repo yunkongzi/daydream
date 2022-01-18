@@ -19,6 +19,22 @@
 	}
 </style>
 </head>
+<script>
+$(function(){
+	//예약 수정
+$(".btnModify").click(function() {
+		var rno = $(this).attr("data-rno");
+		location.href = "/reservation/res_modify?rno=" + rno;
+	});
+	
+	//예약 삭제
+	$(".btnDelete").click(function() {
+		var rno = $(this).attr("data-rno");
+		console.log(rno);
+		location.href = "/reservation/deleteReservation?rno=" + rno;
+	});
+});	
+</script>
 <body>
 	<div class="container-fluid">
 	<div class="row">
@@ -32,8 +48,8 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr>
+								<th>예약 번호</th>
 								<th>회원 아이디</th>
-<<<<<<< HEAD
 								<th>회원이름</th>	
 								<th>회원 전화번호</th>
 								<th>클래스 이름</th>
@@ -41,35 +57,28 @@
 								<th>예약 시간</th>
 								<th>예약 인원수</th>
 								<th>상태</th>
-=======
-								<th>회원 이름</th>
-								<th>연락처</th>
-								<th>클래스명</th>
-								<th>시간</th>
-								<th>날짜</th>
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
-							</tr>
+								<th>수정</th>
+								<th>삭제</th>
+						</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${list}" var="ReservationListVo">
+						
+						<c:forEach items="${list}" var="ReservationListVo" >
 							<tr>
-<<<<<<< HEAD
+
+								<td>${ReservationListVo.rno}</td>
 								<td>${ReservationListVo.user_id}</td>
 								<td>${ReservationListVo.user_name}</td>
 								<td>${ReservationListVo.user_phone}</td>
 								<td>${ReservationListVo.class_name}</td>
 								<td>${ReservationListVo.res_date}</td>
-								<td>${ReservationListVo.program_time}</td>
+								<td>${ReservationListVo.time_no}(${ReservationListVo.time_start}~${ReservationListVo.time_end}시)</td>
 								<td>${ReservationListVo.count}명</td>
 								<td>${ReservationListVo.status_name}</td>
-=======
-								<td>${ReservationVo.user_id}</td>
-								<td>${ReservationVo.user_name}</td>
-								<td>${ReservationVo.user_phone}</td>
-								<td>${ReservationVo.class_name}</td>
-								<td>${ReservationVo.res_time}</td>
-								<td>${ReservationVo.res_date}</td>
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
+								<td><button type="button" class="btn btn-warning btnModify"
+									data-rno="${reservationListVo.rno}">수정</button></td>
+							<td><button type="button" class="btn btn-info btnDelete"
+								 data-rno="${ReservationListVo.rno}">삭제</button></td>
 							</tr>
 						</c:forEach>
 						</tbody>

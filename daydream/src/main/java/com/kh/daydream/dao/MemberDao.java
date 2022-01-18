@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.MyReservationVo;
+import com.kh.daydream.vo.ReviewVo;
 
 @Repository
 public class MemberDao {
@@ -44,6 +45,12 @@ public class MemberDao {
 		// 리뷰 리스트
 		public List<MyReservationVo> reservationList(String user_id) {
 			List<MyReservationVo> list = sqlSession.selectList(NAMESPACE + "reservationList", user_id);
+			return list;
+		}
+		
+		// 후기 리스트
+		public List<ReviewVo> myReviewList(String user_id) {
+			List<ReviewVo> list = sqlSession.selectList(NAMESPACE + "myReviewList", user_id);
 			return list;
 		}
 		
