@@ -102,8 +102,8 @@ public class MemberController {
 //		String user_id = "hong";
 		List<MyReservationVo> reservationList = memberService.reservationList(user_id);
 		model.addAttribute("reservationList", reservationList);
-//		List<ReviewVo> myReviewList = memberService.myReviewList(user_id);
-//		model.addAttribute("myreviewList", myReviewList);
+		List<ReviewVo> myReviewList = memberService.myReviewList(user_id);
+		model.addAttribute("myreviewList", myReviewList);
 		return "/member/mypage";
 	}
 

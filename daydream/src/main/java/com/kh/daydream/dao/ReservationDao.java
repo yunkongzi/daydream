@@ -44,14 +44,14 @@ public class ReservationDao {
 	}
 	
 	// 예약 수정
-	public void updateReservation(ReservationVo reservationVo) {
+	public void updateReservation(ReservationListVo reservationListVo) {
 
 		return;
 	}
 
 	// 예약 삭제
-	public void deleteReservation(int class_no) {
-
+	public void deleteReservation(int rno) {
+		sqlSession.delete(NAMESPACE+"deleteReservation", rno);
 		return;
 	}
 

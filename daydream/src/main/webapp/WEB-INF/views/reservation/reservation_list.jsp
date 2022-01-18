@@ -20,17 +20,20 @@
 </style>
 </head>
 <script>
+$(function(){
 	//예약 수정
-// $(".btnModify").click(function() {
-// 		var rno = $(this).attr("data-rno");
-// 		location.href = "/reservation/modifyReservationForm?rno=" + rno;
-// 	});
-	//예약 삭제
-// 	$(".btnDelete").click(function() {
-// 		var rno = $(this).attr("data-rno");
-// 		location.href = "/reservation/deleteResvation?rno=" + rno;
-// 	});
+$(".btnModify").click(function() {
+		var rno = $(this).attr("data-rno");
+		location.href = "/reservation/res_modify?rno=" + rno;
+	});
 	
+	//예약 삭제
+	$(".btnDelete").click(function() {
+		var rno = $(this).attr("data-rno");
+		console.log(rno);
+		location.href = "/reservation/deleteReservation?rno=" + rno;
+	});
+});	
 </script>
 <body>
 	<div class="container-fluid">
@@ -45,6 +48,7 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr>
+								<th>예약 번호</th>
 								<th>회원 아이디</th>
 								<th>회원이름</th>	
 								<th>회원 전화번호</th>
@@ -62,18 +66,19 @@
 						<c:forEach items="${list}" var="ReservationListVo" >
 							<tr>
 
+								<td>${ReservationListVo.rno}</td>
 								<td>${ReservationListVo.user_id}</td>
 								<td>${ReservationListVo.user_name}</td>
 								<td>${ReservationListVo.user_phone}</td>
 								<td>${ReservationListVo.class_name}</td>
 								<td>${ReservationListVo.res_date}</td>
-								<td>${ReservationListVo.program_time}</td>
+								<td>${ReservationListVo.time_no}(${ReservationListVo.time_start}~${ReservationListVo.time_end}시)</td>
 								<td>${ReservationListVo.count}명</td>
 								<td>${ReservationListVo.status_name}</td>
 								<td><button type="button" class="btn btn-warning btnModify"
 									data-rno="${reservationListVo.rno}">수정</button></td>
 							<td><button type="button" class="btn btn-info btnDelete"
-								 data-rno="${reservationListVo.rno}">삭제</button></td>
+								 data-rno="${ReservationListVo.rno}">삭제</button></td>
 							</tr>
 						</c:forEach>
 						</tbody>

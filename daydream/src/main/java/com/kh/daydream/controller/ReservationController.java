@@ -38,8 +38,8 @@ public class ReservationController {
 	private ProgramService programService;
 	
 		// 예약등록폼
-		@RequestMapping(value="/reservation_regist", method=RequestMethod.GET)
-		public String reservationRegistForm(int class_no, Model model){
+		@RequestMapping(value="/reservation_regist/{class_no}", method=RequestMethod.GET)
+		public String reservationRegistForm(@PathVariable("class_no") int class_no, Model model){
 			List<ReservationTimeVo> timeList = reservationService.selectTimeList(class_no);	
 			model.addAttribute("timeList", timeList);
 			ProgramVo programVo = programService.selectByClassNo(class_no);
@@ -61,13 +61,8 @@ public class ReservationController {
 	} 
 		//예약현황,관리자로 로그인 후 보기
 		@RequestMapping(value = "/reservation_list", method = RequestMethod.GET)
-		public String reservationList(HttpSession session, Model model,ReservationListVo reservationListVo) {
-				MemberVo memberVo = (MemberVo) session.getAttribute("memberVo");
-				String user_id = memberVo.getUser_id();
-				reservationListVo.setUser_id(user_id);
-			if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
-				return "redirect:/main";
-			}
+		public String reservationList(Model model,ReservationListVo reservationListVo) {
+	
 			List<ReservationListVo> list = reservationService.selectAll();
 			System.out.println("ReservationController, reservationList, list: " + list);
 			model.addAttribute("list", list);
@@ -75,30 +70,31 @@ public class ReservationController {
 			  return "/reservation/reservation_list";
 		}
 		
-//		// 예약 수정
-//		@RequestMapping(value = "/res_modify", method = RequestMethod.GET)
-//		public String programModify(int class_no, Model model) {
-//			System.out.println("class_no" + class_no);
-//			ProgramVo programVo = reservationService.selectByClassNo(class_no);
-//			List<ReservationTimeVo> timeList = reservationService.selectTimeList(class_no);;
-//			model.addAttribute("programVo", programVo);
-//			model.addAttribute("timeList", timeList);
-//			return "/admin/program_modify";
-//		}
-//	
-//		// 수정 처리
-//		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
-//		public String updateReservation(ReservationVo reservationVo) {
-//			reservationService.updateReservation(reservationVo);
-//			return "redirect:/admin/rev_list";
-//		}
-//	
-//		// 삭제
-//		@RequestMapping(value = "/deleteReservation", method = RequestMethod.GET)
-//		public String deleteReservation(int class_no) {
-//			reservationService.deleteReservation(class_no);
-//			return "redirect:/admin/rev_list";
-//		}
+		// 예약 수정
+		@RequestMapping(value = "/res_modify", method = RequestMethod.GET)
+		public String updateReservation(int rno, Model model) {
+			System.out.println("rno" + rno);
+			ProgramVo programVo = reservationService.selectByClassNo(rno);
+			List<ReservationTimeVo> timeList = reservationService.selectTimeList(rno);;
+			model.addAttribute("programVo", programVo);
+			model.addAttribute("timeList", timeList);
+			return "/reservation/res_modify";
+		}
+	
+		// 수정 처리
+		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
+		public String updateReservation(ReservationListVo reservationListVo) {
+			reservationService.updateReservation(reservationListVo);
+			return "redirect:/admin/rev_list";
+		}
+	
+		// 삭제
+		@RequestMapping(value = "/deleteReservation", method = RequestMethod.GET)
+		public String deleteReservation(int rno) {
+			reservationService.deleteReservation(rno);
+			System.out.println("ReservationController, deleteReservation, rno"+rno);
+			return "redirect:/reservation/reservation_list";
+		}
 
 
 }

@@ -154,7 +154,9 @@ function nextCalendar(){
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2>예약 등록 양식</h2>
-				
+				<button type="button" class="btn btn-warning btn-sm btnMain">
+						<a href="/main">메인화면</a>
+				</button>
 			</div>
 		</div>
 	</div>
