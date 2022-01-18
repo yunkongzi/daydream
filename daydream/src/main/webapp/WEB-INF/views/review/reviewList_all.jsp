@@ -43,8 +43,10 @@ $(function() {
 	});
 
 	// 검색 버튼
-	$("#btnSearh").click(function() {
+	$("#btnSearch").click(function() {
+		console.log("search");
 		var searchType = $("#searchType").val();
+		console.log("searchType:" + searchType);
 		var keyword = $("#keyword").val();
 		$("#frmPaging > input[name=page]").val();
 		$("#frmPaging > input[name=searchType]").val(searchType);
