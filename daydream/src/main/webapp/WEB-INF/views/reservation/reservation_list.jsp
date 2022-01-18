@@ -20,6 +20,7 @@
 </style>
 </head>
 <script>
+$(function(){
 	//예약 수정
 $(".btnModify").click(function() {
 		var rno = $(this).attr("data-rno");
@@ -29,9 +30,10 @@ $(".btnModify").click(function() {
 	//예약 삭제
 	$(".btnDelete").click(function() {
 		var rno = $(this).attr("data-rno");
-		location.href = "/reservation/deleteResvation?rno=" + rno;
+		console.log(rno);
+		location.href = "/reservation/deleteReservation?rno=" + rno;
 	});
-	
+});	
 </script>
 <body>
 	<div class="container-fluid">
@@ -46,6 +48,7 @@ $(".btnModify").click(function() {
 					<table class="table table-bordered">
 						<thead>
 							<tr>
+								<th>예약 번호</th>
 								<th>회원 아이디</th>
 								<th>회원이름</th>	
 								<th>회원 전화번호</th>
@@ -63,6 +66,7 @@ $(".btnModify").click(function() {
 						<c:forEach items="${list}" var="ReservationListVo" >
 							<tr>
 
+								<td>${ReservationListVo.rno}</td>
 								<td>${ReservationListVo.user_id}</td>
 								<td>${ReservationListVo.user_name}</td>
 								<td>${ReservationListVo.user_phone}</td>
@@ -74,7 +78,7 @@ $(".btnModify").click(function() {
 								<td><button type="button" class="btn btn-warning btnModify"
 									data-rno="${reservationListVo.rno}">수정</button></td>
 							<td><button type="button" class="btn btn-info btnDelete"
-								 data-rno="${reservationListVo.rno}">삭제</button></td>
+								 data-rno="${ReservationListVo.rno}">삭제</button></td>
 							</tr>
 						</c:forEach>
 						</tbody>

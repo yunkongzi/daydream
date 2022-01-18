@@ -56,8 +56,8 @@
 	 
 	 <!-- 예약 삭제 -->
 	 <update id="deleteReservation">
-	 	delete tbl_reservation set
-	 	where class_no = #{class_no}
+	 	delete from tbl_reservation
+	 	where rno = #{rno}
 	 </update>
 
 

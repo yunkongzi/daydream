@@ -1,89 +1,78 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+
+
 <head>
-<meta charset="UTF-8">
-		
-<title>예약자 현황 리스트</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">													
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>													
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
-<style>
-	.btnAdMain{
-		margin : auto;
-		display : block;
-	}
-</style>
-</head>
+
+<title>예약수정</title>
+
 <script>
 
 </script>
+</head>
 <body>
-	<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron">
-				<h2 style="text-align:center;">예약자 현황</h2>
-				<p style="text-align:center;">예약 정보를 정확하게 확인해주세요.</p>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<table class="table table-bordered">
-						<thead>
-							<tr>
-								<th>회원 아이디</th>
-								<th>회원이름</th>	
-								<th>회원 전화번호</th>
-								<th>클래스 이름</th>
-								<th>예약 날짜</th>
-								<th>예약 시간</th>
-								<th>예약 인원수</th>
-								<th>상태</th>
-								<th>수정</th>
-								<th>삭제</th>
-						</tr>
-						</thead>
-						<tbody>
-						
-						<c:forEach items="${list}" var="ReservationListVo" >
-							<tr>
 
-								<td>${ReservationListVo.user_id}</td>
-								<td>${ReservationListVo.user_name}</td>
-								<td>${ReservationListVo.user_phone}</td>
-								<td>${ReservationListVo.class_name}</td>
-								<td>${ReservationListVo.res_date}</td>
-								<td>${ReservationListVo.time_no}(${ReservationListVo.time_start}~${ReservationListVo.time_end}시)</td>
-								<td>${ReservationListVo.count}명</td>
-								<td>${ReservationListVo.status_name}</td>
-								<td><button type="button" class="btn btn-warning btnModify"
-									data-rno="${reservationListVo.rno}">수정</button></td>
-							<td><button type="button" class="btn btn-info btnDelete"
-								 data-rno="${reservationListVo.rno}">삭제</button></td>
-							</tr>
-						</c:forEach>
-						</tbody>
-					</table>
+
+
+	<section id="features">
+		<div class="container">
+			<header>
+
+
+
+				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-4">
-						</div>
-						<div class="col-md-4">
-						<button type="button" class="btn btn-warning btn-sm btnAdMain">
-								<a href="/admin/admin_main">관리자 메인</a>
-							</button>
-						</div>
-						<div class="col-md-4">
+
+
+					</div>
+					<div class="row">
+						<div class="col-md-5" style="margin: 0 auto;">
+							<form role="form" action="/member/modify_run" method="post">
+								<div class="form-group">
+									<label for="user_id">아이디</label> <input type="text"
+										class="form-control" id="user_id" name="user_id"
+										value="${reservationListVo.user_id}" readonly="readonly" />
+								</div>
+								<div class="form-group">
+									<label for="user_name">이름</label> <input type="text"
+										class="form-control" id="user_name" name="user_name" 
+										value="${reservationListVo.user_name}"/>
+								</div>
+								<div class="form-group">
+									<label for="user_phone">전화번호</label> <input type="text"
+										class="form-control" id="user_phone" name="user_phone" 
+										value="${reservationListVo.user_phone}"/>
+								</div>
+								<div class="form-group">
+									<label for="res_date">예약날짜</label> <input type="text"
+										class="form-control" id="res_date" name="res_date" 
+										value="${reservationListVo.res_date}"/>
+								</div>
+								<div class="form-group">
+									<label for="time_no">예약 시간</label> <input type="text"
+										class="form-control" id="time_no" name="time_no" 
+										value="${sessionScope.reservationListVo.time_no}"/>
+								</div>
+								<div class="form-group">
+									<label for="count">인원수</label> <input type="text"
+										class="form-control" id="count" name="count"
+										value="${sessionScope.reservationListVo.count}"/>
+								</div>
+								<br>
+								<br>
+
+								<button type="submit" class="btn btn-primary">예약수정완료</button>
+							</form>
 						</div>
 					</div>
-					
 				</div>
-			</div>
+
+			</header>
 		</div>
-	</div>
-</div>
+	</section>
+
 </body>
 </html>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
