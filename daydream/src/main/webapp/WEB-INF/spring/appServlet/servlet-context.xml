@@ -43,6 +43,7 @@
 		
 		<interceptor>
 			<mapping path="/reservation/**/*"/>
+			<mapping path="/review/**/*"/>
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 	</interceptors>
