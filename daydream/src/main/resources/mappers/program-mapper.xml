@@ -9,7 +9,7 @@
 	
 	<!-- 프로그램 등록 -->
 	<insert id="insertProgram">
-		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no, file_image, , class_content)
+		insert into tbl_program(class_name, price, target, personnel, class_intro, class_no, file_image, class_content)
 		values(#{class_name}, #{price}, #{target}, #{personnel},
 				 #{class_intro}, #{class_no}, #{file_image}, #{class_content})
 	</insert>   
@@ -86,7 +86,7 @@
 	   		target = #{target},
 	   		personnel = #{personnel},
 	   		class_intro = #{class_intro},
-	   		file_image = #{file_image<!-- , jdbcType=VARCHAR -->},
+	   		file_image = #{file_image, jdbcType=VARCHAR},
 	   		class_content = #{class_content}
  		where class_no = #{class_no}
    </update>
