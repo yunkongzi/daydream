@@ -20,16 +20,17 @@
 </style>
 </head>
 <script>
-// 	예약 수정
-// $(".btnModify").click(function() {
-// 		var rno = $(this).attr("data-rno");
-// 		location.href = "/reservation/modifyReservationForm?rno=" + rno;
-// 	});
-// 	예약 삭제
-// 	$(".btnDelete").click(function() {
-// 		var rno = $(this).attr("data-rno");
-// 		location.href = "/reservation/deleteResvation?rno=" + rno;
-// 	});
+	//예약 수정
+$(".btnModify").click(function() {
+		var rno = $(this).attr("data-rno");
+		location.href = "/reservation/res_modify?rno=" + rno;
+	});
+	
+	//예약 삭제
+	$(".btnDelete").click(function() {
+		var rno = $(this).attr("data-rno");
+		location.href = "/reservation/deleteResvation?rno=" + rno;
+	});
 	
 </script>
 <body>
