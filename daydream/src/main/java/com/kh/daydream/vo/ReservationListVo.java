@@ -1,6 +1,8 @@
 package com.kh.daydream.vo;
 
 public class ReservationListVo {
+	private int rno;
+	private String user_id;
 	private String res_date;
 	private String user_name;
 	private String user_phone;
@@ -12,6 +14,22 @@ public class ReservationListVo {
 	private int time_no;
 	private String time_start;
 	private String time_end;
+
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 
 	public String getRes_date() {
 		return res_date;
@@ -103,10 +121,10 @@ public class ReservationListVo {
 
 	@Override
 	public String toString() {
-		return "ReservationListVo [res_date=" + res_date + ", user_name=" + user_name + ", user_phone=" + user_phone
-				+ ", class_no=" + class_no + ", class_name=" + class_name + ", count=" + count + ", status=" + status
-				+ ", status_name=" + status_name + ", time_no=" + time_no + ", time_start=" + time_start + ", time_end="
-				+ time_end + "]";
+		return "ReservationListVo [rno=" + rno + ", user_id=" + user_id + ", res_date=" + res_date + ", user_name="
+				+ user_name + ", user_phone=" + user_phone + ", class_no=" + class_no + ", class_name=" + class_name
+				+ ", count=" + count + ", status=" + status + ", status_name=" + status_name + ", time_no=" + time_no
+				+ ", time_start=" + time_start + ", time_end=" + time_end + "]";
 	}
 
 }

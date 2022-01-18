@@ -41,24 +41,16 @@ public class ReservationService {
 		return list;
 	}
 
-//	//예약 현황
-//	public List<ReservationListVo> reservationList() {
-//		List<ReservationListVo> allList = reservationDao.reservationList();
-//		return allList;
-//	}
-//	//예약 수정
-//	public void updateReservation(ReservationVo reservationVo) {
-//
-//		return;
-//	}
+	//예약 수정
+	public void updateReservation(ReservationVo reservationVo) {
+		reservationDao.updateReservation(reservationVo);
+		
+	}
 //	//예약 삭제
 //	public void deleteReservation(int class_no) {
-//
-//		return;
+//		reservationDao.deleteReservation(int class_no);
+//		
 //	}
 
-
-
-	
 
 }

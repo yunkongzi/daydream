@@ -59,22 +59,22 @@ public class ReservationController {
 			reservationService.insertReservation(reservationVo);
 			return "redirect:/program_intro";
 	} 
-		//예약현황
-		@RequestMapping(value = "/rev_list", method = RequestMethod.GET)
+		//예약현황,관리자로 로그인 후 보기
+		@RequestMapping(value = "/reservation_list", method = RequestMethod.GET)
 		public String reservationList(HttpSession session, Model model) {
-			MemberVo memberVo = (MemberVo) session.getAttribute("memberVo");
-
-		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
-			return "redirect:/main";
-		}
-		List<ReservationListVo> list = reservationService.selectAll();
-		System.out.println("ReservationController, reservationList, list: " + list);
-		model.addAttribute("list", list);
-		  return "/admin/rev_list";
+				MemberVo memberVo = (MemberVo) session.getAttribute("memberVo");
+	
+			if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
+				return "redirect:/main";
+			}
+			List<ReservationListVo> list = reservationService.selectAll();
+			System.out.println("ReservationController, reservationList, list: " + list);
+			model.addAttribute("list", list);
+			  return "/reservation/reservation_list";
 		}
 		
 //		// 예약 수정
-//		@RequestMapping(value = "/reservation_modify", method = RequestMethod.GET)
+//		@RequestMapping(value = "/res_modify", method = RequestMethod.GET)
 //		public String programModify(int class_no, Model model) {
 //			System.out.println("class_no" + class_no);
 //			ProgramVo programVo = reservationService.selectByClassNo(class_no);
@@ -85,17 +85,17 @@ public class ReservationController {
 //		}
 //	
 //		// 수정 처리
-//		@RequestMapping(value = "/reservation_run", method = RequestMethod.POST)
+//		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
 //		public String updateReservation(ReservationVo reservationVo) {
 //			reservationService.updateReservation(reservationVo);
-//			return "redirect:/reservation/reservation_list";
+//			return "redirect:/admin/rev_list";
 //		}
 //	
 //		// 삭제
 //		@RequestMapping(value = "/deleteReservation", method = RequestMethod.GET)
 //		public String deleteReservation(int class_no) {
 //			reservationService.deleteReservation(class_no);
-//			return "redirect:/reservation/reservation_list";
+//			return "redirect:/admin/rev_list";
 //		}
 
 
