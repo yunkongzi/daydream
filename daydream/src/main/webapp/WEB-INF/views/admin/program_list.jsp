@@ -48,6 +48,10 @@ $(function() {
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2 style="text-align:center;">등록된 프로그램 </h2>
+				<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist">
+										새로운 프로그램 등록</a>
+									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/admin_main">
+										관리자 메인</a>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
@@ -107,10 +111,7 @@ $(function() {
 					
 							<!-- <a class="btn btn-outline-warning btn-sm btnNewPro" href="/admin/program_regist">
 									새로운 프로그램 등록</a> -->
-									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist">
-										새로운 프로그램 등록</a>
-									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/admin_main">
-										관리자 메인</a>
+									
 				</div>
 			</div>
 		</div>

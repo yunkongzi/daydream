@@ -165,8 +165,8 @@ $(function() {
 
 								<label for="class_content"> 상세 소개 </label><br>
 								<textarea rows="10" cols="70" id="class_content" name="class_content"
-									><c:out value="${programVo.class_content}"/></textarea>
-								
+									><c:out value="${programVo.class_content}" /></textarea>
+
 							</div>
 							
 							 <div class="form-group">
@@ -191,7 +191,7 @@ $(function() {
 								<label for="file_image"> 사진 </label><br> 
 								<input
 									type="file" class="form-control" id="file_image" name="file_image"/>
-									<c:if test="${empty programVo.file_image}">
+									<c:if test="${not empty programVo.file_image}">
 									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
 								</c:if>
 									</div>
