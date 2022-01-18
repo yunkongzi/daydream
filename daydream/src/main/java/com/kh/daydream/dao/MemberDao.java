@@ -49,8 +49,8 @@ public class MemberDao {
 		}
 		
 		// 후기 리스트
-		public List<ReviewVo> reviewList(String user_id) {
-			List<ReviewVo> list = sqlSession.selectList(NAMESPACE + "ReviewList", user_id);
+		public List<ReviewVo> myReviewList(String user_id) {
+			List<ReviewVo> list = sqlSession.selectList(NAMESPACE + "myReviewList", user_id);
 			return list;
 		}
 		

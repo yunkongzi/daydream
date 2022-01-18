@@ -79,14 +79,13 @@ $(function() {
 
 							<div class="jumbotron">
 								<h5>【작성하신 후기가 여기 있어요】</h5>
-								
 								<table>
 									<th>글번호</th>
 									<th>작성날짜</th>
 									<th>제목</th>
 									<th>글 보기</th>
 								
-									<c:forEach items="${reviewList}" var="ReviewVo">
+									<c:forEach items="${myreviewList}" var="ReviewVo">
 										<tr>
 											<td>${ReviewVo.bno}</td>
 											<td>${ReviewVo.title}</td>

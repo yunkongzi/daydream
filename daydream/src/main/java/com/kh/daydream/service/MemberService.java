@@ -41,8 +41,8 @@ public class MemberService {
 		}
 		
 		// 후기 리스트 
-		public List<ReviewVo> reviewList(String user_id) {
-			List<ReviewVo> list = memberDao.reviewList(user_id);
+		public List<ReviewVo> myReviewList(String user_id) {
+			List<ReviewVo> list = memberDao.myReviewList(user_id);
 			return list;
 		}
 		

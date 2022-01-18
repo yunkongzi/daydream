@@ -17,6 +17,7 @@ import com.kh.daydream.service.MemberService;
 import com.kh.daydream.vo.LoginDto;
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.MyReservationVo;
+import com.kh.daydream.vo.ReviewVo;
 
 @RequestMapping("/member")
 @Controller
@@ -101,6 +102,8 @@ public class MemberController {
 //		String user_id = "hong";
 		List<MyReservationVo> reservationList = memberService.reservationList(user_id);
 		model.addAttribute("reservationList", reservationList);
+//		List<ReviewVo> myReviewList = memberService.myReviewList(user_id);
+//		model.addAttribute("myreviewList", myReviewList);
 		return "/member/mypage";
 	}
 

@@ -32,8 +32,8 @@
 			and r.user_id = #{user_id}
 	</select>
 	
-	<!-- 후기목록 -->
-	<select id="ReviewList" resultType="ReviewVo">
+	<!-- 작성한 후기목록 -->
+	<select id="myReviewList" resultType="ReviewVo">
 		select bno, title, regdate
 			from tbl_review
 			where user_id = #{user_id}
