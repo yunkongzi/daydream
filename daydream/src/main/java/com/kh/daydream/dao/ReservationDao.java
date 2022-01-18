@@ -34,19 +34,16 @@ public class ReservationDao {
 		return timelist;
 	}
 
-
 	// 예약 번호
 	public int getRnoNextVal() {
 		int rno = sqlSession.selectOne(NAMESPACE + "getRnoNextVal");
 		return rno;
 	}
 
-	// 예약현황
-//	public List<ReservationListVo> reservationList() {
-//		List<ReservationListVo> allList = sqlSession.selectList(NAMESPACE + "reservationList");
-//		return allList;
-//	}
-
+	public List<ReservationListVo> selectAll() {
+		
+		return null;
+	}
 
 	// 예약 수정
 	public void updateReservation(ReservationVo reservationVo) {

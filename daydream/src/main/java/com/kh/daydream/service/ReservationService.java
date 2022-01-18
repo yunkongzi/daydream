@@ -37,8 +37,8 @@ public class ReservationService {
 	}
 
 	public List<ReservationListVo> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<ReservationListVo> list = reservationDao.selectAll();
+		return list;
 	}
 
 //	//예약 현황
