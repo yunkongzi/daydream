@@ -15,6 +15,14 @@ $(function() {
 		var url = "/member/deleteMember?user_id=" + user;
 		location.href = url;
 	});
+	
+	$(".btnReview").click(function() {
+		var bno = $(this).attr("data-bno");
+		console.log("bno: " + bno);
+		var url = "/review/content?page=1&perPage=10&searchType=&keyword=&bno=" + bno;
+		location.href = url;
+	});
+	
 
 });
 </script>
@@ -88,23 +96,15 @@ $(function() {
 									<c:forEach items="${myreviewList}" var="ReviewVo">
 										<tr>
 											<td>${ReviewVo.bno}</td>
-											<td>${ReviewVo.title}</td>
 											<td>${ReviewVo.regdate}</td>
-											<td><button type="button">글 보기</button></td>
+											<td>${ReviewVo.title}</td>
+											<td><button type="button" 
+												data-bno="${ReviewVo.bno}"
+												class="btnReview">글 보기</button></td>
 										</tr>
 									</c:forEach>
 									
 								</table>
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
 								
 								
 								
