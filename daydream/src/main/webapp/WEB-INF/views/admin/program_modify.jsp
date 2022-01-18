@@ -158,7 +158,14 @@ $(function() {
 
 								<label for="class_intro"> 프로그램 소개 </label><br>
 								<textarea rows="5" cols="50" id="class_intro" name="class_intro"
-									><c:out value="${programVo.class_intro}" /></textarea>
+									><c:out value="${programVo.class_intro}"/></textarea>
+								
+							</div>
+							<div class="form-group">
+
+								<label for="class_content"> 상세 소개 </label><br>
+								<textarea rows="10" cols="70" id="class_content" name="class_content"
+									><c:out value="${programVo.class_content}"/></textarea>
 								
 							</div>
 							
@@ -176,15 +183,21 @@ $(function() {
 								</c:forEach>
 							</div> 
 							
-							<c:if test="${not empty programVo.file_image}">
+							<%-- <c:if test="${not empty programVo.file_image}">
 									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
-								</c:if>
+								</c:if> --%>
 								
 							<div class="form-group">
 								<label for="file_image"> 사진 </label><br> 
 								<input
 									type="file" class="form-control" id="file_image" name="file_image"/>
+									<c:if test="${empty programVo.file_image}">
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
+								</c:if>
 									</div>
+									<!-- <input
+									type="file" class="form-control" id="file_image" name="file_image" style="display:none"/>
+									<button type="button" id="btnFile">파일 첨부</button> -->
 								
 							
 							

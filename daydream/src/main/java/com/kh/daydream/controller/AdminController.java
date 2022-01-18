@@ -80,6 +80,7 @@ public class AdminController {
 			String target = request.getParameter("target");
 			String personnel = request.getParameter("personnel");
 			String class_intro = request.getParameter("class_intro");
+			String class_content = request.getParameter("class_content");// 같은 name으로 여러 값이 넘어 올때
 			String[] arr_time_no = request.getParameterValues("time_no"); // 같은 name으로 여러 값이 넘어 올때
 			int[] time_no = new int[arr_time_no.length];
 			for (int i = 0; i < arr_time_no.length; i++) {
@@ -88,7 +89,7 @@ public class AdminController {
 			System.out.println(class_intro);
 			System.out.println(arr_time_no[0]);
 			ProgramVo programVo = new ProgramVo(class_name, price, target, 
-					personnel, class_intro, 0, time_no, file_image);
+					personnel, class_intro, 0, time_no, file_image, class_content);
 			System.out.println("AdminController, programRegistRun, programVo:" + programVo); 
 			
 			programService.insertProgram(programVo);

@@ -33,7 +33,7 @@
 					</a> 
 					<p></p>
 					<a class="btn btn-outline-warning btn-lg btn-block
-							btnReserv" href="/admin/rev_list">
+							btnReserv" href="/reservation/reservation_list">
 						예약자 현황
 					</a> 
 					<p></p>

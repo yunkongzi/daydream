@@ -32,6 +32,7 @@ public class ReviewService {
 	@Transactional
 	public void insertReview(ReviewVo reviewVo) {
 		int bno = reviewDao.getBnoNextVal(); // seq_bno.nextval
+		System.out.println("ReviewService, insertReview, bno: " + bno);
 		reviewVo.setBno(bno);
 		reviewDao.insertReview(reviewVo); // tbl_review
 		String[] files = reviewVo.getFiles();

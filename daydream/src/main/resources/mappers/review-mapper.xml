@@ -8,6 +8,7 @@
 	<select id="selectAll" resultType="ReviewVo">
 		select * from (select rownum rnum, a.* 
 		               from (select * from tbl_review
+		               		 <include refid="search"></include>
 				             order by bno desc) a)
 		where rnum between #{startRow} and #{endRow}
 	</select>

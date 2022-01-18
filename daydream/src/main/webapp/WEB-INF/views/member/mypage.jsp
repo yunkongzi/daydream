@@ -79,8 +79,6 @@ $(function() {
 
 							<div class="jumbotron">
 								<h5>【작성하신 후기가 여기 있어요】</h5>
-								후기후기후기후기
-								
 								
 								<table>
 									<th>글번호</th>
