@@ -14,6 +14,22 @@ public class ReviewVo {
 	private int class_no;
 	private int star_count;
 	private String[] files;
+	
+	
+
+	public ReviewVo(int bno, String user_id, String title, String content, Timestamp regdate, int viewcnt, int class_no,
+			int star_count, String[] files) {
+		super();
+		this.bno = bno;
+		this.user_id = user_id;
+		this.title = title;
+		this.content = content;
+		this.regdate = regdate;
+		this.viewcnt = viewcnt;
+		this.class_no = class_no;
+		this.star_count = star_count;
+		this.files = files;
+	}
 
 	public int getBno() {
 		return bno;
