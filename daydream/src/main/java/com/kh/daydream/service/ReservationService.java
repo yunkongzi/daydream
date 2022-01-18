@@ -2,9 +2,11 @@ package com.kh.daydream.service;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+
 
 import com.kh.daydream.dao.ReservationDao;
 
@@ -32,6 +34,11 @@ public class ReservationService {
 	public List<ReservationTimeVo> selectTimeList(int class_no) {
 		List<ReservationTimeVo> timelist = reservationDao.selectTimeList(class_no);
 		return timelist;
+	}
+
+	public List<ReservationListVo> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 //	//예약 현황

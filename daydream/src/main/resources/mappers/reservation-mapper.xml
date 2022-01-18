@@ -8,13 +8,13 @@
 	
 	<!-- 예약등록 -->
 	<insert id="insertReservation">
-		insert into tbl_reservation(user_id, res_date, rno, class_sub_no, count)
+		insert into tbl_reservation(user_id, res_date , rno, class_sub_no, count)
 		values(#{user_id}, #{res_date}, seq_reservation_rno.nextval, #{class_sub_no}, #{count})
 	</insert>
 	
 	<!-- 클래스 시간 목록 (1~4) -->
     <select id="selectTimeList" resultType="ReservationTimeVo">
-   		select s.program_sub_no, t.time_start, t.time_end, 
+   		select s.program_sub_no, t.time_no, t.time_start, t.time_end, 
    			(p.personnel - s.reserve_count) remain_count
 		from tbl_program_sub s, tbl_class_time t, tbl_program p
 		where s.program_time = t.time_no

@@ -3,6 +3,7 @@ package com.kh.daydream.controller;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -21,6 +22,7 @@ import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
 
 
+
 @Controller
 @RequestMapping("/reservation")
 public class ReservationController {
@@ -36,8 +38,8 @@ public class ReservationController {
 	private ProgramService programService;
 	
 		// 예약등록폼
-		@RequestMapping(value="/reservation_regist/{class_no}", method=RequestMethod.GET)
-		public String reservationRegistForm(@PathVariable("class_no") int class_no, Model model){
+		@RequestMapping(value="/reservation_regist", method=RequestMethod.GET)
+		public String reservationRegistForm(int class_no, Model model){
 			List<ReservationTimeVo> timeList = reservationService.selectTimeList(class_no);	
 			model.addAttribute("timeList", timeList);
 			ProgramVo programVo = programService.selectByClassNo(class_no);
@@ -57,19 +59,20 @@ public class ReservationController {
 			reservationService.insertReservation(reservationVo);
 			return "redirect:/program_intro";
 	} 
-//		//예약현황
-//		 @RequestMapping(value="/rev_list", method=RequestMethod.GET)
-//		   public String reservationList(int class_no, Model model, HttpSession session, ReservationVo reservationVo) {
-//			  MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-//			  String user_id = memberVo.getUser_id();
-//			  reservationVo.setUser_id(user_id);
-//			  ProgramVo programVo = programService.selectByClassNo(class_no);
-//			  model.addAttribute("programVo",programVo);
-//			  model.addAttribute("class_no", class_no);
-//			  List<ReservationListVo> allList =  reservationService.reservationList();
-//			  model.addAttribute("allList", allList);
-//			  return "/admin/rev_list";
-//		   }
+		//예약현황
+		@RequestMapping(value = "/rev_list", method = RequestMethod.GET)
+		public String reservationList(HttpSession session, Model model) {
+			MemberVo memberVo = (MemberVo) session.getAttribute("memberVo");
+
+		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
+			return "redirect:/main";
+		}
+		List<ReservationListVo> list = reservationService.selectAll();
+		System.out.println("ReservationController, reservationList, list: " + list);
+		model.addAttribute("list", list);
+		  return "/admin/rev_list";
+		}
+		
 //		// 예약 수정
 //		@RequestMapping(value = "/reservation_modify", method = RequestMethod.GET)
 //		public String programModify(int class_no, Model model) {
