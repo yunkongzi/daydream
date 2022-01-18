@@ -11,6 +11,7 @@ public class ReservationListVo {
 	private int count;
 	private int status;
 	private String status_name;
+	private int program_time;
 	private int time_no;
 	private String time_start;
 	private String time_end;
@@ -119,12 +120,20 @@ public class ReservationListVo {
 		this.time_end = time_end;
 	}
 
+	public int getProgram_time() {
+		return program_time;
+	}
+
+	public void setProgram_time(int program_time) {
+		this.program_time = program_time;
+	}
+
 	@Override
 	public String toString() {
 		return "ReservationListVo [rno=" + rno + ", user_id=" + user_id + ", res_date=" + res_date + ", user_name="
 				+ user_name + ", user_phone=" + user_phone + ", class_no=" + class_no + ", class_name=" + class_name
-				+ ", count=" + count + ", status=" + status + ", status_name=" + status_name + ", time_no=" + time_no
-				+ ", time_start=" + time_start + ", time_end=" + time_end + "]";
+				+ ", count=" + count + ", status=" + status + ", status_name=" + status_name + ", program_time="
+				+ program_time + ", time_no=" + time_no + ", time_start=" + time_start + ", time_end=" + time_end + "]";
 	}
 
 }
