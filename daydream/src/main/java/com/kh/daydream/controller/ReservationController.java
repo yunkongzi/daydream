@@ -92,6 +92,7 @@ public class ReservationController {
 		@RequestMapping(value = "/deleteReservation", method = RequestMethod.GET)
 		public String deleteReservation(int rno) {
 			reservationService.deleteReservation(rno);
+			System.out.println("ReservationController, deleteReservation, rno"+rno);
 			return "redirect:/reservation/reservation_list";
 		}
 
