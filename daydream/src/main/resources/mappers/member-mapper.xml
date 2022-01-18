@@ -32,6 +32,13 @@
 			and r.user_id = #{user_id}
 	</select>
 	
+	<!-- 작성한 후기목록 -->
+	<select id="myReviewList" resultType="ReviewVo">
+		select bno, title, regdate
+			from tbl_review
+			where user_id = #{user_id}
+	</select>
+	
 	<!-- 정보 수정 -->
 	 <update id="updateMember">
 	 	update tbl_member set

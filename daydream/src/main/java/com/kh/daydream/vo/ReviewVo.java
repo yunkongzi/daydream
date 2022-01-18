@@ -14,6 +14,10 @@ public class ReviewVo {
 	private int class_no;
 	private int star_count;
 	private String[] files;
+	
+	
+
+	
 
 	public int getBno() {
 		return bno;

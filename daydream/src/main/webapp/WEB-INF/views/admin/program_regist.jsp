@@ -151,9 +151,9 @@ $(function() {
 							<div class="form-group">
 
 								<label for="class_content"> 상세 소개 </label><br>
-								<textarea rows="10" cols="70" id="class_content" name="class_content"
-									></textarea>
+								<textarea rows="10" cols="70" name="class_content"></textarea>
 							</div>
+
 							<div class="form-group">
 
 								<label for="time_no"> 개설 시간 </label><br>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kh.daydream.dao.MemberDao;
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.MyReservationVo;
+import com.kh.daydream.vo.ReviewVo;
 
 @Service
 public class MemberService {
@@ -36,6 +37,12 @@ public class MemberService {
 		// 리뷰 리스트 
 		public List<MyReservationVo> reservationList(String user_id) {
 			List<MyReservationVo> list = memberDao.reservationList(user_id);
+			return list;
+		}
+		
+		// 후기 리스트 
+		public List<ReviewVo> myReviewList(String user_id) {
+			List<ReviewVo> list = memberDao.myReviewList(user_id);
 			return list;
 		}
 		
