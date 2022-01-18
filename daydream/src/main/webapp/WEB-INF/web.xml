@@ -47,4 +47,12 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+<!-- 	<jsp-config> -->
+<!--       <taglib> -->
+<!--          <taglib-location> -->
+<!--             /WEB-INF/tlds/myfunc.tld -->
+<!--          </taglib-location> -->
+<!--       </taglib> -->
+<!--    </jsp-config> -->
 </web-app>
