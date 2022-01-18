@@ -39,7 +39,11 @@ $(function(){
 	});
 	
 });
-
+$(function(){
+	$("#btnResOk").click(function(){
+		alert("등록이 완료되었습니다.[무통장 입급 계좌번호:(신한)111-222-3333]");
+	});
+});
 // 오늘 날짜
 var today = new Date();
 
@@ -89,7 +93,7 @@ function buildCalendar(){
     	clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
     	clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
 		console.log(clickedYMD);
-    	document.getElementById("date").value = clickedYMD;
+    	document.getElementById("res_date").value = clickedYMD;
 //     	$("#date").val(clickedYMD);
 		$("#selectForm").show(1000);
 
@@ -185,17 +189,17 @@ function nextCalendar(){
 
 		</div>	
 		<div>
-			선택한 날짜 : <input type="text" id="date" name="date" readonly>
+			선택한 날짜 : <input type="text" id="res_date" name="res_date" readonly>
 		</div><br>
 				<div class="form-group" id="selectForm" style="display:none;">
 		
 					<label for="time_no"> 예약 시간 :</label><br>
-					<select id="reservationTime">
+					<select id="reservationTime" name="class_sub_no">
 						<option value="">시간을 선택하세요</option>
 						
 						<c:forEach items="${timeList}" var="reservationTimeVo">
 						
-						<option value="${reservationTimeVo.time_no}" data-remain_count="${reservationTimeVo.remain_count}">
+						<option value="${reservationTimeVo.program_sub_no}" data-remain_count="${reservationTimeVo.remain_count}">
 								${reservationTimeVo.time_start}시 ~ ${reservationTimeVo.time_end}시
 								(${reservationTimeVo.remain_count}명 가능)</option>
 									
@@ -206,12 +210,12 @@ function nextCalendar(){
 				
 				<div class="form-group" style="display:none;" id="divCount">
 					<label for="count"> 인원 수 : </label><br>
-						<select id="remain_countList">
+						<select id="remain_countList" name="count">
 							<option value="" selected="selected">인원수를 선택하세요</option>
 						</select>
 				</div><br>
 				
-				<button type="submit" class="btn btn-primary">
+				<button type="submit" class="btn btn-primary" id="btnResOk">
 					예약 등록 완료
 				</button>
 			</form>

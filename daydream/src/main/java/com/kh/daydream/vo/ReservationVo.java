@@ -11,7 +11,6 @@ public class ReservationVo {
 	private int count;
 	private String status;
 
-
 	public String getUser_id() {
 		return user_id;
 	}
