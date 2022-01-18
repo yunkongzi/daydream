@@ -15,7 +15,6 @@ public class ReviewVo {
 	private int re_group;
 	private int re_seq;
 	private int re_level;
-	private int comment_cnt;
 	private int star_count;
 	private String[] files;
 
@@ -99,14 +98,6 @@ public class ReviewVo {
 		this.re_level = re_level;
 	}
 
-	public int getComment_cnt() {
-		return comment_cnt;
-	}
-
-	public void setComment_cnt(int comment_cnt) {
-		this.comment_cnt = comment_cnt;
-	}
-
 	public int getStar_count() {
 		return star_count;
 	}
@@ -127,8 +118,8 @@ public class ReviewVo {
 	public String toString() {
 		return "ReviewVo [bno=" + bno + ", user_id=" + user_id + ", title=" + title + ", content=" + content
 				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + ", re_group=" + re_group
-				+ ", re_seq=" + re_seq + ", re_level=" + re_level + ", comment_cnt=" + comment_cnt + ", star_count="
-				+ star_count + ", files=" + Arrays.toString(files) + "]";
+				+ ", re_seq=" + re_seq + ", re_level=" + re_level + ", star_count=" + star_count + ", files="
+				+ Arrays.toString(files) + "]";
 	}
 
 }

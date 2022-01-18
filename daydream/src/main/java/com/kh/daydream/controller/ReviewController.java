@@ -100,10 +100,11 @@ public class ReviewController {
 	
 	// 상세보기
 	@RequestMapping(value="/content", method=RequestMethod.GET)
-	public String updateReviewForm(int bno, Model model) {
-		System.out.println("ReviewController, updateReviewForm, bno: " + bno);
-		ReviewVo reviewVo = reviewService.selectByBno(bno);
+	public String reviewContent(int bno, PagingDto pagingDto, Model model) {
+		System.out.println("ReviewController, reviewContent, bno: " + bno);
+		ReviewVo reviewVo = reviewService.getReview(bno);
 		model.addAttribute("reviewVo", reviewVo);
+		model.addAttribute("pagingDto", pagingDto);
 		return "review/content";
 	}
 	

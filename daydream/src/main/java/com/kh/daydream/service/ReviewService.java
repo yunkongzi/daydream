@@ -67,15 +67,6 @@ public class ReviewService {
 		int count = reviewDao.getCount(pagingDto);
 		return count;
 	}
-	
-	// 특정 리뷰 조회
-	public ReviewVo selectByBno(int bno) {
-		ReviewVo reviewVo = reviewDao.selectByBno(bno);
-		String[] files = reviewDao.getFilenames(bno);
-		reviewVo.setFiles(files);
-		return reviewVo;
-	}
-	
 	// 리뷰 정보 수정
 	public void updateReview(ReviewVo reviewVo) {
 		reviewDao.updateReview(reviewVo);

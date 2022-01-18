@@ -152,7 +152,7 @@ $(function() {
 							</c:otherwise>
 						</c:choose>
 						><br>
-						<span><a href="#"></a></span>
+						<span><a href="#">${myfn:getShortName(filename)}</a></span>
 					</div>
 				</c:forEach>
 				</div>

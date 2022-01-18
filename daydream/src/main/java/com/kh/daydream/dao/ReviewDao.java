@@ -31,12 +31,6 @@ public class ReviewDao {
 		sqlsession.insert(NAMESPACE + "insertReview", reviewVo);
 	}
 	
-	// 리뷰 정보 보기
-	public ReviewVo selectByBno(int bno) {
-		ReviewVo reviewVo = sqlsession.selectOne(NAMESPACE + "selectByBno", bno);
-		return reviewVo;
-	}
-	
 	// 리뷰 수정
 	public void updateReview(ReviewVo reviewVo) {
 		sqlsession.update(NAMESPACE + "updateReview", reviewVo);
@@ -63,8 +57,8 @@ public class ReviewDao {
 	
 	// 리뷰 상세보기
 	public ReviewVo getReview(int bno) {
-		ReviewVo boardVo = sqlsession.selectOne(NAMESPACE + "getReview", bno);
-		return boardVo;
+		ReviewVo reviewVo = sqlsession.selectOne(NAMESPACE + "getReview", bno);
+		return reviewVo;
 	}
 	
 	public String[] getFilenames(int bno) {
