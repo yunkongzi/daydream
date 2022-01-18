@@ -20,12 +20,12 @@
 </style>
 </head>
 <script>
-	//예약 수정
+// 	예약 수정
 // $(".btnModify").click(function() {
 // 		var rno = $(this).attr("data-rno");
 // 		location.href = "/reservation/modifyReservationForm?rno=" + rno;
 // 	});
-	//예약 삭제
+// 	예약 삭제
 // 	$(".btnDelete").click(function() {
 // 		var rno = $(this).attr("data-rno");
 // 		location.href = "/reservation/deleteResvation?rno=" + rno;
@@ -67,7 +67,7 @@
 								<td>${ReservationListVo.user_phone}</td>
 								<td>${ReservationListVo.class_name}</td>
 								<td>${ReservationListVo.res_date}</td>
-								<td>${ReservationListVo.program_time}</td>
+								<td>${ReservationListVo.time_no}(${ReservationListVo.time_start}~${ReservationListVo.time_end}시)</td>
 								<td>${ReservationListVo.count}명</td>
 								<td>${ReservationListVo.status_name}</td>
 								<td><button type="button" class="btn btn-warning btnModify"

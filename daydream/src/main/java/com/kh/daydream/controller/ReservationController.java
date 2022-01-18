@@ -61,13 +61,8 @@ public class ReservationController {
 	} 
 		//예약현황,관리자로 로그인 후 보기
 		@RequestMapping(value = "/reservation_list", method = RequestMethod.GET)
-		public String reservationList(HttpSession session, Model model,ReservationListVo reservationListVo) {
-				MemberVo memberVo = (MemberVo) session.getAttribute("memberVo");
-				String user_id = memberVo.getUser_id();
-				reservationListVo.setUser_id(user_id);
-			if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
-				return "redirect:/main";
-			}
+		public String reservationList(Model model,ReservationListVo reservationListVo) {
+	
 			List<ReservationListVo> list = reservationService.selectAll();
 			System.out.println("ReservationController, reservationList, list: " + list);
 			model.addAttribute("list", list);
