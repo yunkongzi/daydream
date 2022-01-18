@@ -24,7 +24,7 @@ $(function() {
 
 	// 페이지 번호
 	$(".page-link").click(function(e) {
-		e.prventDefault();
+		e.preventDefault();
 		console.log($(this));
 		var page = $(this).attr("href");
 		$("#frmPaging > input[name=page]").val(page);
@@ -57,14 +57,16 @@ $(function() {
 		e.preventDefault();
 		var bno = $(this).attr("href");
 		console.log("bno:", bno);
-//		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
+// 		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
 		$("#frmPaging > input[name=bno]").val(bno);
-		$("#frmPaging").attr("action", "/review/review_modify")
-					   .submit();
+		$("#frmPaging").attr("action", "/review/content");
+		$("#frmPaging").submit();
 	});
 });
 </script>
 <body>
+<%@ include file="/WEB-INF/views/review/paging_form.jsp" %>
+
 <div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
@@ -139,9 +141,9 @@ $(function() {
 						<c:forEach items="${list}" var="reviewVo">
 							<tr>
 								<td>${reviewVo.bno}</td>
-								<td><a class="a_title" href="/review/content?bno=${reviewVo.bno}"
-										style="margin-left:${reviewVo.re_level * 50}px">${reviewVo.title}</a> 
-										<span style="color:red">[${reviewVo.comment_cnt}]</span></td>
+								<td><a class="a_title" href="${reviewVo.bno}">
+									${reviewVo.title}</a> 
+								</td>
 								<td>${reviewVo.user_id}</td>
 								<td>${reviewVo.regdate}</td>
 								<td>${reviewVo.viewcnt}</td>

@@ -12,9 +12,6 @@ public class ReviewVo {
 	private Timestamp regdate;
 	private int viewcnt;
 	private int class_no;
-	private int re_group;
-	private int re_seq;
-	private int re_level;
 	private int star_count;
 	private String[] files;
 
@@ -74,30 +71,6 @@ public class ReviewVo {
 		this.class_no = class_no;
 	}
 
-	public int getRe_group() {
-		return re_group;
-	}
-
-	public void setRe_group(int re_group) {
-		this.re_group = re_group;
-	}
-
-	public int getRe_seq() {
-		return re_seq;
-	}
-
-	public void setRe_seq(int re_seq) {
-		this.re_seq = re_seq;
-	}
-
-	public int getRe_level() {
-		return re_level;
-	}
-
-	public void setRe_level(int re_level) {
-		this.re_level = re_level;
-	}
-
 	public int getStar_count() {
 		return star_count;
 	}
@@ -117,9 +90,8 @@ public class ReviewVo {
 	@Override
 	public String toString() {
 		return "ReviewVo [bno=" + bno + ", user_id=" + user_id + ", title=" + title + ", content=" + content
-				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + ", re_group=" + re_group
-				+ ", re_seq=" + re_seq + ", re_level=" + re_level + ", star_count=" + star_count + ", files="
-				+ Arrays.toString(files) + "]";
+				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", class_no=" + class_no + ", star_count="
+				+ star_count + ", files=" + Arrays.toString(files) + "]";
 	}
 
 }

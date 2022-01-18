@@ -22,6 +22,7 @@ public class ReviewDao {
 	private SqlSession sqlsession;
 	
 	public List<ReviewVo> selectAll(PagingDto pagingDto) {
+		System.out.println("ReviewDao, selectAll, pagingDto: " + pagingDto);
 		List<ReviewVo> list = sqlsession.selectList(NAMESPACE + "selectAll", pagingDto);
 		return list;
 	}

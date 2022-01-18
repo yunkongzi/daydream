@@ -39,11 +39,11 @@ $(function() {
 
 
 	//글목록 버튼
-// 	$("#btnList").click(function(e) {
-// 		e.preventDefault();
-// 		$("#frmPaging").submit();
-		
-// 	});
+	$("#btnList").click(function(e) {
+		e.preventDefault();
+		$("#frmPaging").submit();
+	});
+	
 	var starEls = document.querySelectorAll('#star span.star');
     var rate = 0;
 
@@ -90,6 +90,8 @@ $(function() {
 </style>
 
 <body>
+
+<%@ include file="/WEB-INF/views/review/paging_form.jsp" %>
 
 <div class="container-fluid">
 	<div class="row">
