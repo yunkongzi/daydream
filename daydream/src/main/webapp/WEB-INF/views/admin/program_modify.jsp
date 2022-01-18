@@ -165,9 +165,15 @@ $(function() {
 
 								<label for="class_content"> 상세 소개 </label><br>
 								<textarea rows="10" cols="70" id="class_content" name="class_content"
-									><c:out value="${programVo.class_content}" /></textarea>
-
+									><c:out value="${programVo.class_content}"/></textarea>
+								
 							</div>
+							
+							<%-- <div class="form-group">
+					            <label for="class_content">상세 소개</label>
+					            <textarea class="form-control" id="class_content" rows="10" name="class_content">${programVo.class_content}</textarea>
+        					</div> --%>
+
 							
 							 <div class="form-group">
 
@@ -200,7 +206,8 @@ $(function() {
 									<button type="button" id="btnFile">파일 첨부</button> -->
 								
 							
-							
+							 <input type="hidden" name="class_no" value="${programVo.class_no}">
+
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								수정</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">

@@ -53,6 +53,8 @@ $(function() {
 									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="450" width="700"/>
 								</c:if></td></tr>
 								<tr><td>${programVo.class_content}</td></tr>
+								<tr><td class="target"> ${programVo.target}</td></tr>
+								<tr><td class="price"> ${programVo.price}</td></tr>
 								<!-- <tr><td>개설 시간</td></tr> -->
 								<tr>
 									<td> < 개설 시간 ><br>
