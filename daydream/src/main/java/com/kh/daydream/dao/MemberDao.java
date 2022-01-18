@@ -63,5 +63,9 @@ public class MemberDao {
 		public void deleteMember(String user_id) {
 			sqlSession.delete(NAMESPACE + "deleteMember", user_id);
 		}
-
+		
+	//예약취소
+		public void deleteReservation(int rno) {
+			sqlSession.delete(NAMESPACE+"deleteReservation",rno);
+		}
 }

@@ -54,5 +54,11 @@
 	 		is_out = 'Y'
 	 	where user_id = #{user_id}
 	 </update>
+	 
+	 <!-- 예약취소 -->
+	 <delete id="deleteReservation">
+	 	delete from tbl_reservation
+	 	where rno = #{rno}
+	 </delete>
 
 </mapper>

@@ -10,7 +10,7 @@ $(function() {
 	
 	
 	$("#btnDeleteMember").click(function() {
-		var user = $(this).attr("data-user");
+		var rno = $(this).attr("data-user");
 		console.log("user: " + user);
 		var url = "/member/deleteMember?user_id=" + user;
 		location.href = url;
@@ -23,6 +23,12 @@ $(function() {
 		location.href = url;
 	});
 	
+// 	//예약 삭제
+	$(".btnDelete").click(function() {
+		var rno = $(this).attr("data-rno");
+		console.log(rno);
+		location.href = "/member/deleteReservation?rno=" + rno;
+	});
 
 });
 </script>
@@ -57,7 +63,8 @@ $(function() {
 								<h5>【예약하신 클래스 목록이에요】</h5>
 
 								<table>
-								<th>예약날짜</th>
+											<th>예약번호</th>
+											<th>예약날짜</th>
 											<th>클래스이름</th>
 											<th>교시</th>
 											<th>예약인원</th>
@@ -68,6 +75,7 @@ $(function() {
 								
 									<c:forEach items="${reservationList}" var="MyReservationVo">
 										<tr>
+											<td>${MyReservationVo.rno}</td>
 											<td>${MyReservationVo.res_date}</td>
 											<td>${MyReservationVo.class_name}</td>
 											<td>${MyReservationVo.program_time}교시</td>
@@ -76,7 +84,8 @@ $(function() {
 											
 											<td><button type="button"
 													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
-											<td><button type="button" >예약취소</button></td>
+											<td><button type="button" class="btnDelete" data-rno="${MyReservationVo.rno}">예약취소</button></td>
+											
 										</tr>
 									</c:forEach>
 								</table>
