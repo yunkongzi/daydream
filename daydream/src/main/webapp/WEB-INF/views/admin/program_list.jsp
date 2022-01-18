@@ -31,6 +31,8 @@ $(function() {
 		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
 		var href = $(this).attr("href");
+		var form = document.getElementById("viewForm");
+		form.submit();
 		console.log("class_no: ", class_no);
 		location.href = href + "?class_no=" + class_no;
 	});
@@ -39,6 +41,7 @@ $(function() {
 		var class_no = $(this).attr("data-class_no");
 		location.href = "/admin/deleteProgram?class_no=" + class_no;
 	});
+	
 });
 </script>
 <body>
@@ -55,6 +58,7 @@ $(function() {
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+					<form id="viewForm" name="viewForm" >
 					<table class="table table-bordered">
 						<thead>
 							<tr>
@@ -108,9 +112,11 @@ $(function() {
 						</c:forEach>
 						</tbody>
 					</table>
+					</form>
 					
 							<!-- <a class="btn btn-outline-warning btn-sm btnNewPro" href="/admin/program_regist">
 									새로운 프로그램 등록</a> -->
+									<input type='hidden' id='class_no' name='class_no' value='${programVo.class_no}' />
 									
 				</div>
 			</div>

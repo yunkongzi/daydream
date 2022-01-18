@@ -59,7 +59,7 @@
 	
 	<!-- 프로그램 서브 정보 얻기 -->
 	<select id="selectProgramByClassNo" resultType="ProgramVo">
-		select distinct p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no
+		select distinct p.class_name, p.price, p.target, p.personnel, p.class_intro, p.class_no, p.file_image, p.class_content
 		from tbl_program p, tbl_program_sub s
 		where p.class_no = s.class_no 
         and p.class_no = #{class_no}
@@ -86,8 +86,8 @@
 	   		target = #{target},
 	   		personnel = #{personnel},
 	   		class_intro = #{class_intro},
-	   		file_image = #{file_image, jdbcType=VARCHAR},
-	   		class_content = #{class_content}
+	   		class_content = #{class_content},
+	   		file_image = #{file_image, jdbcType=VARCHAR}
  		where class_no = #{class_no}
    </update>
    
@@ -113,7 +113,7 @@
 	
 	<!-- 상세 페이지 열기 -->
 	<select id="contentDetail" resultType="ProgramVo">
-		select class_no, class_name, file_image, class_content
+		select class_no, class_name, file_image, class_content, target, price
 		from tbl_program
 		where class_no = #{class_no}
 	</select>
