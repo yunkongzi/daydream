@@ -13,13 +13,20 @@
 				<div class="col-md-12" style="margin:0 auto;">
 					<div class="jumbotron" style="margin:0 auto;">
 						<h2>공지사항 수정</h2>
-						<p><button type="button"><a class="btn btn-primary btn-large" href="/notice/list_all">공지사항 목록</a></button></p>
+						<p><button type="button"><a class="btn btn-primary btn-large" 
+							href="/notice/list_all">공지사항 목록</a></button></p>
 					</div>
 				</div>
 			</div>
 			<div class="row" style="margin:0 auto;">
 				<div class="col-md-12" style="margin:0 auto;">
-					<form role="form" action="/notice/notice_run" method="post">
+					<form role="form" action="/notice/modify_run" method="post">
+					
+				<div class="form-group" style="margin:0 auto;">
+					<label for="bno">글번호</label>
+					<input type="text" class="form-control" 
+						id="bno" name="bno" value="${noticeVo.bno}" readonly="readonly"/>
+				</div>
 				
 				<div class="form-group" style="margin:0 auto;">
 					<label for="title">제목</label>

@@ -37,7 +37,7 @@
 		<update id="updateNotice">
 			update tbl_notice set
 				title = #{title},
-				content = #{content},
+				content = #{content}
 			where bno = #{bno}
 		</update>
 		

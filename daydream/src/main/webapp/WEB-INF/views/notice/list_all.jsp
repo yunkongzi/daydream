@@ -69,7 +69,7 @@
 								
 								<td><button type="button"
 										class="btn btn-outline-info btnModify"
-										href="/notice/write_form" data-bno="${noticeVo.bno}">수정</button></td>
+										href="/notice/modify_run" data-bno="${noticeVo.bno}">수정</button></td>
 								<td><button type="button"
 										class="btn btn-outline-danger btnDelete"
 										data-bno="${noticeVo.bno}">삭제</button></td>

@@ -38,8 +38,10 @@
 	
    <beans:bean class="com.kh.daydream.interceptor.AuthInterceptor" 
 				id="authInterceptor"/>
-<!--    <beans:bean class="com.kh.daydream.interceptor.AdminInterceptor"  -->
-<!-- 				id="adminInterceptor"/> -->
+   <beans:bean class="com.kh.daydream.interceptor.AdminInterceptor" 
+				id="adminInterceptor"/>
+				
+				
 	<!-- 인터셉터 -->
 	<interceptors>
 		
@@ -49,10 +51,11 @@
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 		
-<!-- 		<interceptor> -->
-<!-- 			<mapping path="/admin/**/*"/> -->
-<!-- 			<beans:ref bean="adminInterceptor"/> -->
-<!-- 		</interceptor> -->
+		<interceptor>
+			<mapping path="/admin/**/*"/>
+			<exclude-mapping path="/admin/displayImage"/>
+			<beans:ref bean="adminInterceptor"/>
+		</interceptor>
 	</interceptors>
    
    
