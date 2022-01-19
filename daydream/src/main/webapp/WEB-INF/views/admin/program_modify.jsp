@@ -110,7 +110,6 @@ $(function() {
 			$(this).prepend(input_file_image);
 		}
 		console.log(file_image);
-// 		return false;
 	});
 }); // $(function)
 </script>
@@ -127,7 +126,7 @@ $(function() {
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						<form role="form" action="/admin/modify_run" method="post"
-							data-file_image="${programVo.file_image}" 
+							data-file_image="${programVo.file_image}"  
 							enctype="multipart/form-data"> 
 								 <%-- <p>
 									<input type="hidden" id="file_image" name="file_image" value="${programVo.file_image}">
