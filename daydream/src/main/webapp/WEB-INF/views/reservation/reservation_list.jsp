@@ -32,7 +32,9 @@ $(".btnModify").click(function() {
 		var rno = $(this).attr("data-rno");
 		console.log(rno);
 		location.href = "/reservation/deleteReservation?rno=" + rno;
+		alert("취소가 완료되었습니다.");
 	});
+	
 });	
 </script>
 <body>

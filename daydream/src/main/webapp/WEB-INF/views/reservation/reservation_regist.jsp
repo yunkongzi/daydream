@@ -72,7 +72,7 @@ function buildCalendar(){
   	cnt++;
 
     cell.setAttribute('id', i);
-    if (i % 7 == 3 || i % 7 == 4) {
+    if (cnt % 7 == 2 || cnt % 7 == 3) {
     	cell.setAttribute('class', 'dis');
     	cell.setAttribute('title', '월,화요일은 휴무입니다.');
     }
@@ -99,22 +99,22 @@ function buildCalendar(){
 
     }
 
-    if (cnt % 7 == 1) {
+    if (cnt % 7 == 1) {//일요일
     	cell.innerHTML = "<font color=#F79DC2>" + i + "</font>";
     } else if (cnt % 7 == 2 || cnt % 7 == 3) {
     	cell.innerHTML = "<font color=#cccccc>" + i + "</font>";
     } 
    
-    if (cnt % 7 == 0){
+    if (cnt % 7 == 0){//토요일
     	cell.innerHTML = "<font color=skyblue>" + i + "</font>";
     	row = calendar.insertRow();
     }
   }
 
-  if(cnt % 7 != 0){
-  	for(i = 0; i < 7 - (cnt % 7); i++){
-  		cell = row.insertCell();
-  	}
+	if(cnt % 7 != 0){
+	  for(i = 0; i < 7 - (cnt % 7); i++){
+	  		cell = row.insertCell();
+	 }
   }
   
 }
@@ -153,7 +153,7 @@ function nextCalendar(){
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2>예약 등록 양식</h2>
+				<h2>예약 등록</h2>
 				<button type="button" class="btn btn-warning btn-sm btnMain">
 						<a href="/main">메인화면</a>
 				</button>

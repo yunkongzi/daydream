@@ -81,12 +81,12 @@ public class ReservationController {
 			return "/reservation/res_modify";
 		}
 	
-		// 수정 처리
-		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
-		public String updateReservation(ReservationListVo reservationListVo) {
-			reservationService.updateReservation(reservationListVo);
-			return "redirect:/admin/rev_list";
-		}
+//		// 수정 처리
+//		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
+//		public String updateReservation(ReservationListVo reservationListVo) {
+//			reservationService.updateReservation(reservationListVo);
+//			return "redirect:/admin/rev_list";
+//		}
 	
 		// 삭제
 		@RequestMapping(value = "/deleteReservation", method = RequestMethod.GET)

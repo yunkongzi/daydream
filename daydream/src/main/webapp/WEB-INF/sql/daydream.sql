@@ -44,4 +44,27 @@ create table tbl_attach(
 	bno number references tbl_board(bno)
 );
 
+select max(to_number(tno)) from tbl_teacher;
 
+select * from tbl_teacher
+where user_id = 'hong';
+
+update tbl_teacher set
+    status = 'Y'
+where tno = '1002';
+
+select * from tbl_teacher  
+ where  status = 'Y';
+
+-- 채용강사 리스트 
+select t.user_id, m.user_name, t.tno, t.class_name, t.price, t.personnel, t.target, m.user_phone
+from tbl_teacher t, tbl_member m
+where t.user_id = m.user_id
+and t.status = 'Y'
+order by t.tno;
+
+-- 강사 전체
+select t.tno, t.user_id, t.class_name, t.price,  t.personnel, t.target, t.certificate, t.introduce, t.status
+from tbl_teacher t, tbl_member m
+where t.user_id = m.user_id
+order by t.tno;

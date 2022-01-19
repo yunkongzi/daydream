@@ -31,6 +31,8 @@ $(function() {
 		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
 		var href = $(this).attr("href");
+		var form = document.getElementById("viewForm");
+		form.submit();
 		console.log("class_no: ", class_no);
 		location.href = href + "?class_no=" + class_no;
 	});
@@ -39,6 +41,7 @@ $(function() {
 		var class_no = $(this).attr("data-class_no");
 		location.href = "/admin/deleteProgram?class_no=" + class_no;
 	});
+	
 });
 </script>
 <body>
@@ -55,6 +58,7 @@ $(function() {
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+					<form id="viewForm" name="viewForm" >
 					<table class="table table-bordered">
 						<thead>
 							<tr>
@@ -63,7 +67,6 @@ $(function() {
 								<th>클래스 대상</th>
 								<th>가능 인원</th>
 								<th>클래스 소개</th>
-								<th>클래스 상세 소개</th>
 								<th>이미지</th>
 								<th>클래스 번호</th>
 								<th>클래스 시간</th>
@@ -79,11 +82,12 @@ $(function() {
 								<td>${programVo.price}</td>
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
-								<td>${programVo.class_intro}</td>
-								<td>${programVo.class_content}</td>
-								<td>
+								<td><a href="/program_detail?class_no=${programVo.class_no}" title="${programVo.class_content}">${programVo.class_intro}</a></td>
+								
+								<td align="center">
 								<c:if test="${not empty programVo.file_image}">
-									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250",  width="350"/>
+									<img class="img-thumbnail" src="/admin/displayImage?fileName=${programVo.file_image}" 
+										style="height:150px"/>
 								</c:if>
 								
 								
@@ -108,9 +112,11 @@ $(function() {
 						</c:forEach>
 						</tbody>
 					</table>
+					</form>
 					
 							<!-- <a class="btn btn-outline-warning btn-sm btnNewPro" href="/admin/program_regist">
 									새로운 프로그램 등록</a> -->
+									<input type='hidden' id='class_no' name='class_no' value='${programVo.class_no}' />
 									
 				</div>
 			</div>

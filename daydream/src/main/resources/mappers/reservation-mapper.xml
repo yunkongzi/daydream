@@ -43,22 +43,22 @@
 	    order by r.rno
 	</select>
 
-	<!-- 예약 수정 -->
-	 <update id="updateReservation">
-	 	update tbl_reservation set
-	 		user_name = #{user_name},
-	 		user_pw = #{user_pw},
-	 		user_phone = #{user_phone},
-	 		res_date = #{res_date},
-	 		count= = #{count}
-	 	where user_id = #{user_id}
-	 </update>
+	<!-- 예약 수정 --> 
+<!-- 	 <update id="updateReservation"> -->
+<!-- 	 	update tbl_reservation set -->
+<!-- 	 		user_name = #{user_name}, -->
+<!-- 	 		user_phone = #{user_phone}, -->
+<!-- 	 		res_date = #{res_date}, -->
+<!-- 	 		program_time = #{program_time}, -->
+<!-- 	 		count= = #{count} -->
+<!-- 	 	where user_id = #{user_id} -->
+<!-- 	 </update> --> 
 	 
 	 <!-- 예약 삭제 -->
-	 <update id="deleteReservation">
+	 <delete id="deleteReservation">
 	 	delete from tbl_reservation
 	 	where rno = #{rno}
-	 </update>
+	 </delete>
 
 
 </mapper>
