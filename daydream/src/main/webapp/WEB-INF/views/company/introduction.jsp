@@ -3,62 +3,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<head>
-<meta charset="UTF-8">
-<title>데이드림 업체소개</title>
-</head>
-<body>
-<!-- 메인 슬라이드 -->
 
-<div class="slideshow-container">
+<meta name="viewport" content="width=device-width, initial-scale=1">													
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>													
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>													
 
-<div class="mySlides fade2">
 
-<img class="main_slideImg" src="assets/images/1.jpg">
 
-<div class="text">Caption Text</div>
 
-</div>
+<img src="/images/h.jpg" id=mainImage alt="slide"/>
 
-<div class="mySlides fade2">
+<script>
+	var myImage = document.getElementById("mainImage");
+	var imageArray = [ "/images/h.jpg",
+			"/images/1.jpg" ];
+	var imageIndex = 0;
 
-<img class="main_slideImg" src="assets/images/2.jpg">
-
-<div class="text">Caption Two</div>
-
-</div>
-
-<div class="mySlides fade2">
-
-<img class="main_slideImg" src="assets/images/3.jpg">
-
-<div class="text">Caption Three</div>
-
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-
-<a class="next"onclick="plusSlides(1)">❯</a>
-
-</div>
-
-<br>
-
-<div style="text-align: center">
-
-<span class="dot" onclick="currentSlide(1)"></span> 
-
-<span class="dot" onclick="currentSlide(2)"></span>
-
-<span class="dot" onclick="currentSlide(3)"></span>
-
-</div>
-
-<!-- 메인 슬라이드 End -->
-
-<section id="features">
+	function changeImage() {
+		myImage.setAttribute("src", imageArray[imageIndex]);
+		imageIndex++;
+		if (imageIndex >= imageArray.length) {
+			imageIndex = 0;
+		}
+	}
+	setInterval(changeImage, 700);
+</script>
+<!-- <section id="features">
 <div class="container-fluid" style="margin:0 auto;">
-	<img src="/images/1.jpg" alt="소개" width="400" height="400" align="center">
+	<img src="/images/1.jpg" alt="소개" width="400" height="400" align="center"> -->
 	<br>
 	<br>	
     데이드림을 방문해주신 모든 분들에게 감사의 인사를 드립니다.<br>
@@ -73,8 +47,8 @@
  삶을 지향하는 장으로 강사와 회원여러분이 함께 참여하여 만들어<br>
  가도록 노력하겠습니다. 감사합니다^^<br><br>
 
-</div>
-</section>
+<!-- </div>
+</section> -->
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
