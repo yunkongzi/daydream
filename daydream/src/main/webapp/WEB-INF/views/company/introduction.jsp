@@ -8,6 +8,7 @@
 <title>데이드림 업체소개</title>
 </head>
 <body>
+
 <section id="features">
 <div class="container-fluid" style="margin:0 auto;">
 	<img src="/images/1.jpg" alt="소개" width="400" height="400" align="center">
