@@ -103,13 +103,15 @@ $(function() {
 	
 	$("form").submit(function() {
 		var file_image = $("input[name=file_image]").val();
+		console.log(file_image);
 		if (file_image == "") {
 			file_image = $(this).attr("data-file_image");
 			$("input[name=file_image]").remove();
-			var input_file_image = "<input name='file_image' value='" + file_image + "'>";
+			var input_file_image = "<input type='hidden' name='file_image' value='" + file_image + "'>";
 			$(this).prepend(input_file_image);
 		}
-		console.log(file_image);
+// 		return false;
+		
 	});
 }); // $(function)
 </script>
@@ -218,7 +220,7 @@ $(function() {
 									<button type="button" id="btnFile">파일 첨부</button> -->
 								
 							
-							 <input type="hidden" name="class_no" value="${programVo.class_no}">
+							<input type="hidden" name="class_no" value="${programVo.class_no}">
 
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								수정</button>

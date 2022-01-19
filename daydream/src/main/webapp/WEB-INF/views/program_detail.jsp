@@ -53,14 +53,14 @@ $(function() {
 									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="450" width="700"/>
 								</c:if></td></tr>
 								<tr><td>${programVo.class_content}</td></tr>
-								<tr><td class="target"> ${programVo.target}</td></tr>
-								<tr><td class="price"> ${programVo.price}</td></tr>
+								<tr><td class="target">수강 대상 :   ${programVo.target}</td></tr>
+								<tr><td class="price"> 금액 :  ${programVo.price}</td></tr>
 								<!-- <tr><td>개설 시간</td></tr> -->
 								<tr>
 									<td> < 개설 시간 ><br>
 											<br>
 										<c:forEach items="${timeList}" var="time">
-											${time.time_no}: ${time.time_start}:00 ~ ${time.time_end}:00<br>
+											${time.time_no} : ${time.time_start}:00 ~ ${time.time_end}:00<br>
 										</c:forEach>
 									</td>
 								</tr>
