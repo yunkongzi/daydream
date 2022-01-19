@@ -22,8 +22,8 @@ public class NoticeDao {
 		sqlSession.insert(NAMESPACE + "insertNotice", noticeVo);
 	}
 	
-	public NoticeVo selectById(int bno) {
-		NoticeVo noticeVo = sqlSession.selectOne(NAMESPACE + "selectById" , bno);
+	public NoticeVo selectByBno(int bno) {
+		NoticeVo noticeVo = sqlSession.selectOne(NAMESPACE + "selectByBno" , bno);
 		return noticeVo;
 	}
 	
@@ -43,5 +43,15 @@ public class NoticeDao {
 	public NoticeVo getNotice(int bno) {
 		NoticeVo noticeVo = sqlSession.selectOne(NAMESPACE + "getNotice", bno);
 		return noticeVo;
+	}
+	
+	// 공지사항 수정
+	public void updateNotice(NoticeVo noticeVo) {
+		sqlSession.update(NAMESPACE + "updateNotice", noticeVo);
+	}
+	
+	// 공지사항 삭제
+	public void deleteNotice(int bno) {
+		sqlSession.delete(NAMESPACE + "deleteNotice", bno);
 	}
 }
