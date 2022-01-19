@@ -43,11 +43,11 @@ public class ReservationDao {
 		return list;
 	}
 	
-	// 예약 수정
-	public void updateReservation(ReservationListVo reservationListVo) {
-
-		return;
-	}
+//	// 예약 수정
+//	public void updateReservation(ReservationListVo reservationListVo) {
+//
+//		return;
+//	}
 
 	// 예약 삭제
 	public void deleteReservation(int rno) {
