@@ -17,8 +17,8 @@
 
 <div class="w3-content w3-section" style="max-width:500px">
   <img class="mySlides" src="/images/h.jpg" style="width:100%" height="500" align="center">
-  <img class="mySlides" src="/images/cc.jpg" style="width:100%" height="500" align="center">
-  <img class="mySlides" src="/images/ccd.jpg" style="width:100%" height="500" align="center">
+  <img class="mySlides" src="/images/c1.JPG" style="width:100%" height="500" align="center">
+  <img class="mySlides" src="/images/cc.JPG" style="width:100%" height="500" align="center">
  </div>
 
 <script>
