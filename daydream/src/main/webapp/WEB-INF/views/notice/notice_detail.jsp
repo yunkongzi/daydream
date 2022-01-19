@@ -5,15 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 수정 양식</title>
+<title>공지사항 상세보기</title>
 </head>
 <body>
 <div class="container-fluid" style="margin:0 auto;">
 			<div class="row" style="margin:0 auto;">
 				<div class="col-md-12" style="margin:0 auto;">
 					<div class="jumbotron" style="margin:0 auto;">
-						<h2>공지사항 수정</h2>
-						<p><button type="button"><a class="btn btn-primary btn-large" href="/notice/list_all">공지사항 목록</a></button></p>
+						<h2>상세보기</h2>
 					</div>
 				</div>
 			</div>
@@ -24,16 +23,17 @@
 				<div class="form-group" style="margin:0 auto;">
 					<label for="title">제목</label>
 					<input type="text" class="form-control" 
-						id="title" name="title" required="required" value="${noticeVo.title}"/>
+						id="title" name="title" readonly="readonly" value="${noticeVo.title}"/>
 				</div>
 				
 				<div class="form-group" style="margin:0 auto;">
 					<label for="content">공지 내용</label>
-					<textarea required="required" class="form-control" 
+					<textarea readonly="readonly" class="form-control" 
 						id="content" name="content">${noticeVo.content}</textarea>
 				</div>
 				
-						<button type="submit" class="btn btn-success">수정 완료</button>
+						<button type="submit"><a class="btn btn-success" 
+							href="/notice/list_all">공지사항 목록</a></button>
 					</form>
 				</div>
 			</div>
