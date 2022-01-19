@@ -3,36 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-
-<meta name="viewport" content="width=device-width, initial-scale=1">													
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>													
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>													
-
-
-
-
-<img src="/images/h.jpg" id=mainImage alt="slide"/>
-
-<script>
-	var myImage = document.getElementById("mainImage");
-	var imageArray = [ "/images/h.jpg",
-			"/images/1.jpg" ];
-	var imageIndex = 0;
-
-	function changeImage() {
-		myImage.setAttribute("src", imageArray[imageIndex]);
-		imageIndex++;
-		if (imageIndex >= imageArray.length) {
-			imageIndex = 0;
-		}
-	}
-	setInterval(changeImage, 700);
-</script>
-<!-- <section id="features">
+<head>
+<meta charset="UTF-8">
+<title>데이드림 업체소개</title>
+</head>
+<body>
+<section id="features">
 <div class="container-fluid" style="margin:0 auto;">
-	<img src="/images/1.jpg" alt="소개" width="400" height="400" align="center"> -->
+	<img src="/images/1.jpg" alt="소개" width="400" height="400" align="center">
 	<br>
 	<br>	
     데이드림을 방문해주신 모든 분들에게 감사의 인사를 드립니다.<br>
@@ -47,8 +25,8 @@
  삶을 지향하는 장으로 강사와 회원여러분이 함께 참여하여 만들어<br>
  가도록 노력하겠습니다. 감사합니다^^<br><br>
 
-<!-- </div>
-</section> -->
+</div>
+</section>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
