@@ -85,14 +85,14 @@ $(function() {
 									예약 취소는 예약중일 때만 하실 수 있습니다.</label><br><br>
 
 								<table>
-											<td>예약번호</td>
-											<td>예약날짜</td>
-											<td>클래스이름</td>
-											<td>교시</td>
-											<td>예약인원</td>
-											<td>상태</td>
-											<td>후기작성</td>
-											<td>예약취소</td>
+											<td>[예약번호]</td>
+											<td>[예약날짜]</td>
+											<td>[클래스이름]</td>
+											<td>[교시]</td>
+											<td>[예약인원]</td>
+											<td>[상태]</td>
+											<td>[후기작성]</td>
+											<td>[예약취소]</td>
 								
 								
 									<c:forEach items="${reservationList}" var="MyReservationVo">
@@ -120,10 +120,10 @@ $(function() {
 								<h5>【작성하신 후기가 여기 있어요】</h5>
 								<table>
 								<tr>
-									<td>글번호</td>
-									<td>작성날짜</td>
-									<td>제목</td>
-									<td>글 보기</td>
+									<td>[글번호]</td>
+									<td>[작성날짜]</td>
+									<td>[제목]</td>
+									<td>[글 보기]</td>
 								<tr>
 									<c:forEach items="${myreviewList}" var="ReviewVo">
 										<tr>
@@ -142,10 +142,10 @@ $(function() {
 							<div class="jumbotron">
 								<h5>【강사 지원 하셨나요?】</h5>
 								<table>
-									<td>글번호</td>
-									<td>클래스이름</td>
-									<td>상태</td>
-									<td>보기</td>
+									<td>[글번호]</td>
+									<td>[클래스이름]</td>
+									<td>[상태]</td>
+									<td>[보기]</td>
 								
 									<c:forEach items="${myTeacherList}" var="TeacherVo">
 										<tr>
