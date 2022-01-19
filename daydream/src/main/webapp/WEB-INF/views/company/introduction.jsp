@@ -11,8 +11,6 @@
 .mySlides {display:none;}
 </style>
 
-<body>
-
 <h2 class="w3-center">introduction</h2>
 
 <div class="w3-content w3-section" style="max-width:400px">
@@ -37,11 +35,10 @@ function carousel() {
   setTimeout(carousel, 950); 
 }
 </script>
+<body>
 <section id="features">
 <div class="container-fluid" style="margin:0 auto;">
-<!-- 	<img src="/images/1.jpg" alt="소개" width="400" height="400" align="center">
 
- -->
 <style>
 	p {font-size: 15px; letter-spacing: 2px;}
 </style>
@@ -57,7 +54,6 @@ function carousel() {
  부업정보 등 개성 탐구와 능력 향상을 위해 노력하며 즐거운 <br>
  삶을 지향하는 장으로 강사와 회원여러분이 함께 참여하여 만들어<br>
  가도록 노력하겠습니다. 감사합니다.</p>
-
 
 </div>
 </section>

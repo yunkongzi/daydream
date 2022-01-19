@@ -107,7 +107,4 @@ public class TeacherMemberVo {
 				+ class_name + ", price=" + price + ", personnel=" + personnel + ", target=" + target + ", user_phone="
 				+ user_phone + ", certificate=" + certificate + ", introduce=" + introduce + ", status=" + status + "]";
 	}
-
-	
-
 }

@@ -52,10 +52,6 @@ public class TeacherService {
 		List<TeacherMemberVo> statusList = teacherDao.statusList(status);
 		return statusList;
 	}
-//	public TeacherVo selectByStatus(String status) {
-//		TeacherVo teacherVo = teacherDao.selectByTno(status);
-//		return list;
-//	}
 }
 	
 	
