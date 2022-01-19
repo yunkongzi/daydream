@@ -177,10 +177,16 @@ public class AdminController {
 	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
 	public String updateProgram(MultipartHttpServletRequest request) throws Exception {
 		MultipartFile multi = request.getFile("file_image");
-		String filename = multi.getOriginalFilename();
-		String uuid = UUID.randomUUID().toString();
-		String file_image = uuid + "_" + filename;
-		multi.transferTo(new File(UPLOAD_PATH + file_image));
+		String file_image = null;
+		if (multi != null) {
+			String filename = multi.getOriginalFilename();
+			String uuid = UUID.randomUUID().toString();
+			file_image = uuid + "_" + filename;
+			multi.transferTo(new File(UPLOAD_PATH + file_image));
+		} else {
+			file_image = request.getParameter("file_image");
+		}
+		
 		
 		
 		String class_name = request.getParameter("class_name");
