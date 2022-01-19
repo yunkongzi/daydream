@@ -8,27 +8,46 @@
 <script>
 $(function() {
 	
-	
+	//회원 탈퇴
 	$("#btnDeleteMember").click(function() {
 		var rno = $(this).attr("data-user");
-		console.log("user: " + user);
 		var url = "/member/deleteMember?user_id=" + user;
 		location.href = url;
 	});
 	
+	//내가 쓴 후기 보기
 	$(".btnReview").click(function() {
 		var bno = $(this).attr("data-bno");
-		console.log("bno: " + bno);
 		var url = "/review/content?page=1&perPage=10&searchType=&keyword=&bno=" + bno;
 		location.href = url;
 	});
 	
-// 	//예약 삭제
+	//후기 쓰기
+	$(".btnReview_write").click(function() {
+		var classNo = $(this).attr("data-classNo");
+		var status = $(this).attr("data-status");
+		if (status == "3") {
+			var url ="/review/review_regist?class_no=" + classNo;
+			location.href = url;
+		}
+	});
+	
+	//지원서 보기
+	$(".btnTeacher").click(function() {
+		var tno = $(this).attr("data-tno");
+		console.log("tno: " + tno);
+		var url = "/teacher/modifyTeacherForm?tno=" + tno;
+		location.href = url;
+	});
+	
+// 	//예약 취소
 	$(".btnDelete").click(function() {
 		var rno = $(this).attr("data-rno");
-		console.log(rno);
-		location.href = "/member/deleteReservation?rno=" + rno;
-		alert("취소가 완료되었습니다.");
+		var status = $(this).attr("data-status");
+		if (status == 1) {
+			location.href = "/member/deleteReservation?rno=" + rno;
+			alert("취소가 완료되었습니다.");
+		}
 	});
 
 });
@@ -50,7 +69,7 @@ $(function() {
 							</div>
 
 							<div class="jumbotron">
-								<h5>【회원님의 정보입니다】</h5>
+								<h5>【회원님의 정보입니다】</h5><br>
 								아이디: ${sessionScope.memberVo.user_id} <br> 이름:
 								${sessionScope.memberVo.user_name} <br> 전화번호:
 								${sessionScope.memberVo.user_phone} <br>
@@ -62,16 +81,18 @@ $(function() {
 
 							<div class="jumbotron">
 								<h5>【예약하신 클래스 목록이에요】</h5>
+								<label>후기는 수업이 완료되면 작성하실 수 있습니다.
+									예약 취소는 예약중일 때만 하실 수 있습니다.</label><br><br>
 
 								<table>
-											<th>예약번호</th>
-											<th>예약날짜</th>
-											<th>클래스이름</th>
-											<th>교시</th>
-											<th>예약인원</th>
-											<th>상태</th>
-											<th>후기작성</th>
-											<th>예약취소</th>
+											<td>[예약번호]</td>
+											<td>[예약날짜]</td>
+											<td>[클래스이름]</td>
+											<td>[교시]</td>
+											<td>[예약인원]</td>
+											<td>[상태]</td>
+											<td>[후기작성]</td>
+											<td>[예약취소]</td>
 								
 								
 									<c:forEach items="${reservationList}" var="MyReservationVo">
@@ -83,26 +104,27 @@ $(function() {
 											<td>${MyReservationVo.count}명</td>
 											<td>${MyReservationVo.status_name}</td>
 											
-											<td><button type="button"
-													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
-											<td><button type="button" class="btnDelete" data-rno="${MyReservationVo.rno}">예약취소</button></td>
+											<td><button type="button" class="btnReview_write"
+													data-classNo = "${MyReservationVo.class_no}"
+													data-status = "${MyReservationVo.status}">후기작성</button></td>
+											<td><button type="button" class="btnDelete" 
+													data-rno="${MyReservationVo.rno}"
+													data-status = "${MyReservationVo.status}">예약취소</button></td>
 											
 										</tr>
 									</c:forEach>
 								</table>
 							</div><br><br>
 
-
-
-
 							<div class="jumbotron">
 								<h5>【작성하신 후기가 여기 있어요】</h5>
 								<table>
-									<th>글번호</th>
-									<th>작성날짜</th>
-									<th>제목</th>
-									<th>글 보기</th>
-								
+								<tr>
+									<td>[글번호]</td>
+									<td>[작성날짜]</td>
+									<td>[제목]</td>
+									<td>[글 보기]</td>
+								<tr>
 									<c:forEach items="${myreviewList}" var="ReviewVo">
 										<tr>
 											<td>${ReviewVo.bno}</td>
@@ -113,20 +135,29 @@ $(function() {
 												class="btnReview">글 보기</button></td>
 										</tr>
 									</c:forEach>
-									
 								</table>
-								
-								
-								
-								
-								
-
 							</div><br><br>
 							
 							
 							<div class="jumbotron">
 								<h5>【강사 지원 하셨나요?】</h5>
-								강사 지원 내용 
+								<table>
+									<td>[글번호]</td>
+									<td>[클래스이름]</td>
+									<td>[상태]</td>
+									<td>[보기]</td>
+								
+									<c:forEach items="${myTeacherList}" var="TeacherVo">
+										<tr>
+											<td>${TeacherVo.tno}</td>
+											<td>${TeacherVo.class_name}</td>
+											<td>${TeacherVo.status}</td>
+											<td><button type="button" 
+												data-tno="${TeacherVo.tno}"
+												class="btnTeacher">보기</button></td>
+										</tr>
+									</c:forEach>
+								</table> 
 
 							</div><br><br>
 							

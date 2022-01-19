@@ -64,10 +64,10 @@ $(function() {
 							
 							<a class="proDetail" data-class_no="${programVo.class_no}" href="/program_detail"><img src="/admin/displayImage?fileName=${programVo.file_image}" height="270" width="350"/></a><br>
 							<br>
-							<span><${programVo.class_name}></span><br>
+							<span>< ${programVo.class_name} ></span><br>
 							<br>
 							- ${programVo.class_intro} -<br>
-							가격 : ${programVo.price}원<br>
+							금액 : ${programVo.price}원<br>
 							<%-- <a class="btn btn-sm btn-outline-warning btnReserv" href="/reservation/reservation_regist"
 								data-class_no="${programVo.class_no}">예약</a> --%>
 							<br>

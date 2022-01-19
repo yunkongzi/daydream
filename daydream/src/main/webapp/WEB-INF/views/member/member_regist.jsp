@@ -8,6 +8,7 @@
 
 $(function() {
 	var isDupIdChecked = false;
+	var btnCheckDupPw = false;
 	//아이디 중복 체크
 	$("#btnCheckDupId").click(function() {
 		var url = "member/checkDupId/" + $("#user_id").val();
@@ -25,9 +26,24 @@ $(function() {
 	});
 	
 	
+	$("#btnCheckDupPw").click(function() {
+		if ($("#user_pw").val() != $("#user_pwCk").val()) {
+			$("#btnCheckDupPw").next().html("<br>비밀번호가 다릅니다.");
+			$("#btnCheckDupPw").next().css("color", "red");
+		} else {
+			$("#btnCheckDupPw").next().html("<br>비밀번호가 같습니다.");
+			$("#btnCheckDupPw").next().css("color", "blue");
+			btnCheckDupPw = true;
+		}
+	});
+	
+	
 	$("#registform").submit(function() {
 		if (isDupIdChecked == false) {
 			alert("아이디 중복체크를 해주세요.");
+			return false;
+		} else if (btnCheckDupPw == false) {
+			alert("비밀번호 확인을 해주세요.");
 			return false;
 		}
 	});
@@ -65,7 +81,7 @@ $(function() {
 						id="user_id" name="user_id" size="25" maxlength="25" required/>
 				</div><br>
 				<div class="form-group">
-					<button type="button" class="btn btn-warning"
+					<button type="button"
 						id="btnCheckDupId">아이디 중복체크</button>
 					<span></span>
 				</div>
@@ -78,6 +94,11 @@ $(function() {
 					<label for="user_pwCk">비밀번호 확인</label>
 					<input type="password" class="form-control" 
 						id="user_pwCk" name="user_pwCk" required />
+				</div>
+				<div class="form-group">
+					<button type="button" 
+						id="btnCheckDupPw">비밀번호 중복체크</button>
+					<span></span>
 				</div>
 				<div class="form-group">
 					<label for="user_name">이름</label>
