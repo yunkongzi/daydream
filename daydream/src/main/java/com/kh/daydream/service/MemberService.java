@@ -55,4 +55,9 @@ public class MemberService {
 		public void deleteMember(String user_id) {
 			memberDao.deleteMember(user_id);
 		}
+		
+	//예약취소
+		public void deleteReservation(int rno) {
+			memberDao.deleteReservation(rno);
+		}
 }
