@@ -45,11 +45,11 @@ public class ReservationService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	//예약 수정
+/*	//예약 수정
 	public void updateReservation(ReservationListVo reservationListVo) {
 		reservationDao.updateReservation(reservationListVo);
 		
-	}
+	}*/
 	//예약 삭제
 	public void deleteReservation(int rno) {
 		reservationDao.deleteReservation(rno);
