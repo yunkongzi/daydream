@@ -15,7 +15,7 @@
 
 <h2 class="w3-center">introduction</h2>
 
-<div class="w3-content w3-section" style="max-width:500px">
+<div class="w3-content w3-section" style="max-width:400px">
   <img class="mySlides" src="/images/h.jpg" style="width:100%" height="500" align="center">
   <img class="mySlides" src="/images/c1.JPG" style="width:100%" height="500" align="center">
   <img class="mySlides" src="/images/cc.JPG" style="width:100%" height="500" align="center">
@@ -40,8 +40,15 @@ function carousel() {
 <section id="features">
 <div class="container-fluid" style="margin:0 auto;">
 <!-- 	<img src="/images/1.jpg" alt="소개" width="400" height="400" align="center">
- -->	<br>	
-    데이드림을 방문해주신 모든 분들에게 감사의 인사를 드립니다.<br>
+
+ -->
+  <style>
+p {
+  font-size: 15px; letter-spacing: 2px;
+}
+</style>
+	
+  <p>  데이드림을 방문해주신 모든 분들에게 감사의 인사를 드립니다.<br>
  데이드림은 회원들의 잠재된 능력과 소질을 찾고 다양한<br> 
  세대들의 폭넓은 체험의 기회를 제공하고자 합니다.<br> 
  스트레스 해소와 일상의 활력을 위한 취미활동을 넘어 기초부터 <br>
@@ -51,7 +58,8 @@ function carousel() {
  모든 회원을 위한 다양한 체험의 기회와 관련 정보 및 자격증,<br>
  부업정보 등 개성 탐구와 능력 향상을 위해 노력하며 즐거운 <br>
  삶을 지향하는 장으로 강사와 회원여러분이 함께 참여하여 만들어<br>
- 가도록 노력하겠습니다. 감사합니다^^<br><br>
+ 가도록 노력하겠습니다. 감사합니다.</p><br><br>
+
 
 </div>
 </section>
