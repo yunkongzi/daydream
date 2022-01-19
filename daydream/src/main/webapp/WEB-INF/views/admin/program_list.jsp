@@ -67,7 +67,6 @@ $(function() {
 								<th>클래스 대상</th>
 								<th>가능 인원</th>
 								<th>클래스 소개</th>
-								<th>클래스 상세 소개</th>
 								<th>이미지</th>
 								<th>클래스 번호</th>
 								<th>클래스 시간</th>
@@ -83,11 +82,12 @@ $(function() {
 								<td>${programVo.price}</td>
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
-								<td>${programVo.class_intro}</td>
-								<td>${programVo.class_content}</td>
-								<td>
+								<td><a href="/program_detail?class_no=${programVo.class_no}" title="${programVo.class_content}">${programVo.class_intro}</a></td>
+								
+								<td align="center">
 								<c:if test="${not empty programVo.file_image}">
-									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250",  width="350"/>
+									<img class="img-thumbnail" src="/admin/displayImage?fileName=${programVo.file_image}" 
+										style="height:150px"/>
 								</c:if>
 								
 								
