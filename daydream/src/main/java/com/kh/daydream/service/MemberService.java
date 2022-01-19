@@ -10,6 +10,7 @@ import com.kh.daydream.dao.MemberDao;
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.MyReservationVo;
 import com.kh.daydream.vo.ReviewVo;
+import com.kh.daydream.vo.TeacherVo;
 
 @Service
 public class MemberService {
@@ -43,6 +44,12 @@ public class MemberService {
 		// 후기 리스트 
 		public List<ReviewVo> myReviewList(String user_id) {
 			List<ReviewVo> list = memberDao.myReviewList(user_id);
+			return list;
+		}
+		
+		// 강사지원 리스트 
+		public List<TeacherVo> myTeacherList(String user_id) {
+			List<TeacherVo> list = memberDao.myTeacherList(user_id);
 			return list;
 		}
 		
