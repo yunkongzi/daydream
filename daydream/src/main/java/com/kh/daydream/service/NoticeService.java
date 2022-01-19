@@ -20,8 +20,8 @@ public class NoticeService {
 		noticeDao.insertNotice(noticeVo);
 	}
 	
-	public NoticeVo selectById(int bno) {
-		NoticeVo noticeVo = noticeDao.selectById(bno);
+	public NoticeVo selectByBno(int bno) {
+		NoticeVo noticeVo = noticeDao.selectByBno(bno);
 		return noticeVo;
 	}
 	
@@ -35,5 +35,13 @@ public class NoticeService {
 	public NoticeVo getNotice(int bno) {
 		NoticeVo noticeVo = noticeDao.getNotice(bno);
 		return noticeVo;
+	}
+	// 공지사항 수정하기
+	public void updateNotice(NoticeVo noticeVo) {
+		noticeDao.updateNotice(noticeVo);
+	}
+	// 공지사항 삭제하기
+	public void deleteNotice(int bno) {
+		noticeDao.deleteNotice(bno);
 	}
 }
