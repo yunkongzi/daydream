@@ -8,6 +8,7 @@
                <div id="copyright" class="container" style="margin-top:0px;">
                   <ul class="links">
                      <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                     <li>계좌번호 : 국민은행 1111-22-110000 (예금주:데이드림)</li>
                   </ul>
                </div>
             </section>

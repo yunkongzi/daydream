@@ -21,9 +21,7 @@ public class TeacherDao {
 	public void insertTeacher(TeacherVo teacherVo) {
 		sqlSession.insert(NAMESPACE + "insertTeacher", teacherVo);
 	}
-	
-	
-	
+		
 	// 강사 정보 보기
 	public TeacherVo selectByTno(String tno) {
 		TeacherVo teacherVo = sqlSession.selectOne(
@@ -47,7 +45,6 @@ public class TeacherDao {
 	public void deleteTeacher(String tno) {
 		sqlSession.delete(NAMESPACE + "deleteTeacher", tno);
 	}
-
 
 	//수락
 	public void updateStatus(String tno) {

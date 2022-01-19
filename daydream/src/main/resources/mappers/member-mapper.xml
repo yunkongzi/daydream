@@ -39,6 +39,13 @@
 			where user_id = #{user_id}
 	</select>
 	
+	<!-- 작성한 후기목록 -->
+	<select id="myTeacherList" resultType="TeacherVo">
+		select tno, class_name, status
+			from tbl_teacher
+			where user_id = #{user_id}
+	</select>
+	
 	<!-- 정보 수정 -->
 	 <update id="updateMember">
 	 	update tbl_member set

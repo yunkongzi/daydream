@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.MyReservationVo;
 import com.kh.daydream.vo.ReviewVo;
+import com.kh.daydream.vo.TeacherVo;
 
 @Repository
 public class MemberDao {
@@ -51,6 +52,12 @@ public class MemberDao {
 		// 후기 리스트
 		public List<ReviewVo> myReviewList(String user_id) {
 			List<ReviewVo> list = sqlSession.selectList(NAMESPACE + "myReviewList", user_id);
+			return list;
+		}
+		
+		// 강사지원 리스트
+		public List<TeacherVo> myTeacherList(String user_id) {
+			List<TeacherVo> list = sqlSession.selectList(NAMESPACE + "myTeacherList", user_id);
 			return list;
 		}
 		

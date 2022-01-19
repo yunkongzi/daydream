@@ -16,7 +16,6 @@ public class TeacherVo {
 
 	public TeacherVo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public TeacherVo(String tno, String class_name, String price, String personnel, String target, String certificate,
@@ -111,7 +110,4 @@ public class TeacherVo {
 				+ ", target=" + target + ", certificate=" + certificate + ", introduce=" + introduce + ", user_id="
 				+ user_id + ", status=" + status + "]";
 	}
-
-	
-
 }

@@ -57,10 +57,37 @@ public class NoticeController {
 	// 공지사항 수정 폼
 	@RequestMapping(value="/modify_form", method=RequestMethod.GET)
 	public String updateNoticeForm(int bno, Model model) {
-		System.out.println("bno:" + bno);
-		NoticeVo noticeVo = noticeService.selectById(bno);
+		System.out.println("NoticeController, updateNoticeForm, bno:" + bno);
+		NoticeVo noticeVo = noticeService.selectByBno(bno);
 		model.addAttribute("noticeVo", noticeVo);
 		return "notice/modify_form";
+	}
+	
+	// 공지사항 수정처리
+	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
+	public String updateNoticeRun(NoticeVo noticeVo) {
+		System.out.println("NoticeController, updateNoticeRun, noticeVo: " + noticeVo);
+		noticeService.updateNotice(noticeVo);
+		
+		return "redirect:/notice/list_all";
+	}
+	
+	// 공지사항 삭제
+	@RequestMapping(value="/deleteNotice", method=RequestMethod.GET)
+	public String deleteNotice(int bno) {
+		System.out.println("bno:" + bno);
+		noticeService.deleteNotice(bno);
+		
+		return "redirect:/notice/list_all";
+	}
+	
+	// 공지사항 상세보기
+	@RequestMapping(value="/notice_detail", method=RequestMethod.GET)
+	public String noticeDetail(int bno, Model model) {
+		System.out.println("NoticeController, noticeDetail , bno:" + bno);
+		NoticeVo noticeVo = noticeService.getNotice(bno);
+		model.addAttribute("noticeVo", noticeVo);
+		return "notice/notice_detail";
 		
 	}
 }

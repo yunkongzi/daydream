@@ -10,7 +10,7 @@
 			values(seq_notice_bno.nextval, #{title}, #{content}, #{user_id})
 		</insert>
 		
-		<select id="selectById" resultType="NoticeVo">
+		<select id="selectByBno" resultType="NoticeVo">
 			select * from tbl_notice
 			where bno = #{bno}
 		</select>
@@ -38,7 +38,6 @@
 			update tbl_notice set
 				title = #{title},
 				content = #{content},
-				user_id = #{user_id}
 			where bno = #{bno}
 		</update>
 		

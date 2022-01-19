@@ -25,6 +25,7 @@
 		where t.user_id = m.user_id
 		order by t.tno
 	</select>
+	
 	<!-- 강사 정보 수정 -->
 	<update id="updateTeacher">
 		update tbl_teacher set
@@ -70,6 +71,5 @@
 		where t.user_id = m.user_id
 		and t.status = #{status}
 		order by t.tno
-	</select>
-	
+	</select>	
 </mapper>

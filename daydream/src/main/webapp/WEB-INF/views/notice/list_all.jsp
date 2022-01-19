@@ -1,41 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>공지사항 목록</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">										
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">										
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>										
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>										
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>										
 </head>
 <script>
-$(function(){
-	var message = "${message}";
-	if (message == "write_success") {
-		alert("글 등록이 완료 되었습니다.");
-	} else if (message == "delete_success") {
-		alert("글 삭제가 완료되었습니다.");
-	}
+	// 수정하기
+	$(function(){
+		$(".btnModify").click(function(){
+			var bno = $(this).attr("data-bno");
+			console.log("bno:", bno);
+			location.href = "/notice/modify_form?bno=" + bno;
+		});
+	// 삭제하기
+	$(function(){
+		$(".btnDelete").click(function(){
+			var bno = $(this).attr("data-bno");
+			location.href = "/notice/deleteNotice?bno=" + bno;
+		});
+	});
 	
+	// 글제목 
+	$(".a_title").click(function(e){
+		e.preventDefault();
+		var bno = $(this).attr("href");
+		console.log("bno:", bno);
+		location.href = "/notice/notice_detail?bno=" + bno;
+	});
 });
 
 </script>
 <body>
-<div class="row">
-			<div class="col-md-12">
-				<div class="jumbotron">
-					<h2>공지사항 목록</h2>
-					<p><a class="btn btn-primary btn-large btnRegist" 
-						href="/notice/write_form">공지사항 등록</a></p>
+<div class="row" style="margin:0 auto;">
+			<div class="col-md-12" style="margin:0 auto;">
+				<div class="jumbotron" style="margin:0 auto;">
+					<h2>공지사항</h2>
+					<p><button type="button"><a class="btn btn-primary" 
+						href="/notice/write_form">공지사항 등록</a></button></p>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-12">
+		<div class="row" style="margin:0 auto;">
+			<div class="col-md-12" style="margin:0 auto;">
 				<table class="table">
 					<thead>
 						<tr>
@@ -62,7 +72,7 @@ $(function(){
 										href="/notice/write_form" data-bno="${noticeVo.bno}">수정</button></td>
 								<td><button type="button"
 										class="btn btn-outline-danger btnDelete"
-										data-sno="${noticeVo.bno}">삭제</button></td>
+										data-bno="${noticeVo.bno}">삭제</button></td>
 								<td>
 							</tr>
 						</c:forEach>
@@ -72,3 +82,4 @@ $(function(){
 		</div>
 	</body>
 </html>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>

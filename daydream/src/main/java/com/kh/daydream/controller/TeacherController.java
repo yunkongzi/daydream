@@ -87,19 +87,6 @@ public class TeacherController<PagingDto> {
 		return "/teacher/teacher_list";
 	}
 
-	// 삭제처리
-//	@RequestMapping(value = "/deleteTeacher", method = RequestMethod.GET)
-//	public String deleteTeacher(String tno, RedirectAttributes rttr) {
-//		System.out.println("TeacherController, deleteTeacher, teacherVo:" + tno);
-//		// String[] filenames = teacherService.deleteTeacher(tno, filenames);
-//
-//		rttr.addFlashAttribute("message", "delete_success");
-//		return "redirect:/teacher/teacher_list?page=" + ((com.kh.daydream.vo.PagingDto) pagingDto).getPage()
-//				+ "&perPage=" + ((com.kh.daydream.vo.PagingDto) pagingDto).getPerPage() + "&searchType="
-//				+ ((com.kh.daydream.vo.PagingDto) pagingDto).getSearchType() + "&keyword="
-//				+ ((com.kh.daydream.vo.PagingDto) pagingDto).getKeyword();
-//	}
-
 	// 수정 폼
 	@RequestMapping(value = "/modifyTeacherForm", method = RequestMethod.GET)
 	public String modifyTeacherForm(String tno, Model model) {
@@ -109,19 +96,6 @@ public class TeacherController<PagingDto> {
 		return "teacher/teacher_modify";
 	}
 
-	// 수정 처리
-//		@RequestMapping(value="/modify_run", method=RequestMethod.POST)
-//		public String teacherList(String tno, Model model) {
-////			System.out.println("TeacherController, modifyTeacher, teacherVo:" + teacherVo);
-//			System.out.println("TeacherController, modifyTeacher, pagingDto:" + pagingDto);
-//			teacherService.modifyteacher(teacherList(tno, model);
-//			rttr.addFlashAttribute("message", "modify_success");
-//			return "redirect:/teacher/list?tno=" + teacherVo.getTno() + 
-//					"&page=" + pagingDto.getPage() + 
-//					"&perPage=" + pagingDto.getPerPage() +
-//					"&searchType=" + pagingDto.getSearchType() +
-//					"&keyword=" + ((Object) pagingDto).getKeyword();
-//		}
 
 	@RequestMapping(value = "/displayImage", method = RequestMethod.GET)
 	@ResponseBody
@@ -135,15 +109,6 @@ public class TeacherController<PagingDto> {
 		}
 		return bytes;
 	}
-
-	// 강사 수정 폼
-//	@RequestMapping(value = "/teacher_modify", method = RequestMethod.GET)
-//	public String teacherModify(String tno, Model model) {
-//		System.out.println("TeacherController, updateTeacher, tno:" + tno);
-//		TeacherVo teacherVo = teacherService.selectByTno(tno);
-//		model.addAttribute("teacherVo", teacherVo);
-//		return "/teacher/teacher_modify";
-//	}
 
 	// 강사 수정 처리
 	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)

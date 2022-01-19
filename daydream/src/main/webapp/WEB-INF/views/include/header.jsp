@@ -51,7 +51,7 @@ select {
 						<li><a href="/program_intro"><span>프로그램/예약</span></a></li>
 						<li><a href="/review/reviewList_all"><span>수강후기</span></a></li>
 						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>
-						<li><a href="no-sidebar.html"><span>공지사항</span></a></li>
+						<li><a href="/notice/list_all"><span>공지사항</span></a></li>
 					</ul>
 				</nav>
 
