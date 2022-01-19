@@ -36,11 +36,11 @@ public class AdminController {
 	// 관리자 메인 들어가기
 	@RequestMapping(value = "/admin_main", method = RequestMethod.GET)
 	public String adminMain(HttpSession session) {
-		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
-		
-		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
-			return "redirect:/main";
-		}
+//		MemberVo memberVo = (MemberVo)session.getAttribute("memberVo");
+//		
+//		if (memberVo == null || !memberVo.getUser_id().equals("kongzi")) {
+//			return "redirect:/main";
+//		}
 		return "admin/admin_main";
 	}
 
@@ -166,42 +166,37 @@ public class AdminController {
 	}
 
 	// 프로그램 수정 처리
-	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
-	public String updateProgram(ProgramVo programVo) {
-		System.out.println("AdminController, updateProgram:" + programVo);
-		programService.updateProgram(programVo);
-		
-		return "redirect:/admin/program_list";
-	}
-	
 //	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
-//	public String updateProgram(MultipartHttpServletRequest request, ProgramVo programVo) throws Exception {
-//		MultipartFile multi = request.getFile("file_image");
-//		String filename = multi.getOriginalFilename();
-//		String uuid = UUID.randomUUID().toString();
-//		String file_image = uuid + "_" + filename;
-//		multi.transferTo(new File(UPLOAD_PATH + file_image));
-//		
-//		String class_name = request.getParameter("class_name");
-//		String price = request.getParameter("price");
-//		String target = request.getParameter("target");
-//		String personnel = request.getParameter("personnel");
-//		String class_intro = request.getParameter("class_intro");
-//		String[] arr_time_no = request.getParameterValues("time_no"); // 같은 name으로 여러 값이 넘어 올때
-//		int[] time_no = new int[arr_time_no.length];
-//		for (int i = 0; i < arr_time_no.length; i++) {
-//			time_no[i] = Integer.parseInt(arr_time_no[i]);
-//		}
-//		System.out.println(class_intro);
-//		System.out.println(arr_time_no[0]);
-//		ProgramVo programVo = new ProgramVo(class_name, price, target, 
-//				personnel, class_intro, 0, time_no, file_image);
-		
+//	public String updateProgram(MultipartHttpServletRequest request) {
 //		System.out.println("AdminController, updateProgram:" + programVo);
 //		programService.updateProgram(programVo);
-//		System.out.println("program_regist:" + programVo);
+//		
 //		return "redirect:/admin/program_list";
 //	}
+	
+	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
+	public String updateProgram(MultipartHttpServletRequest request) throws Exception {
+		MultipartFile multi = request.getFile("file_image");
+		String filename = multi.getOriginalFilename();
+		String uuid = UUID.randomUUID().toString();
+		String file_image = uuid + "_" + filename;
+		multi.transferTo(new File(UPLOAD_PATH + file_image));
+		
+		
+		String class_name = request.getParameter("class_name");
+		String price = request.getParameter("price");
+		String target = request.getParameter("target");
+		String personnel = request.getParameter("personnel");
+		String class_intro = request.getParameter("class_intro");
+		int class_no = Integer.parseInt(request.getParameter("class_no"));
+		String class_content = request.getParameter("class_content");
+		ProgramVo programVo = new ProgramVo(class_name, price, target, personnel, class_intro, 
+				class_no, null, file_image, class_content);
+		
+		System.out.println("AdminController, updateProgram:" + programVo);
+		programService.updateProgram(programVo);
+		return "redirect:/admin/program_list";
+	}
 	
 
 

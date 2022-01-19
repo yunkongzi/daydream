@@ -100,6 +100,17 @@ $(function() {
 	$("#btnFile").click(function() {
 		$("#file_image").trigger("click")
 	});
+	
+	$("form").submit(function() {
+		var file_image = $("input[name=file_image]").val();
+		if (file_image == "") {
+			file_image = $(this).attr("data-file_image");
+			$("input[name=file_image]").remove();
+			var input_file_image = "<input name='file_image' value='" + file_image + "'>";
+			$(this).prepend(input_file_image);
+		}
+		console.log(file_image);
+	});
 }); // $(function)
 </script>
 </head>
@@ -114,8 +125,9 @@ $(function() {
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<form role="form" action="/admin/modify_run" method="post">
-								<!-- enctype="multipart/form-data" --> 
+						<form role="form" action="/admin/modify_run" method="post"
+							data-file_image="${programVo.file_image}"  
+							enctype="multipart/form-data"> 
 								 <%-- <p>
 									<input type="hidden" id="file_image" name="file_image" value="${programVo.file_image}">
 								</p>  --%>
