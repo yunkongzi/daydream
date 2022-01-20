@@ -41,7 +41,7 @@ public class ReviewDao {
 	public void deleteReview(int bno) {
 		sqlsession.delete(NAMESPACE + "deleteReview", bno);
 	}
-	
+	// 리뷰 수정처리
 	public void modifyReveiw(ReviewVo reviewVo) {
 		sqlsession.update(NAMESPACE + "modifyBoard", reviewVo);
 	}

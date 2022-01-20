@@ -28,7 +28,7 @@
 				
 				<div class="form-group" style="margin:0 auto;">
 					<label for="content">공지 내용</label>
-					<textarea readonly="readonly" class="form-control" 
+					<textarea rows="5" cols="100" readonly="readonly" class="form-control" 
 						id="content" name="content">${noticeVo.content}</textarea>
 				</div>
 				
