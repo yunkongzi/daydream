@@ -50,13 +50,13 @@ select {
 											<li><a href="/company/road">오시는 길</a></li>
 										</ul></li>
 						<li><a href="/program_intro">
-							<img src="/images/program.jpg" style="width:100px;" height="40px;"></a></li>
+							<img src="/images/program.jpg" style="width:100px;" height="45px;"></a></li>
 						<li><a href="/review/reviewList_all">
-							<img src="/images/review.jpg" style="width:100px;" height="35px;"></a></li>
+							<img src="/images/review.jpg" style="width:100px;" height="38px;"></a></li>
 						<li><a href="/teacher/teacher_regist">
-							<img src="/images/teacher.jpg" style="width:100px;" height="35px;"></a></li>
+							<img src="/images/teacher.jpg" style="width:100px;" height="38px;"></a></li>
 						<li><a href="/notice/list_all">
-							<img src="/images/notice.jpg" style="width:100px;" height="35px;"></a></li>
+							<img src="/images/notice.jpg" style="width:100px;" height="38px;"></a></li>
 					</ul>
 				</nav>
 
@@ -86,9 +86,11 @@ select {
 							<br>
 							<br>
 							 ${sessionScope.memberVo.user_name}! 일해라!<br>
-							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
+							<button type="button" onclick="location.href='/member/logout'"
+							style="background: #bfa071;">로그아웃</button>
 							<button type="button"
-								onclick="location.href='/admin/admin_main'">관리자메인</button>
+								onclick="location.href='/admin/admin_main'"
+								style="background: #bfa071;">관리자메인</button>
 						</c:when>
 						
 						
@@ -97,8 +99,10 @@ select {
 									데이드림과 꿈을 꾸실<br>
 									 ${sessionScope.memberVo.user_name} 님!<br>
 
-							<button type="button" onclick="location.href='/member/mypage'">마이페이지</button>
-							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
+							<button type="button" onclick="location.href='/member/mypage'"
+							style="background: #bfa071;">마이페이지</button>
+							<button type="button" onclick="location.href='/member/logout'"
+							style="background: #bfa071;">로그아웃</button>
 
 						</c:otherwise>
 					</c:choose>

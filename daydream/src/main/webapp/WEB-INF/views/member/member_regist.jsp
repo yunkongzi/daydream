@@ -82,7 +82,7 @@ $(function() {
 				</div><br>
 				<div class="form-group">
 					<button type="button"
-						id="btnCheckDupId">아이디 중복체크</button>
+						id="btnCheckDupId" style="background: #bfa071;">아이디 중복체크</button>
 					<span></span>
 				</div>
 				<div class="form-group">
@@ -97,7 +97,7 @@ $(function() {
 				</div>
 				<div class="form-group">
 					<button type="button" 
-						id="btnCheckDupPw">비밀번호 중복체크</button>
+						id="btnCheckDupPw" style="background: #bfa071;">비밀번호 중복체크</button>
 					<span></span>
 				</div>
 				<div class="form-group">
@@ -111,7 +111,7 @@ $(function() {
 						id="user_phone" name="user_phone" required />
 				</div><br><br>
 				
-				<button type="submit" class="btn btn-primary" id="btnSubmit">
+				<button type="submit" class="btn btn-primary" id="btnSubmit" style="background: #bfa071;">
 					가입 완료
 				</button>
 			</form>
