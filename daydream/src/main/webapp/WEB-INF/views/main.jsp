@@ -22,20 +22,16 @@
  			} 
 
 
-
-
-
-
 </style>
 
 
 <div class="w3-content w3-section" style="max-width:2000px">
-						  <img class="mySlides" src="/images/class_calli.png" style="width:1500" height="600" object-fit="cover">
-						  <img class="mySlides" src="/images/class_car.png" style="width:1500" height="600" object-fit="cover">
-						  <img class="mySlides" src="/images/class_cookie.png" style="width:1500" height="600" object-fit="cover">
-						  <img class="mySlides" src="/images/class_flower.png" style="width:1500" height="600" object-fit="cover">
-						  <img class="mySlides" src="/images/class_lipstick.png" style="width:1500" height="600" object-fit="cover">
-						  <img class="mySlides" src="/images/class_marka.png" style="width:1500" height="600" object-fit="cover">
+						  <img class="mySlides" src="/images/class_calli.png" style="width:1500" height="600">
+						  <img class="mySlides" src="/images/class_car.png" style="width:1500" height="600">
+						  <img class="mySlides" src="/images/class_cookie.png" style="width:1500" height="600">
+						  <img class="mySlides" src="/images/class_flower.png" style="width:1500" height="600">
+						  <img class="mySlides" src="/images/class_lipstick.png" style="width:1500" height="600">
+						  <img class="mySlides" src="/images/class_marka.png" style="width:1500" height="600">
 					 </div>
 
 <script>
@@ -66,15 +62,6 @@ $(function() {
 	} 
 });
 
-//페이드인 페이드아웃 
-/* $('#slide3>ul>li').hide(); 
-$('#slide3>ul>li:first-child').show(); 
-setInterval(function(){ 
-	$('#slide3>ul>li:first-child').fadeOut() 
-					.next().fadeIn().end(1000)
-					.appendTo('#slide3>ul');
-	},3000);
- */
 
 </script>
 <title>DAYDREAM MAIN PAGE</title>
@@ -129,14 +116,8 @@ setInterval(function(){
 			</div>
 		</div>
 				
-<<<<<<< HEAD
-				
-				
 				
 			</header>
-=======
-			</header> 
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 		</div>
 	</section>
 
