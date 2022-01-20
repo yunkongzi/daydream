@@ -32,7 +32,7 @@
 						id="content" name="content">${noticeVo.content}</textarea>
 				</div>
 				
-						<button type="submit"><a class="btn btn-success" 
+						<button type="submit" style="background: #bfa071;"><a class="btn btn-success" 
 							href="/notice/list_all">공지사항 목록</a></button>
 					</form>
 				</div>

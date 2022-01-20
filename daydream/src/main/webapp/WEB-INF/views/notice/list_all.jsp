@@ -9,18 +9,49 @@
 <title>공지사항 목록</title>
 </head>
 <script>
+	
+	// 등록하기
+	$(function(){
+		$(".btnwrite").click(function(){
+			var admin = $(this).attr("data-user");
+			console.log(admin);
+			var bno = $(this).attr("data-bno");
+			console.log("bno:", bno);
+			if(admin == "kongzi"){
+				location.href = "/notice/write_form?bno=" + bno;
+			} else {
+				alert("관리자로 로그인 해주세요.");
+			}
+		});
+	});
 	// 수정하기
 	$(function(){
 		$(".btnModify").click(function(){
+			var admin = $(this).attr("data-user");
+			console.log(admin);
 			var bno = $(this).attr("data-bno");
 			console.log("bno:", bno);
-			location.href = "/notice/modify_form?bno=" + bno;
+			if (admin == "kongzi") {
+				location.href = "/notice/modify_form?bno=" + bno;
+			} else {
+				alert("관리자로 로그인 해주세요.");
+			
+			}
+			
 		});
 	// 삭제하기
 	$(function(){
 		$(".btnDelete").click(function(){
+			var admin = $(this).attr("data-user");
+			console.log(admin);
 			var bno = $(this).attr("data-bno");
-			location.href = "/notice/deleteNotice?bno=" + bno;
+			console.log("bno:", bno);
+			if(admin == "kongzi") {
+				location.href = "/notice/deleteNotice?bno=" + bno;
+			} else {
+				alert("관리자로 로그인 해주세요.");
+			}
+			
 		});
 	});
 	
@@ -34,12 +65,14 @@
 });
 </script>
 <body>
+
 <div class="row" style="margin:0 auto;">
 			<div class="col-md-12" style="margin:0 auto;">
 				<div class="jumbotron" style="margin:0 auto;">
 					<h2>공지사항</h2>
-					<p><button type="button"><a class="btn btn-primary" 
-						href="/notice/write_form">공지사항 등록</a></button></p>
+					<p><button type="button" style="background: #bfa071;" class="btn btn-primary btnwrite"
+						data-bno="${noticeVo.bno}"
+						data-user="${sessionScope.memberVo.user_id}">공지사항 등록</button></p>
 				</div>
 			</div>
 		</div>
@@ -68,10 +101,14 @@
 								
 								<td><button type="button"
 										class="btn btn-outline-info btnModify"
-										href="/notice/modify_run" data-bno="${noticeVo.bno}">수정</button></td>
+										href="/notice/modify_run" 
+										data-bno="${noticeVo.bno}" 
+										data-user = "${sessionScope.memberVo.user_id}"
+										style="background: #bfa071;">수정</button></td>
 								<td><button type="button"
 										class="btn btn-outline-danger btnDelete"
-										data-bno="${noticeVo.bno}">삭제</button></td>
+										data-user ="${sessionScope.memberVo.user_id}"
+										data-bno="${noticeVo.bno}" style="background: #bfa071;">삭제</button></td>
 								<td>
 							</tr>
 						</c:forEach>
