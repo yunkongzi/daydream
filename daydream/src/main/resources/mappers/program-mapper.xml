@@ -105,12 +105,6 @@
    		where class_no = #{class_no}
    </delete>
    
-  <!-- 첨부파일 추가 -->
-	<insert id="insertAttach">
-		insert into tbl_program_attach(file_name, class_no)
-		values(#{file_name}, #{class_no})
-	</insert>
-	
 	<!-- 상세 페이지 열기 -->
 	<select id="contentDetail" resultType="ProgramVo">
 		select class_no, class_name, file_image, class_content, target, price

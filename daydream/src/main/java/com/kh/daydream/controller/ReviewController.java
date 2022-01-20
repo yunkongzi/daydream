@@ -110,7 +110,7 @@ public class ReviewController {
 	
 	// 리뷰 수정처리
 	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
-	public String updateReviewRun(ReviewVo reviewVo, PagingDto pagingDto,
+	public String modifyReview(ReviewVo reviewVo, PagingDto pagingDto,
 								  RedirectAttributes rttr) {
 		System.out.println("ReviewController, updateReviewRun, reviewVo:" + reviewVo);
 		System.out.println("ReviewController, updateReviewRun, pagingDto:" + pagingDto);
