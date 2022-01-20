@@ -43,23 +43,20 @@
 			select  * from tbl_review
 			where bno = #{bno}
 		</select>
-
-	<!-- 리뷰 수정하기 -->
-		<update id="updateReview">
-			update tbl_review set
-			user_id = #{user_id},
-			title = #{title},
-			content = #{content},
-			class_no = #{class_no}
-			where bno = #{bno}
-		</update>
-
+	
 	<!-- 리뷰글 삭제 -->
 		<delete id="deleteReview">
 			delete from tbl_review
 			where bno = #{bno}
 		</delete>
-
+	
+	<!-- 리뷰글 수정 -->
+		<update id="modifyReview">
+			update tbl_review set
+				title = #{title},
+				content = #{content}
+			where bno = #{bno}
+		</update>
 	<!-- 첨부파일 추가 -->
 		<insert id="insertAttach">
 			insert into tbl_attach(file_name, bno)

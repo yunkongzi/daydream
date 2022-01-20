@@ -32,18 +32,13 @@ public class ReviewDao {
 		sqlsession.insert(NAMESPACE + "insertReview", reviewVo);
 	}
 	
-	// 리뷰 수정
-	public void updateReview(ReviewVo reviewVo) {
-		sqlsession.update(NAMESPACE + "updateReview", reviewVo);
-	}
-	
 	// 리뷰 삭제
 	public void deleteReview(int bno) {
 		sqlsession.delete(NAMESPACE + "deleteReview", bno);
 	}
 	// 리뷰 수정처리
-	public void modifyReveiw(ReviewVo reviewVo) {
-		sqlsession.update(NAMESPACE + "modifyBoard", reviewVo);
+	public void modifyReview(ReviewVo reviewVo) {
+		sqlsession.update(NAMESPACE + "modifyReview", reviewVo);
 	}
 	
 	public int getCount(PagingDto pagingDto) {
