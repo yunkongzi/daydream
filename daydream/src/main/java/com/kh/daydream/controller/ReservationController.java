@@ -3,7 +3,6 @@ package com.kh.daydream.controller;
 
 import java.util.List;
 
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.daydream.service.ProgramService;
 import com.kh.daydream.service.ReservationService;
@@ -20,6 +20,7 @@ import com.kh.daydream.vo.ProgramVo;
 import com.kh.daydream.vo.ReservationListVo;
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
+import com.kh.daydream.vo.StatusVo;
 
 
 
@@ -64,22 +65,24 @@ public class ReservationController {
 		public String reservationList(Model model,ReservationListVo reservationListVo) {
 	
 			List<ReservationListVo> list = reservationService.selectAll();
+			List<StatusVo> statusList = reservationService.statusList();
 			System.out.println("ReservationController, reservationList, list: " + list);
 			model.addAttribute("list", list);
+			model.addAttribute("statusList", statusList);
 			
 			  return "/reservation/reservation_list";
 		}
 		
-		// 예약 수정
-		@RequestMapping(value = "/res_modify", method = RequestMethod.GET)
-		public String updateReservation(int rno, Model model) {
-			System.out.println("rno" + rno);
-			ProgramVo programVo = reservationService.selectByClassNo(rno);
-			List<ReservationTimeVo> timeList = reservationService.selectTimeList(rno);;
-			model.addAttribute("programVo", programVo);
-			model.addAttribute("timeList", timeList);
-			return "/reservation/res_modify";
-		}
+//		// 예약 수정
+//		@RequestMapping(value = "/res_modify", method = RequestMethod.GET)
+//		public String updateReservation(int rno, Model model) {
+//			System.out.println("rno" + rno);
+//			ProgramVo programVo = reservationService.selectByClassNo(rno);
+//			List<ReservationTimeVo> timeList = reservationService.selectTimeList(rno);;
+//			model.addAttribute("programVo", programVo);
+//			model.addAttribute("timeList", timeList);
+//			return "/reservation/res_modify";
+//		}
 	
 //		// 수정 처리
 //		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
@@ -95,6 +98,21 @@ public class ReservationController {
 			System.out.println("ReservationController, deleteReservation, rno"+rno);
 			return "redirect:/reservation/reservation_list";
 		}
-
+		
+		// 예약상태변경
+		@RequestMapping(value = "/change_status", method = RequestMethod.GET)
+		@ResponseBody
+		public String change_status(int rno, String status_code) {
+			System.out.println("ReservationController, change_status, rno, status_code " + rno + ", " + status_code);
+			return "success";
+		}
+		
+		// 예약 상태 수정 처리
+		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
+		public String updateStatus(ReservationVo reservationVo) {
+			reservationService.updateStatus(reservationVo);
+			System.out.println("ReservationController, updateStatus, reservationVo" +reservationVo);
+			return "redirect:/reservation/reservation_list";
+		}
 
 }

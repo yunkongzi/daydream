@@ -3,9 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-
 <title>강사등록</title>
-
 <script src="/js/myscript.js"></script>
 
 <script>
@@ -21,9 +19,7 @@ $(function() {
 		});
 // 		return false;
 	});		
-	
-	
-	
+		
 	$("#btnFile").click(function() {
 		$("#certificate").trigger("click");
 	});
@@ -36,8 +32,7 @@ $(function() {
 	<div class="row">
 		<div class="col-md-12" style="margin:0 auto;">
 			<div class="jumbotron" style="margin:0 auto;">
-				<h2>강사 등록</h2>	
-						
+				<h2>강사 등록</h2>							
 			</div>
 		</div>
 	</div>
@@ -79,8 +74,7 @@ $(function() {
 					<label for="introduce">자기소개</label>
 					<textarea class="form-control" placeholder="50자 내외로 글을 작성해주세요."
 						id="introduce" name="introduce"></textarea>
-				</div>
-				
+				</div>				
 				<button type="submit" class="btn btn-primary">등록완료</button>				
 			</form>
 		</div>
