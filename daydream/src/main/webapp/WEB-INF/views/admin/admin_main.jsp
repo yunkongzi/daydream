@@ -29,7 +29,7 @@
 				<div class="col-md-8">
 					<a class="btn btn-outline-info btn-lg btn-block
 							btnReserv" href="/main">
-						메인으로 돌아이잉ㅇ
+						메인으로 돌아가기
 					</a> 
 					<p></p>
 					<a class="btn btn-outline-warning btn-lg btn-block
@@ -43,10 +43,6 @@
 						프로그램 목록
 					</a> 
 					<p></p>
-					<a class="btn btn-outline-primary btn-lg btn-block
-							btnBoardAd">
-						게시판 관리
-					</a> 
 					<p></p>
 					<a class="btn btn-lg btn-outline-danger btn-block
 							btnTeachAd" href="/teacher/teacher_list">
