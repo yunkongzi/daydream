@@ -80,8 +80,8 @@ $(function() {
 <div>
 		<div class="jumbotron">
 			<h2>강사 리스트</h2>
-			<a href="/teacher/statusList?status=Y" class="btn btn-success statusList">채용강사 보기</a>
-			<a href="/teacher/statusList?status=N" class="btn btn-link statusList">신청중인 강사 보기</a>
+			<a href="/teacher/statusList?status=Y" class="btn btn-success statusList" style="background: #bfa071;">채용강사 보기</a>
+			<a href="/teacher/statusList?status=N" class="btn btn-link statusList" style="background: #bfa071;">신청중인 강사 보기</a>
 		</div>
 		<div style="margin: 0 auto">
 			<table class="table">

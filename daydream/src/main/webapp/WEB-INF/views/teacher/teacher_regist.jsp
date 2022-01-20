@@ -28,9 +28,9 @@ $(function() {
 </script>
 <style>
 .container-fluid {
-  background-color: #F0FEFF;
+  background-color: #fffee5;
   width: 600px;
-  border: 15px solid #9AB7D9;
+  border: 15px solid #5e7e9b;
   padding: 50px;
   margin: 20px;
 }
@@ -77,7 +77,7 @@ $(function() {
 					<label for="certificate">자격증 파일 첨부</label>
 					<input type="file" class="form-control" 
 						id="certificate" name="certificate" style="display:none"/>
-					<button type="button" id="btnFile">파일 첨부</button>
+					<button type="button" id="btnFile" style="background: #bfa071;">파일 첨부</button>
 				</div>
 												
 				<div class="form-group">
@@ -85,7 +85,7 @@ $(function() {
 					<textarea class="form-control" placeholder="50자 내외로 글을 작성해주세요."
 						id="introduce" name="introduce"></textarea>
 				</div>				
-				<button type="submit" class="btn btn-primary">등록완료</button>				
+				<button type="submit" class="btn btn-primary" style="background: #bfa071;">등록완료</button>				
 			</form>
 		</div>
 	</div>
