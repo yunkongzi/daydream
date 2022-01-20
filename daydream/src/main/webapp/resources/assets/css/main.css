@@ -1769,7 +1769,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		position: relative;
 		display: inline-block;
-		background: #ed786a;
+		background: #bfa071;
 		color: #fff !important;
 		text-transform: uppercase;
 		border-radius: 4px;
@@ -1800,7 +1800,7 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #fd887a;
+			background: #bfa071;
 		}
 
 		input[type="button"]:active,
@@ -1808,7 +1808,7 @@ input, select, textarea {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #ed786a;
+			background: #bfa071;
 		}
 
 		input[type="button"].alt,
@@ -1816,7 +1816,7 @@ input, select, textarea {
 		input[type="reset"].alt,
 		button.alt,
 		.button.alt {
-			background: #878787;
+			background: #bfa071;
 		}
 
 			input[type="button"].alt:hover,
@@ -1824,7 +1824,7 @@ input, select, textarea {
 			input[type="reset"].alt:hover,
 			button.alt:hover,
 			.button.alt:hover {
-				background: #979797;
+				background: #bfa071;
 			}
 
 			input[type="button"].alt:active,
@@ -1832,7 +1832,7 @@ input, select, textarea {
 			input[type="reset"].alt:active,
 			button.alt:active,
 			.button.alt:active {
-				background: #878787;
+				background: #bfa071;
 			}
 
 /* Box */

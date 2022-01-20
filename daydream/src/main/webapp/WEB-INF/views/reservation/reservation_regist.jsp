@@ -45,8 +45,10 @@ $(function() {
 	});
 
 	$("#btnResOk").click(function() {
-		alert("등록이 완료되었습니다.[무통장 입급 계좌번호:(신한)111-222-3333]");
+		alert("등록이 완료되었습니다.[국민은행 1111-22-110000 (예금주:데이드림)]");
 	});
+	
+	
 
 });
 
@@ -82,9 +84,8 @@ $(function() {
 			cnt++;
 
 			cell.setAttribute('id', i);
-			console.log("cnt:" + cnt);
-			console.log("d:" + today.getDate());
-
+			
+			//월,화 예약불가 (휴무)
 			if (cnt % 7 == 2 || cnt % 7 == 3) {
 				cell.setAttribute('class', 'dis');
 				cell.setAttribute('title', '월,화요일은 휴무입니다.');
@@ -125,6 +126,7 @@ $(function() {
 				cell.innerHTML = "<font color=skyblue>" + i + "</font>";
 				row = calendar.insertRow();
 			}
+			//오늘날짜 기준으로 이전 일, 월 클릭 안되게 막기
 			if (today.getFullYear() < now.getFullYear() 
 					|| today.getMonth() < now.getMonth() 
 					|| (today.getMonth() <= now.getMonth() && i < today.getDate())) {
@@ -143,9 +145,7 @@ $(function() {
 // 				cell.setAttribute('class', 'dis');
 // 		    	cell.setAttribute('title', '예약 불가');
 // 			}
-			
-			
-			
+		
 		}
 
 		if (cnt % 7 != 0) {
@@ -153,21 +153,7 @@ $(function() {
 				cell = row.insertCell();
 			}
 		}
-		//이전날짜막기
-// 		if (cnt > 0) {
-
-// 			alert("오늘 날짜 이전으로는 예약이 불가능 합니다.");
-// 			return;
-// 		}
-
-		// function disableAllTheseDays(date) {
-		// 	    var m = today.getMonth(), d = today.getDate(), y = today.getFullYear();
-		// 	    for (i = 0; i < disabledDays.length; i++) {
-		// 	        if() {
-		// 	            return false;
-		// 	        }
-		// 	    }
-		// 	    return true;
+	
 	}
 	//이전달
 	// 이전 달을 today에 값을 저장하고 달력에 today를 넣어줌
