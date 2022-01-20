@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.MyReservationVo;
+import com.kh.daydream.vo.ReviewVo;
+import com.kh.daydream.vo.TeacherVo;
 
 @Repository
 public class MemberDao {
@@ -47,6 +49,18 @@ public class MemberDao {
 			return list;
 		}
 		
+		// 후기 리스트
+		public List<ReviewVo> myReviewList(String user_id) {
+			List<ReviewVo> list = sqlSession.selectList(NAMESPACE + "myReviewList", user_id);
+			return list;
+		}
+		
+		// 강사지원 리스트
+		public List<TeacherVo> myTeacherList(String user_id) {
+			List<TeacherVo> list = sqlSession.selectList(NAMESPACE + "myTeacherList", user_id);
+			return list;
+		}
+		
 	//회원정보 수정
 		public void updateMember(MemberVo memberVo) {
 			sqlSession.update(NAMESPACE + "updateMember", memberVo);
@@ -56,5 +70,9 @@ public class MemberDao {
 		public void deleteMember(String user_id) {
 			sqlSession.delete(NAMESPACE + "deleteMember", user_id);
 		}
-
+		
+	//예약취소
+		public void deleteReservation(int rno) {
+			sqlSession.delete(NAMESPACE+"deleteReservation",rno);
+		}
 }

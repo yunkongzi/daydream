@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.daydream.mappers.notice">
+
+	<!-- 공지글 추가 -->
+		<insert id="insertNotice">
+			insert into tbl_notice(bno, title, content, user_id)
+			values(seq_notice_bno.nextval, #{title}, #{content}, #{user_id})
+		</insert>
+		
+		<select id="selectByBno" resultType="NoticeVo">
+			select * from tbl_notice
+			where bno = #{bno}
+		</select>
+		
+	<!-- bno 얻기 -->
+		<select id="getBnoNextVal" resultType="int">
+			select seq_notice_bno.nextval
+			from dual
+		</select>
+		
+	<!-- 모든 공지사항 조회 -->
+		<select id="selectAll" resultType="NoticeVo">
+			select * from tbl_notice
+			order by bno
+		</select>
+		
+	<!-- 공지사항 상세 보기 -->
+		<select id="getNotice" resultType="NoticeVo">
+			select * from tbl_notice
+			where bno = #{bno}	
+		</select>
+	
+	<!-- 공지사항 수정하기 -->
+		<update id="updateNotice">
+			update tbl_notice set
+				title = #{title},
+				content = #{content}
+			where bno = #{bno}
+		</update>
+		
+	<!-- 공지사항 삭제 -->
+		<delete id="deleteNotice">
+			delete from tbl_notice
+			where bno = #{bno}
+		</delete>
+</mapper>

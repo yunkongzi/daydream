@@ -20,9 +20,12 @@
 	
 	<!-- 강사 전체 목록 -->
 	<select id="selectAll" resultType="TeacherVo">
-		select * from tbl_teacher
-		order by tno
+		select t.tno, t.user_id, t.class_name, t.price,  t.personnel, t.target, t.certificate, t.introduce, t.status
+		from tbl_teacher t, tbl_member m
+		where t.user_id = m.user_id
+		order by t.tno
 	</select>
+	
 	<!-- 강사 정보 수정 -->
 	<update id="updateTeacher">
 		update tbl_teacher set
@@ -60,4 +63,13 @@
 		where tno = #{tno}
 	</update>
 	
+	<!-- 채용강사 리스트 -->
+	<select id="statusList" resultType="TeacherMemberVo">
+		select t.user_id, m.user_name, t.tno, t.class_name, t.price, 
+			t.personnel, t.target, m.user_phone
+		from tbl_teacher t, tbl_member m
+		where t.user_id = m.user_id
+		and t.status = #{status}
+		order by t.tno
+	</select>	
 </mapper>

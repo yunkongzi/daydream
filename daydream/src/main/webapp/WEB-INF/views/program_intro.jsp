@@ -10,6 +10,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+<style>
+	td {
+		text-align:center;
+	}
+	
+	span {
+		
+		font-size:15pt; 
+		color:black;
+		font-family:맑은 고딕;
+		/* font-weight: bold; */
+		
+	}
+</style>
 <script>
 $(function() {
 	$(".btnReserv").click(function(e) {
@@ -17,7 +31,7 @@ $(function() {
 		var class_no = $(this).attr("data-class_no");
 		var href = $(this).attr("href");
 		console.log("class_no: ", class_no);
-		location.href = href + "/" + class_no;
+		location.href = href + "?class_no=" + class_no;
 	});
 	
 	$(".proDetail").click(function(e){
@@ -47,15 +61,16 @@ $(function() {
 							<tr>
 						</c:if>
 						<td>
-						<a class="proDetail" data-class_no="${programVo.class_no}" href="/program_detail">
-							<img src="/admin/displayImage?fileName=${programVo.file_image}" 
-								height="220" width="300"/></a><br>
-							<${programVo.class_name}><br>
-							- ${programVo.class_intro} -<br>
-							가격 : ${programVo.price}원<br>
-							<a class="btn btn-sm btn-outline-warning btnReserv" href="/reservation/reservation_regist"
-								data-class_no="${programVo.class_no}">예약</a>
 							
+							<a class="proDetail" data-class_no="${programVo.class_no}" href="/program_detail"><img src="/admin/displayImage?fileName=${programVo.file_image}" height="270" width="350"/></a><br>
+							<br>
+							<span>< ${programVo.class_name} ></span><br>
+							<br>
+							- ${programVo.class_intro} -<br>
+							금액 : ${programVo.price}원<br>
+							<%-- <a class="btn btn-sm btn-outline-warning btnReserv" href="/reservation/reservation_regist"
+								data-class_no="${programVo.class_no}">예약</a> --%>
+							<br>
 							</td>
 						<c:if test="${status.index % 3  == 2}">
 							</tr>

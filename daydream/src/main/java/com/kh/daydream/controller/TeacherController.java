@@ -18,12 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.daydream.service.TeacherService;
-import com.kh.daydream.vo.ClassTimeVo;
 import com.kh.daydream.vo.MemberVo;
-import com.kh.daydream.vo.ProgramVo;
+import com.kh.daydream.vo.TeacherMemberVo;
 import com.kh.daydream.vo.TeacherVo;
 
 @Controller
@@ -56,7 +54,7 @@ public class TeacherController<PagingDto> {
 		String filename = multi.getOriginalFilename();
 		String uuid = UUID.randomUUID().toString();
 		String certificate = uuid + "_" + filename;
-		multi.transferTo(new File("E:/teacher_attach/" + uuid + "_" + certificate));
+		multi.transferTo(new File(UPLOAD_PATH + certificate));
 
 //			FileCopyUtils.copy(bytes, f);
 
@@ -69,7 +67,7 @@ public class TeacherController<PagingDto> {
 		String user_id = memberVo.getUser_id();
 		TeacherVo teacherVo = new TeacherVo(
 				tno, class_name, price, personnel, target, certificate, introduce, user_id, "N");
-//			System.out.println("TeacherController, teacherRegistRun, filename:" + filename);
+//		    System.out.println("TeacherController, teacherRegistRun, filename:" + filename);
 		System.out.println("TeacherController, teacherRegistRun, teacherVo:" + teacherVo);
 			teacherService.insertTeacher(teacherVo);
 		return "redirect:/teacher/teacher_list";
@@ -89,19 +87,6 @@ public class TeacherController<PagingDto> {
 		return "/teacher/teacher_list";
 	}
 
-	// 삭제처리
-//	@RequestMapping(value = "/deleteTeacher", method = RequestMethod.GET)
-//	public String deleteTeacher(String tno, RedirectAttributes rttr) {
-//		System.out.println("TeacherController, deleteTeacher, teacherVo:" + tno);
-//		// String[] filenames = teacherService.deleteTeacher(tno, filenames);
-//
-//		rttr.addFlashAttribute("message", "delete_success");
-//		return "redirect:/teacher/teacher_list?page=" + ((com.kh.daydream.vo.PagingDto) pagingDto).getPage()
-//				+ "&perPage=" + ((com.kh.daydream.vo.PagingDto) pagingDto).getPerPage() + "&searchType="
-//				+ ((com.kh.daydream.vo.PagingDto) pagingDto).getSearchType() + "&keyword="
-//				+ ((com.kh.daydream.vo.PagingDto) pagingDto).getKeyword();
-//	}
-
 	// 수정 폼
 	@RequestMapping(value = "/modifyTeacherForm", method = RequestMethod.GET)
 	public String modifyTeacherForm(String tno, Model model) {
@@ -110,20 +95,6 @@ public class TeacherController<PagingDto> {
 		model.addAttribute("teacherVo", teacherVo);
 		return "teacher/teacher_modify";
 	}
-
-	// 수정 처리
-//		@RequestMapping(value="/modify_run", method=RequestMethod.POST)
-//		public String teacherList(String tno, Model model) {
-////			System.out.println("TeacherController, modifyTeacher, teacherVo:" + teacherVo);
-//			System.out.println("TeacherController, modifyTeacher, pagingDto:" + pagingDto);
-//			teacherService.modifyteacher(teacherList(tno, model);
-//			rttr.addFlashAttribute("message", "modify_success");
-//			return "redirect:/teacher/list?tno=" + teacherVo.getTno() + 
-//					"&page=" + pagingDto.getPage() + 
-//					"&perPage=" + pagingDto.getPerPage() +
-//					"&searchType=" + pagingDto.getSearchType() +
-//					"&keyword=" + ((Object) pagingDto).getKeyword();
-//		}
 
 	@RequestMapping(value = "/displayImage", method = RequestMethod.GET)
 	@ResponseBody
@@ -137,15 +108,6 @@ public class TeacherController<PagingDto> {
 		}
 		return bytes;
 	}
-
-	// 강사 수정 폼
-//	@RequestMapping(value = "/teacher_modify", method = RequestMethod.GET)
-//	public String teacherModify(String tno, Model model) {
-//		System.out.println("TeacherController, updateTeacher, tno:" + tno);
-//		TeacherVo teacherVo = teacherService.selectByTno(tno);
-//		model.addAttribute("teacherVo", teacherVo);
-//		return "/teacher/teacher_modify";
-//	}
 
 	// 강사 수정 처리
 	@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
@@ -169,5 +131,13 @@ public class TeacherController<PagingDto> {
 	public String updateStatus(@PathVariable("tno") String tno) {
 		teacherService.updateStatus(tno);
 		return "success";
+	}
+	
+	// 강사 목록
+	@RequestMapping(value = "/statusList", method = RequestMethod.GET)
+	public String statusList(String status, Model model) {
+		List<TeacherMemberVo> statusList = teacherService.statusList(status);
+		model.addAttribute("statusList", statusList);
+		return "teacher/statusList";
 	}
 }

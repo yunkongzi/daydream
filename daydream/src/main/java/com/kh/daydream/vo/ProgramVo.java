@@ -12,7 +12,7 @@ public class ProgramVo {
 	private int class_no;
 	private int[] time_no;
 	private String file_image;
-	
+	private String class_content;
 	
 
 
@@ -23,7 +23,7 @@ public class ProgramVo {
 	
 
 	public ProgramVo(String class_name, String price, String target, String personnel, String class_intro, int class_no,
-			int[] time_no, String file_image) {
+			int[] time_no, String file_image, String class_content) {
 		super();
 		this.class_name = class_name;
 		this.price = price;
@@ -33,6 +33,7 @@ public class ProgramVo {
 		this.class_no = class_no;
 		this.time_no = time_no;
 		this.file_image = file_image;
+		this.class_content = class_content;
 	}
 
 
@@ -98,10 +99,16 @@ public class ProgramVo {
 		return file_image;
 	}
 
-
-
 	public void setFile_image(String file_image) {
 		this.file_image = file_image;
+	}
+	
+	public String getClass_content() {
+		return class_content;
+	}
+
+	public void setClass_content(String class_content) {
+		this.class_content = class_content;
 	}
 
 
@@ -110,8 +117,12 @@ public class ProgramVo {
 	public String toString() {
 		return "ProgramVo [class_name=" + class_name + ", price=" + price + ", target=" + target + ", personnel="
 				+ personnel + ", class_intro=" + class_intro + ", class_no=" + class_no + ", time_no="
-				+ Arrays.toString(time_no) + ", file_image=" + file_image + "]";
+				+ Arrays.toString(time_no) + ", file_image=" + file_image + ", class_content=" + class_content + "]";
 	}
+
+
+
+
 
 
 

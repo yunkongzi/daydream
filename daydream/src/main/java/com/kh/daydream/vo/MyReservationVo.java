@@ -1,6 +1,7 @@
 package com.kh.daydream.vo;
 
 public class MyReservationVo {
+	private int rno;
 	private String res_date;
 	private String class_name;
 	private String program_time;
@@ -8,15 +9,16 @@ public class MyReservationVo {
 	private String status;
 	private String class_no;
 	private String status_name;
-	
+
 	public MyReservationVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MyReservationVo(String res_date, String class_name, String program_time, String count, String status,
-			String class_no, String status_name) {
+	public MyReservationVo(int rno, String res_date, String class_name, String program_time, String count,
+			String status, String class_no, String status_name) {
 		super();
+		this.rno = rno;
 		this.res_date = res_date;
 		this.class_name = class_name;
 		this.program_time = program_time;
@@ -24,6 +26,14 @@ public class MyReservationVo {
 		this.status = status;
 		this.class_no = class_no;
 		this.status_name = status_name;
+	}
+
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
 
 	public String getRes_date() {
@@ -84,12 +94,9 @@ public class MyReservationVo {
 
 	@Override
 	public String toString() {
-		return "MyReservationVo [res_date=" + res_date + ", class_name=" + class_name + ", program_time=" + program_time
-				+ ", count=" + count + ", status=" + status + ", class_no=" + class_no + ", status_name=" + status_name
-				+ "]";
+		return "MyReservationVo [rno=" + rno + ", res_date=" + res_date + ", class_name=" + class_name
+				+ ", program_time=" + program_time + ", count=" + count + ", status=" + status + ", class_no="
+				+ class_no + ", status_name=" + status_name + "]";
 	}
 
-	
-	
-	
 }

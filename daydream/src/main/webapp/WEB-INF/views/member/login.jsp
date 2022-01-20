@@ -46,19 +46,19 @@ $(function() {
 				<div class="form-group">
 					<label for="user_id">아이디</label>
 					<input type="text" class="form-control" 
-						id="user_id" name="user_id" />
+						id="user_id" name="user_id" required/>
 						
 				</div>
 				<div class="form-group">
 					<label for="user_pw">패스워드</label>
 					<input type="password" class="form-control" 
-						id="user_pw" name="user_pw" />
+						id="user_pw" name="user_pw" required/>
 				</div><br><br><br>
 				
-				<button type="submit" id="btnLogin">로그인</button><br><br>
+				<button type="submit" id="btnLogin" style="background: #bfa071;">로그인</button><br><br>
 				
 				<button type="button" id="btnRegist"
-				onclick="location.href='/member/member_regist'">회원가입</button><br><br>
+				onclick="location.href='/member/member_regist'" style="background: #bfa071;">회원가입</button><br><br>
 
 				
 			</form>

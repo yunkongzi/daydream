@@ -31,6 +31,8 @@ $(function() {
 		e.preventDefault();
 		var class_no = $(this).attr("data-class_no");
 		var href = $(this).attr("href");
+		var form = document.getElementById("viewForm");
+		form.submit();
 		console.log("class_no: ", class_no);
 		location.href = href + "?class_no=" + class_no;
 	});
@@ -39,6 +41,7 @@ $(function() {
 		var class_no = $(this).attr("data-class_no");
 		location.href = "/admin/deleteProgram?class_no=" + class_no;
 	});
+	
 });
 </script>
 <body>
@@ -48,9 +51,14 @@ $(function() {
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2 style="text-align:center;">등록된 프로그램 </h2>
+				<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist">
+										새로운 프로그램 등록</a>
+									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/admin_main">
+										관리자 메인</a>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+					<form id="viewForm" name="viewForm" >
 					<table class="table table-bordered">
 						<thead>
 							<tr>
@@ -74,10 +82,12 @@ $(function() {
 								<td>${programVo.price}</td>
 								<td>${programVo.target}</td>
 								<td>${programVo.personnel}</td>
-								<td>${programVo.class_intro}</td>
-								<td>
+								<td><a href="/program_detail?class_no=${programVo.class_no}" title="${programVo.class_content}">${programVo.class_intro}</a></td>
+								
+								<td align="center">
 								<c:if test="${not empty programVo.file_image}">
-									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250" width="350"/>
+									<img class="img-thumbnail" src="/admin/displayImage?fileName=${programVo.file_image}" 
+										style="height:150px"/>
 								</c:if>
 								
 								
@@ -102,13 +112,12 @@ $(function() {
 						</c:forEach>
 						</tbody>
 					</table>
+					</form>
 					
 							<!-- <a class="btn btn-outline-warning btn-sm btnNewPro" href="/admin/program_regist">
 									새로운 프로그램 등록</a> -->
-									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist">
-										새로운 프로그램 등록</a>
-									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/admin_main">
-										관리자 메인</a>
+									<input type='hidden' id='class_no' name='class_no' value='${programVo.class_no}' />
+									
 				</div>
 			</div>
 		</div>

@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.daydream.service.MemberService;
+import com.kh.daydream.service.ReservationService;
 import com.kh.daydream.vo.LoginDto;
 import com.kh.daydream.vo.MemberVo;
 import com.kh.daydream.vo.MyReservationVo;
+import com.kh.daydream.vo.ReviewVo;
+import com.kh.daydream.vo.TeacherVo;
 
 @RequestMapping("/member")
 @Controller
@@ -24,6 +27,8 @@ public class MemberController {
 
 	@Inject
 	private MemberService memberService;
+	@Inject
+	private ReservationService reservationService;
 
 	// 회원 가입 폼
 	@RequestMapping(value = "/member_regist", method = RequestMethod.GET)
@@ -90,7 +95,6 @@ public class MemberController {
 			}
 
 		}
-		
 
 	}
 
@@ -102,6 +106,11 @@ public class MemberController {
 //		String user_id = "hong";
 		List<MyReservationVo> reservationList = memberService.reservationList(user_id);
 		model.addAttribute("reservationList", reservationList);
+		List<ReviewVo> myReviewList = memberService.myReviewList(user_id);
+		model.addAttribute("myreviewList", myReviewList);
+		List<TeacherVo> myTeacherList = memberService.myTeacherList(user_id);
+		model.addAttribute("myTeacherList", myTeacherList);
+		System.out.println("memberPage, reservationList"+reservationList);
 		return "/member/mypage";
 	}
 
@@ -139,5 +148,12 @@ public class MemberController {
 		rttr.addFlashAttribute("message", "delete");
 		return "redirect:/main";
 	}
-
-}//
+	
+	//예약취소
+	@RequestMapping(value = "/deleteReservation", method = RequestMethod.GET)
+	public String deleteReservation(int rno) {
+		reservationService.deleteReservation(rno);
+		System.out.println("MemberController, deleteReservation, rno: "+rno);
+		return "redirect:/member/mypage";
+	}
+}

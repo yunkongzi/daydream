@@ -100,6 +100,19 @@ $(function() {
 	$("#btnFile").click(function() {
 		$("#file_image").trigger("click")
 	});
+	
+	$("form").submit(function() {
+		var file_image = $("input[name=file_image]").val();
+		console.log(file_image);
+		if (file_image == "") {
+			file_image = $(this).attr("data-file_image");
+			$("input[name=file_image]").remove();
+			var input_file_image = "<input type='hidden' name='file_image' value='" + file_image + "'>";
+			$(this).prepend(input_file_image);
+		}
+// 		return false;
+		
+	});
 }); // $(function)
 </script>
 </head>
@@ -114,8 +127,9 @@ $(function() {
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<form role="form" action="/admin/modify_run" method="post">
-								<!-- enctype="multipart/form-data" --> 
+						<form role="form" action="/admin/modify_run" method="post"
+							data-file_image="${programVo.file_image}"  
+							enctype="multipart/form-data"> 
 								 <%-- <p>
 									<input type="hidden" id="file_image" name="file_image" value="${programVo.file_image}">
 								</p>  --%>
@@ -158,9 +172,22 @@ $(function() {
 
 								<label for="class_intro"> 프로그램 소개 </label><br>
 								<textarea rows="5" cols="50" id="class_intro" name="class_intro"
-									><c:out value="${programVo.class_intro}" /></textarea>
+									><c:out value="${programVo.class_intro}"/></textarea>
 								
 							</div>
+							<div class="form-group">
+
+								<label for="class_content"> 상세 소개 </label><br>
+								<textarea rows="10" cols="70" id="class_content" name="class_content"
+									><c:out value="${programVo.class_content}"/></textarea>
+								
+							</div>
+							
+							<%-- <div class="form-group">
+					            <label for="class_content">상세 소개</label>
+					            <textarea class="form-control" id="class_content" rows="10" name="class_content">${programVo.class_content}</textarea>
+        					</div> --%>
+
 							
 							 <div class="form-group">
 
@@ -176,19 +203,25 @@ $(function() {
 								</c:forEach>
 							</div> 
 							
-							<c:if test="${not empty programVo.file_image}">
+							<%-- <c:if test="${not empty programVo.file_image}">
 									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
-								</c:if>
+								</c:if> --%>
 								
 							<div class="form-group">
 								<label for="file_image"> 사진 </label><br> 
 								<input
-									type="file" class="form-control" id="file_image" name="file_image" style="display:none"/>
-									<button type="button" id="btnFile">파일 첨부</button>
+									type="file" class="form-control" id="file_image" name="file_image"/>
+									<c:if test="${not empty programVo.file_image}">
+									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="250"/>
+								</c:if>
 									</div>
+									<!-- <input
+									type="file" class="form-control" id="file_image" name="file_image" style="display:none"/>
+									<button type="button" id="btnFile">파일 첨부</button> -->
 								
 							
-							
+							<input type="hidden" name="class_no" value="${programVo.class_no}">
+
 							<button type="submit" class="btn btn-primary btnProgramReg">
 								수정</button>
 							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">

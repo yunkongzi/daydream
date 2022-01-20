@@ -22,6 +22,7 @@ public class ReviewDao {
 	private SqlSession sqlsession;
 	
 	public List<ReviewVo> selectAll(PagingDto pagingDto) {
+		System.out.println("ReviewDao, selectAll, pagingDto: " + pagingDto);
 		List<ReviewVo> list = sqlsession.selectList(NAMESPACE + "selectAll", pagingDto);
 		return list;
 	}
@@ -31,24 +32,13 @@ public class ReviewDao {
 		sqlsession.insert(NAMESPACE + "insertReview", reviewVo);
 	}
 	
-	// 리뷰 정보 보기
-	public ReviewVo selectById(int bno) {
-		ReviewVo reviewVo = sqlsession.selectOne(NAMESPACE + "selectById", bno);
-		return reviewVo;
-	}
-	
-	// 리뷰 수정
-	public void updateReview(ReviewVo reviewVo) {
-		sqlsession.update(NAMESPACE + "updateReview", reviewVo);
-	}
-	
 	// 리뷰 삭제
 	public void deleteReview(int bno) {
 		sqlsession.delete(NAMESPACE + "deleteReview", bno);
 	}
-	
-	public void modifyReveiw(ReviewVo reviewVo) {
-		sqlsession.update(NAMESPACE + "modifyBoard", reviewVo);
+	// 리뷰 수정처리
+	public void modifyReview(ReviewVo reviewVo) {
+		sqlsession.update(NAMESPACE + "modifyReview", reviewVo);
 	}
 	
 	public int getCount(PagingDto pagingDto) {
@@ -61,9 +51,10 @@ public class ReviewDao {
 		sqlsession.update(NAMESPACE + "updateViewcnt" , bno);
 	}
 	
+	// 리뷰 상세보기
 	public ReviewVo getReview(int bno) {
-		ReviewVo boardVo = sqlsession.selectOne(NAMESPACE + "getReview", bno);
-		return boardVo;
+		ReviewVo reviewVo = sqlsession.selectOne(NAMESPACE + "getReview", bno);
+		return reviewVo;
 	}
 	
 	public String[] getFilenames(int bno) {
