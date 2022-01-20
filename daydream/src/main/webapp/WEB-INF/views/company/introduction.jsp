@@ -15,11 +15,16 @@
 	.w3-center {
 	  font-family:"Sofia", sans-serif;
 	}
+	h2 {
+	  color: white;
+	  text-shadow: 2px 2px 4px #000000;
+	}
 	
 	p {
 	font-family: Tahoma, Verdana, sans-serif;
 	font-size: 15px; letter-spacing: 3px;
-}
+	}
+	
 </style>
 
 <h2 class="w3-center">introduction</h2>
