@@ -26,8 +26,18 @@ $(function() {
 }); // $(function)
 		
 </script>
+<style>
+.container-fluid {
+  background-color: #F0FEFF;
+  width: 600px;
+  border: 15px solid #9AB7D9;
+  padding: 50px;
+  margin: 20px;
+}
+</style>
 </head>
-<body>							
+<body>
+<div>						
 <div class="container-fluid" style="margin:0 auto;">
 	<div class="row">
 		<div class="col-md-12" style="margin:0 auto;">
@@ -80,5 +90,6 @@ $(function() {
 		</div>
 	</div>
 </div>
+</div>	
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
