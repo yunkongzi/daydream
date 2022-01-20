@@ -60,9 +60,9 @@ public class ReservationDao {
 	public List<StatusVo> statusList() {
 		return sqlSession.selectList(NAMESPACE+"statusList");
 	}
-
-	public void updateStatus(ReservationVo reservationVo) {
-		sqlSession.update(NAMESPACE+"updateStatus", reservationVo);
+	//상태수정
+	public void updateStatus(int rno, String status_code) {
+		sqlSession.update(NAMESPACE+"updateStatus"+rno,status_code);
 		
 	}
 

@@ -68,9 +68,12 @@
 	 
 	 <!-- 예약 상태 변경 -->
 	 <update id="updateStatus">
-		update tbl_reservation set
-	    status = #{status} 
-	    where rno = #{rno}
+	  update tbl_reservation r
+  		set r.status =
+  		 (select c.status_code, r.status
+          from tbl_reservation_code c, tbl_reservation r
+          where r.status=c.status_code)
+	  where rno = #{rno}
 	 </update>
 
 
