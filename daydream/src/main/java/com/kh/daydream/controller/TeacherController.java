@@ -67,7 +67,7 @@ public class TeacherController<PagingDto> {
 		String user_id = memberVo.getUser_id();
 		TeacherVo teacherVo = new TeacherVo(
 				tno, class_name, price, personnel, target, certificate, introduce, user_id, "N");
-//			System.out.println("TeacherController, teacherRegistRun, filename:" + filename);
+//		    System.out.println("TeacherController, teacherRegistRun, filename:" + filename);
 		System.out.println("TeacherController, teacherRegistRun, teacherVo:" + teacherVo);
 			teacherService.insertTeacher(teacherVo);
 		return "redirect:/teacher/teacher_list";
@@ -95,7 +95,6 @@ public class TeacherController<PagingDto> {
 		model.addAttribute("teacherVo", teacherVo);
 		return "teacher/teacher_modify";
 	}
-
 
 	@RequestMapping(value = "/displayImage", method = RequestMethod.GET)
 	@ResponseBody
@@ -133,6 +132,7 @@ public class TeacherController<PagingDto> {
 		teacherService.updateStatus(tno);
 		return "success";
 	}
+	
 	// 강사 목록
 	@RequestMapping(value = "/statusList", method = RequestMethod.GET)
 	public String statusList(String status, Model model) {
