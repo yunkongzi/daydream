@@ -131,7 +131,7 @@
 <div class="container">
 
   <!-- Full-width images with number text -->
-  <div class="mySlides">
+<div class="mySlides">
     <div class="numbertext">1 / 11</div>
       <img src="/images/class_flower.png" style="width:100%">
   </div>
@@ -230,10 +230,8 @@
     <div class="column">
       <img class="demo cursor" src="/images/class_komboo.png" style="width:100%" onclick="currentSlide(11)" >
     
-     <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
+</div>
 </div>
 <script>
  var slideIndex = 1;
