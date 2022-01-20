@@ -129,7 +129,14 @@ setInterval(function(){
 			</div>
 		</div>
 				
+<<<<<<< HEAD
+				
+				
+				
+			</header>
+=======
 			</header> 
+>>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 		</div>
 	</section>
 
