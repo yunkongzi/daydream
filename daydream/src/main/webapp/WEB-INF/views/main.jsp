@@ -28,18 +28,14 @@
 
 </style>
 
-<!-- <h2 class="w3-center">DAYDREAM</h2> -->
 
-<!-- 		<div class="w3-content w3-section" style="max-width:400px"> -->
-<!-- 			  <img class="mySlides" src="/images/drink.JPG" style="width:100%" height="500" align="center"> -->
-<!-- 			  <img class="mySlides" src="/images/drawing.JPG" style="width:100%" height="500" align="center"> -->
-<!-- 			  <img class="mySlides" src="/images/flower.JPG" style="width:100%" height="500" align="center"> -->
-<!--  		</div> -->
-
-<div class="w3-content w3-section" style="max-width:400px">
-						  <img class="mySlides" src="/images/drink.JPG" style="width:100%" height="400" align="center">
-						  <img class="mySlides" src="/images/drawing.JPG" style="width:100%" height="400" align="center">
-						  <img class="mySlides" src="/images/flower.JPG" style="width:100%" height="400" align="center">
+<div class="w3-content w3-section" style="max-width:2000px">
+						  <img class="mySlides" src="/images/class_calli.png" style="width:1500" height="600" object-fit="cover">
+						  <img class="mySlides" src="/images/class_car.png" style="width:1500" height="600" object-fit="cover">
+						  <img class="mySlides" src="/images/class_cookie.png" style="width:1500" height="600" object-fit="cover">
+						  <img class="mySlides" src="/images/class_flower.png" style="width:1500" height="600" object-fit="cover">
+						  <img class="mySlides" src="/images/class_lipstick.png" style="width:1500" height="600" object-fit="cover">
+						  <img class="mySlides" src="/images/class_marka.png" style="width:1500" height="600" object-fit="cover">
 					 </div>
 
 <script>
@@ -55,7 +51,7 @@ function carousel() {
   myIndex++;
   if (myIndex > x.length) {myIndex = 1}    
   x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 2500); 
+  setTimeout(carousel, 3000); 
 }
 
 
@@ -105,15 +101,6 @@ setInterval(function(){
 						<div class="col-md-2">
 						</div>
 						<div class="col-md-8">
-							<!-- <div id="index_03"> 
-							<div id="header3"></div> 
-								<div id="slide3"> <ul> 
-									<li><img src="/images/drink.JPG" alt="drink"></li> 
-									<li><img src="/images/drawing.JPG" alt="drawing"></li> 
-									<li><img src="/images/flower.JPG" alt="flower"></li> 
-									</ul> 
-							</div> 
-						</div> -->
 						</div>
 						<div class="col-md-2">
 						</div>
@@ -126,10 +113,10 @@ setInterval(function(){
 								<tbody>
 									<tr>
 										<td>
-										<img src="/images/drink.JPG" alt="drink" width="400" height="350">
+										<img src="/images/drink.JPG" alt="drink" width="300" height="250">
 										</td>
 										<td>
-										<img src="/images/flower.JPG" alt="flower" width="400" height="350">
+										<img src="/images/flower.JPG" alt="flower" width="300" height="250">
 										</td>
 									</tr>
 								</tbody>
