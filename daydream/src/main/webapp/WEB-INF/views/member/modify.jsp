@@ -62,7 +62,8 @@
 								<br>
 								<br>
 
-								<button type="submit" class="btn btn-primary">수정 후 재로그인하기</button>
+								<button type="submit" class="btn btn-primary"
+								style="background: #bfa071;">수정 후 재로그인하기</button>
 							</form>
 						</div>
 					</div>

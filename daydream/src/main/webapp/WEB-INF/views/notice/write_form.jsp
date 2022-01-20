@@ -14,7 +14,7 @@
 				<div class="col-md-12" style="margin:0 auto;">
 					<div class="jumbotron" style="margin:0 auto;">
 						<h2>공지사항 양식</h2>
-						<p><button type="button"><a class="btn btn-primary btn-large" href="/notice/list_all">공지사항 목록</a></button></p>
+						<p><button type="button" style="background: #bfa071;"><a class="btn btn-primary btn-large" href="/notice/list_all">공지사항 목록</a></button></p>
 					</div>
 				</div>
 			</div>
@@ -30,11 +30,11 @@
 				
 				<div class="form-group" style="margin:0 auto;">
 					<label for="content">공지 내용</label>
-					<textarea class="form-control" 
+					<textarea rows="5" cols="100" class="form-control" 
 						id="content" name="content"></textarea>
 				</div>
 				
-						<button type="submit" class="btn btn-primary">등록 완료</button>
+						<button type="submit" class="btn btn-primary" style="background: #bfa071;">등록 완료</button>
 					</form>
 				</div>
 			</div>

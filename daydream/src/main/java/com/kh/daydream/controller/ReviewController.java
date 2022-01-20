@@ -110,7 +110,7 @@ public class ReviewController {
 	
 	// 리뷰 수정처리
 	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
-	public String updateReviewRun(ReviewVo reviewVo, PagingDto pagingDto,
+	public String modifyReview(ReviewVo reviewVo, PagingDto pagingDto,
 								  RedirectAttributes rttr) {
 		System.out.println("ReviewController, updateReviewRun, reviewVo:" + reviewVo);
 		System.out.println("ReviewController, updateReviewRun, pagingDto:" + pagingDto);
@@ -131,8 +131,8 @@ public class ReviewController {
 		for (String filename : filenames) {
 			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
 		}
-		rttr.addFlashAttribute("message", "deletd_success");
-		return "review/reviewList_all?page=" + pagingDto.getPage() + 
+		rttr.addFlashAttribute("message", "delete_success");
+		return "redirect:/review/reviewList_all?page=" + pagingDto.getPage() + 
 				"&perPage=" + pagingDto.getPerPage() +
 				"&searchType=" + pagingDto.getSearchType() +
 				"&keyword=" + pagingDto.getKeyword();
