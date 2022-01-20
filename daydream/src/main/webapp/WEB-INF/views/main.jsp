@@ -31,7 +31,8 @@ $(function() {
 			<header>
 				
 				
-				"여기에 내용물을 넣어주세요"
+				
+				
 				
 			</header>
 		</div>
