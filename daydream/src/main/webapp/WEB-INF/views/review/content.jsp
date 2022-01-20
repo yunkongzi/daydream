@@ -37,7 +37,6 @@ $(function() {
 		$(this).fadeOut(500); // hide, slideUp
 	});
 
-
 	//글목록 버튼
 	$("#btnList").click(function(e) {
 		e.preventDefault();
