@@ -30,7 +30,7 @@
 				
 				<div class="form-group" style="margin:0 auto;">
 					<label for="content">공지 내용</label>
-					<textarea class="form-control" 
+					<textarea rows="5" cols="100" class="form-control" 
 						id="content" name="content"></textarea>
 				</div>
 				
