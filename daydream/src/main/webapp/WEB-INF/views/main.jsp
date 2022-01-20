@@ -132,37 +132,58 @@
 
   <!-- Full-width images with number text -->
   <div class="mySlides">
-    <div class="numbertext">1 / 7</div>
+    <div class="numbertext">1 / 11</div>
       <img src="/images/class_flower.png" style="width:100%">
   </div>
-
+  
   <div class="mySlides">
-    <div class="numbertext">2 / 7</div>
-      <img src="/images/class_calli.png" style="width:100%">
+    <div class="numbertext">2 / 11</div>
+      <img src="/images/car1.png" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">3 / 7</div>
+    <div class="numbertext">3 / 11</div>
+      <img src="/images/class_calli.png" style="width:100%">
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">4 / 11</div>
+      <img src="/images/marker.png" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 11</div>
       <img src="/images/class_car.png" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">4 / 7</div>
+    <div class="numbertext">6 / 11</div>
       <img src="/images/class_marka.png" style="width:100%">
   </div>
+  
   <div class="mySlides">
-    <div class="numbertext">5 / 7</div>
-      <img src="/images/class_komboo.png" style="width:100%">
+    <div class="numbertext">7 / 11</div>
+      <img src="/images/class_candle.jpg" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">6 / 7</div>
+    <div class="numbertext">8 / 11</div>
       <img src="/images/class_cookie.png" style="width:100%">
   </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">9 / 11</div>
+      <img src="/images/calli1.png" style="width:100%">
+  </div>
 
   <div class="mySlides">
-    <div class="numbertext">7 / 7</div>
+    <div class="numbertext">10 / 11</div>
       <img src="/images/class_lipstick.png" style="width:100%">
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">11 / 11</div>
+      <img src="/images/class_komboo.png" style="width:100%">
   </div>
 
   <!-- Next and previous buttons -->
@@ -180,23 +201,34 @@
       <img class="demo cursor" src="/images/class_flower.png" style="width:100%" onclick="currentSlide(1)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_calli.png" style="width:100%" onclick="currentSlide(2)">
+      <img class="demo cursor" src="/images/car1.png" style="width:100%" onclick="currentSlide(2)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_car.png" style="width:100%" onclick="currentSlide(3)" >
+      <img class="demo cursor" src="/images/class_calli.png" style="width:100%" onclick="currentSlide(3)">
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_marka.png" style="width:100%" onclick="currentSlide(4)" >
+      <img class="demo cursor" src="/images/marker.png" style="width:100%" onclick="currentSlide(4)">
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_komboo.png" style="width:100%" onclick="currentSlide(5)" >
+      <img class="demo cursor" src="/images/class_car.png" style="width:100%" onclick="currentSlide(5)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_cookie.png" style="width:100%" onclick="currentSlide(6)">
+      <img class="demo cursor" src="/images/class_marka.png" style="width:100%" onclick="currentSlide(6)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_lipstick.png" style="width:100%" onclick="currentSlide(7)" >
+      <img class="demo cursor" src="/images/class_candle.jpg" style="width:100%" onclick="currentSlide(7)" >
     </div>
+    <div class="column">
+      <img class="demo cursor" src="/images/class_cookie.png" style="width:100%" onclick="currentSlide(8)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="/images/calli1.png" style="width:100%" onclick="currentSlide(9)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="/images/class_lipstick.png" style="width:100%" onclick="currentSlide(10)" >
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="/images/class_komboo.png" style="width:100%" onclick="currentSlide(11)" >
     
      <!-- Next and previous buttons -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
