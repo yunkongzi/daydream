@@ -16,6 +16,7 @@ import com.kh.daydream.vo.ReservationListVo;
 
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
+import com.kh.daydream.vo.StatusVo;
 
 @Service
 public class ReservationService {
@@ -40,11 +41,10 @@ public class ReservationService {
 		List<ReservationListVo> list = reservationDao.selectAll();
 		return list;
 	}
-	//예약조회
-	public ProgramVo selectByClassNo(int rno) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	//예약조회
+//	public ProgramVo selectByClassNo(int rno) {
+//		return null;
+//	}
 /*	//예약 수정
 	public void updateReservation(ReservationListVo reservationListVo) {
 		reservationDao.updateReservation(reservationListVo);
@@ -55,8 +55,17 @@ public class ReservationService {
 		reservationDao.deleteReservation(rno);
 		
 	}
+	
+	// 상태 코드 리스트
+	public List<StatusVo> statusList() {
+		return reservationDao.statusList();
+	}
+	
+	public void updateStatus(ReservationVo reservationVo) {
+		reservationDao.updateStatus(reservationVo);
+	}
 
 	
 
-
+	
 }

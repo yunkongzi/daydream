@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.daydream.vo.ReservationListVo;
 import com.kh.daydream.vo.ReservationTimeVo;
 import com.kh.daydream.vo.ReservationVo;
+import com.kh.daydream.vo.StatusVo;
 
 @Repository
 public class ReservationDao {
@@ -54,8 +55,15 @@ public class ReservationDao {
 		sqlSession.delete(NAMESPACE+"deleteReservation", rno);
 		return;
 	}
+	
+	// 상태 코드 리스트
+	public List<StatusVo> statusList() {
+		return sqlSession.selectList(NAMESPACE+"statusList");
+	}
 
-
-
+	public void updateStatus(ReservationVo reservationVo) {
+		sqlSession.update(NAMESPACE+"updateStatus", reservationVo);
+		
+	}
 
 }
