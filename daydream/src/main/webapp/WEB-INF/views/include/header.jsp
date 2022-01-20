@@ -43,25 +43,30 @@ select {
 				<nav id="nav">
 					<ul>
 
-						<li><a href="/company/introduction"><span>데이드림</span></a>
+						<li><a href="/company/introduction">
+							<img src="/images/daydream.jpg" style="width:100px;" height="40px;"></a>
 										<ul>
 											<li><a href="/company/introduction">데이드림 소개</a></li>
 											<li><a href="/company/road">오시는 길</a></li>
 										</ul></li>
-						<li><a href="/program_intro"><span>프로그램/예약</span></a></li>
-						<li><a href="/review/reviewList_all"><span>수강후기</span></a></li>
-						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>
-						<li><a href="/notice/list_all"><span>공지사항</span></a></li>
+						<li><a href="/program_intro">
+							<img src="/images/program.jpg" style="width:100px;" height="40px;"></a></li>
+						<li><a href="/review/reviewList_all">
+							<img src="/images/review.jpg" style="width:100px;" height="35px;"></a></li>
+						<li><a href="/teacher/teacher_regist">
+							<img src="/images/teacher.jpg" style="width:100px;" height="35px;"></a></li>
+						<li><a href="/notice/list_all">
+							<img src="/images/notice.jpg" style="width:100px;" height="35px;"></a></li>
 					</ul>
 				</nav>
 
 
-				<hr>
+			
 				<div class="nav-item" style="padding-top: 20px;">
 					<h1 id="logo">
-						<a href="/main">DAYDREAM</a>
+						<a href="/main"><img src="/images/logo.jpg" style="width:800px;" height="160px;"></a>
 					</h1>
-					<p>One Day, One Dream</p>
+					
 					
 					<c:set var="id" value="${sessionScope.memberVo.user_id}"/>
 
@@ -70,9 +75,10 @@ select {
 							<br>
 							<br>
 							<br>
-							<button type="button" onclick="location.href='/member/login'">로그인</button>
-							<button type="button"
-								onclick="location.href='/member/member_regist'">회원가입</button>
+							<a href="/member/login"><img src="/images/btnlogin.jpg" 
+								style="width:120px;" height="55px;"></a>
+							<a href="/member/member_regist"><img src="/images/btnregist.jpg" 
+								style="width:120px;" height="55px;"></a>
 						</c:when>
 						
 						<c:when test="${id eq 'kongzi'}">
