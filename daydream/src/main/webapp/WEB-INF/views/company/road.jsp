@@ -3,16 +3,23 @@
 <%@ page session="false" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
+
 <head>
 	<title>데이드림 오시는길</title>
 </head>
+<style>
+	h1 {
+	  color: white;
+	  text-shadow: 2px 2px 4px #000000;
+	}
+</style>
 <body>
 <section id="features">
 											
 <div class="container-fluid" style="margin:0 auto;">
 <h1  style="font-size:30px;">
 	오시는길
-</h1>
+</h1><br>
 
 <p align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.7547132686295!2d129.30870435112865!3d35.53505874548436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35662d66cf9ecfaf%3A0x2d8f16207dd9335b!2zKOyjvCnsmrjsgrBLSOygleuztOq1kOycoeybkA!5e0!3m2!1sko!2skr!4v1641450794832!5m2!1sko!2skr"
  width="854" height="528" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
