@@ -118,14 +118,14 @@ $(function() {
 							</td>
 							<td>${teacherMemberVo.introduce}</td>
 							<!-- 		<div style="clear:both"></div> -->
-							<td><button type="button" class="btn btn-warning btnModify"
-									data-tno="${teacherMemberVo.tno}">수정</button></td>
-							<td><button type="button" class="btn btn-info btnDelete"
-								 data-tno="${teacherMemberVo.tno}">삭제</button></td>
+							<td><button type="button" class="btn btn-sm btnModify"
+									data-tno="${teacherMemberVo.tno}" style="background: #bfa071;">수정</button></td>
+							<td><button type="button" class="btn btn-sm btnDelete"
+								 data-tno="${teacherMemberVo.tno}" style="background: #bfa071;">삭제</button></td>
 							<td>
 							<c:if test="${teacherMemberVo.status == 'N'}">
-							<button type="button" class="btn btn-primary btnStatus"
-								 data-tno="${teacherMemberVo.tno}">수락</button>
+							<button type="button" class="btn btn-sm btnStatus"
+								 data-tno="${teacherMemberVo.tno}" style="background: #bfa071;">수락</button>
 							</c:if>
 							</td>							
 						</tr>

@@ -34,6 +34,23 @@ $(function() {
   padding: 50px;
   margin: 20px;
 }
+
+.btn-primary {
+  width: 200px;
+  height: 80px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+h2 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
 </style>
 </head>
 <body>
