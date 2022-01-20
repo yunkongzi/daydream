@@ -22,15 +22,15 @@ $(function() {
 	$("#btnDelete").click(function() {
 		var bno = $(this).attr("data-bno");
 		console.log("bno:", bno);
-		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
-		$("#frmPaging").append(input_bno);
+// 		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
+// 		$("#frmPaging").append(input_bno);
 		$("#frmPaging > input[name=bno]").val(bno);
 		$("#frmPaging").attr("action", "/review/deleteReview");
 		$("#frmPaging").submit();
 	});
 	// 수정 버튼
 	$("#btnModify").click(function() {
-		console.log($(".modify"));
+// 		console.log($(".modify"));
 // 		class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
 		$(".modify").prop("readonly", false);
 		$("#btnModifyOk").fadeIn(500); // show, slideDown
