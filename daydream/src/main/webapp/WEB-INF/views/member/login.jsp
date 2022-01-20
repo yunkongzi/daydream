@@ -55,10 +55,10 @@ $(function() {
 						id="user_pw" name="user_pw" required/>
 				</div><br><br><br>
 				
-				<button type="submit" id="btnLogin">로그인</button><br><br>
+				<button type="submit" id="btnLogin" style="background: #bfa071;">로그인</button><br><br>
 				
 				<button type="button" id="btnRegist"
-				onclick="location.href='/member/member_regist'">회원가입</button><br><br>
+				onclick="location.href='/member/member_regist'" style="background: #bfa071;">회원가입</button><br><br>
 
 				
 			</form>
