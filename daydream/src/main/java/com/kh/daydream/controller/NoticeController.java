@@ -68,7 +68,6 @@ public class NoticeController {
 	public String updateNoticeRun(NoticeVo noticeVo) {
 		System.out.println("NoticeController, updateNoticeRun, noticeVo: " + noticeVo);
 		noticeService.updateNotice(noticeVo);
-		
 		return "redirect:/notice/list_all";
 	}
 	
