@@ -59,6 +59,19 @@
 	 	delete from tbl_reservation
 	 	where rno = #{rno}
 	 </delete>
+	 
+	 <!-- 상태 리스트 -->
+	 <select id="statusList" resultType="StatusVo">
+	 	select * from tbl_reservation_code
+	 	order by status_code
+	 </select>
+	 
+	 <!-- 예약 상태 변경 -->
+	 <update id="updateStatus">
+		update tbl_reservation set
+	    status = #{status} 
+	    where rno = #{rno}
+	 </update>
 
 
 </mapper>

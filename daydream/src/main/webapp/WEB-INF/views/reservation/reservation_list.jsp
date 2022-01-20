@@ -35,6 +35,23 @@ $(".btnModify").click(function() {
 		alert("취소가 완료되었습니다.");
 	});
 	
+	//예약확인 버튼 누를시 상태 예약완료로 변경
+	$(".btnOk").click(function(){
+		var rno = $(this).attr("data-rno");
+		console.log(rno);
+		var status_code = $(this).parent().prev().find(".select_status").val();
+		console.log("status_code:" + status_code);
+		var url ="/reservation/change_status";
+		var sendData = {
+				"rno" : rno,
+				"status_code" : status_code
+		};
+		$.get(url, sendData, function(receivedData) {
+			console.log(receivedData);
+		});
+		alert("예약 상태가 변경되었습니다.");
+	});
+	
 });	
 </script>
 <body>
@@ -59,30 +76,44 @@ $(".btnModify").click(function() {
 								<th>예약 시간</th>
 								<th>예약 인원수</th>
 								<th>상태</th>
+								<th>예약확인</th>
 								<th>수정</th>
 								<th>삭제</th>
-								<th>예약확인</th>
 						</tr>
 						</thead>
 						<tbody>
 						
-						<c:forEach items="${list}" var="ReservationListVo" >
+						<c:forEach items="${list}" var="reservationListVo" >
 							<tr>
 
-								<td>${ReservationListVo.rno}</td>
-								<td>${ReservationListVo.user_id}</td>
-								<td>${ReservationListVo.user_name}</td>
-								<td>${ReservationListVo.user_phone}</td>
-								<td>${ReservationListVo.class_name}</td>
-								<td>${ReservationListVo.res_date}</td>
-								<td>${ReservationListVo.time_no}(${ReservationListVo.time_start}~${ReservationListVo.time_end}시)</td>
-								<td>${ReservationListVo.count}명</td>
-								<td>${ReservationListVo.status_name}</td>
+								<td>${reservationListVo.rno}</td>
+								<td>${reservationListVo.user_id}</td>
+								<td>${reservationListVo.user_name}</td>
+								<td>${reservationListVo.user_phone}</td>
+								<td>${reservationListVo.class_name}</td>
+								<td>${reservationListVo.res_date}</td>
+								<td>${reservationListVo.time_no}(${reservationListVo.time_start}~${ReservationListVo.time_end}시)</td>
+								<td>${reservationListVo.count}명</td>
+								<td>
+									<select class="select_status">
+										<c:forEach items="${statusList}" var="statusVo">
+											<option value="${statusVo.status_code}"
+												<c:if test="${reservationListVo.status_name == statusVo.status_name}">
+													selected
+												</c:if>
+											>${statusVo.status_name}</option>
+										</c:forEach>
+										
+										
+									</select>
+								
+								${ReservationListVo.status_name}</td>
+								<td><button type="button" class="btn btn-info btnOk" data-rno="${reservationListVo.rno}">상태변경</button></td>
 								<td><button type="button" class="btn btn-warning btnModify"
 									data-rno="${reservationListVo.rno}">수정</button></td>
 								<td><button type="button" class="btn btn-info btnDelete"
-									 data-rno="${ReservationListVo.rno}">삭제</button></td>
-								<td><button type="button" class="btn btn-info btnOk">예약확인</button></td>
+									 data-rno="${reservationListVo.rno}">삭제</button></td>
+								
 							</tr>
 						</c:forEach>
 						</tbody>
