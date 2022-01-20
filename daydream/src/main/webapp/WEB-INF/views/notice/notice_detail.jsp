@@ -28,11 +28,11 @@
 				
 				<div class="form-group" style="margin:0 auto;">
 					<label for="content">공지 내용</label>
-					<textarea readonly="readonly" class="form-control" 
+					<textarea rows="5" cols="100" readonly="readonly" class="form-control" 
 						id="content" name="content">${noticeVo.content}</textarea>
 				</div>
 				
-						<button type="submit"><a class="btn btn-success" 
+						<button type="submit" style="background: #bfa071;"><a class="btn btn-success" 
 							href="/notice/list_all">공지사항 목록</a></button>
 					</form>
 				</div>

@@ -80,8 +80,8 @@ $(function() {
 <div>
 		<div class="jumbotron">
 			<h2>강사 리스트</h2>
-			<a href="/teacher/statusList?status=Y" class="btn btn-sm statusList">채용강사 보기</a>
-			<a href="/teacher/statusList?status=N" class="btn btn-sm statusList">신청중인 강사 보기</a>
+			<a href="/teacher/statusList?status=Y" class="btn btn-success statusList" style="background: #bfa071;">채용강사 보기</a>
+			<a href="/teacher/statusList?status=N" class="btn btn-link statusList" style="background: #bfa071;">신청중인 강사 보기</a>
 		</div>
 		<div style="margin: 0 auto">
 			<table class="table">
@@ -118,14 +118,14 @@ $(function() {
 							</td>
 							<td>${teacherMemberVo.introduce}</td>
 							<!-- 		<div style="clear:both"></div> -->
-							<td><button type="button" class="btn btn-warning btnModify"
-									data-tno="${teacherMemberVo.tno}">수정</button></td>
-							<td><button type="button" class="btn btn-info btnDelete"
-								 data-tno="${teacherMemberVo.tno}">삭제</button></td>
+							<td><button type="button" class="btn btn-sm btnModify"
+									data-tno="${teacherMemberVo.tno}" style="background: #bfa071;">수정</button></td>
+							<td><button type="button" class="btn btn-sm btnDelete"
+								 data-tno="${teacherMemberVo.tno}" style="background: #bfa071;">삭제</button></td>
 							<td>
 							<c:if test="${teacherMemberVo.status == 'N'}">
-							<button type="button" class="btn btn-primary btnStatus"
-								 data-tno="${teacherMemberVo.tno}">수락</button>
+							<button type="button" class="btn btn-sm btnStatus"
+								 data-tno="${teacherMemberVo.tno}" style="background: #bfa071;">수락</button>
 							</c:if>
 							</td>							
 						</tr>

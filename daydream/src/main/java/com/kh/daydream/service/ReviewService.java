@@ -59,18 +59,14 @@ public class ReviewService {
 		reviewDao.deleteReview(bno); // 리뷰글 삭제
 		return filenames;
 	}
-	
+	//수정처리
 	public void modifyReview(ReviewVo reviewVo) {
-		reviewDao.modifyReveiw(reviewVo);
+		reviewDao.modifyReview(reviewVo);
 	}
 	
 	public int getCount(PagingDto pagingDto) {
 		int count = reviewDao.getCount(pagingDto);
 		return count;
-	}
-	// 리뷰 정보 수정
-	public void updateReview(ReviewVo reviewVo) {
-		reviewDao.updateReview(reviewVo);
 	}
 	
 	// 리뷰 리스트 

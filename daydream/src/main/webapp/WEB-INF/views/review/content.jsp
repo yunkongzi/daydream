@@ -30,7 +30,7 @@ $(function() {
 	});
 	// 수정 버튼
 	$("#btnModify").click(function() {
-// 		console.log($(".modify"));
+		console.log($(".modify"));
 // 		class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
 		$(".modify").prop("readonly", false);
 		$("#btnModifyOk").fadeIn(500); // show, slideDown

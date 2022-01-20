@@ -19,7 +19,7 @@ $(function() {
 	if (message == "regist_success") {
 		alert("글 등록이 완료 되었습니다.");
 	} else if (message == "delete_success") {
-		alert("글 삭제가 완료 되어습니다.");
+		alert("글 삭제가 완료 되었습니다.");
 	}
 
 	// 페이지 번호
@@ -73,11 +73,11 @@ $(function() {
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2>
-					리뷰 목록
+					후기 목록
 				</h2>
 				
 				<p>
-					<a class="btn btn-primary btn-large" href="/member/mypage">마이페이지(리뷰 등록)</a>
+					<a class="btn btn-primary btn-large" href="/member/mypage">마이페이지(후기 등록)</a>
 				</p>
 			</div>
 		</div>
