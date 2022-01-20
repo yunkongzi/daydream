@@ -62,6 +62,8 @@
 											<td>${MyReservationVo.program_time}교시</td>
 											<td>${MyReservationVo.count}명</td>
 											<td>${MyReservationVo.status_name}</td>
+											
+											
 
 											<td><button type="button"
 													onclick="location.href='/review/review_regist?class_no=${MyReservationVo.class_no}'">후기작성</button></td>
@@ -85,6 +87,9 @@
 							<div class="jumbotron">
 								<h5>【작성하신 후기가 여기 있어요】</h5>
 								후기후기후기후기
+								
+								
+								
 
 							</div>
 							<br>
@@ -94,6 +99,59 @@
 							<div class="jumbotron">
 								<h5>【강사 지원 하셨나요?】</h5>
 								강사 지원 내용
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								<table class="table">
+				<thead>
+					<tr>
+						<th>강사번호</th>
+						<th>강의명</th>
+						<th>자기소개</th>
+						<th>수정</th>
+						<th>삭제</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+				${list}
+					<c:forEach items="${list}" var="teacherVo">
+						<tr>
+							<td>${teacherVo.tno}</td>
+							<td>${teacherVo.class_name}</td>
+							<td>${teacherVo.introduce}</td>
+							<td><button type="button" class="btn btn-warning btnModify"
+									data-tno="${teacherVo.tno}">수정</button></td>
+							<td><button type="button" class="btn btn-info btnDelete"
+								 data-tno="${teacherVo.tno}">삭제</button></td>
+							
+							
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
 
 							</div>
 							<br>
