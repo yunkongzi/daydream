@@ -32,7 +32,6 @@
 		location.href = "/notice/notice_detail?bno=" + bno;
 	});
 });
-
 </script>
 <body>
 <div class="row" style="margin:0 auto;">
