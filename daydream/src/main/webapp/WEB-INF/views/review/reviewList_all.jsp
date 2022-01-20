@@ -78,6 +78,7 @@ $(function() {
 				
 				<p>
 					<a class="btn btn-primary btn-large" href="/member/mypage">마이페이지(후기 등록)</a>
+					<a class="btn btn-primary btn-large" href="/main">메인으로 가기</a>
 				</p>
 			</div>
 		</div>

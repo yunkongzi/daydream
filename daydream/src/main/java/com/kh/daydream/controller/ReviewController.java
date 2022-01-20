@@ -131,8 +131,8 @@ public class ReviewController {
 		for (String filename : filenames) {
 			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
 		}
-		rttr.addFlashAttribute("message", "deletd_success");
-		return "review/reviewList_all?page=" + pagingDto.getPage() + 
+		rttr.addFlashAttribute("message", "delete_success");
+		return "redirect:/review/reviewList_all?page=" + pagingDto.getPage() + 
 				"&perPage=" + pagingDto.getPerPage() +
 				"&searchType=" + pagingDto.getSearchType() +
 				"&keyword=" + pagingDto.getKeyword();

@@ -35,7 +35,7 @@ $(".btnModify").click(function() {
 		alert("취소가 완료되었습니다.");
 	});
 	
-	//예약확인 버튼 누를시 상태 예약완료로 변경
+	//예약확인 버튼 누를시 상태 예약완료,수업완료로 변경
 	$(".btnOk").click(function(){
 		var rno = $(this).attr("data-rno");
 		console.log(rno);
@@ -48,8 +48,9 @@ $(".btnModify").click(function() {
 		};
 		$.get(url, sendData, function(receivedData) {
 			console.log(receivedData);
+				alert("예약상태가 변경되었습니다.");
 		});
-		alert("예약 상태가 변경되었습니다.");
+		
 	});
 	
 });	
