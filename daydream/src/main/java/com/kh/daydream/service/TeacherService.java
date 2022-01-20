@@ -24,25 +24,20 @@ public class TeacherService {
 		public TeacherVo selectByTno(String tno) {
 			TeacherVo teacherVo = teacherDao.selectByTno(tno);
 			return teacherVo;
-		}
-	
+		}	
 	// 모든 강사 조회
 	public List<TeacherVo> selectAll() {
 		List<TeacherVo> list = teacherDao.selectAll();
 		return list;
-	}
-	
+	}	
 	// 강사정보 수정
 	public void updateTeacher(TeacherVo teacherVo) {
-		teacherDao.updateTeacher(teacherVo);
-		
-	}
-	
+		teacherDao.updateTeacher(teacherVo);		
+	}	
 	// 강사 정보 삭제
 	public void deleteTeacher(String tno) {
 		teacherDao.deleteTeacher(tno);
-	}
-	
+	}	
 	//수락
 	public void updateStatus(String tno) {
 		teacherDao.updateStatus(tno);
