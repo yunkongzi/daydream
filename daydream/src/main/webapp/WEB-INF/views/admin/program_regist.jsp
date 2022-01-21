@@ -170,12 +170,12 @@ $(function() {
 							</div>
 							
 							
-							<button type="submit" class="btn btn-primary btnProgramReg">
+							<button type="submit" class="btn btnProgramReg" style="background: #bfa071;">
 								등록</button>
-							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">
+							<a class="btn btnAdminMain" href="/admin/admin_main" style="background: #bfa071;">
 								관리자 메인 화면
 							</a>
-							<a class="btn btn-secondary btnProList" href="/admin/program_list">
+							<a class="btn btnProList" href="/admin/program_list" style="background: #bfa071;">
 								프로그램 목록보기
 							</a>
 						</form>

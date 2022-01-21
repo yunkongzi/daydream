@@ -51,9 +51,11 @@ $(function() {
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<h2 style="text-align:center;">등록된 프로그램 </h2>
-				<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist">
+				<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist"
+					style="background: #bfa071;">
 										새로운 프로그램 등록</a>
-									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/admin_main">
+									<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/admin_main"
+										style="background: #bfa071;">
 										관리자 메인</a>
 			</div>
 			<div class="row">
@@ -61,7 +63,7 @@ $(function() {
 					<form id="viewForm" name="viewForm" >
 					<table class="table table-bordered">
 						<thead>
-							<tr>
+							<tr style="background: #bfa071;">
 								<th>클래스명</th>
 								<th>가격</th>
 								<th>클래스 대상</th>
@@ -104,10 +106,10 @@ $(function() {
 								</c:forEach>
 								
 								</td>
-								<td><a class="btn btn-outline-info btnModify"
-										href="/admin/program_modify" data-class_no="${programVo.class_no}">수정</a></td>
-								<td><a class="btn btn-outline-danger btnDelete"
-										data-class_no="${programVo.class_no}">삭제</a></td>
+								<td><a class="btn btnModify"
+										href="/admin/program_modify" data-class_no="${programVo.class_no}" style="background: #bfa071;">수정</a></td>
+								<td><a class="btn btnDelete"
+										data-class_no="${programVo.class_no}" style="background: #bfa071;">삭제</a></td>
 							</tr>
 						</c:forEach>
 						</tbody>

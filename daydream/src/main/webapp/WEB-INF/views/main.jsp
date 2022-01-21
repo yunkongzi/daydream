@@ -113,6 +113,18 @@
   opacity: 1;
 }
 
+/* .product .img-responsive {
+    margin: 0 auto;
+}
+ */
+ 
+.flower {
+	float: right;
+}
+
+.kombu {
+	float: left;
+}
 
 </style>
 
@@ -316,9 +328,24 @@ $(function() {
 	<section id="features">
 		<div class="container" style="margin: 0 auto;">
 			<header> 
-				
+		 		
+		<!-- 
+			<img src="/images/flower2.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/flower4.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/flower5.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/flower3.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
 
-		<div class="container-fluid">
+			<img src="/images/drawing6.jpeg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/drawing7.jpg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/drawing5.jpg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/drawing4.jpeg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			
+			<img src="/images/kombu1.gif" style="float: left; margin-right:10px;" alt="flower" width="350" height="250">
+			<img src="/images/kombu3.gif" style="float: left; margin-right:10px;" alt="flower" width="350" height="250">
+			<img src="/images/kombu4.png" style="float: left; margin-right:10px;" alt="flower" width="350" height="250">
+		 -->
+				
+					<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="row">
@@ -330,35 +357,99 @@ $(function() {
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-0">
 						</div>
-						<div class="col-md-8">
-							<table class="table table-hover">
+						<div class="col-md-12">
+							<table class="table table-hover flower" 
+									onclick="location.href='/program_detail?class_no=60'">
 								<tbody>
 									<tr>
+										
 										<td>
-										<img src="/images/flower2.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower2.gif" alt="flower" width="280" height="200">
 										</td>
 										<td>
-										<img src="/images/flower4.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower4.gif" alt="flower" width="280" height="200">
 										</td>
 										<td>
-										<img src="/images/flower5.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower5.gif" alt="flower" width="280" height="200">
 										</td>
 										<td>
-										<img src="/images/flower3.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower3.gif" alt="flower" width="280" height="200">
 										</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
 									</tr>
+									</tbody>
+								</table>
+								
+								<table class="table table-hover drawing" 
+										onclick="location.href='/program_detail?class_no=64'">
+								<tbody>
+									<tr>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+									 <td>
+										<img src="/images/drawing6.jpeg"  alt="drawing" width="280" height="200">
+									</td> 
+									<td>
+										<img src="/images/drawing7.jpg"  alt="drawing" width="280" height="200">
+									</td>
+									<td>
+										<img src="/images/drawing5.jpg"  alt="drawing" width="280" height="200">
+									</td>
+									<td>
+										<img src="/images/drawing4.jpeg"  alt="drawing" width="280" height="200">
+									</td>
+									</tr>
+									</tbody>
+							</table>
+							
+							<table class="table table-hover kombu" 
+									onclick="location.href='/program_detail?class_no=62'">
+								<tbody>
+									 <tr>
+										<td>
+										<img src="/images/kombu2.gif" alt="kombu" width="280"  height="200">
+										</td>
+										<td>
+										<img src="/images/kombu3.gif" alt="kombu" width="280" height="200">
+										</td>
+										<td>
+										<img src="/images/kombu5.gif" alt="kombu" width="280" height="200">
+										</td>
+										<td>
+										<img src="/images/kombu6.gif" alt="kombu" width="280" height="200">
+										</td>
+										
+									</tr> 
 								</tbody>
 							</table>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-0">
+						
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-				
 				
 			</header>
 		</div>
