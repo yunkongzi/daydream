@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/include/header.jsp"%> --%>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">													
@@ -46,6 +46,31 @@ $(function() {
 });
 </script>
 
+<style>
+.pagination {
+  display: inline-block;
+  
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+</style>
+
 
 <div class="row">
 	<div class="col-md-12">
@@ -82,6 +107,7 @@ $(function() {
 			<h2>강사 리스트</h2>
 			<a href="/teacher/statusList?status=Y" class="btn btn-success statusList" style="background: #bfa071;">채용강사 보기</a>
 			<a href="/teacher/statusList?status=N" class="btn btn-link statusList" style="background: #bfa071;">신청중인 강사 보기</a>
+			<a href="/admin/admin_main" class="btn btn-success admin_main" style="background: #bfa071;">관리자 메인</a>
 		</div>
 		<div style="margin: 0 auto">
 			<table class="table">
@@ -134,7 +160,16 @@ $(function() {
 			</table>
 		</div>
 	</div>
-</div>          
+	<div class="pagination" style="margin: 0 auto">
+	  <a href="#">&laquo;</a>
+	  <a href="#">1</a>
+	  <a href="#" class="active">2</a>
+	  <a href="#">3</a>
+	  <a href="#">4</a>
+	  <a href="#">5</a> 
+	  <a href="#">&raquo;</a>
+</div>    
+</div>     
 </body>
 </html>
 

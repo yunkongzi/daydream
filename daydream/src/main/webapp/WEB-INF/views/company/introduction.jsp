@@ -51,7 +51,12 @@ function carousel() {
   setTimeout(carousel, 950); 
 }
 </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
 <body>
+
 <section id="features">
 <div class="container-fluid" style="margin:0 auto;">
 
@@ -66,6 +71,12 @@ function carousel() {
  부업정보 등 개성 탐구와 능력 향상을 위해 노력하며 즐거운 <br>
  삶을 지향하는 장으로 강사와 회원여러분이 함께 참여하여 만들어<br>
  가도록 노력하겠습니다. 감사합니다.</p>
+
+<i class="fas fa-cloud"></i>
+<i class="fas fa-heart"></i>
+<i class="fas fa-car"></i>
+<i class="fas fa-file"></i>
+<i class="fas fa-bars"></i>
 
 </div>
 </section>
