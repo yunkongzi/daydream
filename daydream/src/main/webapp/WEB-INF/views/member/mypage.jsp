@@ -145,6 +145,7 @@ $(function() {
 							
 							<div class="jumbotron">
 								<h5>【강사 지원 하셨나요?】</h5>
+								
 								<table>
 									<td>[글번호]</td>
 									<td>[클래스이름]</td>
