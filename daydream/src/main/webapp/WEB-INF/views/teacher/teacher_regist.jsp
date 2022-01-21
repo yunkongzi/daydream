@@ -110,7 +110,7 @@ h2 {
 				</div>				
 				<button type="submit" class="btn btn-primary" style="background: #bfa071;">등록완료</button>				
 			</form><br>		
-		<div align="center">
+		   <div align="center">
 			<i class="fas fa-cloud"></i>
 			<i class="fas fa-heart"></i>
 			<i class="fas fa-car"></i>
