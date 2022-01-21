@@ -83,7 +83,7 @@
 				</tbody>
 			</table>
 		</div> 
-		<div class="pagination" align="center">
+		<div class="pagination" align="center" style="margin: 0 auto">
 		  <a href="#">&laquo;</a>
 		  <a href="#">1</a>
 		  <a href="#" class="active">2</a>
