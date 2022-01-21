@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
- <meta charset="UTF-8">
-    <title></title>
     
 <meta name="viewport" content="width=device-width, initial-scale=1">													
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
@@ -12,16 +10,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>													
 
+</script>
+
+
 		<div class="jumbotron">
 		<c:choose>
-		<c:when test="${param.status == 'Y' }">
+		<c:when test="${param.status == 'Y'}">
 			<h2>채용강사 리스트</h2>	
 		</c:when>
 		<c:otherwise>
 			<h2>신청중인 강사 리스트</h2>	
 		</c:otherwise>
 		</c:choose>		
-		<a class="btn btn-sm statusList" href="/teacher/teacher_list">
+		<a class="btn btn-sm statusList" href="/teacher/teacher_list" style="background: #bfa071;">
 			강사목록 보기
 		</a>							
 		</div>
@@ -54,7 +55,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>   
+		</div>      
 </body>
 </html>
 

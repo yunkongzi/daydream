@@ -103,7 +103,7 @@ $(function() {
 
 <body>
 
-<%@ include file="/WEB-INF/views/review/paging_form.jsp" %>
+
 
 <div class="container-fluid">
 	<div class="row">
@@ -111,13 +111,14 @@ $(function() {
 			<div class="jumbotron">
 				<h2>리뷰 상세보기</h2>
 				<p>
-					<a class="btn btn-primary btn-large" id="btnList"
+					<a class="btn btn-primary btn-large"
 					href="/review/reviewList_all">후기 목록</a>
 				</p>
 			</div>
 		</div>
 	</div>
 	<form role="form" action="/review/modify_run" method="post">
+	
 	<div class="row">
 		<div class="col-md-12">
 			
