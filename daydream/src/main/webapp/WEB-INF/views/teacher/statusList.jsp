@@ -12,16 +12,44 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>													
 
+</script>
+
+<style>
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+</style>
+
+
+
 		<div class="jumbotron">
 		<c:choose>
-		<c:when test="${param.status == 'Y' }">
+		<c:when test="${param.status == 'Y'}">
 			<h2>채용강사 리스트</h2>	
 		</c:when>
 		<c:otherwise>
 			<h2>신청중인 강사 리스트</h2>	
 		</c:otherwise>
 		</c:choose>		
-		<a class="btn btn-sm statusList" href="/teacher/teacher_list">
+		<a class="btn btn-sm statusList" href="/teacher/teacher_list" style="background: #bfa071;">
 			강사목록 보기
 		</a>							
 		</div>
@@ -54,7 +82,16 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>   
+		</div> 
+		<div class="pagination" align="center">
+		  <a href="#">&laquo;</a>
+		  <a href="#">1</a>
+		  <a href="#" class="active">2</a>
+		  <a href="#">3</a>
+		  <a href="#">4</a>
+		  <a href="#">5</a> 
+		  <a href="#">&raquo;</a>
+		</div>       
 </body>
 </html>
 

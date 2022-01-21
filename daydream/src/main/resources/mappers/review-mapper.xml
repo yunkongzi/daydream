@@ -54,7 +54,8 @@
 		<update id="modifyReview">
 			update tbl_review set
 				title = #{title},
-				content = #{content}
+				content = #{content},
+				star_count = #{star_count}
 			where bno = #{bno}
 		</update>
 	<!-- 첨부파일 추가 -->

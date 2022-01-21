@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 <title>강사등록</title>
 <script src="/js/myscript.js"></script>
 
@@ -26,6 +29,9 @@ $(function() {
 }); // $(function)
 		
 </script>
+
+
+
 <style>
 .container-fluid {
   background-color: #fffee5;
@@ -103,8 +109,15 @@ h2 {
 						id="introduce" name="introduce"></textarea>
 				</div>				
 				<button type="submit" class="btn btn-primary" style="background: #bfa071;">등록완료</button>				
-			</form>
+			</form><br>		
+		<div align="center">
+			<i class="fas fa-cloud"></i>
+			<i class="fas fa-heart"></i>
+			<i class="fas fa-car"></i>
+			<i class="fas fa-file"></i>
+			<i class="fas fa-bars"></i>
 		</div>
+		</div>		
 	</div>
 </div>
 </div>	
