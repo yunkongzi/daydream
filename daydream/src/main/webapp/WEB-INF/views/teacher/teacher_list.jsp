@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <%@ include file="/WEB-INF/views/include/header.jsp"%> --%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">													
@@ -93,8 +93,8 @@ $(function() {
 						<th>금액</th>
 						<th>인원</th>
 						<th>참가대상</th>
-						<th>자격증파일</th>
-						<th>자기소개</th>
+						<th>사진&자격증파일</th>
+						<th>수업설명</th>
 						<th>수정</th>
 						<th>삭제</th>
 						<th>수락</th>

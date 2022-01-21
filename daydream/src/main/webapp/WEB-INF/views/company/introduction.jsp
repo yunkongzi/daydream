@@ -22,7 +22,7 @@
 	
 	p {
 	font-family: Tahoma, Verdana, sans-serif;
-	font-size: 15px; letter-spacing: 3px;
+	font-size: 16px; letter-spacing: 3px;
 	}
 	
 </style>

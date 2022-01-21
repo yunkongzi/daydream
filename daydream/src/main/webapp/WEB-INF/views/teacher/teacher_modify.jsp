@@ -166,8 +166,8 @@ $(function() {
 				<button type="submit" class="btn btn-primary">
 					수정 완료
 				</button>			
-		</div>
-		</form>		
+				</div>
+			</form>		
 		</div>
 	</section>
 </body>

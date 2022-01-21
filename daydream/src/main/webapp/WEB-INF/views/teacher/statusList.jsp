@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
- <meta charset="UTF-8">
-    <title></title>
     
 <meta name="viewport" content="width=device-width, initial-scale=1">													
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">													
@@ -13,31 +11,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>													
 
 </script>
-
-<style>
-.pagination {
-  display: inline-block;
-}
-
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 5px;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
-}
-</style>
-
 
 
 		<div class="jumbotron">
@@ -82,16 +55,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		</div> 
-		<div class="pagination" align="center" style="margin: 0 auto">
-		  <a href="#">&laquo;</a>
-		  <a href="#">1</a>
-		  <a href="#" class="active">2</a>
-		  <a href="#">3</a>
-		  <a href="#">4</a>
-		  <a href="#">5</a> 
-		  <a href="#">&raquo;</a>
-		</div>       
+		</div>      
 </body>
 </html>
 
