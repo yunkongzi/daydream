@@ -68,9 +68,9 @@
 	 
 	 <!-- 예약 상태 변경 -->
 	 <update id="updateStatus">
-		update tbl_reservation set
-	    status = #{status} 
-	    where rno = #{rno}
+	  	update tbl_reservation set
+		    status = #{status_code}
+		where rno = #{rno}
 	 </update>
 
 

@@ -50,7 +50,7 @@ select {
 											<li><a href="/company/road">오시는 길</a></li>
 										</ul></li>
 						<li><a href="/program_intro">
-							<img src="/images/program.jpg" style="width:100px;" height="45px;"></a></li>
+							<img src="/images/program.jpg" style="width:150px;" height="48px;"></a></li>
 						<li><a href="/review/reviewList_all">
 							<img src="/images/review.jpg" style="width:100px;" height="38px;"></a></li>
 						<li><a href="/teacher/teacher_regist">
@@ -75,10 +75,12 @@ select {
 							<br>
 							<br>
 							<br>
-							<a href="/member/login"><img src="/images/btnlogin.jpg" 
-								style="width:120px;" height="55px;"></a>
-							<a href="/member/member_regist"><img src="/images/btnregist.jpg" 
-								style="width:120px;" height="55px;"></a>
+							
+							<button type="button" onclick="location.href='/member/login'"
+							style="background: #bfa071;">로그인</button>
+							<button type="button" onclick="location.href='/member/member_regist'"
+							style="background: #bfa071;">회원가입</button>
+							
 						</c:when>
 						
 						<c:when test="${id eq 'kongzi'}">

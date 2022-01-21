@@ -75,7 +75,8 @@ $(function() {
 								${sessionScope.memberVo.user_phone} <br>
 
 								<button type="button"
-									onclick="location.href='/member/modify'">정보수정</button><br><br>
+									onclick="location.href='/member/modify'"
+									style="background: #bfa071;">정보수정</button><br><br>
 
 							</div><br><br>
 
@@ -106,10 +107,12 @@ $(function() {
 											
 											<td><button type="button" class="btnReview_write"
 													data-classNo = "${MyReservationVo.class_no}"
-													data-status = "${MyReservationVo.status}">후기작성</button></td>
+													data-status = "${MyReservationVo.status}"
+													style="background: #bfa071;">후기작성</button></td>
 											<td><button type="button" class="btnDelete" 
 													data-rno="${MyReservationVo.rno}"
-													data-status = "${MyReservationVo.status}">예약취소</button></td>
+													data-status = "${MyReservationVo.status}"
+													style="background: #bfa071;">예약취소</button></td>
 											
 										</tr>
 									</c:forEach>
@@ -132,7 +135,8 @@ $(function() {
 											<td>${ReviewVo.title}</td>
 											<td><button type="button" 
 												data-bno="${ReviewVo.bno}"
-												class="btnReview">글 보기</button></td>
+												class="btnReview"
+												style="background: #bfa071;">글 보기</button></td>
 										</tr>
 									</c:forEach>
 								</table>
@@ -141,6 +145,7 @@ $(function() {
 							
 							<div class="jumbotron">
 								<h5>【강사 지원 하셨나요?】</h5>
+								
 								<table>
 									<td>[글번호]</td>
 									<td>[클래스이름]</td>
@@ -154,7 +159,8 @@ $(function() {
 											<td>${TeacherVo.status}</td>
 											<td><button type="button" 
 												data-tno="${TeacherVo.tno}"
-												class="btnTeacher">보기</button></td>
+												class="btnTeacher"
+												style="background: #bfa071;">보기</button></td>
 										</tr>
 									</c:forEach>
 								</table> 
@@ -166,7 +172,8 @@ $(function() {
 							
 							<button type="button"
 									data-user="${sessionScope.memberVo.user_id}"
-									id="btnDeleteMember">
+									id="btnDeleteMember"
+									style="background: #bfa071;">
 									회원탈퇴할래요 (정말요?😭)</button>
 							
 

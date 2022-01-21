@@ -60,12 +60,9 @@ public class ReservationService {
 	public List<StatusVo> statusList() {
 		return reservationDao.statusList();
 	}
-	
-	public void updateStatus(ReservationVo reservationVo) {
-		reservationDao.updateStatus(reservationVo);
+	//상태 수정
+	public void updateStatus(int rno, String status_code) {
+		reservationDao.updateStatus(rno, status_code);
+		
 	}
-
-	
-
-	
 }

@@ -1,7 +1,9 @@
 package com.kh.daydream.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -27,11 +29,6 @@ import com.kh.daydream.vo.StatusVo;
 @Controller
 @RequestMapping("/reservation")
 public class ReservationController {
-	
-	private static final String RESERVED = "1";
-	private static final String INCLASS = "2";
-	private static final String FINISH = "3";
-
 	
 	@Inject
 	private ReservationService reservationService;
@@ -63,34 +60,14 @@ public class ReservationController {
 		//예약현황,관리자로 로그인 후 보기
 		@RequestMapping(value = "/reservation_list", method = RequestMethod.GET)
 		public String reservationList(Model model,ReservationListVo reservationListVo) {
-	
 			List<ReservationListVo> list = reservationService.selectAll();
 			List<StatusVo> statusList = reservationService.statusList();
 			System.out.println("ReservationController, reservationList, list: " + list);
 			model.addAttribute("list", list);
 			model.addAttribute("statusList", statusList);
-			
-			  return "/reservation/reservation_list";
+			return "/reservation/reservation_list";
 		}
 		
-//		// 예약 수정
-//		@RequestMapping(value = "/res_modify", method = RequestMethod.GET)
-//		public String updateReservation(int rno, Model model) {
-//			System.out.println("rno" + rno);
-//			ProgramVo programVo = reservationService.selectByClassNo(rno);
-//			List<ReservationTimeVo> timeList = reservationService.selectTimeList(rno);;
-//			model.addAttribute("programVo", programVo);
-//			model.addAttribute("timeList", timeList);
-//			return "/reservation/res_modify";
-//		}
-	
-//		// 수정 처리
-//		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
-//		public String updateReservation(ReservationListVo reservationListVo) {
-//			reservationService.updateReservation(reservationListVo);
-//			return "redirect:/admin/rev_list";
-//		}
-	
 		// 삭제
 		@RequestMapping(value = "/deleteReservation", method = RequestMethod.GET)
 		public String deleteReservation(int rno) {
@@ -102,17 +79,11 @@ public class ReservationController {
 		// 예약상태변경
 		@RequestMapping(value = "/change_status", method = RequestMethod.GET)
 		@ResponseBody
-		public String change_status(int rno, String status_code) {
+		public String updateStatus(int rno, String status_code) {
+//			Map<Integer,String> map = new HashMap<Integer,String>();
+			reservationService.updateStatus(rno,status_code);
 			System.out.println("ReservationController, change_status, rno, status_code " + rno + ", " + status_code);
 			return "success";
-		}
-		
-		// 예약 상태 수정 처리
-		@RequestMapping(value = "/modify_run", method = RequestMethod.POST)
-		public String updateStatus(ReservationVo reservationVo) {
-			reservationService.updateStatus(reservationVo);
-			System.out.println("ReservationController, updateStatus, reservationVo" +reservationVo);
-			return "redirect:/reservation/reservation_list";
 		}
 
 }

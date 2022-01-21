@@ -22,21 +22,33 @@ $(function() {
 	$("#btnDelete").click(function() {
 		var bno = $(this).attr("data-bno");
 		console.log("bno:", bno);
-		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
-		$("#frmPaging").append(input_bno);
-		$("#frmPaging > input[name=bno]").val(bno);
-		$("#frmPaging").attr("action", "/review/deleteReview");
-		$("#frmPaging").submit();
+// 		var input_bno = '<input type="hidden" name="bno" value="' + bno + '">';
+// 		$("#frmPaging").append(input_bno);
+		var sessionId = $(this).attr("data-sessionId");
+		var id = $(this).attr("data-id");
+		console.log(sessionId, id);
+		if (sessionId == id) {
+			$("#frmPaging > input[name=bno]").val(bno);
+			$("#frmPaging").attr("action", "/review/deleteReview");
+			$("#frmPaging").submit();
+		} else {
+			alert("작성자만 삭제할 수 있습니다.");
+		}
 	});
 	// 수정 버튼
 	$("#btnModify").click(function() {
-		console.log($(".modify"));
+// 		console.log($(".modify"));
 // 		class가 modify(글제목, 글내용)에 대해서 읽기 전용 해제
-		$(".modify").prop("readonly", false);
-		$("#btnModifyOk").fadeIn(500); // show, slideDown
-		$(this).fadeOut(500); // hide, slideUp
+		var sessionId = $(this).attr("data-sessionId");
+		var id = $(this).attr("data-id");
+		if (sessionId == id) {
+			$(".modify").prop("readonly", false);
+			$("#btnModifyOk").fadeIn(500); // show, slideDown
+			$(this).fadeOut(500); // hide, slideUp
+		} else {
+			alert("작성자만 수정할 수 있습니다.");
+		}
 	});
-
 
 	//글목록 버튼
 	$("#btnList").click(function(e) {
@@ -174,11 +186,17 @@ $(function() {
 				
 				<div style="clear:both">
 					<button type="button" class="btn btn-warning"
-						id="btnModify">수정</button>
+						id="btnModify"
+						data-sessionId="${sessionScope.memberVo.user_id}"
+						data-id="${reviewVo.user_id}">수정</button>
+						
 					<button type="submit" class="btn btn-success"
 						id="btnModifyOk" style="display:none">수정완료</button>
 					<button type="button" class="btn btn-danger"
-						id="btnDelete" data-bno="${reviewVo.bno}">삭제</button>
+						id="btnDelete" 
+						data-sessionId="${sessionScope.memberVo.user_id}"
+						data-id="${reviewVo.user_id}"
+						data-bno="${reviewVo.bno}">삭제</button>
 				</div>
 			
 		</div>
