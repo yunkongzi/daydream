@@ -1,9 +1,10 @@
 package com.kh.daydream.controller;
 
 
-import java.util.HashMap;
+
+
 import java.util.List;
-import java.util.Map;
+
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -80,7 +81,6 @@ public class ReservationController {
 		@RequestMapping(value = "/change_status", method = RequestMethod.GET)
 		@ResponseBody
 		public String updateStatus(int rno, String status_code) {
-//			Map<Integer,String> map = new HashMap<Integer,String>();
 			reservationService.updateStatus(rno,status_code);
 			System.out.println("ReservationController, change_status, rno, status_code " + rno + ", " + status_code);
 			return "success";
