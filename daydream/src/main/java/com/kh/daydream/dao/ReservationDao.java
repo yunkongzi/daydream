@@ -1,6 +1,8 @@
 package com.kh.daydream.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -46,7 +48,7 @@ public class ReservationDao {
 	
 //	// 예약 수정
 //	public void updateReservation(ReservationListVo reservationListVo) {
-//
+//		sqlSession.update(NAMESPACE+"updateReservation"+reservationListVo);
 //		return;
 //	}
 
@@ -62,7 +64,10 @@ public class ReservationDao {
 	}
 	//상태수정
 	public void updateStatus(int rno, String status_code) {
-		sqlSession.update(NAMESPACE+"updateStatus"+rno,status_code);
+		Map<String, Object> map = new HashMap<>();
+		map.put("rno", rno);
+		map.put("status_code", status_code);
+		sqlSession.update(NAMESPACE+"updateStatus",map);
 		
 	}
 

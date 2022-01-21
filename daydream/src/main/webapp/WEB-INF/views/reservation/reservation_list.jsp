@@ -78,7 +78,7 @@ $(".btnModify").click(function() {
 								<th>예약 인원수</th>
 								<th>상태</th>
 								<th>예약확인</th>
-								<th>수정</th>
+<!-- 								<th>수정</th> -->
 								<th>삭제</th>
 						</tr>
 						</thead>
@@ -110,8 +110,8 @@ $(".btnModify").click(function() {
 								
 								${ReservationListVo.status_name}</td>
 								<td><button style="background: #bfa071;" type="button" class="btn btn-info btnOk" data-rno="${reservationListVo.rno}">상태변경</button></td>
-								<td><button style="background: #bfa071;" type="button" class="btn btn-warning btnModify"
-									data-rno="${reservationListVo.rno}">수정</button></td>
+<!-- 								<td><button style="background: #bfa071;" type="button" class="btn btn-warning btnModify" -->
+<%-- 									data-rno="${reservationListVo.rno}">수정</button></td> --%>
 								<td><button style="background: #bfa071;" type="button" class="btn btn-info btnDelete"
 									 data-rno="${reservationListVo.rno}">삭제</button></td>
 								
