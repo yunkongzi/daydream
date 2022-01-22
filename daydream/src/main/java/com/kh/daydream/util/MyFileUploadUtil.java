@@ -2,18 +2,22 @@ package com.kh.daydream.util;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.io.IOUtils;
 import org.imgscalr.Scalr;
 import org.springframework.util.FileCopyUtils;
 
 public class MyFileUploadUtil {
 	
-	public static String uploadFile(String uploadPath, String originalName, byte[] fileData) {
+	public static String uploadFile(
+			String uploadPath, 
+			String originalName, byte[] fileData) {
 		UUID uuid = UUID.randomUUID();
 		String datePath = calcPath(uploadPath);
 		// -> D:/upload/2022/01/07
@@ -65,11 +69,12 @@ public class MyFileUploadUtil {
 		try {
 			BufferedImage srcImage = ImageIO.read(orgFile);
 			// org.imgscalr.Scalr
-			BufferedImage descImage = Scalr.resize(srcImage, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100); // 높이
-																														// 100에
-																														// 맞춰서
-																														// 너비
-																														// 자동조절
+			BufferedImage descImage = Scalr.resize(
+					srcImage, 
+					Scalr.Method.AUTOMATIC, 
+					Scalr.Mode.FIT_TO_HEIGHT, 
+					100); 
+																														
 			ImageIO.write(descImage, getExtName(rear), thumbFile);
 
 		} catch (Exception e) {
@@ -88,7 +93,9 @@ public class MyFileUploadUtil {
 
 	public static boolean isImage(String fileName) {
 		String extName = getExtName(fileName);
-		if (extName.equals("JPG") || extName.equals("PNG") || extName.equals("GIF")) {
+		if (extName.equals("JPG") || 
+				extName.equals("PNG") || 
+				extName.equals("GIF")) {
 			return true;
 		}
 		return false;
@@ -139,6 +146,18 @@ public class MyFileUploadUtil {
 		String rear = filePath.substring(slashIndex + 1);
 		String thumbnailPath = front + "sm_" + rear;
 		return thumbnailPath;
+	}
+	
+	public static byte[] displayImage(String uploadPath, String fileName) throws Exception {
+		// 서버의 파일을 다운로드하기 위한 스트림
+		System.out.println("UploadController, displayFile, fileName: " + fileName);
+		int slashIndex = fileName.lastIndexOf("/");
+		String front = fileName.substring(0, slashIndex + 1);
+		String rear = fileName.substring(slashIndex + 1);
+		FileInputStream fis = new FileInputStream(
+				uploadPath + front + "sm_" + rear);
+		byte[] bytes = IOUtils.toByteArray(fis);
+		return bytes;
 	}
 
 } // class

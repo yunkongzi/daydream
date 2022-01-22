@@ -1,14 +1,13 @@
 package com.kh.daydream.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kh.daydream.vo.TeacherMemberVo;
 import com.kh.daydream.vo.TeacherVo;
 
 @Repository
@@ -22,7 +21,7 @@ public class TeacherDao {
 	public void insertTeacher(TeacherVo teacherVo) {
 		sqlSession.insert(NAMESPACE + "insertTeacher", teacherVo);
 	}
-	
+		
 	// 강사 정보 보기
 	public TeacherVo selectByTno(String tno) {
 		TeacherVo teacherVo = sqlSession.selectOne(
@@ -47,4 +46,14 @@ public class TeacherDao {
 		sqlSession.delete(NAMESPACE + "deleteTeacher", tno);
 	}
 
+	//수락
+	public void updateStatus(String tno) {
+		sqlSession.delete(NAMESPACE + "updateStatus", tno);
+	}
+
+	public List<TeacherMemberVo> statusList(String status) {
+		// java.util.List
+		List<TeacherMemberVo> statusList = sqlSession.selectList(NAMESPACE + "statusList", status);
+		return statusList;
+	}
 }

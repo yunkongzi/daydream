@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
-	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="dataSource" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+   
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   <bean id="dataSource" 
       class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" 
       value="oracle.jdbc.driver.OracleDriver"/>
       <property name="url" 
-       value="jdbc:oracle:thin:@192.168.0.80:1521:xe"/>
+       value="jdbc:oracle:thin:@localhost:1521:xe"/>
       <property name="username" value="daydream"/>
       <property name="password" value="1234"></property>   
    
    </bean>
    
-
    
    <!--  마이바티스 연결 -->
    <bean id="sqlSessionFactory" 
@@ -35,7 +34,7 @@
       <constructor-arg name="sqlSessionFactory" 
          ref="sqlSessionFactory"/>
    </bean>
-   
+ 
    <tx:annotation-driven/>
    
    <!--  commit, rollback, setAutoCommit(true) -->
@@ -43,4 +42,12 @@
    		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
    		<property name="dataSource" ref="dataSource"/>
    	</bean>
+   	
+   	<!-- 파일 업로드 경로를 설정  --> 
+   	<bean id="uploadPath" class="java.lang.String"> 
+	   	<!-- <constructor-arg value="C:\\Users\\cameldev\\eclipse-workspace\\mypage\\src\\main\\webapp\\resources\\upload">  -->
+	   	<constructor-arg value="\\192.168.0.80"> 
+	   	</constructor-arg> 
+   	</bean>
+
 </beans>

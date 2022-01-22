@@ -35,7 +35,29 @@
    		<beans:property name="maxUploadSize" value="10000000"></beans:property>
    </beans:bean>
    
-   <!-- 인터셉터 -->
+	
+   <beans:bean class="com.kh.daydream.interceptor.AuthInterceptor" 
+				id="authInterceptor"/>
+   <beans:bean class="com.kh.daydream.interceptor.AdminInterceptor" 
+				id="adminInterceptor"/>
+				
+				
+	<!-- 인터셉터 -->
+	<interceptors>
+		
+		<interceptor>
+			<mapping path="/reservation/**/*"/>
+			<mapping path="/review/**/*"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/admin/**/*"/>
+			<exclude-mapping path="/admin/displayImage"/>
+			<beans:ref bean="adminInterceptor"/>
+		</interceptor>
+	</interceptors>
+   
    
 </beans:beans>
 

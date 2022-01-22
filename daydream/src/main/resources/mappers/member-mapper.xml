@@ -9,7 +9,7 @@
 		values (#{user_id}, #{user_pw}, #{user_name}, #{user_phone})
 	</insert>
 	
-<!-- 	아이디 중복 체크 -->
+	<!-- 아이디 중복 체크 -->
 	<select id="checkDupId" resultType="int">
 		select count(*) from tbl_member
 		where user_id = #{user_id}
@@ -21,5 +21,51 @@
 		where user_id = #{user_id}
 		and user_pw = #{user_pw}
 	</select>
+	
+	<!-- 예약목록 -->
+	<select id="reservationList" resultType="MyReservationVo">
+		select r.rno, r.res_date,p.class_name, s.program_time, r.count, s.class_no, r.status, c.status_name
+			from tbl_reservation r, tbl_program p , tbl_program_sub s, tbl_reservation_code c
+			where r.class_sub_no = s.program_sub_no
+			and s.class_no = p.class_no
+			and r.status = c.status_code
+			and r.user_id = #{user_id}
+	</select>
+	
+	<!-- 작성한 후기목록 -->
+	<select id="myReviewList" resultType="ReviewVo">
+		select bno, title, regdate
+			from tbl_review
+			where user_id = #{user_id}
+	</select>
+	
+	<!-- 작성한 후기목록 -->
+	<select id="myTeacherList" resultType="TeacherVo">
+		select tno, class_name, status
+			from tbl_teacher
+			where user_id = #{user_id}
+	</select>
+	
+	<!-- 정보 수정 -->
+	 <update id="updateMember">
+	 	update tbl_member set
+	 		user_name = #{user_name},
+	 		user_pw = #{user_pw},
+	 		user_phone = #{user_phone}
+	 	where user_id = #{user_id}
+	 </update>
+	 
+	 <!-- 회원 삭제 -->
+	 <update id="deleteMember">
+	 	update tbl_member set
+	 		is_out = 'Y'
+	 	where user_id = #{user_id}
+	 </update>
+	 
+	 <!-- 예약취소 -->
+	 <delete id="deleteReservation">
+	 	delete from tbl_reservation
+	 	where rno = #{rno}
+	 </delete>
 
 </mapper>

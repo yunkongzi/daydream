@@ -20,6 +20,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/assets/css/main.css" />
+<style>
+select {
+	display: inline;
+}
+</style>
 </head>
 
 
@@ -37,21 +42,31 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html"><span>데이드림</span></a></li>
-						<li><a href="#"><span>프로그램</span></a></li>
-						<li><a href="/reservation/reservation_regist"><span>예약하기</span></a></li>
-						<li><a href="/teacher/teacher_regist"><span>인재모집</span></a></li>
-						<li><a href="no-sidebar.html"><span>공지사항</span></a></li>
+
+						<li><a href="/company/introduction">
+							<img src="/images/daydream.jpg" style="width:100px;" height="40px;"></a>
+										<ul>
+											<li><a href="/company/introduction">데이드림 소개</a></li>
+											<li><a href="/company/road">오시는 길</a></li>
+										</ul></li>
+						<li><a href="/program_intro">
+							<img src="/images/program.jpg" style="width:150px;" height="48px;"></a></li>
+						<li><a href="/review/reviewList_all">
+							<img src="/images/review.jpg" style="width:100px;" height="38px;"></a></li>
+						<li><a href="/teacher/teacher_regist">
+							<img src="/images/teacher.jpg" style="width:100px;" height="38px;"></a></li>
+						<li><a href="/notice/list_all">
+							<img src="/images/notice.jpg" style="width:100px;" height="38px;"></a></li>
 					</ul>
 				</nav>
 
 
-				<hr>
+			
 				<div class="nav-item" style="padding-top: 20px;">
 					<h1 id="logo">
-						<a href="/main">DAYDREAM</a>
+						<a href="/main"><img src="/images/logo.jpg" style="width:800px;" height="160px;"></a>
 					</h1>
-					<p>One Day, One Dream</p>
+					
 					
 					<c:set var="id" value="${sessionScope.memberVo.user_id}"/>
 
@@ -60,18 +75,24 @@
 							<br>
 							<br>
 							<br>
-							<button type="button" onclick="location.href='/member/login'">로그인</button>
-							<button type="button"
-								onclick="location.href='/member/member_regist'">회원가입</button>
+							
+							<button type="button" onclick="location.href='/member/login'"
+							style="background: #bfa071;">로그인</button>
+							<button type="button" onclick="location.href='/member/member_regist'"
+							style="background: #bfa071;">회원가입</button>
+							
 						</c:when>
 						
 						<c:when test="${id eq 'kongzi'}">
 							<br>
 							<br>
 							<br>
-							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
+							 ${sessionScope.memberVo.user_name}! <br>
+							<button type="button" onclick="location.href='/member/logout'"
+							style="background: #bfa071;">로그아웃</button>
 							<button type="button"
-								onclick="location.href='/admin/admin_main'">관리자메인</button>
+								onclick="location.href='/admin/admin_main'"
+								style="background: #bfa071;">관리자메인</button>
 						</c:when>
 						
 						
@@ -80,8 +101,10 @@
 									데이드림과 꿈을 꾸실<br>
 									 ${sessionScope.memberVo.user_name} 님!<br>
 
-							<button type="button" onclick="location.href='/member/mypage'">마이페이지</button>
-							<button type="button" onclick="location.href='/member/logout'">로그아웃</button>
+							<button type="button" onclick="location.href='/member/mypage'"
+							style="background: #bfa071;">마이페이지</button>
+							<button type="button" onclick="location.href='/member/logout'"
+							style="background: #bfa071;">로그아웃</button>
 
 						</c:otherwise>
 					</c:choose>
