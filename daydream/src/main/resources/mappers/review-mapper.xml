@@ -44,17 +44,11 @@
 			where bno = #{bno}
 		</select>
 	
-<<<<<<< HEAD
-	<!-- 리뷰글 삭제  -->
-		<delete id="deleteReview">
-			delete from tbl_review
-=======
 	<!-- 리뷰글 삭제 -->
 		<update id="deleteReview">
 			update tbl_review set
 				title = '삭제된 글입니다.',
 				content = '내용 없음'
->>>>>>> branch 'master' of https://github.com/yunkongzi/daydream.git
 			where bno = #{bno}
 		</update>
 	
