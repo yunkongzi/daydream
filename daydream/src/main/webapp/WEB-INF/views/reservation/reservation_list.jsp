@@ -78,7 +78,7 @@ $(".btnModify").click(function() {
 								<th>예약 인원수</th>
 								<th>상태</th>
 								<th>예약확인</th>
-								<th>수정</th>
+<!-- 								<th>수정</th> -->
 								<th>삭제</th>
 						</tr>
 						</thead>
@@ -109,10 +109,10 @@ $(".btnModify").click(function() {
 									</select>
 								
 								${ReservationListVo.status_name}</td>
-								<td><button type="button" class="btn btn-info btnOk" data-rno="${reservationListVo.rno}">상태변경</button></td>
-								<td><button type="button" class="btn btn-warning btnModify"
-									data-rno="${reservationListVo.rno}">수정</button></td>
-								<td><button type="button" class="btn btn-info btnDelete"
+								<td><button style="background: #bfa071;" type="button" class="btn btn-info btnOk" data-rno="${reservationListVo.rno}">상태변경</button></td>
+<!-- 								<td><button style="background: #bfa071;" type="button" class="btn btn-warning btnModify" -->
+<%-- 									data-rno="${reservationListVo.rno}">수정</button></td> --%>
+								<td><button style="background: #bfa071;" type="button" class="btn btn-info btnDelete"
 									 data-rno="${reservationListVo.rno}">삭제</button></td>
 								
 							</tr>
@@ -123,7 +123,7 @@ $(".btnModify").click(function() {
 						<div class="col-md-4">
 						</div>
 						<div class="col-md-4">
-						<button type="button" class="btn btn-warning btn-sm btnAdMain">
+						<button style="background: #bfa071;" type="button" class="btn btn-warning btn-sm btnAdMain">
 								<a href="/admin/admin_main">관리자 메인</a>
 							</button>
 						</div>

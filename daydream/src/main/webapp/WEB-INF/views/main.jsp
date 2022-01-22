@@ -113,6 +113,18 @@
   opacity: 1;
 }
 
+/* .product .img-responsive {
+    margin: 0 auto;
+}
+ */
+ 
+.flower {
+	float: right;
+}
+
+.kombu {
+	float: left;
+}
 
 </style>
 
@@ -131,59 +143,64 @@
 <div class="container">
 
   <!-- Full-width images with number text -->
-  <div class="mySlides">
-    <div class="numbertext">1 / 11</div>
+<div class="mySlides">
+    <div class="numbertext">1 / 12</div>
       <img src="/images/class_flower.png" style="width:100%">
   </div>
   
   <div class="mySlides">
-    <div class="numbertext">2 / 11</div>
+    <div class="numbertext">2 / 12</div>
       <img src="/images/car1.png" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">3 / 11</div>
+    <div class="numbertext">3 / 12</div>
       <img src="/images/class_calli.png" style="width:100%">
   </div>
   
   <div class="mySlides">
-    <div class="numbertext">4 / 11</div>
+    <div class="numbertext">4 / 12</div>
       <img src="/images/marker.png" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">5 / 11</div>
+    <div class="numbertext">5 / 12</div>
       <img src="/images/class_car.png" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">6 / 11</div>
-      <img src="/images/class_marka.png" style="width:100%">
+    <div class="numbertext">6 / 12</div>
+      <img src="/images/class_marker.png" style="width:100%">
   </div>
   
   <div class="mySlides">
-    <div class="numbertext">7 / 11</div>
-      <img src="/images/class_candle.jpg" style="width:100%">
+    <div class="numbertext">7 / 12</div>
+      <img src="/images/class_candle.png" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">8 / 11</div>
+    <div class="numbertext">8 / 12</div>
       <img src="/images/class_cookie.png" style="width:100%">
   </div>
   
   <div class="mySlides">
-    <div class="numbertext">9 / 11</div>
+    <div class="numbertext">9 / 12</div>
       <img src="/images/calli1.png" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">10 / 11</div>
+    <div class="numbertext">10 / 12</div>
       <img src="/images/class_lipstick.png" style="width:100%">
   </div>
   
   <div class="mySlides">
-    <div class="numbertext">11 / 11</div>
-      <img src="/images/class_komboo.png" style="width:100%">
+    <div class="numbertext">11 / 12</div>
+      <img src="/images/class_flower1.png" style="width:100%">
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">12 / 12</div>
+      <img src="/images/class_comboo.png" style="width:100%">
   </div>
 
   <!-- Next and previous buttons -->
@@ -213,10 +230,10 @@
       <img class="demo cursor" src="/images/class_car.png" style="width:100%" onclick="currentSlide(5)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_marka.png" style="width:100%" onclick="currentSlide(6)" >
+      <img class="demo cursor" src="/images/class_marker.png" style="width:100%" onclick="currentSlide(6)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_candle.jpg" style="width:100%" onclick="currentSlide(7)" >
+      <img class="demo cursor" src="/images/class_candle.png" style="width:100%" onclick="currentSlide(7)" >
     </div>
     <div class="column">
       <img class="demo cursor" src="/images/class_cookie.png" style="width:100%" onclick="currentSlide(8)">
@@ -228,12 +245,13 @@
       <img class="demo cursor" src="/images/class_lipstick.png" style="width:100%" onclick="currentSlide(10)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="/images/class_komboo.png" style="width:100%" onclick="currentSlide(11)" >
+      <img class="demo cursor" src="/images/class_flower1.png" style="width:100%" onclick="currentSlide(11)" >
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="/images/class_comboo.png" style="width:100%" onclick="currentSlide(12)" >
     
-     <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
+</div>
 </div>
 <script>
  var slideIndex = 1;
@@ -310,9 +328,24 @@ $(function() {
 	<section id="features">
 		<div class="container" style="margin: 0 auto;">
 			<header> 
-				
+		 		
+		<!-- 
+			<img src="/images/flower2.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/flower4.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/flower5.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/flower3.gif" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
 
-		<div class="container-fluid">
+			<img src="/images/drawing6.jpeg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/drawing7.jpg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/drawing5.jpg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			<img src="/images/drawing4.jpeg" style="float: left; margin-right:10px;" alt="flower" width="260" height="200">
+			
+			<img src="/images/kombu1.gif" style="float: left; margin-right:10px;" alt="flower" width="350" height="250">
+			<img src="/images/kombu3.gif" style="float: left; margin-right:10px;" alt="flower" width="350" height="250">
+			<img src="/images/kombu4.png" style="float: left; margin-right:10px;" alt="flower" width="350" height="250">
+		 -->
+				
+					<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="row">
@@ -324,35 +357,99 @@ $(function() {
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-0">
 						</div>
-						<div class="col-md-8">
-							<table class="table table-hover">
+						<div class="col-md-12">
+							<table class="table table-hover flower" 
+									onclick="location.href='/program_detail?class_no=60'">
 								<tbody>
 									<tr>
+										
 										<td>
-										<img src="/images/flower2.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower2.gif" alt="flower" width="280" height="200">
 										</td>
 										<td>
-										<img src="/images/flower4.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower4.gif" alt="flower" width="280" height="200">
 										</td>
 										<td>
-										<img src="/images/flower5.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower5.gif" alt="flower" width="280" height="200">
 										</td>
 										<td>
-										<img src="/images/flower3.gif" alt="flower" width="300" height="250">
+										<img src="/images/flower3.gif" alt="flower" width="280" height="200">
 										</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
 									</tr>
+									</tbody>
+								</table>
+								
+								<table class="table table-hover drawing" 
+										onclick="location.href='/program_detail?class_no=64'">
+								<tbody>
+									<tr>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+										<td>&nbsp</td>
+									 <td>
+										<img src="/images/drawing6.jpeg"  alt="drawing" width="280" height="200">
+									</td> 
+									<td>
+										<img src="/images/drawing7.jpg"  alt="drawing" width="280" height="200">
+									</td>
+									<td>
+										<img src="/images/drawing5.jpg"  alt="drawing" width="280" height="200">
+									</td>
+									<td>
+										<img src="/images/drawing4.jpeg"  alt="drawing" width="280" height="200">
+									</td>
+									</tr>
+									</tbody>
+							</table>
+							
+							<table class="table table-hover kombu" 
+									onclick="location.href='/program_detail?class_no=62'">
+								<tbody>
+									 <tr>
+										<td>
+										<img src="/images/kombu2.gif" alt="kombu" width="280"  height="200">
+										</td>
+										<td>
+										<img src="/images/kombu3.gif" alt="kombu" width="280" height="200">
+										</td>
+										<td>
+										<img src="/images/kombu5.gif" alt="kombu" width="280" height="200">
+										</td>
+										<td>
+										<img src="/images/kombu6.gif" alt="kombu" width="280" height="200">
+										</td>
+										
+									</tr> 
 								</tbody>
 							</table>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-0">
+						
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-				
 				
 			</header>
 		</div>

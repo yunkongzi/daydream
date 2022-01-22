@@ -3,7 +3,8 @@
 <%@ page session="false" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <head>
 	<title>데이드림 오시는길</title>
 </head>
@@ -31,7 +32,7 @@
 
 <img src="/images/khr.jpg" alt="kh교통정보" width="840" height="528">
 
-<div>
+<!-- <div>
 <span>회사명 : <em class="spot">(주)울산데이드림</em></span>
 <span>Tel : <em>052-257-7600</em></span>
 <span>Fax : <em>052-257-7822</em></span>												
@@ -39,9 +40,17 @@
 <span>사업자번호 : <em>610-86-10288</em></span>
 <span>통신판매업신고번호 : <em>제 2012-울산남구-0050호 </em></span>
 <p class="copy">copyright &copy; <strong>ULSAN DAYDREAM</strong>. All Rights Reserved.</p>
+</div> -->
+
 </div>
-</div>			
+<i class="fas fa-cloud"></i>
+<i class="fas fa-heart"></i>
+<i class="fas fa-car"></i>
+<i class="fas fa-file"></i>
+<i class="fas fa-bars"></i>
+			
 </section>
+
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

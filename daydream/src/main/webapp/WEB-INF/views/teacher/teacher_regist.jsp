@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
+
+
 <title>강사등록</title>
 <script src="/js/myscript.js"></script>
 
@@ -26,32 +28,7 @@ $(function() {
 }); // $(function)
 		
 </script>
-<style>
-.container-fluid {
-  background-color: #fffee5;
-  width: 600px;
-  border: 15px solid #5e7e9b;
-  padding: 50px;
-  margin: 20px;
-}
 
-.btn-primary {
-  width: 200px;
-  height: 80px;
-  background-color: red;
-  animation-name: example;
-  animation-duration: 4s;
-}
-
-@keyframes example {
-  from {background-color: red;}
-  to {background-color: yellow;}
-}
-h2 {
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
-}
-</style>
 </head>
 <body>
 <div>						
@@ -103,8 +80,8 @@ h2 {
 						id="introduce" name="introduce"></textarea>
 				</div>				
 				<button type="submit" class="btn btn-primary" style="background: #bfa071;">등록완료</button>				
-			</form>
-		</div>
+			</form><br>		
+		</div>		
 	</div>
 </div>
 </div>	

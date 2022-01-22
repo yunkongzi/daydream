@@ -112,13 +112,13 @@ public class ReviewController {
 	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
 	public String modifyReview(ReviewVo reviewVo, PagingDto pagingDto,
 								  RedirectAttributes rttr) {
-		System.out.println("ReviewController, updateReviewRun, reviewVo:" + reviewVo);
-		System.out.println("ReviewController, updateReviewRun, pagingDto:" + pagingDto);
+		System.out.println("ReviewController, modifyReview, reviewVo:" + reviewVo);
+		System.out.println("ReviewController, modifyReview, pagingDto:" + pagingDto);
 		reviewService.modifyReview(reviewVo);
 		rttr.addFlashAttribute("message", "modify_success");
 		return "redirect:/review/content?bno=" + reviewVo.getBno() +
 				"&page=" + pagingDto.getPage() +
-				"&perPagd=" + pagingDto.getPerPage() +
+				"&perPage=" + pagingDto.getPerPage() +
 				"&searchType=" + pagingDto.getSearchType() +
 				"&keyword=" + pagingDto.getKeyword();
 	}

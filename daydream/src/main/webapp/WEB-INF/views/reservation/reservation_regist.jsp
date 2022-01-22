@@ -274,7 +274,7 @@ td {
 					</div>
 					<br>
 
-					<button type="submit" class="btn btn-primary" id="btnResOk">
+					<button style="background: #bfa071;" type="submit" class="btn btn-primary" id="btnResOk">
 						예약 등록 완료</button>
 				</form>
 			</div>

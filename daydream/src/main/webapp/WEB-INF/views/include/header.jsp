@@ -87,7 +87,7 @@ select {
 							<br>
 							<br>
 							<br>
-							 ${sessionScope.memberVo.user_name}! 일해라!<br>
+							 ${sessionScope.memberVo.user_name}! <br>
 							<button type="button" onclick="location.href='/member/logout'"
 							style="background: #bfa071;">로그아웃</button>
 							<button type="button"
