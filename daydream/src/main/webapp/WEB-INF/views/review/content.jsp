@@ -28,6 +28,7 @@ $(function() {
 		var id = $(this).attr("data-id");
 		console.log(sessionId, id);
 		if (sessionId == id) {
+			console.log("삭제버튼")
 			$("#frmPaging > input[name=bno]").val(bno);
 			$("#frmPaging").attr("action", "/review/deleteReview");
 			$("#frmPaging").submit();
