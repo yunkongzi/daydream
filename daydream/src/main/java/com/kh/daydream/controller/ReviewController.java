@@ -125,19 +125,13 @@ public class ReviewController {
 	}
 	
 	// 리뷰 삭제처리
-	@RequestMapping(value="/deleteReview", method=RequestMethod.GET)
-	public String deleteReview(int bno, PagingDto pagingDto, RedirectAttributes rttr) {
-		System.out.println("ReviewController, deleteReview, pagingDto:" + pagingDto);
-		String[] filenames = reviewService.deleteReview(bno);
-		for (String filename : filenames) {
-			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
+		@RequestMapping(value="/deleteReview", method=RequestMethod.GET)
+		public String deleteReview(int bno, HttpSession session, RedirectAttributes rttr) {
+			System.out.println("bno:" + bno);
+			reviewService.deleteReview(bno);
+			return "redirect:/main";
 		}
-		rttr.addFlashAttribute("message", "delete_success");
-		return "redirect:/review/reviewList_all?page=" + pagingDto.getPage() + 
-				"&perPage=" + pagingDto.getPerPage() +
-				"&searchType=" + pagingDto.getSearchType() +
-				"&keyword=" + pagingDto.getKeyword();
-	}
+	
 	
 	// 파일 업로드 처리
 	@RequestMapping(value="/uploadAjax" , method=RequestMethod.POST,
