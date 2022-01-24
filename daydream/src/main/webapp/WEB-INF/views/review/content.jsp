@@ -32,7 +32,7 @@ $(function() {
 			console.log("같음")
 			var loc = "/review/deleteReview?bno=" + bno;
 			location.href = loc;
-
+			
 		} else {
 			console.log("안같음")
 			alert("작성자만 삭제할 수 있습니다.");
