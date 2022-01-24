@@ -108,15 +108,13 @@ $(function() {
 	<section class="a">
 	<div style="margin:0 auto; text-align:center;">
 		<h3>데이드림 강사 정보 수정</h3>
-		<p style="margin:0 auto; text-align:center;"></p>
-		
+		<p style="margin:0 auto; text-align:center;"></p>		
 	</div>
 	</section>
 	<hr/>
 		
 	<section class="a">
-	<div>
-		
+	<div>		
 		<form action="/teacher/modify_run" 
 				method="post">
 		<div style="margin:0 auto;">
@@ -152,14 +150,14 @@ $(function() {
 				</c:if>	
 						
 				<div class="form-group">
-					<label for="certificate">자격증 파일 첨부</label>
+					<label for="certificate">사진&자격증 파일</label>
 					<input type="file" class="form-control" 
 						id="certificate" name="certificate" style="display:none"/>
-					<button type="button" id="btnFile">파일 첨부</button>
+					<button type="button" id="btnFile">사진&파일 첨부</button>
 				</div>
 				
 				<div class="form-group">
-					<label for="introduce">자기소개</label>
+					<label for="introduce">수업설명</label>
 					<textarea class="form-control" id="introduce" name="introduce">${teacherVo.introduce}</textarea> 
 				</div>				
 				<br><br>				
