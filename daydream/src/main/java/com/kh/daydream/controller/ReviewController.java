@@ -8,10 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -126,10 +124,19 @@ public class ReviewController {
 	
 	// 리뷰 삭제처리
 		@RequestMapping(value="/deleteReview", method=RequestMethod.GET)
-		public String deleteReview(int bno, HttpSession session, RedirectAttributes rttr) {
+		public String deleteReview(int bno, PagingDto pagingDto, RedirectAttributes rttr) {
+			System.out.println("ReviewController, deleteReview, paginDto:"+pagingDto);
+			String[]filenames = reviewService.deleteReview(bno);
+			for(String filename : filenames) {
+				MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
+			}
 			System.out.println("bno:" + bno);
 			reviewService.deleteReview(bno);
-			return "redirect:/main";
+			rttr.addAttribute("message","delete_success");
+			return "redirect:/review/reviewList_all?page="+pagingDto.getPage()+
+							 "&perPage=" + pagingDto.getPerPage()+
+					         "&serachType=" + pagingDto.getSearchType()+
+					         "&keyword=" +pagingDto.getKeyword();
 		}
 	
 	

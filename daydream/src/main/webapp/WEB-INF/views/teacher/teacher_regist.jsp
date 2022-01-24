@@ -3,7 +3,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-
+<style>
+.container-fluid {
+  background-color: #fffee5;
+  width: 600px;
+  border: 15px solid #5e7e9b;
+  padding: 50px;
+  margin: 20px;
+}
+h2 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+</style>
 
 <title>강사등록</title>
 <script src="/js/myscript.js"></script>
@@ -50,6 +62,7 @@ $(function() {
 					<input type="text" class="form-control" 
 						id="class_name" name="class_name" />
 				</div>
+				
 				<div class="form-group">
 					<label for="price">금액</label>
 					<input type="text" class="form-control" 
@@ -68,14 +81,14 @@ $(function() {
 				</div>
 				
 				<div class="form-group">
-					<label for="certificate">자격증 파일 첨부</label>
+					<label for="certificate">사진&자격증 파일</label>
 					<input type="file" class="form-control" 
 						id="certificate" name="certificate" style="display:none"/>
 					<button type="button" id="btnFile" style="background: #bfa071;">파일 첨부</button>
 				</div>
 												
 				<div class="form-group">
-					<label for="introduce">자기소개</label>
+					<label for="introduce">수업설명</label>
 					<textarea class="form-control" placeholder="50자 내외로 글을 작성해주세요."
 						id="introduce" name="introduce"></textarea>
 				</div>				
@@ -83,7 +96,13 @@ $(function() {
 			</form><br>		
 		</div>		
 	</div>
+	 <div align="center">
+			<i class="fas fa-cloud"></i>
+			<i class="fas fa-heart"></i>
+			<i class="fas fa-car"></i>
+			<i class="fas fa-file"></i>
+			<i class="fas fa-bars"></i>
+	</div>
 </div>
 </div>	
-
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

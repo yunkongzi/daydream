@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">													
@@ -49,14 +49,14 @@ $(function() {
 <div class="row">
 	<div class="col-md-12">
 		<a id="modal-511270" href="#modal-container-511270" role="button"
-			class="btn" data-toggle="modal" style="display:none;">자격증보기</a>
+			class="btn" data-toggle="modal" style="display:none;">사진&자격증보기</a>
 
 		<div class="modal fade" id="modal-container-511270" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">자격증 보기</h5>
+						<h5 class="modal-title" id="myModalLabel">사진&자격증 보기</h5>
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">×</span>
 						</button>
