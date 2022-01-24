@@ -26,11 +26,10 @@ $(function() {
 // 		$("#frmPaging").append(input_bno);
 		var sessionId = $(this).attr("data-sessionId");
 		var id = $(this).attr("data-id");
+		var url = "/review/deleteReview?bno=" + bno;
 		console.log(sessionId, id);
 		if (sessionId == id) {
-			$("#frmPaging > input[name=bno]").val(bno);
-			$("#frmPaging").attr("action", "/review/deleteReview");
-			$("#frmPaging").submit();
+			location.href = url;
 		} else {
 			alert("작성자만 삭제할 수 있습니다.");
 		}

@@ -45,10 +45,12 @@
 		</select>
 	
 	<!-- 리뷰글 삭제 -->
-		<delete id="deleteReview">
-			delete from tbl_review
+		<update id="deleteReview">
+			update tbl_review set
+				title = '삭제된 글입니다.',
+				content = '내용 없음'
 			where bno = #{bno}
-		</delete>
+		</update>
 	
 	<!-- 리뷰글 수정 -->
 		<update id="modifyReview">
