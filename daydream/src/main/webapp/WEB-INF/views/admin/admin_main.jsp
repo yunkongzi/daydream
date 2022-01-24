@@ -20,8 +20,8 @@
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="jumbotron">
-				<h2 style=" text-align: center;"> 관리자 메뉴 </h2>
+			<div class="jumbotron" style="background: #F9F7F5;">
+				<h2 style=" text-align: center;" > 관리자 메뉴 </h2>
 			</div>
 			<div class="row">
 				<div class="col-md-2">

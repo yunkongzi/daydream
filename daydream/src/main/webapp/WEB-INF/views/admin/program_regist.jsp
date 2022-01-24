@@ -105,8 +105,9 @@ $(function() {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="jumbotron">
-					<h2 style=" text-align: center;">원데이 프로그램 등록</h2>
+				<div class="jumbotron" style="background: #F9F7F5;">
+					<h2 style=" text-align: center;">프로그램 등록</h2>
+					<title>프로그램 등록</title>
 					<p></p>
 				</div>
 				<div class="row">
