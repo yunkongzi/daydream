@@ -13,6 +13,13 @@
 	td {
 		text-align:center;
 	}
+	
+	.clsName {
+		font-size:35px;
+		font-family:함초롬바탕;
+		text-align:center;
+		
+	}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -37,9 +44,8 @@ $(function() {
 			<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="jumbotron">
-				<h2 style="text-align:center;">클래스 보기 </h2>
-				
+			<div class="jumbotron clsName">
+				" ${programVo.class_name} "
 			</div>
 			
 			<div class="row">
@@ -47,7 +53,7 @@ $(function() {
 					<table class="table table-bordered">
 						
 						<tbody>
-								<tr><td class="class_name">< ${programVo.class_name} ></td></tr>
+<!-- 								<tr class="clsName"><td class="class_name">< ${programVo.class_name} ></td></tr> -->
 								<tr><td>
 								<c:if test="${not empty programVo.file_image}">
 									<img src="/admin/displayImage?fileName=${programVo.file_image}" height="450" width="700"/>
@@ -65,7 +71,7 @@ $(function() {
 									</td>
 								</tr>
 								<tr>
-									<td><a class="btn btn-outline-warning btnReserv" href="/reservation/reservation_regist"
+									<td><a class="btn btnReserv" style="background: #bfa071;" href="/reservation/reservation_regist"
 											data-class_no="${programVo.class_no}">예약하기</a></td>
 								</tr>
 								

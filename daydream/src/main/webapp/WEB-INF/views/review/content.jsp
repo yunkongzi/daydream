@@ -26,12 +26,15 @@ $(function() {
 // 		$("#frmPaging").append(input_bno);
 		var sessionId = $(this).attr("data-sessionId");
 		var id = $(this).attr("data-id");
+		var url = "/review/deleteReview?bno=" + bno;
 		console.log(sessionId, id);
 		if (sessionId == id) {
-			$("#frmPaging > input[name=bno]").val(bno);
-			$("#frmPaging").attr("action", "/review/deleteReview");
-			$("#frmPaging").submit();
+			console.log("같음")
+			var loc = "/review/deleteReview?bno=" + bno;
+			location.href = loc;
+
 		} else {
+			console.log("안같음")
 			alert("작성자만 삭제할 수 있습니다.");
 		}
 	});
@@ -103,7 +106,7 @@ $(function() {
 
 <body>
 
-<%@ include file="/WEB-INF/views/review/paging_form.jsp" %>
+
 
 <div class="container-fluid">
 	<div class="row">
@@ -111,13 +114,14 @@ $(function() {
 			<div class="jumbotron">
 				<h2>리뷰 상세보기</h2>
 				<p>
-					<a class="btn btn-primary btn-large" id="btnList"
+					<a class="btn btn-primary btn-large"
 					href="/review/reviewList_all">후기 목록</a>
 				</p>
 			</div>
 		</div>
 	</div>
 	<form role="form" action="/review/modify_run" method="post">
+	
 	<div class="row">
 		<div class="col-md-12">
 			

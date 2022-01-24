@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -112,31 +113,25 @@ public class ReviewController {
 	@RequestMapping(value="/modify_run", method=RequestMethod.POST)
 	public String modifyReview(ReviewVo reviewVo, PagingDto pagingDto,
 								  RedirectAttributes rttr) {
-		System.out.println("ReviewController, updateReviewRun, reviewVo:" + reviewVo);
-		System.out.println("ReviewController, updateReviewRun, pagingDto:" + pagingDto);
+		System.out.println("ReviewController, modifyReview, reviewVo:" + reviewVo);
+		System.out.println("ReviewController, modifyReview, pagingDto:" + pagingDto);
 		reviewService.modifyReview(reviewVo);
 		rttr.addFlashAttribute("message", "modify_success");
 		return "redirect:/review/content?bno=" + reviewVo.getBno() +
 				"&page=" + pagingDto.getPage() +
-				"&perPagd=" + pagingDto.getPerPage() +
+				"&perPage=" + pagingDto.getPerPage() +
 				"&searchType=" + pagingDto.getSearchType() +
 				"&keyword=" + pagingDto.getKeyword();
 	}
 	
 	// 리뷰 삭제처리
-	@RequestMapping(value="/deleteReview", method=RequestMethod.GET)
-	public String deleteReview(int bno, PagingDto pagingDto, RedirectAttributes rttr) {
-		System.out.println("ReviewController, deleteReview, pagingDto:" + pagingDto);
-		String[] filenames = reviewService.deleteReview(bno);
-		for (String filename : filenames) {
-			MyFileUploadUtil.deleteFile(UPLOAD_PATH + filename);
+		@RequestMapping(value="/deleteReview", method=RequestMethod.GET)
+		public String deleteReview(int bno, HttpSession session, RedirectAttributes rttr) {
+			System.out.println("bno:" + bno);
+			reviewService.deleteReview(bno);
+			return "redirect:/main";
 		}
-		rttr.addFlashAttribute("message", "delete_success");
-		return "redirect:/review/reviewList_all?page=" + pagingDto.getPage() + 
-				"&perPage=" + pagingDto.getPerPage() +
-				"&searchType=" + pagingDto.getSearchType() +
-				"&keyword=" + pagingDto.getKeyword();
-	}
+	
 	
 	// 파일 업로드 처리
 	@RequestMapping(value="/uploadAjax" , method=RequestMethod.POST,

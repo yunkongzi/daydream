@@ -105,8 +105,9 @@ $(function() {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="jumbotron">
-					<h2 style=" text-align: center;">원데이 프로그램 등록</h2>
+				<div class="jumbotron" style="background: #F9F7F5;">
+					<h2 style=" text-align: center;">프로그램 등록</h2>
+					<title>프로그램 등록</title>
 					<p></p>
 				</div>
 				<div class="row">
@@ -170,12 +171,12 @@ $(function() {
 							</div>
 							
 							
-							<button type="submit" class="btn btn-primary btnProgramReg">
+							<button type="submit" class="btn btnProgramReg" style="background: #bfa071;">
 								등록</button>
-							<a class="btn btn-success btnAdminMain" href="/admin/admin_main">
+							<a class="btn btnAdminMain" href="/admin/admin_main" style="background: #bfa071;">
 								관리자 메인 화면
 							</a>
-							<a class="btn btn-secondary btnProList" href="/admin/program_list">
+							<a class="btn btnProList" href="/admin/program_list" style="background: #bfa071;">
 								프로그램 목록보기
 							</a>
 						</form>

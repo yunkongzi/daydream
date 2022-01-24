@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>													
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>													
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>													
-
+<title>강사 리스트</title>
 <script>
 $(function() {
 	$(".a_certificate").click(function(e) {
@@ -46,7 +46,6 @@ $(function() {
 });
 </script>
 
-
 <div class="row">
 	<div class="col-md-12">
 		<a id="modal-511270" href="#modal-container-511270" role="button"
@@ -82,6 +81,7 @@ $(function() {
 			<h2>강사 리스트</h2>
 			<a href="/teacher/statusList?status=Y" class="btn btn-success statusList" style="background: #bfa071;">채용강사 보기</a>
 			<a href="/teacher/statusList?status=N" class="btn btn-link statusList" style="background: #bfa071;">신청중인 강사 보기</a>
+			<a href="/admin/admin_main" class="btn btn-link statusList" style="background: #bfa071;">관리자메인으로</a>
 		</div>
 		<div style="margin: 0 auto">
 			<table class="table">
@@ -93,8 +93,8 @@ $(function() {
 						<th>금액</th>
 						<th>인원</th>
 						<th>참가대상</th>
-						<th>자격증파일</th>
-						<th>자기소개</th>
+						<th>사진&자격증파일</th>
+						<th>수업설명</th>
 						<th>수정</th>
 						<th>삭제</th>
 						<th>수락</th>
@@ -134,7 +134,7 @@ $(function() {
 			</table>
 		</div>
 	</div>
-</div>          
+</div>     
 </body>
 </html>
 
