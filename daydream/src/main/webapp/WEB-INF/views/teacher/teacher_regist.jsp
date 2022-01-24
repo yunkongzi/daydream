@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-
 <style>
 .container-fluid {
   background-color: #fffee5;
@@ -17,7 +16,6 @@ h2 {
   text-shadow: 2px 2px 4px #000000;
 }
 </style>
-
 
 <title>강사등록</title>
 <script src="/js/myscript.js"></script>
