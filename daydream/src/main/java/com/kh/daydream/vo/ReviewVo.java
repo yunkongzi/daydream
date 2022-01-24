@@ -14,135 +14,78 @@ public class ReviewVo {
 	private int class_no;
 	private int star_count;
 	private String[] files;
-	
-	
-	
 
 	public int getBno() {
 		return bno;
 	}
 
-
-
-
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-
-
-
 
 	public String getUser_id() {
 		return user_id;
 	}
 
-
-
-
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-
-
-
 
 	public String getTitle() {
 		return title;
 	}
 
-
-
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-
-
 
 	public String getContent() {
 		return content;
 	}
 
-
-
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-
-
 
 	public Timestamp getRegdate() {
 		return regdate;
 	}
 
-
-
-
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
-
-
-
 
 	public int getViewcnt() {
 		return viewcnt;
 	}
 
-
-
-
 	public void setViewcnt(int viewcnt) {
 		this.viewcnt = viewcnt;
 	}
-
-
-
 
 	public int getClass_no() {
 		return class_no;
 	}
 
-
-
-
 	public void setClass_no(int class_no) {
 		this.class_no = class_no;
 	}
-
-
-
 
 	public int getStar_count() {
 		return star_count;
 	}
 
-
-
-
 	public void setStar_count(int star_count) {
 		this.star_count = star_count;
 	}
-
-
-
 
 	public String[] getFiles() {
 		return files;
 	}
 
-
-
-
 	public void setFiles(String[] files) {
 		this.files = files;
 	}
-
-
-
 
 	@Override
 	public String toString() {

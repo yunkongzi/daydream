@@ -49,8 +49,8 @@ $(function() {
 			<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="jumbotron">
-				<h2 style="text-align:center;">등록된 프로그램 </h2>
+			<div class="jumbotron" style="background: #F9F7F5;">
+				<h2 style="text-align:center;">개설된 프로그램 목록</h2>
 				<a class="btn btn-secondary btn-sm btnNewPro" href="/admin/program_regist"
 					style="background: #bfa071;">
 										새로운 프로그램 등록</a>
