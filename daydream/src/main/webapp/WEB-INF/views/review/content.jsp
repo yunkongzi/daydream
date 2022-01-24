@@ -28,10 +28,11 @@ $(function() {
 		var id = $(this).attr("data-id");
 		console.log(sessionId, id);
 		if (sessionId == id) {
-			$("#frmPaging > input[name=bno]").val(bno);
-			$("#frmPaging").attr("action", "/review/deleteReview");
-			$("#frmPaging").submit();
+			console.log("같음")
+			var loc = "/review/deleteReview?bno=" + bno;
+			location.href = loc;
 		} else {
+			console.log("안같음")
 			alert("작성자만 삭제할 수 있습니다.");
 		}
 	});
