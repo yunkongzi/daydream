@@ -52,8 +52,12 @@ public class ReviewService {
 	}
 	
 	// 리뷰 삭제
-	public void deleteReview(int bno) {
-		reviewDao.deleteReview(bno);
+	@Transactional
+	public String[] deleteReview(int bno) {
+		String[] filenames = reviewDao.getFilenames(bno);
+		reviewDao.deleteAttach(bno);//첨부파일 삭제
+		reviewDao.deleteReview(bno);//리뷰글 삭제
+		return filenames;
 	}
 	
 	//수정처리

@@ -10,7 +10,7 @@ $(function() {
 	
 	//회원 탈퇴
 	$("#btnDeleteMember").click(function() {
-		var rno = $(this).attr("data-user");
+		var user = $(this).attr("data-user");
 		var url = "/member/deleteMember?user_id=" + user;
 		location.href = url;
 	});
